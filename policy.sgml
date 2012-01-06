@@ -10666,61 +10666,73 @@ END-INFO-DIR-ENTRY
 	<heading>Additional documentation</heading>
 
 	<p>
-	  Any additional documentation that comes with the package may
-	  be installed at the discretion of the package maintainer.
+	  Any additional documentation that comes with the package may be
+	  installed at the discretion of the package maintainer.  It is
+	  often a good idea to include text information files
+	  (<file>README</file>s, <file>TODO</file>s, and so forth) that
+	  come with the source package in the binary package.  However,
+	  you don't need to install the instructions for building and
+	  installing the package, of course!
 	</p>
 
 	<p>
 	  Plain text documentation should be compressed with <tt>gzip
-          -9</tt> unless it is small.
-        </p>
-
-	<p>
-	  If a package comes with large amounts of documentation which
-	  many users of the package will not require you should create
-	  a separate binary package to contain it, so that it does not
-	  take up disk space on the machines of users who do not need
-	  or want it installed.</p>
-
-	<p>
-	  Additional documentation for <var>package</var>, whether the
-	  documentation is packaged separately or not, should be
-	  installed to the directory
-	  <file>/usr/share/doc/<var>package</var></file> or its
-	  subdirectories.<footnote>
-	      Rationale: Once installed, the separation of the
-	      documentation packaging should be invisible to the user,
-	      and the documentation should be found in the expected
-	      location for the main binary package.
-	  </footnote>
+	  -9</tt> unless it is small.
 	</p>
 
 	<p>
-	  Any separate package providing documentation must still
-	  install files as specified in the rest of this policy; for
-	  example, <ref id="copyrightfile"> and <ref id="changelogs">.
+	  If a package comes with large amounts of documentation that many
+	  users of the package will not require, you should create a
+	  separate binary package to contain it so that it does not take
+	  up disk space on the machines of users who do not need or want
+	  it installed.  As a special case of this rule, shared library
+	  documentation of any appreciable size should always be packaged
+	  with the library development package (<ref id="sharedlibs-dev">)
+	  or in a separate documentation package, since shared libraries
+	  are frequently installed as dependencies of other packages by
+	  users who have little interest in documentation of the library
+	  itself.  The documentation package for the
+	  package <var>package</var> is conventionally
+	  named <var>package</var>-doc
+	  (or <var>package</var>-doc-<var>language-code</var> if there are
+	  separate documentation packages for multiple languages).
 	</p>
 
 	<p>
-	  It is often a good idea to put text information files
-	  (<file>README</file>s, changelogs, and so forth) that come with
-	  the source package in <file>/usr/share/doc/<var>package</var></file>
-	  in the binary package.  However, you don't need to install
-	  the instructions for building and installing the package, of
-	  course!</p>
+	  Additional documentation included in the package must be
+	  installed under <file>/usr/share/doc/<var>package</var></file>.
+	  If the documentation is packaged separately,
+	  as <var>package</var>-doc for example, it may be installed under
+	  either that path or into the documentation directory for the
+	  separate documentation package
+	  (<file>/usr/share/doc/<var>package</var>-doc</file> in this
+	  example).  However, installing the documentation into the
+	  documentation directory of the main package is preferred since
+	  it is independent of the packaging method and will be easier for
+	  users to find.
+	</p>
+
+	<p>
+	  Any separate package providing documentation must still install
+	  standard documentation files in its
+	  own <file>/usr/share/doc</file> directory as specified in the
+	  rest of this policy.  See, for example, <ref id="copyrightfile">
+	  and <ref id="changelogs">.
+	</p>
 
 	<p>
 	  Packages must not require the existence of any files in
 	  <file>/usr/share/doc/</file> in order to function
 	  <footnote>
-	      The system administrator should be able to
-	      delete files in <file>/usr/share/doc/</file> without causing
-	      any programs to break.
-	  </footnote>.
-	  Any files that are referenced by programs but are also
-	  useful as stand alone documentation should be installed under
-	  <file>/usr/share/<var>package</var>/</file> with symbolic links from
-	  <file>/usr/share/doc/<var>package</var></file>.
+	    The system administrator should be able to delete files
+	    in <file>/usr/share/doc/</file> without causing any programs
+	    to break.
+	  </footnote>.  Any files that are referenced by programs but are
+	  also useful as stand alone documentation should be installed
+	  elsewhere, normally
+	  under <file>/usr/share/<var>package</var>/</file>, and then
+	  included via symbolic links
+	  in <file>/usr/share/doc/<var>package</var></file>.
 	</p>
 
 	<p>
@@ -10739,18 +10751,6 @@ END-INFO-DIR-ENTRY
               version). 
             </p>
           </footnote>
-	</p>
-
-	<p>
-	  Former Debian releases placed all additional documentation
-	  in <file>/usr/doc/<var>package</var></file>.  This has been
-	  changed to <file>/usr/share/doc/<var>package</var></file>,
-	  and packages must not put documentation in the directory
-	  <file>/usr/doc/<var>package</var></file>. <footnote>
-	    At this phase of the transition, we no longer require a
-	    symbolic link in <file>/usr/doc/</file>. At a later point,
-	    policy shall change to make the symbolic links a bug.
-	  </footnote>
 	</p>
       </sect>
 
