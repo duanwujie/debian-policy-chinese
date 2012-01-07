@@ -10669,10 +10669,10 @@ END-INFO-DIR-ENTRY
 	  Any additional documentation that comes with the package may be
 	  installed at the discretion of the package maintainer.  It is
 	  often a good idea to include text information files
-	  (<file>README</file>s, <file>TODO</file>s, and so forth) that
-	  come with the source package in the binary package.  However,
-	  you don't need to install the instructions for building and
-	  installing the package, of course!
+	  (<file>README</file>s, FAQs, and so forth) that come with the
+	  source package in the binary package.  However, you don't need
+	  to install the instructions for building and installing the
+	  package, of course!
 	</p>
 
 	<p>
@@ -10699,7 +10699,7 @@ END-INFO-DIR-ENTRY
 	</p>
 
 	<p>
-	  Additional documentation included in the package must be
+	  Additional documentation included in the package should be
 	  installed under <file>/usr/share/doc/<var>package</var></file>.
 	  If the documentation is packaged separately,
 	  as <var>package</var>-doc for example, it may be installed under
@@ -10727,9 +10727,9 @@ END-INFO-DIR-ENTRY
 	    The system administrator should be able to delete files
 	    in <file>/usr/share/doc/</file> without causing any programs
 	    to break.
-	  </footnote>.  Any files that are referenced by programs but are
-	  also useful as stand alone documentation should be installed
-	  elsewhere, normally
+	  </footnote>.  Any files that are used or read by programs but
+	  are also useful as stand alone documentation should be installed
+	  elsewhere, such as
 	  under <file>/usr/share/<var>package</var>/</file>, and then
 	  included via symbolic links
 	  in <file>/usr/share/doc/<var>package</var></file>.
