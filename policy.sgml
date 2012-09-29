@@ -6441,13 +6441,9 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
 		    The <file>symbols</file> control files for all the
 		    packages currently installed on the system are
 		    searched last.  This will be the most common source of
-		    shared library dependency information.  These are
-		    normally found
-		    in <file>/var/lib/dpkg/info/*.symbols</file>, but
-		    packages should not rely on this and instead should
-		    use <tt>dpkg-query --control-path <var>package</var>
-		    symbols</tt> if for some reason these files need to be
-		    examined.
+		    shared library dependency information.  These files
+		    can be read with <tt>dpkg-query
+		    --control-show <var>package</var> symbols</tt>.
 		  </p>
 		</item>
 	      </list>
@@ -6777,13 +6773,9 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
 
 		  <p>
 		    The <file>shlibs</file> control files for all the
-		    packages currently installed on the system.  These are
-		    normally found
-		    in <file>/var/lib/dpkg/info/*.shlibs</file>, but
-		    packages should not rely on this and instead should
-		    use <tt>dpkg-query --control-path <var>package</var>
-		    shlibs</tt> if for some reason these files need to be
-		    examined.
+		    packages currently installed on the system.  These
+		    files can be read using <tt>dpkg-query
+		    --control-show <var>package</var> shlibs</tt>.
 		  </p>
 		</item>
 
