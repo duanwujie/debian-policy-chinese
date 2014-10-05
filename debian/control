@@ -18,7 +18,8 @@ Build-Depends: bsdmainutils,
                sgml-data,
                texlive,
                texlive-latex-extra,
-               tidy
+               tidy,
+	       markdown
 Standards-Version: 3.9.6
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git
 Vcs-Git: git://anonscm.debian.org/dbnpolicy/policy.git
@@ -34,6 +35,7 @@ Description: Debian Policy Manual and related documents
     - Debian Perl sub-policy
     - Debian configuration management specification
     - Machine-readable debian/copyright specification
+    - Autopkgtest - automatic as-installed package testing
     - Authoritative list of virtual package names
     - Policy checklist for upgrading your packages
     - Paper about libc6 migration

@@ -32,6 +32,10 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Seconded: Bill Allombert <ballombe@debian.org>
     Seconded: Charles Plessy <plessy@debian.org>
     Closes: #106073
+  [ Stefano Zacchiroli ]
+  * autopkgtest: new document containing the specification of automatic,
+    as-installed (AKA autopkgtest, or DEP-8) package tests
+    Closes: #799779
 
  -- Bill Allombert <ballombe@debian.org>  Tue, 13 Oct 2015 22:03:00 +0200
 

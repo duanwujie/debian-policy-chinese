@@ -1,5 +1,9 @@
 /Process.html
 /README.html
+/autopkgtest/version.txt
+/autopkgtest/*.expanded
+/autopkgtest/*.html
+/autopkgtest/*.txt.gz
 /copyright-format/copyright-format-1.0.html
 /copyright-format/version.xml
 /debconf_spec/debconf_specification.html

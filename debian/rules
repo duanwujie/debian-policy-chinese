@@ -25,7 +25,7 @@ ORG_FILES   := Process README
 
 # doc-base description files for the documents we include.
 DESC_FILES  := copyright-format-1.0 debian-policy debian-menu-policy \
-	       debian-perl-policy debconf-spec fhs
+	       debian-perl-policy debconf-spec fhs autopkgtest
 
 # Our local copy of the File Hierarchy Standard.  We don't build this from
 # source, but we do have a copy of the source in FHS_ARCHIVE.
@@ -40,6 +40,8 @@ POLICY_FILES := $(SGML_FILES:=.sgml) $(SGML_FILES:=.txt.gz)		\
 		virtual-package-names-list.txt libc6-migration.txt	\
 		copyright-format/copyright-format-1.0.html		\
 		copyright-format/copyright-format-1.0.txt.gz		\
+		autopkgtest/autopkgtest.html				\
+		autopkgtest/autopkgtest.txt.gz				\
 		debconf_spec/debconf_specification.html			\
 		debconf_spec/debconf_specification.txt.gz		\
 		policy.ps.gz policy.pdf.gz README.txt README.html	\
@@ -57,6 +59,7 @@ FILES_TO_CLEAN	:= $(SGML_FILES:=.txt) $(SGML_FILES:=.txt.gz)		\
 		   policy.pdf.gz policy.ps.gz				\
 		   policy.pdf policy.ps policy.tpt policy.txt		\
 		   copyright-format/version.xml				\
+		   autopkgtest/version.txt				\
 		   debconf_spec/include/version.xml version.ent		\
 		   copyright-format.xml.tar.gz				\
 		   debconf_specification.xml.tar.gz			\
@@ -70,6 +73,7 @@ mkdir   := install -d -o root -g root -m 755
 all build build-indep: stamp-build
 build-arch:
 stamp-build: version.ent copyright-format/version.xml \
+	     autopkgtest/version.txt \
 	     debconf_spec/include/version.xml
 	$(MAKE) $(SGML_FILES:=.sgml.validate) \
 		$(SGML_FILES:=.html.tar.gz) \
@@ -79,6 +83,7 @@ stamp-build: version.ent copyright-format/version.xml \
 	$(MAKE) $(ORG_FILES:=.html) \
 		$(ORG_FILES:=.txt)
 	$(MAKE) -C copyright-format all
+	$(MAKE) -C autopkgtest all
 	$(MAKE) -C debconf_spec all
 	cd copyright-format && \
 		GZIP=-n9 tar -zcf ../copyright-format.xml.tar.gz *
@@ -90,6 +95,7 @@ stamp-build: version.ent copyright-format/version.xml \
 # to put the Policy version and date in each document, even if they
 # separately have their own versions.
 configure: version.ent copyright-format/version.xml \
+	   autopkgtest/version.txt \
 	   debconf_spec/include/version.xml
 version.ent: debian/changelog
 	rm -f $@
@@ -105,10 +111,16 @@ debconf_spec/include/version.xml: debian/changelog
 	echo '<?xml version="1.0" standalone="no"?>' >  $@
 	echo '<!ENTITY version "$(version)">'        >> $@
 	echo '<!ENTITY date    "$(date)">'           >> $@
+autopkgtest/version.txt: debian/changelog
+	rm -f $@
+	echo                                     > $@
+	echo '---'                               >> $@
+	echo 'Debian Policy $(version), $(date)' >> $@
 
 clean:
 	rm -f $(STAMPS_TO_CLEAN)
 	$(MAKE) -C copyright-format clean
+	$(MAKE) -C autopkgtest clean
 	$(MAKE) -C debconf_spec clean
 	rm -f $(FILES_TO_CLEAN)
 	rm -rf $(DIRS_TO_CLEAN)
