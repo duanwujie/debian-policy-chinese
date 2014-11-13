@@ -5,13 +5,13 @@ menu-policy.sgml: version.ent
 perl-policy.sgml: version.ent
 
 %.txt: %.org
-	$(EMACS) --batch -Q -l ./README-css.el -l org -l org-ascii --visit $^ \
-          --funcall org-export-as-ascii >/dev/null 2>&1
+	$(EMACS) --batch -Q -l ./README-css.el -l org --visit $^ \
+          --funcall org-ascii-export-to-ascii
 	test "$@" != "README.txt"  ||                            \
            perl -pli -e 's,./Process.org,Process.txt,g' $@
 %.html: %.org
 	$(EMACS) --batch -Q -l ./README-css.el -l org --visit $^ \
-          --funcall org-export-as-html-batch >/dev/null 2>&1
+	   --funcall org-html-export-to-html
 
 %.validate: %
 	nsgmls -wall -gues $<
