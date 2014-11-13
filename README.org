@@ -1,4 +1,4 @@
--*- mode: org; fill-column: 78 -*-
+# -*- mode: org; fill-column: 78 -*-
 #+STARTUP: showall
 #+STARTUP: lognotedone lognotestate
 #+OPTIONS: H:4 toc:2
