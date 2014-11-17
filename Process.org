@@ -1,4 +1,4 @@
--*- mode: org; fill-column: 78 -*-
+# -*- mode: org; fill-column: 78 -*-
 #+STARTUP: showall
 #+STARTUP: lognotedone lognotestate
 #+OPTIONS: H:4 toc:2
@@ -8,28 +8,7 @@
 #+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:nil skip:t d:nil tags:not-in-toc
 #+LINK_HOME: http://wiki.debian.org/Teams/Policy
 #+LINK_UP: http://www.debian.org/
-
-\usepackage{landscape}
-
-\setlength{\oddsidemargin}{0in}		% default=0in
-\setlength{\textwidth}{9in}		% default=9in
-
-\setlength{\columnsep}{0.5in}		% default=10pt
-\setlength{\columnseprule}{1pt}		% default=0pt (no line)
-
-\setlength{\textheight}{5.85in}		% default=5.15in
-\setlength{\topmargin}{-0.15in}		% default=0.20in
-\setlength{\headsep}{0.25in}		% default=0.35in
-
-\setlength{\parskip}{1.2ex}
-\setlength{\parindent}{0mm}
-\pagestyle{empty}
-
-\setlength{\headheight}{0pt}
-\setlength{\headsep}{0pt}
-\setlength{\footskip}{5pt}
-\setlength{\textheight}{9.0in}
-\setlength{\textwidth}{6.5in}
+#+LATEX_HEADER: \input{README-header.tex}
 
 To introduce a change in the current DebianPolicy, the change proposal
 has to go through a certain process.
