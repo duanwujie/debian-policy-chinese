@@ -1,8 +1,9 @@
-debian-policy (3.9.7.0) unstable; urgency=low
+debian-policy (3.9.6.1) unstable; urgency=low
 
-  * 
+  * Fix FTBFS with emacs 24.4. Thanks to David Bremner <david@tethera.net>
+    for the help. Closes: #769219
 
- -- Bill Allombert <ballombe@debian.org>  Wed, 17 Sep 2014 20:35:51 +0200
+ -- Bill Allombert <ballombe@debian.org>  Mon, 17 Nov 2014 11:55:55 +0100
 
 debian-policy (3.9.6.0) unstable; urgency=low
 
