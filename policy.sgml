@@ -1931,6 +1931,10 @@ zope.
 	  any target that these targets depend on must also be
 	  non-interactive.
 	</p>
+	<p>
+          For packages in the main archive, no required targets
+          may attempt network access.
+	</p>
 
 	<p>
 	  The targets are as follows:
