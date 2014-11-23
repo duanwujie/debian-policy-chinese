@@ -8891,6 +8891,7 @@ fname () {
 	    would point to <file>/srv/run</file> rather than the intended
 	    target.
 	  </footnote>
+	  Symbolic links must not traverse above the root directory.
 	</p>
 
 	<p>

@@ -39,7 +39,10 @@ picking your way through this list.
 
 Released xxx, 2015.
 
-</p>
+</p><p><taglist>
+<tag>10.5</tag>
+  <item> Symbolic links must not traverse above the root directory.
+  </item> </taglist></p>
 
 <sect id="3.9.6.0"> Version 3.9.6.0
 <p>

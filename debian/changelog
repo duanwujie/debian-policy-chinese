@@ -1,8 +1,14 @@
 debian-policy (3.9.7.0) unstable; urgency=low
 
   * Policy: refreshed the names of the Policy Editors.
+  * Policy: Symbolic links must not traverse above the root directory.
+    Wording: Andrey Rahmatullin <wrar@debian.org>
+    Seconded: Bill Allombert <ballombe@debian.org>
+    Seconded: Jakub Wilk <jwilk@debian.org>
+    Seconded: Henrique de Moraes Holschuh <hmh@debian.org>
+    Closes: #555979
 
- -- Bill Allombert <ballombe@debian.org>  Sat, 22 Nov 2014 16:00:10 +0100
+ -- Bill Allombert <ballombe@debian.org>  Sat, 31 Jan 2015 21:01:58 +0100
 
 debian-policy (3.9.6.1) unstable; urgency=low
 
