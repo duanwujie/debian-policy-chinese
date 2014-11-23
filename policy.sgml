@@ -2558,7 +2558,9 @@ Package: libc6
 	  the field name is <tt>Package</tt> and the field value
 	  <tt>libc6</tt>.
 	</p>
-
+        <p> Empty field values are only permitted in source package control files
+	  (<file>debian/control</file>). Such fields are ignored.
+        </p>
 	<p>
 	  A paragraph must not contain more than one instance of a
 	  particular field name.
@@ -2701,6 +2703,7 @@ Package: libc6
 	  file. These tools are responsible for removing the line
 	  breaks from such fields when using fields from
 	  <file>debian/control</file> to generate other control files.
+	  They are also responsible for discarding empty fields.
 	</p>
 
 	<p>

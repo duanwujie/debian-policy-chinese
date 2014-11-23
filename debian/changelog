@@ -13,8 +13,14 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Seconded: Bill Allombert <ballombe@debian.org>
     Seconded: Julien Cristau <jcristau@debian.org>
     Closes: #765499
+  * Policy: [5.1] empty field values in control files are only permitted in
+    the debian/control file of a source package.
+    Wording:  Bill Allombert <ballombe@debian.org>
+    Seconded: Henrique de Moraes Holschuh <hmh@debian.org>
+    Seconded: Andrey Rahmatullin <wrar@debian.org>
+    Closes: #666726
 
- -- Bill Allombert <ballombe@debian.org>  Sat, 31 Jan 2015 21:01:58 +0100
+ -- Bill Allombert <ballombe@debian.org>  Sun, 08 Feb 2015 19:22:01 +0100
 
 debian-policy (3.9.6.1) unstable; urgency=low
 
