@@ -7351,6 +7351,35 @@ rmdir /usr/local/share/emacs 2>/dev/null || true
 	      <tag>65535:</tag>
 	      <item>
 		<p>
+		  This value <em>must not</em> be used, because it was
+		  the error return sentinel value when <tt>uid_t</tt>
+		  was 16 bits.
+		</p>
+	      </item>
+
+	      <tag>65536-4294967293:</tag>
+	      <item>
+		<p>
+		  Dynamically allocated user accounts.  By
+		  default <prgn>adduser</prgn> will not allocate UIDs
+		  and GIDs in this range, to ease compatibility with
+		  legacy systems where <tt>uid_t</tt> is still 16
+		  bits.
+	        </p>
+	      </item>
+
+	      <tag>4294967294:</tag>
+	      <item>
+		<p>
+                  <tt>(uid_t)(-2) == (gid_t)(-2)</tt> <em>must not</em> be
+                  used, because it is used as the anonymous, unauthenticated
+                  user by some NFS implementations.
+		</p>
+	      </item>
+
+	      <tag>4294967295:</tag>
+	      <item>
+		<p>
 		  <tt>(uid_t)(-1) == (gid_t)(-1)</tt> <em>must
 		  not</em> be used, because it is the error return
 		  sentinel value.

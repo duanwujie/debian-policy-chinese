@@ -7,6 +7,12 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Seconded: Jakub Wilk <jwilk@debian.org>
     Seconded: Henrique de Moraes Holschuh <hmh@debian.org>
     Closes: #555979
+  * Policy: [9.2.2] document 32-bit UIDs ranges.
+    Wording: Matthew Vernon <matthew@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Bill Allombert <ballombe@debian.org>
+    Seconded: Julien Cristau <jcristau@debian.org>
+    Closes: #765499
 
  -- Bill Allombert <ballombe@debian.org>  Sat, 31 Jan 2015 21:01:58 +0100
 
