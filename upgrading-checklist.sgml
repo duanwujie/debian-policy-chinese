@@ -49,9 +49,9 @@ Released xxx, 2015.
 <tag>5.1</tag>
   <item> Empty field values in control files are only permitted in the
   <file>debian/control</file> file of a source package.
-<tag>4.9</tag> <file>debian/rules</file>: required targets must not attempt
+<tag>4.9</tag>
+  <item> <file>debian/rules</file>: required targets must not attempt
   network access.
-  <item > 
   </item> </taglist></p>
 
 <sect id="3.9.6.0"> Version 3.9.6.0
