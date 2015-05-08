@@ -21,12 +21,18 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Closes: #666726
   * Policy: [4.9] debian/rules: required targets must not attempt network
     access.
-    Wording:  Bill  Allombert <ballombe@debian.org>
+    Wording:  Bill Allombert <ballombe@debian.org>
     Seconded: Andrey Rahmatullin <wrar@debian.org>
     Seconded: Lucas Nussbaum <lucas@debian.org>
     Closes: #770016
+  * Policy: [12.3] recommend to ship additional documentation for package 'pkg'
+    in a separate package 'pkg-doc' and install it into /usr/share/doc/pkg.
+    Wording:  Russ Allbery <rra@debian.org>
+    Seconded: Bill Allombert <ballombe@debian.org>
+    Seconded: Charles Plessy <plessy@debian.org>
+    Closes: #106073
 
- -- Bill Allombert <ballombe@debian.org>  Sun, 08 Feb 2015 19:22:01 +0100
+ -- Bill Allombert <ballombe@debian.org>  Fri, 08 May 2015 15:10:02 +0200
 
 debian-policy (3.9.6.1) unstable; urgency=low
 

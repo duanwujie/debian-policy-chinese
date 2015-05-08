@@ -46,12 +46,19 @@ Released xxx, 2015.
 <tag>9.2.2</tag>
   <item> 32bit UIDs in the range 65536-4294967293 are reserved for dynamically
   allocated user accounts.
+  </item>
 <tag>5.1</tag>
   <item> Empty field values in control files are only permitted in the
   <file>debian/control</file> file of a source package.
+  </item>
 <tag>4.9</tag>
   <item> <file>debian/rules</file>: required targets must not attempt
   network access.
+  </item>
+<tag>12.3</tag>
+  <item> recommend to ship additional documentation for package
+  <prgn>pkg</prgn> in a separate package <prgn>pkg-doc</prgn> and install it
+  into <file>/usr/share/doc/pkg</file>.
   </item> </taglist></p>
 
 <sect id="3.9.6.0"> Version 3.9.6.0
