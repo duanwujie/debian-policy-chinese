@@ -2184,9 +2184,16 @@ zope.
 	  the architecture on which <file>debian/rules</file> is run and
 	  the package build is performed.  The host architecture is the
 	  architecture on which the resulting package will be installed
-	  and run.  These are normally the same, but may be different in
+	  and run.  The target architecture is the architecture of the
+	  packages that the compiler currently being built will generate.
+	  These are normally the same, but may be different in
 	  the case of cross-compilation (building packages for one
-	  architecture on machines of a different architecture).
+	  architecture on machines of a different architecture), building a
+	  cross-compiler (a compiler package that will generate objects for
+	  one architecture, built on a machine of a different architecture)
+	  or a Canadian cross-compiler (a compiler that will generate
+	  objects for one architecture, built on a machine of a different
+	  architecture, that will run on yet a different architecture).
 	</p>
 
 	<p>
@@ -2214,8 +2221,9 @@ zope.
 		<tt>DEB_*_GNU_TYPE</tt>)
 	  </list>
 	  where <tt>*</tt> is either <tt>BUILD</tt> for specification of
-	  the build architecture or <tt>HOST</tt> for specification of the
-	  host architecture.
+	  the build architecture, <tt>HOST</tt> for specification of the
+	  host architecture or <tt>TARGET</tt> for specification of the
+	  target architecture.
 	</p>
 
 	<p>
