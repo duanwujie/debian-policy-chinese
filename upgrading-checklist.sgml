@@ -71,7 +71,11 @@ Released February, 2016.
   <item> recommend to ship additional documentation for package
   <prgn>pkg</prgn> in a separate package <prgn>pkg-doc</prgn> and install it
   into <file>/usr/share/doc/pkg</file>.
-  </item> </taglist></p>
+  </item>
+<tag>12.5</tag>
+  <item> Add the Mozilla Public Licenses to <file>/usr/share/common-licenses</file>;
+  so that they can be referred to rather than quoted in Copyright files.</item>
+</taglist></p>
 
 <sect id="3.9.6.0"> Version 3.9.6.0
 <p>

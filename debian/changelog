@@ -47,10 +47,18 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Seconded: Bill Allombert <ballombe@debian.org>
     Seconded: Charles Plessy <plessy@debian.org>
     Closes: #106073
+
   [ Stefano Zacchiroli ]
   * autopkgtest: new document containing the specification of automatic,
     as-installed (AKA autopkgtest, or DEP-8) package tests
     Closes: #799779
+
+  [ Andreas Barth ]
+  * Policy: Add the MPLs to /usr/share/common-licenses.
+    Wording: Charles Plessy <plessy@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Andrey Rahmatullin <wrar@debian.org>
+    Closes: #768292
 
  -- Bill Allombert <ballombe@debian.org>  Mon, 01 Feb 2016 23:03:51 +0100
 
