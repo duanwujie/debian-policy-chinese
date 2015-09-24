@@ -3224,11 +3224,9 @@ Package: libc6
 			Alphanumerics are <tt>A-Za-z0-9</tt> only.
 	          </footnote>
 	          and the characters <tt>.</tt> <tt>+</tt> <tt>-</tt>
-	          <tt>:</tt> <tt>~</tt> (full stop, plus, hyphen, colon,
+	          <tt>~</tt> (full stop, plus, hyphen,
 	          tilde) and should start with a digit.  If there is no
-	          <var>debian_revision</var> then hyphens are not allowed;
-	          if there is no <var>epoch</var> then colons are not
-	          allowed.
+	          <var>debian_revision</var> then hyphens are not allowed.
 		</p>
 	      </item>
 

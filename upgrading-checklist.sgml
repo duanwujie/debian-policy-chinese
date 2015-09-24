@@ -34,6 +34,20 @@ picking your way through this list.
 
 <chapt> The checklist
 
+<sect id="3.9.9.0"> Version 3.9.9.0
+<p>
+
+Not Released Yet
+
+</p><p><taglist>
+<tag>5.6.12</tag>
+  <item> Forbid colons in package version numbers.
+  </item>
+<tag>12.5</tag>
+  <item> Add the Mozilla Public Licenses to <file>/usr/share/common-licenses</file>;
+  so that they can be referred to rather than quoted in Copyright files.</item>
+</taglist></p>
+
 <sect id="3.9.8.0"> Version 3.9.8.0
 <p>
 
@@ -72,9 +86,6 @@ Released February, 2016.
   <prgn>pkg</prgn> in a separate package <prgn>pkg-doc</prgn> and install it
   into <file>/usr/share/doc/pkg</file>.
   </item>
-<tag>12.5</tag>
-  <item> Add the Mozilla Public Licenses to <file>/usr/share/common-licenses</file>;
-  so that they can be referred to rather than quoted in Copyright files.</item>
 </taglist></p>
 
 <sect id="3.9.6.0"> Version 3.9.6.0
