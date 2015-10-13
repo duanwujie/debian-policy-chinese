@@ -1,6 +1,7 @@
 debian-policy (3.9.7.0) unstable; urgency=low
 
   * Policy: refreshed the names of the Policy Editors.
+  * Makefile: use gzip -n when compressing generated files.
   * Policy: Symbolic links must not traverse above the root directory.
     Wording: Andrey Rahmatullin <wrar@debian.org>
     Seconded: Bill Allombert <ballombe@debian.org>
@@ -32,7 +33,7 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Seconded: Charles Plessy <plessy@debian.org>
     Closes: #106073
 
- -- Bill Allombert <ballombe@debian.org>  Fri, 08 May 2015 15:10:02 +0200
+ -- Bill Allombert <ballombe@debian.org>  Tue, 13 Oct 2015 22:03:00 +0200
 
 debian-policy (3.9.6.1) unstable; urgency=low
 

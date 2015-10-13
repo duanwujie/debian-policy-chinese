@@ -9,7 +9,7 @@ all: debconf_specification.txt.gz debconf_specification.html
 	links -dump $< | perl -pe 's/[\r\0]//g' > $@
 
 %.txt.gz: %.txt
-	gzip -cf9 $< > $@
+	gzip -ncf9 $< > $@
 
 clean:
 	rm -f *.css *.html *.txt *.txt.gz

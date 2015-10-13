@@ -25,25 +25,25 @@ perl-policy.sgml: version.ent
         rmdir $*-1d.html
 
 %.html.tar.gz: %.html/index.html
-	tar -czf $(<:/index.html=.tar.gz) $(<:/index.html=)
+	GZIP=-n9 tar -czf $(<:/index.html=.tar.gz) $(<:/index.html=)
 
 %.txt: %.sgml
 	LANG=C debiandoc2text $<
 
 %.txt.gz: %.txt
-	gzip -cf9 $< > $@
+	gzip -ncf9 $< > $@
 
 %.ps: %.sgml
 	LANG=C debiandoc2latexps $<
 
 %.ps.gz: %.ps
-	gzip -cf9 $< > $@
+	gzip -ncf9 $< > $@
 
 %.pdf: %.sgml
 	LANG=C debiandoc2latexpdf $<
 
 %.pdf.gz: %.pdf
-	gzip -cf9 $< > $@
+	gzip -ncf9 $< > $@
 
 # This is a temporary hack to fold the upgrading-checklist into the Policy
 # HTML directory so that it can be deployed alongside Policy on

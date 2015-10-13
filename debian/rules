@@ -80,10 +80,10 @@ stamp-build: version.ent copyright-format/version.xml \
 		$(ORG_FILES:=.txt)
 	$(MAKE) -C copyright-format all
 	$(MAKE) -C debconf_spec all
-	GZIP=-9 cd copyright-format && \
-		tar -zcf ../copyright-format.xml.tar.gz *
-	GZIP=-9 cd debconf_spec && \
-		tar -zcf ../debconf_specification.xml.tar.gz *
+	cd copyright-format && \
+		GZIP=-n9 tar -zcf ../copyright-format.xml.tar.gz *
+	cd debconf_spec && \
+		GZIP=-n9 tar -zcf ../debconf_specification.xml.tar.gz *
 	touch stamp-build
 
 # Create the version files for inclusion in the various documents.  We want
@@ -162,7 +162,8 @@ stamp-binary: stamp-build
 #
 # Compress files and build MD5 checksums.
 #
-	gzip -f9 $(DOCDIR)/*.txt $(DOCDIR)/*.sgml $(DOCDIR)/changelog
+	gzip -f9 $(DOCDIR)/*.sgml $(DOCDIR)/changelog
+	gzip -f9 -n $(DOCDIR)/*.txt
 	@set -ex; cd debian/tmp; \
 	find . -path './DEBIAN' -prune -o -type f -printf '%P\0' \
 		| xargs -r0 md5sum > DEBIAN/md5sums

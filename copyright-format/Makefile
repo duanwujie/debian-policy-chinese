@@ -9,7 +9,7 @@ copyright-format-1.0.txt: copyright-format-1.0.html
 	links -dump $< | perl -pe 's/[\r\0]//g' > $@
 
 copyright-format-1.0.txt.gz: copyright-format-1.0.txt
-	gzip -cf9 $< > $@
+	gzip -ncf9 $< > $@
 
 clean:
 	rm -f *.css *.html *.txt *.txt.gz
