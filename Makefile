@@ -14,7 +14,7 @@ perl-policy.sgml: version.ent
 	   --funcall org-html-export-to-html
 
 %.validate: %
-	nsgmls -wall -gues $<
+	onsgmls -wall -gues $<
 
 %.html/index.html: %.sgml
 	LANG=C debiandoc2html $<

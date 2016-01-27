@@ -1,7 +1,7 @@
 all: debconf_specification.txt.gz debconf_specification.html
 
 %.html: %.xml html.dsl
-	jade -V nochunks -t sgml -d html.dsl \
+	openjade -V nochunks -t sgml -d html.dsl \
 		/usr/share/xml/declaration/xml.dcl $< > $@
 	-tidy -q -i -m -f /dev/null $@
 

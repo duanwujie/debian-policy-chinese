@@ -1,7 +1,7 @@
 all: copyright-format-1.0.txt.gz copyright-format-1.0.html
 
 copyright-format-1.0.html: copyright-format-1.0.xml html.dsl
-	jade -V nochunks -t sgml -d html.dsl \
+	openjade -V nochunks -t sgml -d html.dsl \
 		/usr/share/xml/declaration/xml.dcl $< > $@
 	-tidy -q -i -m -f /dev/null $@
 
