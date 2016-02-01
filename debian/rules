@@ -37,7 +37,7 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 # separately, as are the directories of HTML output.
 POLICY_FILES := $(SGML_FILES:=.sgml) $(SGML_FILES:=.txt.gz)		\
 		$(SGML_FILES:=-1.html) version.ent			\
-		virtual-package-names-list.txt libc6-migration.txt	\
+		virtual-package-names-list.txt	                        \
 		copyright-format/copyright-format-1.0.html		\
 		copyright-format/copyright-format-1.0.txt.gz		\
 		autopkgtest/autopkgtest.html				\

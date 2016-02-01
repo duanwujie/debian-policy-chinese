@@ -2,9 +2,10 @@ debian-policy (3.9.7.0) unstable; urgency=low
 
   * Policy: refreshed the names of the Policy Editors.
   * Makefile: use gzip -n when compressing generated files.
-  * debian/control, Makefile: 
+  * debian/control, Makefile:
      - add missing Build-Depends on sp (opensp). Closes: #812663
      - migrate to openjade and opensp.
+  * debian/rules: no more ship libc6-migration.txt. Closes: #797478
   * Policy: Symbolic links must not traverse above the root directory.
     Wording: Andrey Rahmatullin <wrar@debian.org>
     Seconded: Bill Allombert <ballombe@debian.org>
@@ -40,7 +41,7 @@ debian-policy (3.9.7.0) unstable; urgency=low
     as-installed (AKA autopkgtest, or DEP-8) package tests
     Closes: #799779
 
- -- Bill Allombert <ballombe@debian.org>  Wed, 27 Jan 2016 22:33:51 +0100
+ -- Bill Allombert <ballombe@debian.org>  Mon, 01 Feb 2016 23:03:51 +0100
 
 debian-policy (3.9.6.1) unstable; urgency=low
 
