@@ -1,0 +1,119 @@
+#!/usr/bin/perl -w
+#
+# This script walks through a Lintian laboratory and counts license usage
+# based on matching regexes against the contents of the copyright files.  It's
+# intended to provide a rough estimate of the number of packages using a
+# particular license when discussing whether to add a license to base-files.
+#
+# It expects one argument, which should be the root of the Lintian laboratory.
+
+use File::Find qw(find);
+
+our @RULES = (
+    [qr,/usr/share/common-licenses/Apache-2.0,     => 'Apache 2.0'],
+    [qr,/usr/share/common-licenses/Artistic,       => 'Artistic'],
+    [qr,/usr/share/common-licenses/BSD,            => 'BSD (common-licenses)'],
+    [qr,/usr/share/common-licenses/GFDL-1.2,       => 'GFDL 1.2'],
+    [qr,/usr/share/common-licenses/GFDL-1.3,       => 'GFDL 1.3'],
+    [qr,/usr/share/common-licenses/GPL-2,          => 'GPL 2'],
+    [qr,/usr/share/common-licenses/GPL-3,          => 'GPL 3'],
+    [qr,/usr/share/common-licenses/LGPL-2,         => 'LGPL 2'],
+    [qr,/usr/share/common-licenses/LGPL-2.1,       => 'LGPL 2.1'],
+    [qr,/usr/share/common-licenses/LGPL-3,         => 'LGPL 3'],
+
+    [qr,/usr/share/common-licenses/GFDL(?!-),      => 'GFDL (symlink)'],
+    [qr,/usr/share/common-licenses/GPL(?!-),       => 'GPL (symlink)'],
+    [qr,/usr/share/common-licenses/LGPL(?!-),      => 'LGPL (symlink)'],
+
+    [qr,/usr/share/common-licenses/GFDL,           => 'GFDL (any)'],
+    [qr,/usr/share/common-licenses/GPL,            => 'GPL (any)'],
+    [qr,/usr/share/common-licenses/LGPL,           => 'LGPL (any)'],
+
+    [qr,(?m)^License:.*AGPL-3,                     => 'AGPL 3'],
+    [qr,(?m)^License:.*Artistic(?!-),              => 'Artistic'],
+    [qr,(?m)^License:.*Artistic-2,                 => 'Artistic 2.0'],
+    [qr,(?m)^License:.*CC-BY-1.0,                  => 'CC-BY 1.0'],
+    [qr,(?m)^License:.*CC-BY-SA-1.0,               => 'CC-BY-SA 1.0'],
+    [qr,(?m)^License:.*CC-BY-2.0,                  => 'CC-BY 2.0'],
+    [qr,(?m)^License:.*CC-BY-SA-2.0,               => 'CC-BY-SA 2.0'],
+    [qr,(?m)^License:.*CC-BY-2.5,                  => 'CC-BY 2.5'],
+    [qr,(?m)^License:.*CC-BY-SA-2.5,               => 'CC-BY-SA 2.5'],
+    [qr,(?m)^License:.*CC-BY-3.0,                  => 'CC-BY 3.0'],
+    [qr,(?m)^License:.*CC-BY-SA-3.0,               => 'CC-BY-SA 3.0'],
+    [qr,(?m)^License:.*CC-BY-4.0,                  => 'CC-BY 4.0'],
+    [qr,(?m)^License:.*CC-BY-SA-4.0,               => 'CC-BY-SA 4.0'],
+    [qr,(?m)^License:.*CDDL,                       => 'CDDL'],
+    [qr,(?m)^License:.*GPL-1,                      => 'GPL 1'],
+    [qr,(?m)^License:.*LPPL,                       => 'LaTeX PPL'],
+    [qr,(?m)^License:.*MPL-1\.1,                   => 'MPL 1.1'],
+    [qr,(?m)^License:.*MPL-2\.0,                   => 'MPL 2.0'],
+    [qr,(?m)^License:.*Perl,                       => 'Artistic'],
+    [qr,(?m)^License:.*Perl,                       => 'GPL 1'],
+
+    [qr,GNU AFFERO GENERAL PUBLIC LICENSE\s+Version 3, => 'AGPL 3'],
+    [qr,(?i)The Artistic License 2\.0,             => 'Artistic 2.0'],
+    [qr,COMMON DEVELOPMENT AND DISTRIBUTION LICENSE \(CDDL\), => 'CDDL'],
+    [qr,CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL(?!-), => 'CeCILL'],
+    [qr,CeCILL FREE SOFTWARE LICENSE AGREEMENT,    => 'CeCILL'],
+    [qr,CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL-B, => 'CeCILL-B'],
+    [qr,CeCILL-B FREE SOFTWARE LICENSE AGREEMENT,  => 'CeCILL-B'],
+    [qr,CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL-C, => 'CeCILL-C'],
+    [qr,CeCILL-C FREE SOFTWARE LICENSE AGREEMENT,  => 'CeCILL-C'],
+    [qr,(?i)creative\s+commons\s+attribution\s+1\.0, => 'CC-BY 1.0'],
+    [qr,(?i)creative\s+commons\s+attribution[-\s]+share\s*alike\s+1\.0, => 'CC-BY-SA 1.0'],
+    [qr,(?i)creative\s+commons\s+attribution\s+2\.0, => 'CC-BY 2.0'],
+    [qr,(?i)creative\s+commons\s+attribution[-\s]+share\s*alike\s+2\.0, => 'CC-BY-SA 2.0'],
+    [qr,(?i)creative\s+commons\s+attribution\s+2\.5, => 'CC-BY 2.5'],
+    [qr,(?i)creative\s+commons\s+attribution[-\s]+share\s*alike\s+2\.5, => 'CC-BY-SA 2.5'],
+    [qr,(?i)creative\s+commons\s+attribution\s+3\.0, => 'CC-BY 3.0'],
+    [qr,(?i)creative\s+commons\s+attribution[-\s]+share\s*alike\s+3\.0, => 'CC-BY-SA 3.0'],
+    [qr,(?i)creative\s+commons\s+attribution\s+4\.0, => 'CC-BY 4.0'],
+    [qr,(?i)creative\s+commons\s+attribution[-\s]+share\s*alike\s+4\.0, => 'CC-BY-SA 4.0'],
+    [qr,GNU GENERAL PUBLIC LICENSE\s+Version 1,    => 'GPL 1'],
+    [qr,LPPL Version,                              => 'LaTeX PPL (any)'],
+    [qr,LPPL Version 1\.3a,                        => 'LaTeX PPL 1.3a'],
+    [qr,LPPL Version 1\.3c,                        => 'LaTeX PPL 1.3c'],
+    [qr,MOZILLA PUBLIC LICENSE\s+Version 1\.1,     => 'MPL 1.1'],
+    [qr,Mozilla Public License Version 2\.0,       => 'MPL 2.0'],
+    [qr,SIL OPEN FONT LICENSE Version 1\.1,        => 'SIL OFL 1.1'],
+    [qr,SIL OPEN FONT LICENSE Version 1\.0,        => 'SIL OFL 1.0'],
+);
+
+my ($package, %counts);
+my $n = 0;
+
+sub check_package {
+    return unless (-d $_ && /_binary$/);
+    $File::Find::prune = 1;
+    return if (-d $_ && /_(source|udeb)$/);
+    $n++;
+    print "Checked $n packages\n" if (($n % 100) == 0);
+    local $/;
+    open (COPYRIGHT, '<', "$_/copyright") or return;
+    my $copyright = <COPYRIGHT>;
+    close COPYRIGHT;
+    my %seen;
+    study $copyright;
+    for my $rule (@RULES) {
+        if ($copyright =~ /$rule->[0]/ && !$seen{$rule->[1]}) {
+            $counts{$rule->[1]}++;
+            $seen{$rule->[1]} = 1;
+        }
+    }
+}
+
+unless (@ARGV == 1) {
+    die "Usage: license-count <path-to-lintian-lab>\n";
+}
+my $lab = $ARGV[0];
+find (\&check_package, "$lab/pool");
+my $length = 0;
+for my $name (keys %counts) {
+    if (length ($name) > $length) {
+        $length = length ($name);
+    }
+}
+for my $name (sort keys %counts) {
+    printf "%-${length}s %5d\n", $name, $counts{$name};
+}
+print "\nTotal number of packages: $n\n";

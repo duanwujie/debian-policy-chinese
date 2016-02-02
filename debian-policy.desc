@@ -1,0 +1,25 @@
+Document: debian-policy
+Title: Debian Policy Manual
+Author: The Debian Policy Mailing list
+Abstract: This manual describes the policy requirements for the Debian
+ distribution. This includes the structure and contents of
+ the Debian archive, several design issues of the operating system, as
+ well as technical requirements that each package must satisfy to be
+ included in the distribution.
+Section: Debian
+
+Format: debiandoc-sgml
+Files: /usr/share/doc/debian-policy/policy.sgml.gz
+
+Format: text
+Files: /usr/share/doc/debian-policy/policy.txt.gz
+
+Format: HTML
+Index: /usr/share/doc/debian-policy/policy.html/index.html
+Files: /usr/share/doc/debian-policy/policy.html/*.html
+
+Format: PostScript
+Files: /usr/share/doc/debian-policy/policy.ps.gz
+
+Format: PDF
+Files: /usr/share/doc/debian-policy/policy.pdf.gz

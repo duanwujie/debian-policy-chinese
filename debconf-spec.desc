@@ -1,0 +1,14 @@
+Document: debconf-spec
+Title: Debian Configuration Management Specification
+Author: The Debian Policy Mailing list
+Abstract: This manual describes the package configuration system used
+ by the debconf system, and defines the format of the template and
+ config files which are used.
+Section: Debian
+
+Format: text
+Files: /usr/share/doc/debian-policy/debconf_specification.txt.gz
+
+Format: HTML
+Index: /usr/share/doc/debian-policy/debconf_specification.html
+Files: /usr/share/doc/debian-policy/debconf_specification.html

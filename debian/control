@@ -1,0 +1,43 @@
+Source: debian-policy
+Maintainer: Debian Policy List <debian-policy@lists.debian.org>
+Uploaders: Andreas Barth <aba@debian.org>,
+           Bill Allombert <ballombe@debian.org>,
+           Jonathan Nieder <jrnieder@gmail.com>,
+           Russ Allbery <rra@debian.org>
+Section: doc
+Priority: optional
+Build-Depends: bsdmainutils,
+               debiandoc-sgml (>= 1.1.47),
+               docbook-dsssl,
+               docbook-xml,
+               emacs-nox (>= 24.4) | emacs (>= 24.4),
+               groff,
+               openjade, opensp,
+               links | elinks,
+               pstoedit,
+               sgml-data,
+               texlive,
+               texlive-latex-extra,
+               tidy,
+	       markdown
+Standards-Version: 3.9.7
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git
+Vcs-Git: git://anonscm.debian.org/dbnpolicy/policy.git
+
+Package: debian-policy
+Architecture: all
+Suggests: doc-base
+Description: Debian Policy Manual and related documents
+ This package contains:
+    - Debian Policy Manual
+    - Filesystem Hierarchy Standard (FHS)
+    - Debian Menu sub-policy
+    - Debian Perl sub-policy
+    - Debian configuration management specification
+    - Machine-readable debian/copyright specification
+    - Autopkgtest - automatic as-installed package testing
+    - Authoritative list of virtual package names
+    - Policy checklist for upgrading your packages
+    - Paper about libc6 migration
+ It also replaces the old Packaging Manual; most of the still-relevant
+ content is now included as appendices to the Policy Manual.

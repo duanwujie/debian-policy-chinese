@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+     "dtd/docbook-xml/4.1.2/docbookx.dtd" [
+<!ENTITY statuscodes_table SYSTEM "include/statuscodes.xml">
+<!ENTITY command_list SYSTEM "include/commands.xml">
+<!ENTITY priority_table SYSTEM "include/priorities.xml">
+<!ENTITY type_table SYSTEM "include/types.xml">
+<!ENTITY % versiondata SYSTEM "include/version.xml"> %versiondata;
+]>
+<article>
+
+  <articleinfo>
+    <title>Configuration management</title>
+    <subtitle>Protocol version 2.1</subtitle>
+    <releaseinfo>Revision 7.1, Debian Policy &version;, &date;</releaseinfo>
+    <author>
+      <firstname>Wichert</firstname>
+      <surname>Akkerman</surname>
+      <affiliation>
+        <orgname>The Debian Project</orgname>
+	<address><email>wakkerma@debian.org</email></address>
+      </affiliation>
+    </author>
+    <author>
+      <firstname>Joey</firstname>
+      <surname>Hess</surname>
+      <affiliation>
+        <orgname>The Debian Project</orgname>
+	<address><email>joeyh@debian.org</email></address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>1998</year>
+      <year>1999</year>
+      <year>2000</year>
+      <holder>Wichert Akkerman and Joey Hess</holder>
+    </copyright>
+    <legalnotice>
+      <para>
+        This text is copyright by the authors under the terms of the
+	BSD license, sans advertising clause.
+      </para>
+    </legalnotice>
+  </articleinfo>
+
+  <sect1>
+    <title>
+      Introduction
+    </title>
+    <para>
+      Configuration management is quickly becoming a very important issue.
+      Having programs which do cool stuff is great, but we need to store
+      their configuration as well. We see more and more different
+      configuration systems being introduced all the time, which is not very
+      practical. This text introduces a general configuration management
+      system which flexible enough to be used for all kinds of applications.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      Configuration Data
+    </title>
+    <sect2>
+      <title>
+        The configuration space
+      </title>
+      <para>
+        All configuration information is stored in what I call the
+        configuration space. This is a database with a special design
+        which resembles the method we look at configuration information.
+	This is done by defining a hierarchy of information. Each package
+	receives its own space in the hierarchy.  Each package is free to
+	use a flat space, or divide its space further into
+	sub-hierarchies.  If multiple packages share a common purpose they
+	may use a shared toplevel hierarchy, preferably with the same name
+	as a shared (virtual) package name (for example, both
+	<application>mutt</application> and <application>elm</application>
+	can use <literal>mail-reader</literal>,
+	<application>strn</application> and <application>nn</application>
+	could use <literal>news-reader</literal>).  This
+	shared tree can also be used as a default, ie a variable
+	<literal>news-reader/nntpserver</literal> can be used by
+	<application>strn</application> if <literal>strn/nntpserver</literal>
+	does not exist.
+      </para>
+      <para>
+        Each variable in the configuration space has some information
+	associated with it. Most importantly, it has a value. It also may
+	have a set of flags and a set of substitution data.
+      </para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>
+      Templates
+    </title>
+    <para>
+      Each variable in the configuration space is associated with some
+      meta-data. The minimum meta-data associated with a variable is:
+      long and short description, type, and default value. The meta-data
+      is essentially static; the protocol described below does not allow it
+      to be changed.
+    </para>
+    <para>
+      The meta-data exists in a space with similar naming
+      properties to the configuration space described above, and typically
+      one variable in the configuration space will have associated with it
+      metadata with the same name in the meta-data space. However, this need
+      not be the case; many different variables can all be associated with
+      the same meta-data. In effect the meta-data serves as a template
+      for the configuration variable.
+    </para>
+    <sect2>
+      <title>
+        Template information
+      </title>
+      <para>
+	So, what do we need to store in a variable template? Of course we
+	need a name to identify the template. Template names are made up of
+	components separated by the character `/' (slash).
+	Each component is limited to alphanumerics and `+' `-' `.' `_'
+	(plus, minus, full stop, underscore).
+      </para>
+      <para>
+        A type is also needed so data can be verified. Here is a table
+	of common types; implementations are free to make up more.
+	&type_table;
+      </para>
+      <para>
+	Of course a default value is useful as well, and
+	finally we need a description of the variable. We actually use two
+	descriptions: a short one (limited to 50 characters or so) and an
+	extended one.
+      </para>
+      <para>
+        The extended description may be word-wrapped by the
+	FrontEnd. To make separate paragraphs in it, use <literal>.</literal>
+	on a line by itself to separate them. Text in the extended
+	description that is prefaced by additional whitespace will not be
+	wordwrapped. Both the description and extended
+        description may have substitutions embedded in them. Ie,
+	<literal>${foo}</literal>. These will be expanded when the
+	descriptions are displayed.
+      </para>
+      <para>
+        This information is stored in a template file that consists of
+	stanzas in a rfc-822 compliant format, separated by blank lines.
+	Here is an example:
+	<programlisting>
+Template: hostname
+Type: string
+Default: debian
+Description: unqualified hostname for this computer
+ This is the name by which this computer will be known on the network. It
+ has to be a unique name in your domain.
+
+Template: domain
+Type: string
+Description: domain for this computer
+  This is the domain your computer is a member of. Typically it is
+  something like "mycompany.com" or "myuniversity.edu".
+	</programlisting>
+      </para>
+      <para>
+	For localization, the description field (and also the choices
+	field of a select or multiselect type question, and the
+	default field of a string or password type question) can be
+	supplemented with versions for other languages. These are
+	named <emphasis>Description-ll</emphasis>,
+	<emphasis>Description-ll_LL</emphasis>,
+	<emphasis>Description-ll_LL.encoding</emphasis> and so on.
+      </para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>
+      Configuration frontends
+    </title>
+    <para>
+      Of course applications can use the database and meta-database directly.
+      But there should be a simple system to interact with the user that is
+      simple and modular enough to be used with systems ranging from
+      shell-scripts to Fortran programs. To do this we define a general
+      frontend that can be driven using the simplest and most common form of
+      communication: stdin and stdout.
+    </para>
+    <para>
+      Using this simple form of communication gives us a great advantage: it
+      becomes easy to change the frontend. That means the user can switch
+      between a console, a graphical or even a web-interface at will.
+    </para>
+    <para>
+      Besides being able to switch between types of frontends there is
+      another important aspect of a good user interface: user friendliness.
+      We have to account for the fact that some users know more then others
+      and change the information we show or ask from the user. We do this by
+      giving everything a priority and giving the user control over what
+      kind of questions he wants to see. Experts can request to see
+      everything, while novices get the option of only seeing only important
+      questions. Finally there is an option to simply skip all questions, so
+      it becomes possible to do automatic configuration using default values
+      or values that are downloaded into the database from a remote
+      location. This makes it simple for example to install and manage
+      clusters or lab rooms or do installs for dummies.
+    </para>
+  </sect1>
+  <sect1>
+    <title>
+      Communication with the frontend
+    </title>
+    <para>
+      This communication between the frontend and the application should be
+      as simple as possible. Since most IO implementations default to
+      line-buffered IO, so we use a simple language where each command is
+      exactly one line.
+    </para>
+    <para>
+      After sending each command to stdout, the client
+      should read one line from stdin. This is the response to the command,
+      and it will be in the form of a number followed by whitespace and an
+      optional string of text. The number is the status code, while the
+      text provides additional information.
+      &statuscodes_table;
+    </para>
+    <para>
+      Here are the currently supported commands.
+    </para>
+    <itemizedlist>
+        &command_list;
+    </itemizedlist>
+  </sect1>
+  <sect1>
+    <title>
+      Debian install-time configuration
+    </title>
+    <para>
+      Debian has had an excellent packaging system for a long time now. There is
+      one thing missing though: a system to handle the configuration of
+      packages so we don't have to stop the installation every time a package
+      needs some data from the user or wants to show some information.
+    </para>
+    <para>
+      We want to make a package which does not break older dpkg's, and we
+      want to be able to get the configuration information before the package
+      is unpacked. To do this we add two new files, config and templates, to
+      the control.tar.gz of a .deb package. Since all installation-software
+      (apt, dselect, dpkg) download the package before installing it, we can
+      extract this before the package is unpacked.
+    </para>
+    <para>
+      The templates file lists the templates for variables that this package
+      uses. This is done using the format as used in the example in the
+      section on templates.
+    </para>
+    <para>
+      The config-file contains a new element, which I call the
+      configmodule.  This is a program that will determine the
+      configuration before the package is unpacked.  This means it is
+      usually run <emphasis>before</emphasis> the preinst, and before
+      the package is unpacked!
+      <note>
+	<simpara>Please see debconf-devel(7) for details.</simpara>
+      </note>
+      This is done to make sure that we can
+      use the desired configuration in the preinst if necessary.
+    </para>
+    <para>
+      How does the configmodule get its information?  The configmodule
+      needs a way to retrieve information from the configuration space, ask
+      the user for information if necessary, etc. But we don't want to
+      implement a user interface for each package. To solve this we use a
+      separate frontend as specified in the section on frontends.
+    </para>
+  </sect1>
+</article>

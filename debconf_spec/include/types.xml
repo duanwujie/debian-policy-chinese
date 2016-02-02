@@ -1,0 +1,82 @@
+<table frame="all">
+  <title>Available data types</title>
+  <tgroup cols="2">
+  <thead>
+    <row>
+      <entry>Type</entry>
+      <entry>Description</entry>
+    </row>
+  </thead>
+  <tbody>
+    <row>
+      <entry>string</entry>
+      <entry>Holds any arbitrary string of data.</entry>
+    </row>
+    <row>
+      <entry>boolean</entry>
+      <entry>
+         Holds "<literal>true</literal>" or "<literal>false</literal>".
+      </entry>
+    </row>
+    <row>
+      <entry>select</entry>
+      <entry>
+        Holds one of a finite number of possible values. These
+        values must be specified in a field named
+        <literal>Choices:</literal>. Separate the possible values
+        with commas and spaces, like this:
+        <literal>
+          Choices: yes, no, maybe
+        </literal>
+      </entry>
+    </row>
+    <row>
+      <entry>multiselect</entry>
+      <entry>
+        Just like the select data type, except the user can choose any
+        number of items from the list. This means that the
+        <literal>Default:</literal> field and the actual value of the
+        question may be a comma and space delimited list of values,
+        just like the <literal>Choices:</literal> field.
+      </entry>
+    </row>
+    <row>
+      <entry>note</entry>
+      <entry>
+        This template is a note that can be displayed to the user. As
+        opposed to text, it is something important, that the user really
+        should see. If it is not possible to display it, it might be
+        saved to a log file or mailbox for them to see later.
+      </entry>
+    </row>
+    <row>
+      <entry>text</entry>
+      <entry>
+        This template is a scrap of text that can be displayed to
+        the user. It's intended to be used for mostly cosmetic
+        reasons, touching up around other questions that are asked
+        at the same time. Unlike a note, it isn't treated as
+        something the user should definitely see. Less complex frontends
+        may refuse to ever display this type of element.
+      </entry>
+    </row>
+    <row>
+      <entry>password</entry>
+      <entry>
+        Holds a password. Use with caution. Be aware that the password
+        the user enters will be written to a database. You
+        should consider clearing that value out of the database as soon
+        as is possible.
+      </entry>
+    </row>
+    <row>
+      <entry>title</entry>
+      <entry>
+        Holds a (short) string that can be displayed using the SETTITLE
+        command. Only the value of the short description will be used.
+      </entry>
+    </row>
+  </tbody>
+</tgroup>
+</table>
+

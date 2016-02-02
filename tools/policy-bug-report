@@ -1,0 +1,70 @@
+#!/usr/bin/perl -w
+#
+# Retrieves the current list of Policy bugs awaiting review and produces a
+# formatted list suitable for mailing out, requesting review.
+#
+# Eventually, the goal is for this script to be expanded into one that can
+# give a summary for all open Policy bugs for a periodic automated report.
+#
+# The SOAP code here is based heavily on Devscripts::Debbugs.
+
+use strict;
+
+use SOAP::Lite ();
+
+# The URL to the SOAP interface for the Debian BTS interface and the SOAP
+# namespace used by that interface.
+our $URL       = 'http://bugs.debian.org/cgi-bin/soap.cgi';
+our $NAMESPACE = 'Debbugs/SOAP/1';
+
+# Abort if we get a SOAP error.  This function is used as the error handler
+# for our SOAP calls.
+sub die_soap {
+    my ($soap, $result) = @_;
+    my $error;
+    if (ref $result) {
+        $error = $result->faultstring;
+    } else {
+        $error = $soap->transport->status;
+    }
+    chomp $error;
+    die "SOAP error: $error\n";
+}
+
+# Initialize the SOAP::Lite object with the currect URL and namespace and
+# return it.
+sub init_soap {
+    my $soap = SOAP::Lite->uri ($NAMESPACE)->proxy ($URL);
+    $soap->transport->env_proxy;
+    $soap->on_fault (\&die_soap);
+}
+
+# Do a SOAP search for bugs following a particular provided criteria (as
+# key/value pairs) and print out a summary of all such bugs.  This currently
+# cannot handle usertags, only regular search criteria.
+sub print_bug_list {
+    my ($soap, @criteria) = @_;
+    unshift (@criteria, package => 'debian-policy');
+    my $bugs = $soap->get_bugs (@criteria)->result;
+    unless (@$bugs) {
+        print "No bugs found\n";
+    }
+    my $info = $soap->get_status (@$bugs)->result;
+    for my $bug (sort keys %$info) {
+        my $desc = $info->{$bug}{subject};
+        $desc =~ s/^debian-policy:\s+//;
+        if (length ($desc) > 70) {
+            $desc = substr ($desc, 0, 67) . '...';
+        }
+        print "#$bug $desc\n";
+    }
+}
+
+# Main routine.
+my $soap = init_soap;
+print "The following bugs have proposed wording awaiting further review:\n\n";
+print_bug_list ($soap, tag => 'patch');
+print "\nThe following bugs have been merged for the next release:\n\n";
+print_bug_list ($soap, tag => 'pending');
+print "\nThe following bugs have been rejected:\n\n";
+print_bug_list ($soap, tag => 'wontfix');

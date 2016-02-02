@@ -1,0 +1,118 @@
+In woody dpkg will use a different method to determine on which
+libraries a package should depend. Until now dpkg-shlibdeps has
+used the output of ldd to determine which libraries are needed.
+This will be changed to using objdump. This however changes
+will need a couple of changes in the way that packages are build.
+      
+Let me first explain the differences between ldd and objdump.
+A binary itself is linked against 0 or more dynamic libraries, depending
+on how it is linked. Some of those libraries may need other libraries
+to do their work, so the linker will need to load those as well when
+the binary is executed. For example, to run xcdrgtk needs the following
+libraries according to ldd:
+            
+        libgtk-1.2.so.0 => /usr/lib/libgtk-1.2.so.0 (0x40019000)
+        libgdk-1.2.so.0 => /usr/lib/libgdk-1.2.so.0 (0x4013d000)
+        libImlib.so.1 => /usr/lib/libImlib.so.1 (0x40170000)
+        libgdk_imlib.so.1 => /usr/lib/libgdk_imlib.so.1 (0x401ab000)
+        libc.so.6 => /lib/libc.so.6 (0x401d9000)
+        libgmodule-1.2.so.0 => /usr/lib/libgmodule-1.2.so.0 (0x402b5000)
+        libglib-1.2.so.0 => /usr/lib/libglib-1.2.so.0 (0x402b8000)
+        libdl.so.2 => /lib/libdl.so.2 (0x402da000)
+        libXi.so.6 => /usr/X11R6/lib/libXi.so.6 (0x402de000)
+        libXext.so.6 => /usr/X11R6/lib/libXext.so.6 (0x402e6000)
+        libX11.so.6 => /usr/X11R6/lib/libX11.so.6 (0x402f3000)
+        libm.so.6 => /lib/libm.so.6 (0x40392000)
+        libjpeg.so.62 => /usr/lib/libjpeg.so.62 (0x403af000)
+        libtiff.so.3 => /usr/lib/libtiff.so.3 (0x403cf000)
+        libungif.so.3 => /usr/lib/libungif.so.3 (0x40411000)
+        libpng.so.2 => /usr/lib/libpng.so.2 (0x4041a000)
+        libz.so.1 => /usr/lib/libz.so.1 (0x40442000)
+        /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+
+Now if we leek a bit closed we see that xcdrgtk actually only links to
+a couple of those libraries directly. The actual depencies are a tree
+which looks something like this: (anyone interested in writing a tool
+to make such a graph?)
+
+      xcdrgtk
+      +- libc
+      +- gtk
+      +- gdk
+      |  +- libXi
+      |  +- libXext
+      |  \- libX11
+      +- Imlib
+      |  +- libjpeg
+      |  +- libtiff
+      |  |  +- libjpeg
+      |  |  +- libm
+      |  |  \- libz
+      |  +- libungif
+      |  |  \- libX11
+      |  +- libpng
+      |  |  +- libz
+      |  |  \- libm
+      |  +- libz
+      |  \- libm
+      \- gdk_imlib
+         +- libgmodule-1.2
+         |   \- libdl
+         +- libglib-1.2
+         \- libdl
+            \- ld-linux
+
+(I haven't listed libc in here, but all libraries are also linked to
+libc).
+
+What ldd does is give us a complete list of every library that is needed
+to run the binary (in other words, if flattens this tree). objdump
+however can tell us exactly what library something is linked with. For
+the same xcdrgtk binary it will tell us:
+
+  NEEDED      libgtk-1.2.so.0
+  NEEDED      libgdk-1.2.so.0
+  NEEDED      libImlib.so.1
+  NEEDED      libgdk_imlib.so.1
+  NEEDED      libc.so.6
+
+All the other libraries are automatically pulled in by the dynamic
+loader.
+        
+And now for the connection to package management: a package only
+needs to depend on the libraries it is directly linked to, since the
+dependencies for those libraries should automatically pull in the
+other libraries.
+
+This change does mean a change in the way packages are build though:
+currently dpkg-shlibdeps is only run on binaries. But since we will
+now depend on the libraries to depend on the libraries they need
+the packages containing those libraries will need to run dpkg-shlibdeps
+on the libraries. That may sound a bit strange, so here is an example:
+      
+Generally a package does this in debian/rules:
+      
+        dpkg-shlibdeps debian/tmp/usr/bin/*
+      
+This will need to be changes to:
+      
+        dpkg-shlibdeps debian/tmp/usr/bin/* debian/tmp/usr/lib/lib*.so.*
+
+For lib* packages which don't generally contain libraries and didn't
+run dpkg-shlibdeps a dpkg-shlibdeps call will need to be added as well.
+      
+This gives us a lot more flexibility in the way libraries are packaged.
+      
+A good example where this would help us is the current mess with
+multiple version of the mesa library. With the ldd-based system
+every package that uses mesa need to add a dependency on
+svgalib|svgalib-dummy in order to handle the glide mesa variant.
+With an objdump-based system this isn't necessary anymore and would
+have saved everyone a lot of work.
+         
+Another example: we could update libimlib with a new version that supports
+a new graphics format called dgf. If we use the old ldd method every
+package that uses libimlib would need to be recompiled so it would also
+depend on libdgf or it wouldn't run due to missing symbols. However with
+the new system packages using libimlib can depend on libimlib itself
+having the dependency on libgdh and wouldn't need to be updated.

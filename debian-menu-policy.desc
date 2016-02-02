@@ -1,0 +1,17 @@
+Document: debian-menu-policy
+Title: Debian Menu Policy Manual
+Author: The Debian Policy Mailing list
+Abstract: This manual describes the policy requirements for the Menu
+ system in the Debian distribution, describing the
+ hierarchical structure of the menu sections.
+Section: Debian
+
+Format: debiandoc-sgml
+Files: /usr/share/doc/debian-policy/menu-policy.sgml.gz
+
+Format: text
+Files: /usr/share/doc/debian-policy/menu-policy.txt.gz
+
+Format: HTML
+Index: /usr/share/doc/debian-policy/menu-policy.html/index.html
+Files: /usr/share/doc/debian-policy/menu-policy.html/*.html
