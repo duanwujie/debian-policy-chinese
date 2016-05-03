@@ -10850,6 +10850,18 @@ END-INFO-DIR-ENTRY
 	</p>
 
 	<p>
+	  If <var>package</var> is a build tool, development tool,
+	  command-line tool, or library development package,
+	  <var>package</var> (or <var>package</var>-dev in the case of a
+	  library development package) already provides documentation in
+	  man, info, or plain text format, and <var>package</var>-doc
+	  provides HTML or other formats, <var>package</var> should declare
+	  at most a <tt>Suggests</tt> on <var>package</var>-doc. Otherwise,
+	  <var>package</var> should declare at most a <tt>Recommends</tt> on
+	  <var>package</var>-doc.
+	</p>
+
+	<p>
 	  Additional documentation included in the package should be
 	  installed under <file>/usr/share/doc/<var>package</var></file>.
 	  If the documentation is packaged separately,
