@@ -66,6 +66,11 @@ debian-policy (3.9.7.0) unstable; urgency=low
     Thanks: Jakub Wilk <jwilk@debian.org>
     Closes: #792853
   * Spelling fixes, thanks to Martin A. Brown. Closes: #820197
+  * Policy: [4.3] update autotools during build time.
+    Wording:  Bill Allombert <ballombe@debian.org>
+    Seconded: Niels Thykier <niels@thykier.net>
+    Seconded: Andreas Barth <aba@ayous.org>
+    Closes: #746514
 
  -- Bill Allombert <ballombe@debian.org>  Mon, 01 Feb 2016 23:03:51 +0100
 

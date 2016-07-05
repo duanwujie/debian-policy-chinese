@@ -40,6 +40,9 @@ picking your way through this list.
 Not Released Yet
 
 </p><p><taglist>
+<tag>3.4</tag>
+  <item> Require to update autotools at build time.
+  </item>
 <tag>5.6.12</tag>
   <item> Forbid colons in package version numbers.
   </item>

@@ -1624,6 +1624,15 @@ zope.
 	  detects the correct architecture specification string
 	  (refer to <ref id="arch-spec"> for details).
 	</p>
+	<p>
+          If your package includes the scripts <prgn>config.sub</prgn> and 
+          <prgn>config.guess</prgn>, you should arrange for the versions
+          provided by the package <package>autotools-dev</package> be used
+          instead (see <package>autotools-dev</package> documentation for
+          details how to achieve that).  This ensures that these files can
+          be updated distribution-wide at build time when introducing 
+          new architectures.
+	</p>
 
 	<p>
 	  If you need to edit a <prgn>Makefile</prgn> where GNU-style
