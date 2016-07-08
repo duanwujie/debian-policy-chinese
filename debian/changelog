@@ -1,3 +1,14 @@
+debian-policy (3.9.8.0) unstable; urgency=medium
+
+  * Policy: The Debian menu is optionally supported.
+    Wording: Charles Plessy <plessy@debian.org>
+    Seconded: Lisandro Damián Nicanor Pérez Meyer <perezmeyer@gmail.com>
+    Seconded: Cyril Brulebois <kibi@debian.org> (for the menu entries)
+    Seconded: Russ Allbery <rra@debian.org>
+    Closes: #707851
+
+ -- Don Armstrong <don@debian.org>  Mon, 01 Feb 2016 20:26:05 -0800
+
 debian-policy (3.9.7.0) unstable; urgency=low
 
   * Policy: refreshed the names of the Policy Editors.

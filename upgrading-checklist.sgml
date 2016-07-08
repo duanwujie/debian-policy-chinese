@@ -34,6 +34,18 @@ picking your way through this list.
 
 <chapt> The checklist
 
+<sect id="3.9.8.0"> Version 3.9.8.0
+<p>
+
+Released February, 2016.
+
+</p><p><taglist>
+<tag>9.6</tag>
+  <item> The menu system is deprecated in favor of the Free Desktop menu standard.
+  </item>
+</taglist>
+</p>
+
 <sect id="3.9.7.0"> Version 3.9.7.0
 <p>
 
