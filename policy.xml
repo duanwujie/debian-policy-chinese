@@ -8529,8 +8529,8 @@ fi</programlisting>
           <para>
             The package maintainer scripts must use
             <command>invoke-rc.d</command> to invoke the
-            <filename>/etc/init.d/*</filename> initscripts, instead of
-            calling them directly.
+            <filename>/etc/init.d/*</filename> initscripts or
+            equivalent, instead of calling them directly.
           </para>
           <para>
             By default, <command>invoke-rc.d</command> will pass any
