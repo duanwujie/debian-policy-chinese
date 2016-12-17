@@ -8571,20 +8571,6 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
 
       </section>
 
-      <section id="s9.3.4">
-        <title>Boot-time initialization</title>
-
-        <para>
-          There used to be another directory,
-          <filename>/etc/rc.boot</filename>, which contained scripts which
-          were run once per machine boot.  This has been deprecated in
-          favour of links from <filename>/etc/rcS.d</filename> to files in
-          <filename>/etc/init.d</filename> as described in <xref
-          linkend="s-etc-init.d"/>.  Packages must not place files in
-          <filename>/etc/rc.boot</filename>.
-        </para>
-      </section>
-
       <section id="s9.3.5">
         <title>Example</title>
 
