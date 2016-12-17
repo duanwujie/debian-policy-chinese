@@ -8501,14 +8501,6 @@ fi</programlisting>
             <command>update-rc.d</command>.
           </para>
           <para>
-            This will use a default sequence number of 20.  If it does not
-            matter when or in which order the <filename>init.d</filename>
-            script is run, use this default.  If it does, then you should
-            talk to the maintainer of the <command>sysvinit</command>
-            package or post to <literal>debian-devel</literal>, and they
-            will help you choose a number.
-          </para>
-          <para>
             For more information about using
             <literal>update-rc.d</literal>, please consult its man page
             <citerefentry><refentrytitle>update-rc.d</refentrytitle><manvolnum>8</manvolnum></citerefentry>.
