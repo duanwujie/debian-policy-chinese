@@ -8540,16 +8540,14 @@ fi</programlisting>
             runlevels.
           </para>
           <para>
-            Most packages will simply need to change:
-          </para>
-          <programlisting>
-/etc/init.d/<replaceable>package</replaceable> <replaceable>action</replaceable></programlisting>
-          <para>
-            in their <command>postinst</command> and
-            <command>prerm</command> scripts to:
+            Most packages will simply use:
           </para>
           <programlisting>
 invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable></programlisting>
+          <para>
+            in their <command>postinst</command> and
+            <command>prerm</command> scripts.
+          </para>
           <para>
             A package should register its initscript services using
             <command>update-rc.d</command> before it tries to invoke them
