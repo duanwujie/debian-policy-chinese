@@ -8482,18 +8482,6 @@ test -f <replaceable>program-executed-later-in-script</replaceable> || exit 0</p
             <literal>sysvinit</literal> package may do so.)
           </para>
           <para>
-            By default <command>update-rc.d</command> will start services
-            in each of the multi-user state runlevels (2, 3, 4, and 5) and
-            stop them in the halt runlevel (0), the single-user runlevel
-            (1) and the reboot runlevel (6).  The system administrator
-            will have the opportunity to customize runlevels by simply
-            adding, moving, or removing the symbolic links in
-            <filename>/etc/rc<replaceable>n</replaceable>.d</filename> if
-            symbolic links are being used, or by modifying
-            <filename>/etc/runlevel.conf</filename> if the
-            <literal>file-rc</literal> method is being used.
-          </para>
-          <para>
             To get the default behavior for your package, put in your
             <command>postinst</command> script
           </para>
