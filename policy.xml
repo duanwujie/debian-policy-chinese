@@ -8440,7 +8440,7 @@ test -f <replaceable>program-executed-later-in-script</replaceable> || exit 0</p
       </section>
 
       <section id="s9.3.3">
-        <title>Interfacing with the initscript system</title>
+        <title>Interfacing with init systems</title>
 
         <para>
           Maintainers should use the abstraction layer provided by the
