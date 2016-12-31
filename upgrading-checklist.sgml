@@ -47,10 +47,14 @@ Not Released Yet
   </item>
 <tag>5.6.12</tag>
   <item>Colons are not permitted in upstream version numbers.</item>
+<tag>10.9</tag>
+  <item>Checking with the base-passwd maintainer is no longer required (or
+  desirable) when creating a new dynamic user or group in a
+  package.</item>
 <tag>12.5</tag>
   <item>The Mozilla Public License 1.1 and 2.0 (MPL-1.1 and MPL-2.0) are
   now included in <file>/usr/share/common-licenses</file> and do not need
-  to be copied verbatim in the package <file>copyright<file> file.</item>
+  to be copied verbatim in the package <file>copyright</file> file.</item>
 </taglist></p>
 
 <sect id="3.9.8.0"> Version 3.9.8.0

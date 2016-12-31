@@ -20,6 +20,12 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Closes: #746514
     
   [ Russ Allbery ]
+  * Policy: [10.9] Don't contact base-passwd maintainer for dynamic users
+    Wording: Colin Watson <cjwatson@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
+    Seconded: gregor herrmann <gregoa@debian.org>
+    Closes: #841877
   * Rather than giving the paths to the installed shlibs and symbols files
     and then saying those paths shouldn't be used, just say to use
     dpkg-query --control-show.  Recommend --control-show instead of

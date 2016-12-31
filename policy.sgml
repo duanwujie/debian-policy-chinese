@@ -9597,15 +9597,13 @@ ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
 	</p>
 
 	<p>
-	  On the other hand, the program might be able to determine
-	  the uid or gid from the user or group name at runtime, so
-	  that a dynamically allocated id can be used.  In this case
-	  you should choose an appropriate user or group name,
-	  discussing this on <prgn>debian-devel</prgn> and checking
-	  with the <package/base-passwd/ maintainer that it is unique and that
-	  they do not wish you to use a statically allocated id
-	  instead.  When this has been checked you must arrange for
-	  your package to create the user or group if necessary using
+	  On the other hand, the program might be able to determine the
+	  uid or gid from the user or group name at runtime, so that a
+	  dynamically allocated id can be used.  In this case you should
+	  choose an appropriate user or group name, discussing this
+	  on <prgn>debian-devel</prgn> and checking that it is unique.
+	  When this has been checked you must arrange for your package to
+	  create the user or group if necessary using
 	  <prgn>adduser</prgn> in the <prgn>preinst</prgn> or
 	  <prgn>postinst</prgn> script (again, the latter is to be
 	  preferred if it is possible).
