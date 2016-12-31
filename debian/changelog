@@ -5,6 +5,9 @@ debian-policy (3.9.8.1) UNRELEASED; urgency=medium
     dpkg-query --control-show.  Recommend --control-show instead of
     --control-path, since the latter is deprecated.  Patch from Salvatore
     Bonaccorso.  (Closes: #688220)
+  * Fix the long name of the Common Public License in the copyright-format
+    policy.  It is just Common Public License, with no leading "IBM".
+    Thanks, Stefano Zacchiroli.  (Closes: #781654)
   * Change emacs build dependency to specify the major version instead of
     relying on metapackages, and stop using a versioned dependency on the
     emacs metapackage (which didn't do what was intended anyway).  Switch
