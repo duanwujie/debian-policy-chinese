@@ -1,4 +1,4 @@
-debian-policy (3.9.8.1) UNRELEASED; urgency=medium
+debian-policy (3.9.9.0) UNRELEASED; urgency=medium
 
   [ Andreas Barth ]
   * Policy: Add the MPLs to /usr/share/common-licenses.
@@ -36,7 +36,6 @@ debian-policy (3.9.8.1) UNRELEASED; urgency=medium
     enabling reproducible builds.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.
   * Run wrap-and-sort -ast.
-  * Declare compliance with Debian Policy 3.9.8.
 
  -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
 
