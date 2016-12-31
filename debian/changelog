@@ -1,5 +1,9 @@
 debian-policy (3.9.8.1) UNRELEASED; urgency=medium
 
+  * Change emacs build dependency to specify the major version instead of
+    relying on metapackages, and stop using a versioned dependency on the
+    emacs metapackage (which didn't do what was intended anyway).  Switch
+    to Emacs 25 for the build.  (Closes: #849483)
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.

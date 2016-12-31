@@ -5,8 +5,11 @@ package := $(shell grep Source debian/control | sed 's/^Source: //')
 date	:= $(shell date +"%Y-%m-%d")
 version := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2; exit }')
 
-# Currently, emacs23 is required (xemacs is not sufficient).
-EMACS   := emacs24
+# Current version of Emacs used to build org-mode files.  Assume the build
+# dependencies pick up the correct version and we can use the generic name
+# to avoid changing things in multiple places when new versions are
+# released.
+EMACS   := emacs
 
 # Location of the source and build directories.
 SRCTOP	:= $(CURDIR)
