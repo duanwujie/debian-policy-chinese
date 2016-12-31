@@ -174,8 +174,8 @@ stamp-binary: stamp-build
 #
 # Compress files and build MD5 checksums.
 #
-	gzip -f9 $(DOCDIR)/*.sgml $(DOCDIR)/changelog
-	gzip -f9 -n $(DOCDIR)/*.txt
+	gzip -fn9 $(DOCDIR)/*.sgml $(DOCDIR)/changelog
+	gzip -fn9 $(DOCDIR)/*.txt
 	@set -ex; cd debian/tmp; \
 	find . -path './DEBIAN' -prune -o -type f -printf '%P\0' \
 		| xargs -r0 md5sum > DEBIAN/md5sums

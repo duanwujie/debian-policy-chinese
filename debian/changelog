@@ -1,3 +1,10 @@
+debian-policy (3.9.8.1) UNRELEASED; urgency=medium
+
+  * Compress all files with gzip -n to avoid embedding timestamps,
+    enabling reproducible builds.
+
+ -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
+
 debian-policy (3.9.8.0) unstable; urgency=medium
 
   * Policy: The Debian menu is optionally supported.
