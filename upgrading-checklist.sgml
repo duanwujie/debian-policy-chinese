@@ -41,14 +41,16 @@ Not Released Yet
 
 </p><p><taglist>
 <tag>3.4</tag>
-  <item> Require to update autotools at build time.
+  <item><prgn>config.sub</prgn> and <prgn>config.guess</prgn> should be
+  updated at build time or replaced with the versions
+  from <package>autotools-dev</package>.
   </item>
 <tag>5.6.12</tag>
-  <item> Forbid colons in package version numbers.
-  </item>
+  <item>Colons are not permitted in upstream version numbers.</item>
 <tag>12.5</tag>
-  <item> Add the Mozilla Public Licenses to <file>/usr/share/common-licenses</file>;
-  so that they can be referred to rather than quoted in Copyright files.</item>
+  <item>The Mozilla Public License 1.1 and 2.0 (MPL-1.1 and MPL-2.0) are
+  now included in <file>/usr/share/common-licenses</file> and do not need
+  to be copied verbatim in the package <file>copyright<file> file.</item>
 </taglist></p>
 
 <sect id="3.9.8.0"> Version 3.9.8.0
@@ -58,7 +60,8 @@ Released February, 2016.
 
 </p><p><taglist>
 <tag>9.6</tag>
-  <item> The menu system is deprecated in favor of the Free Desktop menu standard.
+  <item> The menu system is deprecated in favor of the Free Desktop menu
+  standard.
   </item>
 </taglist>
 </p>
