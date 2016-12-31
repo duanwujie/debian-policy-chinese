@@ -1,5 +1,25 @@
 debian-policy (3.9.8.1) UNRELEASED; urgency=medium
 
+  [ Andreas Barth ]
+  * Policy: Add the MPLs to /usr/share/common-licenses.
+    Wording: Charles Plessy <plessy@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Andrey Rahmatullin <wrar@debian.org>
+    Closes: #768292
+  * Policy: [5.6.12] forbid colons in package version numbers.
+    Wording: Charles Plessy <plessy@debian.org>
+    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
+    Seconded: Sam Hartman <hartmans@debian.org>
+    Thanks: Jakub Wilk <jwilk@debian.org>
+    Closes: #792853
+  * Spelling fixes, thanks to Martin A. Brown. Closes: #820197
+  * Policy: [4.3] update autotools during build time.
+    Wording:  Bill Allombert <ballombe@debian.org>
+    Seconded: Niels Thykier <niels@thykier.net>
+    Seconded: Andreas Barth <aba@ayous.org>
+    Closes: #746514
+    
+  [ Russ Allbery ]
   * Rather than giving the paths to the installed shlibs and symbols files
     and then saying those paths shouldn't be used, just say to use
     dpkg-query --control-show.  Recommend --control-show instead of
@@ -74,25 +94,6 @@ debian-policy (3.9.7.0) unstable; urgency=low
   * autopkgtest: new document containing the specification of automatic,
     as-installed (AKA autopkgtest, or DEP-8) package tests
     Closes: #799779
-
-  [ Andreas Barth ]
-  * Policy: Add the MPLs to /usr/share/common-licenses.
-    Wording: Charles Plessy <plessy@debian.org>
-    Seconded: Russ Allbery <rra@debian.org>
-    Seconded: Andrey Rahmatullin <wrar@debian.org>
-    Closes: #768292
-  * Policy: [5.6.12] forbid colons in package version numbers.
-    Wording: Charles Plessy <plessy@debian.org>
-    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
-    Seconded: Sam Hartman <hartmans@debian.org>
-    Thanks: Jakub Wilk <jwilk@debian.org>
-    Closes: #792853
-  * Spelling fixes, thanks to Martin A. Brown. Closes: #820197
-  * Policy: [4.3] update autotools during build time.
-    Wording:  Bill Allombert <ballombe@debian.org>
-    Seconded: Niels Thykier <niels@thykier.net>
-    Seconded: Andreas Barth <aba@ayous.org>
-    Closes: #746514
 
  -- Bill Allombert <ballombe@debian.org>  Mon, 01 Feb 2016 23:03:51 +0100
 
