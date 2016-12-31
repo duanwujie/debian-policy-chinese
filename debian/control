@@ -1,32 +1,36 @@
 Source: debian-policy
 Maintainer: Debian Policy List <debian-policy@lists.debian.org>
-Uploaders: Andreas Barth <aba@debian.org>,
-           Bill Allombert <ballombe@debian.org>,
-           Jonathan Nieder <jrnieder@gmail.com>,
-           Russ Allbery <rra@debian.org>
+Uploaders:
+ Andreas Barth <aba@debian.org>,
+ Bill Allombert <ballombe@debian.org>,
+ Jonathan Nieder <jrnieder@gmail.com>,
+ Russ Allbery <rra@debian.org>,
 Section: doc
 Priority: optional
-Build-Depends: bsdmainutils,
-               debiandoc-sgml (>= 1.1.47),
-               docbook-dsssl,
-               docbook-xml,
-               emacs-nox (>= 24.4) | emacs (>= 24.4),
-               groff,
-               openjade, opensp,
-               links | elinks,
-               pstoedit,
-               sgml-data,
-               texlive,
-               texlive-latex-extra,
-               tidy,
-	       markdown
+Build-Depends:
+ bsdmainutils,
+ debiandoc-sgml (>= 1.1.47),
+ docbook-dsssl,
+ docbook-xml,
+ emacs-nox (>= 24.4) | emacs (>= 24.4),
+ groff,
+ links | elinks,
+ markdown,
+ openjade,
+ opensp,
+ pstoedit,
+ sgml-data,
+ texlive,
+ texlive-latex-extra,
+ tidy,
 Standards-Version: 3.9.8
 Vcs-Browser: https://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git
 Vcs-Git: https://anonscm.debian.org/git/dbnpolicy/policy.git
 
 Package: debian-policy
 Architecture: all
-Suggests: doc-base
+Suggests:
+ doc-base,
 Description: Debian Policy Manual and related documents
  This package contains:
     - Debian Policy Manual

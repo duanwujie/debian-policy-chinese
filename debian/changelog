@@ -3,6 +3,7 @@ debian-policy (3.9.8.1) UNRELEASED; urgency=medium
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.
+  * Run wrap-and-sort -ast.
   * Declare compliance with Debian Policy 3.9.8.
 
  -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
