@@ -47,6 +47,8 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     to Emacs 25 for the build.  (Closes: #849483)
   * Fix debian/changelog and upgrading-checklist dates for the 3.9.8.0
     release to match the actual upload.  (Closes: #822059)
+  * Fix duplicated "the" words in 4.4 and 8.6.3.2.  Patch from Valentin
+    Samir.  (Closes: #830989)
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.
