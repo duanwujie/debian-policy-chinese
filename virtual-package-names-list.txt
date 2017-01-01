@@ -106,7 +106,8 @@ Network
  ftp-server              a FTP server
  httpd                   a HTTP server
  httpd-cgi               A CGI capable HTTP server
- httpd-wsgi              A WSGI capable HTTP server
+ httpd-wsgi              A WSGI capable HTTP server (python 2 API)
+ httpd-wsgi3             A WSGI capable HTTP server (python 3 API)
  ident-server            an identd daemon
  inet-superserver        an inetd server
  lambdamoo-core          a lambdamoo-compatible database package  
@@ -343,3 +344,6 @@ Bill Allombert:
   16 Jul 2014 Added java{5,6,7,8,9}-runtime{,-headless}
               Removed java1-runtime, java2-runtime
   30 Jul 2014 Added httpd-wsgi
+
+Russ Allbery:
+  31 Dec 2016 Added httpd-wsgi3

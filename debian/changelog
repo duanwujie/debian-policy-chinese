@@ -31,6 +31,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Stuart Prescott <stuart@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #823910
+  * virtual-package-names-list: Add httpd-wsgi3
+    Wording: Bill Allombert <ballombe@debian.org>
+    Seconded: Brian May <bam@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Closes: #768117
   * Clarify informative mentions of debian/tmp in the appendices to
     document the now-common use of debian/<pkg> instead as the temporary
     staging area.  Document that convention, instead of
