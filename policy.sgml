@@ -4833,7 +4833,13 @@ Build-Depends: kernel-headers-2.2.10 [!hurd-i386],
 	  </example>
 	  requires <tt>kernel-headers-2.2.10</tt> on all architectures
 	  other than hurd-i386 and requires <tt>hurd-dev</tt> and
-	  <tt>gnumach-dev</tt> only on hurd-i386.
+	  <tt>gnumach-dev</tt> only on hurd-i386.  Here is another example
+	  showing multiple architectures separated by spaces:
+	  <example compact="compact">
+Build-Depends:
+ libluajit5.1-dev [i386 amd64 kfreebsd-i386 armel armhf powerpc mips],
+ liblua5.1-dev [hurd-i386 ia64 kfreebsd-amd64 s390x sparc],
+	  </example>
 	</p>
 
 	<p>
