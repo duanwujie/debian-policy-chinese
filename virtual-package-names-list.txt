@@ -1,7 +1,7 @@
 
               AUTHORITATIVE LIST OF VIRTUAL PACKAGE NAMES
 
-                              February 2012
+                              December 2016
 
 
 Below is an authoritative list of virtual package names currently
@@ -105,9 +105,9 @@ Network
  dhcp-client             a DHCP client
  ftp-server              a FTP server
  httpd                   a HTTP server
- httpd-cgi               A CGI capable HTTP server
- httpd-wsgi              A WSGI capable HTTP server (python 2 API)
- httpd-wsgi3             A WSGI capable HTTP server (python 3 API)
+ httpd-cgi               a CGI-capable HTTP server
+ httpd-wsgi              a WSGI-capable HTTP server (python 2 API)
+ httpd-wsgi3             a WSGI-capable HTTP server (python 3 API)
  ident-server            an identd daemon
  inet-superserver        an inetd server
  lambdamoo-core          a lambdamoo-compatible database package  

@@ -58,6 +58,10 @@ Not Released Yet
   <item>The Mozilla Public License 1.1 and 2.0 (MPL-1.1 and MPL-2.0) are
   now included in <file>/usr/share/common-licenses</file> and do not need
   to be copied verbatim in the package <file>copyright</file> file.</item>
+<tag>virtual</tag>
+  <item>New <tt>httpd-wsgi3</tt> virtual package for Python 3 WSGI-capable
+  HTTP servers.  The existing <tt>httpd-wsgi</tt> virtual package is for
+  Python 2 WSGI-capable HTTP servers.</item>
 </taglist></p>
 
 <sect id="3.9.8.0"> Version 3.9.8.0
