@@ -45,6 +45,8 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     relying on metapackages, and stop using a versioned dependency on the
     emacs metapackage (which didn't do what was intended anyway).  Switch
     to Emacs 25 for the build.  (Closes: #849483)
+  * Fix debian/changelog and upgrading-checklist dates for the 3.9.8.0
+    release to match the actual upload.  (Closes: #822059)
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.
@@ -64,7 +66,7 @@ debian-policy (3.9.8.0) unstable; urgency=medium
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #707851
 
- -- Don Armstrong <don@debian.org>  Mon, 01 Feb 2016 20:26:05 -0800
+ -- Don Armstrong <don@debian.org>  Wed, 06 Apr 2016 03:49:58 +0000
 
 debian-policy (3.9.7.0) unstable; urgency=low
 
