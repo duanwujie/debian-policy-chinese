@@ -47,6 +47,9 @@ Not Released Yet
   </item>
 <tag>5.6.12</tag>
   <item>Colons are not permitted in upstream version numbers.</item>
+<tag>7.7</tag>
+  <item>New <tt>Build-Depends-Arch</tt> and <tt>Build-Conflicts-Arch</tt>
+  fields are now supported.</item>
 <tag>10.9</tag>
   <item>Checking with the base-passwd maintainer is no longer required (or
   desirable) when creating a new dynamic user or group in a
