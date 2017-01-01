@@ -60,6 +60,8 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     relying on metapackages, and stop using a versioned dependency on the
     emacs metapackage (which didn't do what was intended anyway).  Switch
     to Emacs 25 for the build.  (Closes: #849483)
+  * Add some additional information to the upgrading-checklist entry for
+    the 3.9.8.0 release.
   * Fix debian/changelog and upgrading-checklist dates for the 3.9.8.0
     release to match the actual upload.  (Closes: #822059)
   * Fix duplicated "the" words in 4.4 and 8.6.3.2.  Patch from Valentin

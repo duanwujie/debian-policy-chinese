@@ -67,9 +67,14 @@ Released April, 2016.
 
 </p><p><taglist>
 <tag>9.6</tag>
-  <item> The menu system is deprecated in favor of the Free Desktop menu
-  standard.
+  <item>The menu system is deprecated in favor of the FreeDesktop menu
+  standard.  New requirements set for FreeDesktop menu entries.
   </item>
+<tag>9.7</tag>
+  <item>New instructions for registering media type handlers with the
+  FreeDesktop system, which automatically synchronizes with mailcap and
+  therefore replaces mailcap registration for packages using desktop
+  entries.</item>
 </taglist>
 </p>
 
