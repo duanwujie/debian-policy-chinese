@@ -8634,6 +8634,22 @@ fi
 	  programs must be renamed.
 	</p>
 	<p>
+	  To support merged-<file>/usr</file> systems, packages must not
+	  install files in both <file><var>path</var></file>
+	  and <file>/usr/<var>path</var></file>.  For example, a package
+	  may not install both <file>/bin/example</file>
+	  and <file>/usr/bin/example</file>.
+	</p>
+	<p>
+	  If a file is moved between <file><var>path</var></file>
+	  and <file>/usr/<var>path</var></file> in revisions of a Debian
+	  package, and a compatibility symlink at the old path is needed,
+	  the symlink must be managed in a way that will not break
+	  when <file><var>path</var></file>
+	  and <file>/usr/<var>path</var></file> are the same underlying
+	  directory due to symlinks or other mechanisms.
+	</p>
+	<p>
           Binary executables must not be statically linked with the GNU C
           library, since this prevents the binary from benefiting from
           fixes and improvements to the C library without being rebuilt
