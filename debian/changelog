@@ -41,6 +41,9 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Brian May <bam@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #768117
+  * Move the description of < and > relations to a footnote to make
+    abundantly clear that they're no longer valid relation operators in
+    dependencies.  (Closes: #816515)
   * Clarify informative mentions of debian/tmp in the appendices to
     document the now-common use of debian/<pkg> instead as the temporary
     staging area.  Document that convention, instead of

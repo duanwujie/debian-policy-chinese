@@ -4775,11 +4775,13 @@ fi
 	  The relations allowed are <tt>&lt;&lt;</tt>, <tt>&lt;=</tt>,
 	  <tt>=</tt>, <tt>&gt;=</tt> and <tt>&gt;&gt;</tt> for strictly
 	  earlier, earlier or equal, exactly equal, later or equal and
-	  strictly later, respectively.  The deprecated
-	  forms <tt>&lt;</tt> and <tt>&gt;</tt> were confusingly used to
-	  mean earlier/later or equal, rather than strictly earlier/later,
-	  and must not appear in new packages (though <prgn>dpkg</prgn>
-	  still supports them with a warning).
+	  strictly later, respectively.<footnote>
+	    The relations <tt>&lt;</tt> and <tt>&gt;</tt> were previously
+	    allowed, but they were confusingly defined to mean
+	    earlier/later or equal rather than strictly
+	    earlier/later.  <prgn>dpkg</prgn> still supports them with a
+	    warning, but they are no longer allowed by Debian Policy.
+	  </footnote>
 	</p>
 
 	<p>
