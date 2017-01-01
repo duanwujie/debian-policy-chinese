@@ -1800,7 +1800,7 @@ zope.
 	    <item>mm is the two-digit minutes (00-59)</item>
 	    <item>ss is the two-digit seconds (00-60)</item>
 	    <item>
-	      +zzzz or -zzzz is the the time zone offset from Coordinated
+             +zzzz or -zzzz is the time zone offset from Coordinated
 	      Universal Time (UTC).  "+" indicates that the time is ahead
 	      of (i.e., east of) UTC and "-" indicates that the time is
 	      behind (i.e., west of) UTC.  The first two digits indicate
@@ -6499,7 +6499,7 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
 	    </p>
 
 	    <p>
-	      To explain this format, we'll use the the <tt>zlib1g</tt>
+             To explain this format, we'll use the <tt>zlib1g</tt>
 	      package as an example, which (at the time of writing)
 	      installs the shared
 	      library <file>/usr/lib/libz.so.1.2.3.4</file>.  Mandatory
