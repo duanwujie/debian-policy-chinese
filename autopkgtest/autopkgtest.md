@@ -63,7 +63,7 @@ The fields which may appear in debian/tests/control stanzas are:
 
   If your test only contains a shell command or two, or you want to re-use an
   existing upstream test executable and just need to wrap it with some command
-  like `dbus-launch` or `env`, you can use this field to specify the shell
+  like `dbus-run-session` or `env`, you can use this field to specify the shell
   command directly. It will be run under `bash -e`. This is mutually exclusive
   with the `Tests:` field.
 
