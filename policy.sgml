@@ -11167,12 +11167,13 @@ END-INFO-DIR-ENTRY
 	</p>
 
 	<p>
-	  In order to create a binary package you must make a
-	  directory tree which contains all the files and directories
-	  you want to have in the file system data part of the package.
-	  In Debian-format source packages this directory is usually
-	  <file>debian/tmp</file>, relative to the top of the package's
-	  source tree.
+	  In order to create a binary package, you must make a directory
+	  tree which contains all the files and directories you want to
+	  have in the file system data part of the package.  In
+	  Debian-format source packages, this directory is usually
+	  either <file>debian/tmp</file>
+	  or <file>debian/<var>pkg</var></file>, relative to the top of
+	  the package's source tree.
 	</p>
 
 	<p>
@@ -11506,7 +11507,7 @@ END-INFO-DIR-ENTRY
 	    Sources which build several binaries will typically need
 	    something like:
 	    <example>
-  dpkg-gencontrol -Pdebian/tmp-<var>pkg</var> -p<var>package</var>
+  dpkg-gencontrol -Pdebian/<var>pkg</var> -p<var>package</var>
 	    </example> The <tt>-P</tt> tells
 	    <prgn>dpkg-gencontrol</prgn> that the package is being
 	    built in a non-default directory, and the <tt>-p</tt>
@@ -11653,27 +11654,39 @@ END-INFO-DIR-ENTRY
 	  </heading>
 
 	  <p>
-	    This is the canonical temporary location for the
-	    construction of binary packages by the <tt>binary</tt>
-	    target.  The directory <file>tmp</file> serves as the root of
-	    the file system tree as it is being constructed (for
-	    example, by using the package's upstream makefiles install
-	    targets and redirecting the output there), and it also
-	    contains the <tt>DEBIAN</tt> subdirectory.  See <ref
-	    id="pkg-bincreating">.
+	    This is the default temporary location for the construction of
+	    binary packages by the <tt>binary</tt> target.  The
+	    directory <file>tmp</file> serves as the root of the file
+	    system tree as it is being constructed (for example, by using
+	    the package's upstream makefiles install targets and
+	    redirecting the output there), and it also contains
+	    the <tt>DEBIAN</tt> subdirectory.
+	    See <ref id="pkg-bincreating">.
 	  </p>
 
 	  <p>
-	    If several binary packages are generated from the same
-	    source tree it is usual to use several
-	    <file>debian/tmp<var>something</var></file> directories, for
-	    example <file>tmp-a</file> or <file>tmp-doc</file>.
+	    This is only a default and can be easily overridden.  Most
+	    packaging tools no longer use <file>debian/tmp</file>, instead
+	    preferring <file>debian/<var>pkg</var></file> for the common
+	    case of a source package building only one binary package.
+	    Such tools usually only use <file>debian/tmp</file> as a
+	    temporary staging area for built files and do not construct
+	    packages from it.
 	  </p>
 
 	  <p>
-	    Whatever <file>tmp</file> directories are created and used by
-	    <tt>binary</tt> must of course be removed by the
-	    <tt>clean</tt> target.</p></sect1>
+	    If several binary packages are generated from the same source
+	    tree, it is usual to use a separate
+	    <file>debian/<var>pkg</var></file> directory for each binary
+	    package as the temporary construction locations.
+	  </p>
+
+	  <p>
+	    Whatever temporary directories are created and used by the
+	    <tt>binary</tt> target must of course be removed by the
+	    <tt>clean</tt> target.
+	  </p>
+	</sect1>
       </sect>
 
 

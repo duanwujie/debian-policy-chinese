@@ -31,6 +31,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Stuart Prescott <stuart@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #823910
+  * Clarify informative mentions of debian/tmp in the appendices to
+    document the now-common use of debian/<pkg> instead as the temporary
+    staging area.  Document that convention, instead of
+    debian/tmp-something, for multi-binary packages.  Thanks, Niels
+    Thykier.  (Closes: #816249)
   * Remove lingering wording that implied that build-arch and build-indep
     targets are optional.  Thanks, Ferenc Wagner, Jakub Wilk, and Charles
     Plessy.  (Closes: #793999)
