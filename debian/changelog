@@ -31,6 +31,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Stuart Prescott <stuart@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #823910
+  * Perl: Update module search path for multiarch support
+    Wording: Dominic Hargreaves <dom@earth.li>
+    Seconded: Niko Tyni <ntyni@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Closes: #798309
   * virtual-package-names-list: Add httpd-wsgi3
     Wording: Bill Allombert <ballombe@debian.org>
     Seconded: Brian May <bam@debian.org>
