@@ -65,6 +65,8 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
   * Fix the long name of the Common Public License in the copyright-format
     policy.  It is just Common Public License, with no leading "IBM".
     Thanks, Stefano Zacchiroli.  (Closes: #781654)
+  * Fix the copyright-format examples to not have duplicate License
+    paragraphs.  Thanks, Stefan <bd@bc-bd.org>.  (Closes: #824922)
   * Replace reference to dbus-launch in the autopkgtest documentation with
     dbus-run-session.  Patch from Simon McVittie.  (Closes: #835876)
   * Add an example of an architecture restriction in a dependency with

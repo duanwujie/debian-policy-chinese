@@ -1219,15 +1219,19 @@ also delete it here.</programlisting>
     <example>
       <title>Simple</title>
       <para>
-        A possible <filename>debian/copyright</filename> file for the program
-        <quote>X Solitaire</quote> distributed in the Debian source package
-        <literal>xsol</literal>:
-<programlisting><![CDATA[Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+        A possible <filename>debian/copyright</filename> file for an
+        program <quote>X Solitaire</quote> distributed in the Debian
+        source package <literal>xsol</literal> (this is not a complete or
+        correct copyright file for the actual <literal>xsol</literal>
+        package):
+<programlisting><![CDATA[
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: X Solitaire
 Source: ftp://ftp.example.com/pub/games
 
 Files: *
-Copyright: Copyright 1998 John Doe <jdoe@example.com>
+Copyright: 1998 John Doe <jdoe@example.com>
+   1998 Jane Smith <jsmith@example.net>
 License: GPL-2+
  This program is free software; you can redistribute it
  and/or modify it under the terms of the GNU General Public
@@ -1249,11 +1253,7 @@ License: GPL-2+
  On Debian systems, the full text of the GNU General Public
  License version 2 can be found in the file
  `/usr/share/common-licenses/GPL-2'.
-
-Files: debian/*
-Copyright: Copyright 1998 Jane Smith <jsmith@example.net>
-License: GPL-2+
- [LICENSE TEXT]]]></programlisting>
+ ]]></programlisting>
       </para>
     </example>
 
@@ -1262,8 +1262,11 @@ License: GPL-2+
       <para>
         A possible <filename>debian/copyright</filename> file for the program
         <quote>Planet Venus</quote>, distributed in the Debian source
-        package <literal>planet-venus</literal>:
-<programlisting><![CDATA[Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+        package <literal>planet-venus</literal> (this is not a complete or
+        correct copyright file for the actual
+        <literal>planet-venus</literal> package):
+<programlisting><![CDATA[
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Planet Venus
 Upstream-Contact: John Doe <jdoe@example.com>
 Source: http://www.example.com/code/venus
@@ -1274,7 +1277,6 @@ Copyright: 2008, John Doe <jdoe@example.com>
            2007, Joe Average <joe@example.org>
            2007, J. Random User <jr@users.example.com>
 License: PSF-2
- [LICENSE TEXT]
 
 Files: debian/*
 Copyright: 2008, Dan Developer <dan@debian.example.com>
@@ -1287,7 +1289,6 @@ License: permissive
 Files: debian/patches/theme-diveintomark.patch
 Copyright: 2008, Joe Hacker <hack@example.org>
 License: GPL-2+
- [LICENSE TEXT]
 
 Files: planet/vendor/compat_logging/*
 Copyright: 2002, Mark Smith <msmith@example.org>
@@ -1302,10 +1303,14 @@ License: MIT2
 Files: planet/vendor/feedparser.py
 Copyright: 2007, Mike Smith <mike@example.org>
 License: PSF-2
- [LICENSE TEXT]
 
 Files: planet/vendor/htmltmpl.py
 Copyright: 2004, Thomas Brown <coder@example.org>
+License: GPL-2+
+
+License: PSF-2
+ [LICENSE TEXT]
+
 License: GPL-2+
  This program is free software; you can redistribute it
  and/or modify it under the terms of the GNU General Public
@@ -1326,7 +1331,8 @@ License: GPL-2+
  .
  On Debian systems, the full text of the GNU General Public
  License version 2 can be found in the file
- `/usr/share/common-licenses/GPL-2'.]]></programlisting>
+ `/usr/share/common-licenses/GPL-2'.
+]]></programlisting>
       </para>
     </example>
   </section>
