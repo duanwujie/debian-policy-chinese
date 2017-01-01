@@ -31,6 +31,9 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Stuart Prescott <stuart@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #823910
+  * Remove lingering wording that implied that build-arch and build-indep
+    targets are optional.  Thanks, Ferenc Wagner, Jakub Wilk, and Charles
+    Plessy.  (Closes: #793999)
   * Rather than giving the paths to the installed shlibs and symbols files
     and then saying those paths shouldn't be used, just say to use
     dpkg-query --control-show.  Recommend --control-show instead of

@@ -2067,13 +2067,12 @@ zope.
 	      <p>
 		Both <tt>binary-*</tt> targets should depend on the
 		<tt>build</tt> target, or on the appropriate
-		<tt>build-arch</tt> or <tt>build-indep</tt> target, if
-		provided, so that the package is built if it has not
-		been already.  It should then create the relevant
-		binary package(s), using <prgn>dpkg-gencontrol</prgn> to
-		make their control files and <prgn>dpkg-deb</prgn> to
-		build them and place them in the parent of the top
-		level directory.
+		<tt>build-arch</tt> or <tt>build-indep</tt> target, so
+		that the package is built if it has not been already.  It
+		should then create the relevant binary package(s),
+		using <prgn>dpkg-gencontrol</prgn> to make their control
+		files and <prgn>dpkg-deb</prgn> to build them and place
+		them in the parent of the top level directory.
 	      </p>
 
 	      <p>
