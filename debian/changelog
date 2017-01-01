@@ -1,23 +1,23 @@
 debian-policy (3.9.9.0) UNRELEASED; urgency=medium
 
   [ Andreas Barth ]
-  * Policy: Add the MPLs to /usr/share/common-licenses.
+  * Policy: Add the MPLs to /usr/share/common-licenses
     Wording: Charles Plessy <plessy@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Andrey Rahmatullin <wrar@debian.org>
     Closes: #768292
-  * Policy: [5.6.12] forbid colons in package version numbers.
+  * Policy: [5.6.12] forbid colons in package version numbers
     Wording: Charles Plessy <plessy@debian.org>
     Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
     Seconded: Sam Hartman <hartmans@debian.org>
     Thanks: Jakub Wilk <jwilk@debian.org>
     Closes: #792853
-  * Spelling fixes, thanks to Martin A. Brown. Closes: #820197
-  * Policy: [4.3] update autotools during build time.
+  * Policy: [4.3] update autotools during build time
     Wording:  Bill Allombert <ballombe@debian.org>
     Seconded: Niels Thykier <niels@thykier.net>
     Seconded: Andreas Barth <aba@ayous.org>
     Closes: #746514
+  * Spelling fixes, thanks to Martin A. Brown. Closes: #820197
 
   [ Russ Allbery ]
   * Policy: [10.9] Don't contact base-passwd maintainer for dynamic users
