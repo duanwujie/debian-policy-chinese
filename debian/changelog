@@ -42,6 +42,8 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
   * Explicitly give Unicode code points in the definition of the syntax of
     Debian control files and, where appropriate, show the character.
     Patch from Ben Finney.  (Closes: #821365)
+  * Remove obsolete footnote about a versioned dependency on a
+    liblockfile1 release from 1999.  Thanks, Jakub Wilk.  (Closes: #794902)
   * Fix the long name of the Common Public License in the copyright-format
     policy.  It is just Common Public License, with no leading "IBM".
     Thanks, Stefano Zacchiroli.  (Closes: #781654)

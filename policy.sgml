@@ -9993,10 +9993,8 @@ http://localhost/cgi-bin/.../<var>cgi-bin-name</var>
 	      time, and start over locking again.
 	  </footnote>. Using the functions <tt>maillock</tt> and
 	  <tt>mailunlock</tt> provided by the
-	  <tt>liblockfile*</tt><footnote>
-	      You will need to depend on <tt>liblockfile1 (&gt;&gt;1.01)</tt>
-	      to use these functions.
-	  </footnote> packages is the recommended way to realize this.
+	  <tt>liblockfile*</tt> packages is the recommended way to
+	  accomplish this.
 	</p>
 
 	<p>
