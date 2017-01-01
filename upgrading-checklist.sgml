@@ -45,6 +45,11 @@ Not Released Yet
   updated at build time or replaced with the versions
   from <package>autotools-dev</package>.
   </item>
+<tag>4.9.1</tag>
+  <item>New <tt>DEB_BUILD_OPTIONS</tt> tag, <tt>nodoc</tt>, which says to
+  suppress documentation generation (but continue to build all binary
+  packages, even documentation packages, just let them be mostly
+  empty).</item>
 <tag>5.6.12</tag>
   <item>Colons are not permitted in upstream version numbers.</item>
 <tag>7.7</tag>
