@@ -171,7 +171,7 @@ $Config{sitelib}   (currently /usr/local/share/perl/<var>version</var>)
 	      <p>
 		Packaged modules (see <ref id="module_packages">).
 	        <example>
-$Config{vendorarch} (currently /usr/lib/<ver>arch-triplet</ver>/perl5/<ver>shortversion</ver>)
+$Config{vendorarch} (currently /usr/lib/<var>arch-triplet</var>/perl5/<var>shortversion</var>)
 $Config{vendorlib}  (currently /usr/share/perl5)
 	        </example>
 		Where <var>shortversion</var> indicates the current Perl major
