@@ -53,6 +53,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Brian May <bam@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #768117
+  * virtual-package-names-list: Add virtual-mysql-* packages
+    Wording: Otto Kekäläinen <otto@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Raphael Hertzog <hertzog@debian.org>
+    Closes: #829367
   * Move the description of < and > relations to a footnote to make
     abundantly clear that they're no longer valid relation operators in
     dependencies.  (Closes: #816515)

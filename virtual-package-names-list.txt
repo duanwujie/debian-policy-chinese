@@ -1,7 +1,7 @@
 
               AUTHORITATIVE LIST OF VIRTUAL PACKAGE NAMES
 
-                              December 2016
+                             January 2017
 
 
 Below is an authoritative list of virtual package names currently
@@ -61,6 +61,14 @@ Miscellaneous
  lzh-archiver            an LZH archiver package
  tclsh                   a /usr/bin/tclsh (*)
  wish                    a /usr/bin/wish (*)
+
+Database
+--------
+ virtual-mysql-client       a MySQL-database-compatible client package
+ virtual-mysql-client-core  a MySQL-database-compatible client core package
+ virtual-mysql-server       a MySQL-database-compatible server package
+ virtual-mysql-server-core  a MySQL-database-compatible server core package
+ virtual-mysql-testsuite    a MySQL-database-compatible test suite packag
 
 Development
 -----------
@@ -346,4 +354,10 @@ Bill Allombert:
   30 Jul 2014 Added httpd-wsgi
 
 Russ Allbery:
-  31 Dec 2016 Added httpd-wsgi3
+  01 Jan 2017 Added httpd-wsgi3
+              Added MySQL virtual packages:
+                virtual-mysql-client
+                virtual-mysql-client-core
+                virtual-mysql-server
+                virtual-mysql-server-core
+                virtual-mysql-testsuite

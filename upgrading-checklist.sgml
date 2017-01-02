@@ -77,6 +77,11 @@ Not Released Yet
   <item>New <tt>httpd-wsgi3</tt> virtual package for Python 3 WSGI-capable
   HTTP servers.  The existing <tt>httpd-wsgi</tt> virtual package is for
   Python 2 WSGI-capable HTTP servers.</item>
+<tag>virtual</tag>
+  <item>New <tt>virtual-mysql-client</tt>, <tt>virtual-mysql-client-core</tt>,
+  <tt>virtual-mysql-server</tt>, <tt>virtual-mysql-server-core</tt>,
+  and <tt>virtual-mysql-testsuite</tt> virtual packages for
+  MySQL-compatible software.</item>
 </taglist></p>
 
 <sect id="3.9.8.0"> Version 3.9.8.0
