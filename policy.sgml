@@ -7549,6 +7549,10 @@ rmdir /usr/local/share/emacs 2&gt;/dev/null || true
 	      <item>stop and restart the service if it's already running,
 		  otherwise start the service</item>
 
+	      <tag><tt>try-restart</tt></tag>
+	      <item>restart the service if it's already running,
+                    otherwise just report success.</item>
+
 	      <tag><tt>reload</tt></tag>
 	      <item><p>cause the configuration of the service to be
 		  reloaded without actually stopping and restarting
@@ -7563,7 +7567,7 @@ rmdir /usr/local/share/emacs 2&gt;/dev/null || true
 	    The <tt>start</tt>, <tt>stop</tt>, <tt>restart</tt>, and
 	    <tt>force-reload</tt> options should be supported by all
 	    scripts in <file>/etc/init.d</file>, the <tt>reload</tt>
-	    option is optional.
+	    and <tt>try-restart</tt> options are optional.
 	  </p>
 
 	  <p>
