@@ -45,6 +45,10 @@ Not Released Yet
   updated at build time or replaced with the versions
   from <package>autotools-dev</package>.
   </item>
+<tag>4.9</tag>
+  <item>New <tt>TARGET</tt> set of <prgn>dpkg-architecture</prgn>
+  variables and new <tt>DEB_*_ARCH_BITS</tt>
+  and <tt>DEB_*_ARCH_ENDIAN</tt> variables.</item>
 <tag>4.9.1</tag>
   <item>New <tt>DEB_BUILD_OPTIONS</tt> tag, <tt>nodoc</tt>, which says to
   suppress documentation generation (but continue to build all binary

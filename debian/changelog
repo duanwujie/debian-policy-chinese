@@ -48,6 +48,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Raphael Hertzog <hertzog@debian.org>
     Closes: #819660
+  * Policy: New dpkg-architecture flags
+    Wording: Guillem Jover <guillem@debian.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Raphael Hertzog <hertzog@debian.org>
+    Closes: #793493
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>
