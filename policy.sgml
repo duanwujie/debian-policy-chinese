@@ -7562,12 +7562,16 @@ rmdir /usr/local/share/emacs 2&gt;/dev/null || true
 	      <item>cause the configuration to be reloaded if the
 		  service supports this, otherwise restart the
 		  service.</item>
+
+	      <tag><tt>status</tt></tag>
+	      <item>report the current status of the service</item>
 	    </taglist>
 
 	    The <tt>start</tt>, <tt>stop</tt>, <tt>restart</tt>, and
 	    <tt>force-reload</tt> options should be supported by all
-	    scripts in <file>/etc/init.d</file>, the <tt>reload</tt>
-	    and <tt>try-restart</tt> options are optional.
+	    scripts in <file>/etc/init.d</file>, supporting
+	    <tt>status</tt> is recommended, the <tt>reload</tt> and
+	    <tt>try-restart</tt> options are optional.
 	  </p>
 
 	  <p>
