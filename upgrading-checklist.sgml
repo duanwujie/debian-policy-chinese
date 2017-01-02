@@ -40,7 +40,7 @@ picking your way through this list.
 Not Released Yet
 
 </p><p><taglist>
-<tag>3.4</tag>
+<tag>4.3</tag>
   <item><prgn>config.sub</prgn> and <prgn>config.guess</prgn> should be
   updated at build time or replaced with the versions
   from <package>autotools-dev</package>.

@@ -12,7 +12,7 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Sam Hartman <hartmans@debian.org>
     Thanks: Jakub Wilk <jwilk@debian.org>
     Closes: #792853
-  * Policy: [4.3] update autotools during build time
+  * Policy: [4.3] Update config.guess and config.sub during the build
     Wording:  Bill Allombert <ballombe@debian.org>
     Seconded: Niels Thykier <niels@thykier.net>
     Seconded: Andreas Barth <aba@ayous.org>
