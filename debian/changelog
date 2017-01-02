@@ -43,6 +43,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Raphael Hertzog <hertzog@debian.org>
     Seconded: Felipe Sateler <fsateler@debian.org>
     Closes: #759492
+  * Policy: Debug packages don't need a debian/control paragraph
+    Wording: Tanguy Ortolo <tanguy+debian@ortolo.eu>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Raphael Hertzog <hertzog@debian.org>
+    Closes: #819660
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>

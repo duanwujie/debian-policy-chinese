@@ -50,6 +50,10 @@ Not Released Yet
   suppress documentation generation (but continue to build all binary
   packages, even documentation packages, just let them be mostly
   empty).</item>
+<tag>5.2</tag>
+  <item>Automatically-generated debug packages do not need to have a
+  corresponding paragraph in <file>debian/control</file>.  (This is
+  existing practice; this Policy update is just clearer about it.)</item>
 <tag>5.6.12</tag>
   <item>Colons are not permitted in upstream version numbers.</item>
 <tag>7.7</tag>
