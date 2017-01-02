@@ -53,6 +53,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Raphael Hertzog <hertzog@debian.org>
     Closes: #793493
+  * Policy: Remove even the fallback to calling /etc/init.d directly
+    Wording: Ondřej Nový <onovy@debian.org>
+    Seconded: Michael Stapelberg <stapelberg@debian.org>
+    Seconded: Andreas Henriksson <andreas@fatal.se>
+    Closes: #833177
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>
