@@ -120,6 +120,7 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     fine and has some advantages over the gitweb version for Vcs-Browser.
     Thanks, Mattia Rizzolo.
   * Run wrap-and-sort -ast.
+  * Tag as Multi-Arch: foreign (mostly to silence the hinter).
 
  -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
 

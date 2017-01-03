@@ -29,6 +29,7 @@ Vcs-Git: https://anonscm.debian.org/git/dbnpolicy/policy.git
 
 Package: debian-policy
 Architecture: all
+Multi-Arch: foreign
 Suggests:
  doc-base,
 Description: Debian Policy Manual and related documents
