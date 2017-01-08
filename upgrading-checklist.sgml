@@ -64,7 +64,7 @@ Not Released Yet
   <item>New <tt>Build-Depends-Arch</tt> and <tt>Build-Conflicts-Arch</tt>
   fields are now supported.</item>
 <tag>9.3.3.2</tag>
-  <item>Packages must not call <path>/etc/init.d</path> scripts directly
+  <item>Packages must not call <file>/etc/init.d</file> scripts directly
   even as a fallback, and instead must always use <prgn>invoke-rc.d</prgn>
   (which is essential and shouldn't require any conditional).</item>
 <tag>10.1</tag>
