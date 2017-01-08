@@ -13,6 +13,7 @@ Build-Depends:
  docbook-dsssl,
  docbook-xml,
  emacs25-nox | emacs25,
+ ghostscript,
  groff,
  links | elinks,
  markdown,
