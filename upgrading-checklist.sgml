@@ -77,6 +77,10 @@ Not Released Yet
   <item>Checking with the base-passwd maintainer is no longer required (or
   desirable) when creating a new dynamic user or group in a
   package.</item>
+<tag>12.3</tag>
+  <item>Dependencies on *-doc packages should be at most Recommends
+  (Suggests if they only include documentation in supplemental
+  formats).</item>
 <tag>12.5</tag>
   <item>The Mozilla Public License 1.1 and 2.0 (MPL-1.1 and MPL-2.0) are
   now included in <file>/usr/share/common-licenses</file> and do not need
