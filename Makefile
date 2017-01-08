@@ -4,14 +4,12 @@ policy.sgml: version.ent
 menu-policy.sgml: version.ent
 perl-policy.sgml: version.ent
 
-%.txt: %.org
-	$(EMACS) --batch -Q -l ./README-css.el -l org --visit $^ \
-          --funcall org-ascii-export-to-ascii
+%.txt: %.md
+	cat $^ > $@
 	test "$@" != "README.txt"  ||                            \
-           perl -pli -e 's,./Process.org,Process.txt,g' $@
-%.html: %.org
-	$(EMACS) --batch -Q -l ./README-css.el -l org --visit $^ \
-	   --funcall org-html-export-to-html
+           perl -pli -e 's,./Process.md,Process.txt,g' $@
+%.html: %.md
+	$(MDWN) $< > $@
 
 %.validate: %
 	onsgmls -wall -gues $<

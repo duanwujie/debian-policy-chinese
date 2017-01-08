@@ -1,81 +1,79 @@
-# -*- mode: org; fill-column: 78 -*-
-#+STARTUP: showall
-#+STARTUP: lognotedone lognotestate
-#+OPTIONS: H:4 toc:2
-#+TITLE:  Debian Policy
-#+AUTHOR: Manoj Srivastava And Russ Allbery
-#+EMAIL: srivasta@debian.org
-#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:nil skip:t d:nil tags:not-in-toc
-#+LINK_HOME: http://wiki.debian.org/Teams/Policy
-#+LINK_UP: http://www.debian.org/
-#+LATEX_HEADER: \input{README-header.tex}
-* Infrastructure
+Format: complete
+Css: README.css
+Title: Debian Policy
+Author: Manoj Srivastava and Russ Allbery
+Email: debian-policy@packages.debian.org
+Link Home: http://wiki.debian.org/Teams/Policy
+Link Up: http://www.debian.org/
 
-+ Website:: http://www.debian.org/doc/devel-manuals#policy
-+ Mailing list:: debian-policy@lists.debian.org lists
+# Debian Policy
+
+## Infrastructure
+
++ Website:: <http://www.debian.org/doc/devel-manuals#policy>
++ Mailing list:: <debian-policy@lists.debian.org> lists
 + Source Code::
   * git clone git://anonscm.debian.org/dbnpolicy/policy.git
-  * Browser: http://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git 
+  * Browser: <http://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git>
 + Unix group:: dbnpolicy
-+ Alioth Project:: http://alioth.debian.org/projects/dbnpolicy (exists
++ Alioth Project:: <http://alioth.debian.org/projects/dbnpolicy> (exists
   to manage the repository but not otherwise used)
 
-** Interacting with the team
+### Interacting with the team
 
-+ Email contact:: mailto:debian-policy@lists.debian.org
-+ Request tracker:: http://bugs.debian.org/src:debian-policy
++ Email contact:: <debian-policy@lists.debian.org>
++ Request tracker:: <http://bugs.debian.org/src:debian-policy>
 
 Debian Policy uses a formal procedure and a set of user tags to manage
 the lifecycle of change proposals. For definitions of those tags and
 proposal states and information about what the next step is for each
-phase, see [[./Process.org][Policy changes process]].
+phase, see [Policy changes process](./Process.md).
 
 Once the wording for a change has been finalized, please send a patch
 against the current Git master branch to the bug report, if you're not
 familiar with Git, the following commands are the basic process:
 
-#+BEGIN_SRC Sh
-git clone git://anonscm.debian.org/dbnpolicy/policy.git
-git checkout -b <local-branch-name>
 
-# edit files, but don't make changes to upgrading-checklist or debian/changelog
-git add <files>
-git commit
-# repeat as necessary
+    git clone git://anonscm.debian.org/dbnpolicy/policy.git
+    git checkout -b <local-branch-name>
 
-# update your branch against the current master
-git checkout master
-git pull
+    # edit files, but don't make changes to upgrading-checklist or debian/changelog
+    git add <files>
+    git commit
+    # repeat as necessary
 
-git checkout master
-git merge --no-commit <local-branch-name>
-git reset --hard HEAD;
-git checkout <local-branch-name>; 
+    # update your branch against the current master
+    git checkout master
+    git pull
 
-# If there are changes in master that make the branch not apply cleanly, there
-# should have been en error during the merge step above. If there was an
-# error, merge the master branch into the local branch, fix the conflicts, and
-# commit the new version of the local branch.
- : git merge master
-# Edit files to remove conflict
- : git commit -s 
+    git checkout master
+    git merge --no-commit <local-branch-name>
+    git reset --hard HEAD;
+    git checkout <local-branch-name>;
 
-# Checkout the local branch, to create the patch to send to the policy
-git checkout <local-branch-name>
-dir=$(mktemp -d)
-git format-patch -o $dir -s master
-# check out the patches created in $dir
-git send-email --from "you <your@email>"             \
-               --to debian-policy@lists.debian.org   \
-               $dir/
-#+END_SRC
+    # If there are changes in master that make the branch not apply cleanly,
+    # there should have been en error during the merge step above. If there
+    # was an error, merge the master branch into the local branch, fix the
+    # conflicts, and commit the new version of the local branch.
+     : git merge master
+    # Edit files to remove conflict
+     : git commit -s
 
-<local-branch-name> is some convenient name designating your local
+    # Checkout the local branch, to create the patch to send to the policy
+    git checkout <local-branch-name>
+    dir=$(mktemp -d)
+    git format-patch -o $dir -s master
+    # check out the patches created in $dir
+    git send-email --from "you <your@email>"             \
+                   --to debian-policy@lists.debian.org   \
+                   $dir/
+
+&lt;local-branch-name&gt; is some convenient name designating your local
 changes. You may want to use some common prefix like local-. You can
 use git format-patch and git send-email if you want, but usually it's
 overkill.
 
-* Usual Roles
+## Usual Roles
 
 The Debian Policy team are official project delegates (see the DPL
 delegation). All of the Policy team members do basically the same
@@ -87,7 +85,7 @@ consensus has been reached. The current delegates are:
 + Jonathan Nieder (jrnieder)
 + Russ Allbery (rra)
 
-* Task description
+## Task description
 
 The Debian Policy team is responsible for maintaining and coordinating
 updates to the Debian Policy Manual and all the other policy documents
@@ -98,17 +96,13 @@ The Debian Policy Editors:
 + Guide the work on the Debian Policy Manual and related documents as a
   collaborative process where developers review and second or object to
   proposals, usually on the debian-policy mailing list.
-
 + Count seconds and weight objections to proposals, to determine whether
   they have reached sufficient consensus to be included, and accept
   consensual proposals.
-
 + Reject or refer to the Technical Committee proposals that fail to
   reach consensus.
-
 + Commit changes to the version control system repository used to
   maintain the Debian Policy Manual and related documents.
-
 + Maintain the "debian-policy" package. As package maintainers, they
   have the last word on package content, releases, bug reports, etc.
 
@@ -120,27 +114,28 @@ mailing list without being project delegates.
 
 In addition to the main technical manual, the team currently also maintains:
 
-+ [[http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/][Machine-readable debian/copyright format]]
-+ [[http://www.debian.org/doc/packaging-manuals/menu-policy/][Debian Menu sub-policy]]
-+ [[http://www.debian.org/doc/packaging-manuals/perl-policy/][Debian Perl Policy]]
-+ [[http://www.debian.org/doc/packaging-manuals/debconf_specification.html][Debconf Specification]]
-+ [[http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt][Authoritative list of virtual package names ]]
++ [Machine-readable debian/copyright format](http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/)
++ [Debian Menu sub-policy](http://www.debian.org/doc/packaging-manuals/menu-policy/)
++ [Debian Perl Policy](http://www.debian.org/doc/packaging-manuals/perl-policy/)
++ [Debconf Specification](http://www.debian.org/doc/packaging-manuals/debconf_specification.html)
++ [Authoritative list of virtual package names ](http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
 
-These documents are maintained using the [[./Process.org][Policy changes process]], and
+These documents are maintained using the [Policy changes process](./Process.md), and
 the current state of all change proposals is tracked using the
-[[http://bugs.debian.org/src:debian-policy][debian-policy BTS]].
+[debian-policy BTS](http://bugs.debian.org/src:debian-policy).
 
-* Get involved
+## Get involved
 
-The best way to help is to review the [[http://bugs.debian.org/src:debian-policy][current open bugs]], pick a bug
-that no one is currently shepherding (ask on
-[[mailto:debian-policy@lists.debian.org][debian-policy@lists.debian.org]] if you're not sure if a particular bug
+The best way to help is to review the [current open bugs](http://bugs.debian.org/src:debian-policy),
+pick a bug that no one is currently shepherding (ask on
+[debian-policy@lists.debian.org](mailto:debian-policy@lists.debian.org) if
+you're not sure if a particular bug
 is being shepherded), and help it through the change process. This
 will involve guiding the discussion, seeking additional input
 (particularly from experts in the area being discussed), possibly
 raising the issue on other mailing lists, proposing or getting other
 people to propose specific wording changes, and writing diffs against
-the current Policy document. All of the steps of [[./Process.org][Policy changes process]] 
+the current Policy document. All of the steps of [Policy changes process](./Process.md)
 can be done by people other than Policy team members except
 the final acceptance steps and almost every change can be worked on
 independently, so there's a lot of opportunity for people to help.
@@ -166,35 +161,36 @@ There are also some other, larger projects:
 + Policy has grown organically over the years and suffers from
   organizational issues because of it. It also doesn't make use of the
   abilities that a current XML language might give us, such as being
-  able to extract useful portions of the document (all *must*
+  able to extract useful portions of the document (all **must**
   directives, for example). There has been quite a bit of discussion
   of a new format that would allow for this, probably as part of
   switching to DocBook, but as yet such a reorganization and reworking
   has not been started.
 
 If you want to work on any of these projects, please mail
-[[mailto:debian-policy@lists.debian.org][debian-policy@lists.debian.org ]] for more information. We'll be happy to
-help you get started.
+[debian-policy@lists.debian.org](mailto:debian-policy@lists.debian.org)
+for more information. We'll be happy to help you get started.
 
-** Maintenance procedures
+## Maintenance procedures
 
-** Repository layout
+### Repository layout
 
 The Git repository used for Debian Policy has the following branches:
 
-+  master:: the current accepted changes that will be in the next release
-+  bug<number>-<user>:: changes addressing bug <number>, shepherded by <user>
-+  rra:: old history of Russ's arch repository, now frozen
-+  srivasta:: old history of Manoj's arch repository 
++ master:: the current accepted changes that will be in the next release
++ bug&lt;number&gt;-&lt;user&gt;:: changes addressing bug &lt;number&gt;,
+  shepherded by &lt;user&gt;
++ rra:: old history of Russ's arch repository, now frozen
++ srivasta:: old history of Manoj's arch repository
 
-** Managing a bug
+### Managing a bug
 
 The process used by Policy team members to manage a bug, once there is
 proposed wording, is:
 
-+ Create a bug<number>-<user> branch for the bug, where <number> is
-  the bug number in the BTS and <user> is a designator of the Policy
-  team member who is shepherding the bug.
++ Create a bug&lt;number&gt;-&lt;user&gt; branch for the bug, where
+  &lt;number&gt; is the bug number in the BTS and &lt;user&gt;is a
+  designator of the Policy team member who is shepherding the bug.
 + Commit wording changes in that branch until consensus is
   achieved. Do not modify debian/changelog or upgrading-checklist.html
   during this phase. Use the BTS to track who proposed the wording and
@@ -211,78 +207,73 @@ proposed wording, is:
 + Delete the now-merged branch.
 
 The Git commands used for this workflow are:
-#+BEGIN_SRC Sh
-git checkout -b bug12345-rra master
-# edit files
-# git add files
-git commit
-git push origin bug12345-rra
-# iterate until good
-# update your local master branch
-git checkout master
-git pull
 
-git checkout master
-git merge --no-commit bug12345-rra
-git reset --hard HEAD;
+    git checkout -b bug12345-rra master
+    # edit files
+    # git add files
+    git commit
+    git push origin bug12345-rra
+    # iterate until good
+    # update your local master branch
+    git checkout master
+    git pull
 
-# If there are changes in master that make the branch not apply cleanly, there
-# should have been en error during the merge step above. If there was an
-# error, merge the master branch into the local branch, fix the conflicts, and
-# commit the new version of the local branch.
- : git checkout bug12345-rra
- : git merge master
-# Edit files to remove conflict
- : git commit -s 
+    git checkout master
+    git merge --no-commit bug12345-rra
+    git reset --hard HEAD;
 
-git checkout master
-git merge bug12345-rra
-# edit debian/changelog and upgrading-checklist.html
-git add debian/changelog upgrading-checklist.html
-git commit
-git push origin master
-git branch -d bug12345-rra
-git push origin :bug12345-rra
-#+END_SRC
+    # If there are changes in master that make the branch not apply cleanly,
+    # there should have been en error during the merge step above. If there
+    # was an error, merge the master branch into the local branch, fix the
+    # conflicts, and commit the new version of the local branch.
+     : git checkout bug12345-rra
+     : git merge master
+    # Edit files to remove conflict
+     : git commit -s
+
+    git checkout master
+    git merge bug12345-rra
+    # edit debian/changelog and upgrading-checklist.html
+    git add debian/changelog upgrading-checklist.html
+    git commit
+    git push origin master
+    git branch -d bug12345-rra
+    git push origin :bug12345-rra
 
 For the debian/changelog entry, use the following format:
-#+BEGIN_EXAMPLE
-  * <document>: <brief change description>
-    Wording: <author of wording>
-    Seconded: <seconder>
-    Seconded: <seconder>
-    Closes: <bug numbers>
-#+END_EXAMPLE
+
+    * <document>: <brief change description>
+      Wording: <author of wording>
+      Seconded: <seconder>
+      Seconded: <seconder>
+      Closes: <bug numbers>
 
 For example:
-#+BEGIN_EXAMPLE
-  * Policy: better document version ranking and empty Debian revisions
-    Wording: Russ Allbery <rra@debian.org>
-    Seconded: Raphaël Hertzog <hertzog@debian.org>
-    Seconded: Manoj Srivastava <srivasta@debian.org>
-    Seconded: Guillem Jover <guillem@debian.org>
-    Closes: #186700, #458910
-#+END_EXAMPLE
 
-** Updating branches
+    * Policy: better document version ranking and empty Debian revisions
+      Wording: Russ Allbery <rra@debian.org>
+      Seconded: Raphaël Hertzog <hertzog@debian.org>
+      Seconded: Manoj Srivastava <srivasta@debian.org>
+      Seconded: Guillem Jover <guillem@debian.org>
+      Closes: #186700, #458910
+
+### Updating branches
 
 After commits to master have been pushed, either by you or by another
 Policy team member, you will generally want to update your working bug
 branches. The equivalent of the following commands should do that:
 
-#+BEGIN_SRC Sh
-for i in `git show-ref --heads | awk '{print $2}'`; do
-    j=$(basename $i)
-    if [ "$j" != "master" ]; then
-        git checkout $j && git merge master
-    fi
-done
-git push --all origin
-#+END_SRC
+    for i in `git show-ref --heads | awk '{print $2}'`; do
+        j=$(basename $i)
+        if [ "$j" != "master" ]; then
+            git checkout $j && git merge master
+        fi
+    done
+    git push --all origin
 
 assuming that you haven't packed the refs in your repository.
 
-** Making a release
+### Making a release
 
 For a final Policy release, change UNRELEASED to unstable in
 debian/changelog and update the timestamp to match the final release
@@ -293,11 +284,9 @@ that it builds and installs.
 
 Then, tag the repository and push the final changes to Alioth:
 
-#+BEGIN_SRC Sh
-git tag -s v3.8.0.0
-git push origin
-git push --tags origin
-#+END_SRC
+    git tag -s v3.8.0.0
+    git push origin
+    git push --tags origin
 
 replacing the version number with the version of the release, of course.
 
@@ -305,7 +294,7 @@ Finally, announce the new Policy release on debian-devel-announce,
 including in the announcement the upgrading-checklist section for the
 new release.
 
-** Setting release goals
+### Setting release goals
 
 Policy has a large bug backlog, and each bug against Policy tends to
 take considerable time and discussion to resolve. I've found it
@@ -314,8 +303,8 @@ of bugs and set as a target resolving them completely before the next
 Policy release. Resolving a bug means one of the following:
 
 + Proposing new language to address the bug that's seconded and approved by
-  the readers of the Policy list following the [[./Progress.org][Policy changes process]] (or
-  that's accepted by one of the Policy delegates if the change isn't
+  the readers of the Policy list following the [Policy changes process](./Progress.md)
+  (or that's accepted by one of the Policy delegates if the change isn't
   normative; i.e., doesn't change the technical meaning of the document).
 + Determining that the bug is not relevant to Policy and closing it.
 + Determining that either there is no consensus that the bug indicates

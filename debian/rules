@@ -5,11 +5,10 @@ package := $(shell grep Source debian/control | sed 's/^Source: //')
 date	:= $(shell date +"%Y-%m-%d")
 version := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2; exit }')
 
-# Current version of Emacs used to build org-mode files.  Assume the build
-# dependencies pick up the correct version and we can use the generic name
-# to avoid changing things in multiple places when new versions are
-# released.
-EMACS   := emacs
+# Select the Markdown implementation to use.
+MDWN	:= multimarkdown
+
+export MDWN
 
 # Location of the source and build directories.
 SRCTOP	:= $(CURDIR)
@@ -22,9 +21,9 @@ LIBDIR	:= $(TMPTOP)/usr/share/doc-base
 # and generate a tarball of the source.
 SGML_FILES  := policy menu-policy perl-policy upgrading-checklist
 
-# org-mode source files in the top-level directory.  We generate text and
+# Markdown source files in the top-level directory.  We generate text and
 # HTML versions from these.
-ORG_FILES   := Process README
+MDWN_FILES  := Process README
 
 # doc-base description files for the documents we include.
 DESC_FILES  := copyright-format-1.0 debian-policy debian-menu-policy \
@@ -47,7 +46,8 @@ POLICY_FILES := $(SGML_FILES:=.sgml) $(SGML_FILES:=.txt.gz)		\
 		autopkgtest/autopkgtest.txt.gz				\
 		debconf_spec/debconf_specification.html			\
 		debconf_spec/debconf_specification.txt.gz		\
-		policy.ps.gz policy.pdf.gz README.txt README.html	\
+		policy.ps.gz policy.pdf.gz				\
+		README.txt README.html README.css			\
 		Process.txt Process.html
 
 # Used by the clean rules.  STAMPS_TO_CLEAN are the stamp files used to tell
@@ -58,7 +58,7 @@ STAMPS_TO_CLEAN := stamp-binary stamp-build
 DIRS_TO_CLEAN   := $(SGML_FILES:=.html) debian/tmp fhs
 FILES_TO_CLEAN	:= $(SGML_FILES:=.txt) $(SGML_FILES:=.txt.gz)		\
 		   $(SGML_FILES:=.html.tar.gz) $(SGML_FILES:=-1.html)	\
-		   $(ORG_FILES:=.html) $(ORG_FILES:=.txt)		\
+		   $(MDWN_FILES:=.html) $(MDWN_FILES:=.txt)		\
 		   policy.pdf.gz policy.ps.gz				\
 		   policy.pdf policy.ps policy.tpt policy.txt		\
 		   copyright-format/version.xml				\
@@ -83,8 +83,8 @@ stamp-build: version.ent copyright-format/version.xml \
                 $(SGML_FILES:=-1.html) \
 		$(SGML_FILES:=.txt.gz) \
 		policy.ps.gz policy.pdf.gz
-	$(MAKE) $(ORG_FILES:=.html) \
-		$(ORG_FILES:=.txt)
+	$(MAKE) $(MDWN_FILES:=.html) \
+		$(MDWN_FILES:=.txt)
 	$(MAKE) -C copyright-format all
 	$(MAKE) -C autopkgtest all
 	$(MAKE) -C debconf_spec all

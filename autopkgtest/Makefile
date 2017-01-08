@@ -1,7 +1,9 @@
+MDWN ?= multimarkdown
+
 all: autopkgtest.html autopkgtest.txt.gz
 
 autopkgtest.html: autopkgtest.md.expanded
-	markdown $< > $@
+	$(MDWN) $< > $@
 
 autopkgtest.txt.gz: autopkgtest.md.expanded
 	gzip -ncf9 $< > $@
