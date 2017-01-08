@@ -90,6 +90,9 @@ Not Released Yet
   vendor directory for architecture-specific modules is now versioned to
   support multiarch.</item>
 <tag>virtual</tag>
+  <item>New <tt>adventure</tt> virtual package for implementations of the
+  classic Colossal Cave Adventure game.</item>
+<tag>virtual</tag>
   <item>New <tt>httpd-wsgi3</tt> virtual package for Python 3 WSGI-capable
   HTTP servers.  The existing <tt>httpd-wsgi</tt> virtual package is for
   Python 2 WSGI-capable HTTP servers.</item>

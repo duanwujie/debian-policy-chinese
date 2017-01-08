@@ -69,6 +69,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Niko Tyni <ntyni@debian.org>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #798309
+  * virtual-package-names-list: Add adventure
+    Wording: Ben Finney <ben+debian@benfinney.id.au>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Niels Thykier <niels@thykier.net>
+    Closes: #821859
   * virtual-package-names-list: Add httpd-wsgi3
     Wording: Bill Allombert <ballombe@debian.org>
     Seconded: Brian May <bam@debian.org>

@@ -197,12 +197,13 @@ Scheme and interpreters
 
 Games and Game-related
 ----------------------
- doom-engine             An executable Doom engine
- boom-engine             An executable Doom engine supporting the 'boom'
+ adventure               the classic Colossal Cave Adventure game
+ doom-engine             an executable Doom engine
+ boom-engine             an executable Doom engine supporting the 'boom'
                          feature-set
- doom-wad                The data component of a Doom game, compatible with
+ doom-wad                the data component of a Doom game, compatible with
                          the original Doom engine
- boom-wad                The data component of a Doom game, using features
+ boom-wad                the data component of a Doom game, using features
                          from the "boom" engine family
 
 Old and obsolete virtual package names
@@ -361,3 +362,4 @@ Russ Allbery:
                 virtual-mysql-server
                 virtual-mysql-server-core
                 virtual-mysql-testsuite
+  08 Jan 2017 Added adventure
