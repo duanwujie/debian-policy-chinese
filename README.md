@@ -192,14 +192,14 @@ proposed wording, is:
   &lt;number&gt; is the bug number in the BTS and &lt;user&gt;is a
   designator of the Policy team member who is shepherding the bug.
 + Commit wording changes in that branch until consensus is
-  achieved. Do not modify debian/changelog or upgrading-checklist.html
+  achieved. Do not modify debian/changelog or upgrading-checklist.xml
   during this phase. Use the BTS to track who proposed the wording and
   who seconded it.
 + git pull master to make sure you have the latest version.
 + Once the change has been approved by enough people, git merge the
   branch into master immediately after making the final commit adding
   the changelog entry to minimize conflicts.
-+ add the debian/changelog and upgrading-checklist.html changes, and
++ add the debian/changelog and upgrading-checklist.xml changes, and
   commit to master.
 + Push master out so other people may merge in their own bug branches
   without conflicts.
@@ -233,8 +233,8 @@ The Git commands used for this workflow are:
 
     git checkout master
     git merge bug12345-rra
-    # edit debian/changelog and upgrading-checklist.html
-    git add debian/changelog upgrading-checklist.html
+    # edit debian/changelog and upgrading-checklist.xml
+    git add debian/changelog upgrading-checklist.xml
     git commit
     git push origin master
     git branch -d bug12345-rra
@@ -278,7 +278,7 @@ assuming that you haven't packed the refs in your repository.
 For a final Policy release, change UNRELEASED to unstable in
 debian/changelog and update the timestamp to match the final release
 time (dch -r may be helpful for this), update the release date in
-upgrading-checklist.html, update Standards-Version in debian/control,
+upgrading-checklist.xml, update Standards-Version in debian/control,
 and commit that change. Then do the final release build and make sure
 that it builds and installs.
 

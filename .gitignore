@@ -17,7 +17,7 @@
 /stamp-build
 /stamp-binary
 /upgrading-checklist.html/
-/version.ent
+/version.xml
 *-1.html
 *.html.tar.gz
 *.pdf
