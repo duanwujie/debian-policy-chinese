@@ -7438,7 +7438,7 @@ rmdir /usr/local/share/emacs 2>/dev/null || true
       <sect id="sysvinit">
 	<heading>System run levels and <file>init.d</file> scripts</heading>
 
-	<sect1 id="/etc/init.d">
+	<sect1 id="etc-init.d">
 	  <heading>Introduction</heading>
 
 	  <p>
@@ -7833,7 +7833,7 @@ invoke-rc.d <var>package</var> <var>action</var>
             which contained scripts which were run once per machine
             boot. This has been deprecated in favour of links from
             <file>/etc/rcS.d</file> to files in <file>/etc/init.d</file> as
-            described in <ref id="/etc/init.d">.  Packages must not
+            described in <ref id="etc-init.d">.  Packages must not
             place files in <file>/etc/rc.boot</file>.
 	  </p>
 	</sect1>
