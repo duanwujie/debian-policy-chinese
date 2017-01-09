@@ -6,9 +6,6 @@ Abstract: This manual describes the policy requirements for the Menu
  hierarchical structure of the menu sections.
 Section: Debian
 
-Format: debiandoc-sgml
-Files: /usr/share/doc/debian-policy/menu-policy.sgml.gz
-
 Format: text
 Files: /usr/share/doc/debian-policy/menu-policy.txt.gz
 

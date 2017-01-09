@@ -17,8 +17,7 @@ DOCDIR	:= $(TMPTOP)/usr/share/doc/$(package)
 LIBDIR	:= $(TMPTOP)/usr/share/doc-base
 
 # SGML source files in the top-level directory.  We do some common actions
-# with each of these: validate, build text, HTML, and one-page HTML output,
-# and generate a tarball of the source.
+# with each of these: validate, build text, HTML, and one-page HTML output.
 SGML_FILES  := policy menu-policy perl-policy upgrading-checklist
 
 # Markdown source files in the top-level directory.  We generate text and
@@ -35,10 +34,10 @@ FHS_ARCHIVE := fhs-2.3-source.tar.gz
 FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 
 # A list of the simple Policy files that we include in the documentation
-# directory of the generated package.  The tarballs of source are handled
-# separately, as are the directories of HTML output.
-POLICY_FILES := $(SGML_FILES:=.sgml) $(SGML_FILES:=.txt.gz)		\
-		$(SGML_FILES:=-1.html) version.ent			\
+# directory of the generated package.  The directories of HTML output are
+# handled separately.
+POLICY_FILES := $(SGML_FILES:=.txt.gz)					\
+		$(SGML_FILES:=-1.html)					\
 		virtual-package-names-list.txt	                        \
 		copyright-format/copyright-format-1.0.html		\
 		copyright-format/copyright-format-1.0.txt.gz		\
@@ -64,8 +63,6 @@ FILES_TO_CLEAN	:= $(SGML_FILES:=.txt) $(SGML_FILES:=.txt.gz)		\
 		   copyright-format/version.xml				\
 		   autopkgtest/version.txt				\
 		   debconf_spec/include/version.xml version.ent		\
-		   copyright-format.xml.tar.gz				\
-		   debconf_specification.xml.tar.gz			\
 		   debian/files
 
 # Install files and directories with the correct ownership and permissions.
@@ -97,10 +94,6 @@ stamp-build: $(MDWN_FILES:=.md)				\
 	$(MAKE) -C copyright-format all
 	$(MAKE) -C autopkgtest all
 	$(MAKE) -C debconf_spec all
-	cd copyright-format && \
-		GZIP=-n9 tar -zcf ../copyright-format.xml.tar.gz *
-	cd debconf_spec && \
-		GZIP=-n9 tar -zcf ../debconf_specification.xml.tar.gz *
 	touch stamp-build
 
 # Create the version files for inclusion in the various documents.  We want
@@ -160,11 +153,6 @@ stamp-binary: stamp-build
 	$(install)	debian/changelog	$(DOCDIR)/
 	$(install)	debian/copyright	$(DOCDIR)/
 #
-# Install DocBook XML source.
-#
-	$(install)	copyright-format.xml.tar.gz		$(DOCDIR)/
-	$(install)	debconf_specification.xml.tar.gz	$(DOCDIR)/
-#
 # Install generated HTML directories.
 #
 	@set -ex; for file in $(SGML_FILES); do			\
@@ -186,7 +174,7 @@ stamp-binary: stamp-build
 #
 # Compress files and build MD5 checksums.
 #
-	gzip -fn9 $(DOCDIR)/*.sgml $(DOCDIR)/changelog
+	gzip -fn9 $(DOCDIR)/changelog
 	gzip -fn9 $(DOCDIR)/*.txt
 	@set -ex; cd debian/tmp; \
 	find . -path './DEBIAN' -prune -o -type f -printf '%P\0' \

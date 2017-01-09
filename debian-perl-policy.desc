@@ -7,9 +7,6 @@ Abstract: This manual describes the policy requirements for the Perl
  using Perl and Perl modules.
 Section: Debian
 
-Format: debiandoc-sgml
-Files: /usr/share/doc/debian-policy/perl-policy.sgml.gz
-
 Format: text
 Files: /usr/share/doc/debian-policy/perl-policy.txt.gz
 
