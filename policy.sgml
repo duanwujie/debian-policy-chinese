@@ -1920,8 +1920,8 @@ zope.
 	  It must start with the line <tt>#!/usr/bin/make -f</tt>,
 	  so that it can be invoked by saying its name rather than
 	  invoking <prgn>make</prgn> explicitly. That is, invoking
-          either of <tt>make -f debian/rules <em>args...</em></tt>
-          or <tt>./debian/rules <em>args...</em></tt> must result in
+          either of <tt>make -f debian/rules <var>args...</var></tt>
+          or <tt>./debian/rules <var>args...</var></tt> must result in
           identical behavior.
 	</p>
 
