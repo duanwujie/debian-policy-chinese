@@ -2375,7 +2375,6 @@ endif
 	</sect1>
       </sect>
 
-<!-- FIXME: section pkg-srcsubstvars is the same as substvars -->
       <sect id="substvars">
 	<heading>Variable substitutions: <file>debian/substvars</file></heading>
 
@@ -4488,12 +4487,6 @@ fi
 		It is an error for a package to contain files which
 		are on the system in another package, unless
 		<tt>Replaces</tt> is used (see <ref id="replaces">).
-		<!--
-		The following paragraph is not currently the case:
-		Currently the <tt>- - force-overwrite</tt> flag is
-		enabled, downgrading it to a warning, but this may not
-		always be the case.
-		-->
 	      </p>
 
 	      <p>
