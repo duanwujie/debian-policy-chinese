@@ -5,12 +5,6 @@
 ]>
 <debiandoc>
 
-  <!--
-  The debian-policy mailing list has taken responsibility for the
-  contents of this document, with the package maintainers responsible
-  for packaging administrivia only.
-  -->
-
   <book>
     <titlepag>
       <title>The Debian Menu sub-policy</title>
@@ -94,6 +88,13 @@
 	      policy changes that much harder to implement.</p>
 	  </item>
 	</enumlist>
+      </p>
+
+      <p>
+        The <url id="mailto:debian-policy@lists.debian.org"
+        name="debian-policy mailing list"> has taken responsibility for
+        the contents of this document, with the <em>Menu</em> package
+        maintainer's responsible for packaging administrivia only.
       </p>
     </chapt>
 
