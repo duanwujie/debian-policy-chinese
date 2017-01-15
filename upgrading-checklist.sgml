@@ -85,6 +85,9 @@ Not Released Yet
   <item>The Mozilla Public License 1.1 and 2.0 (MPL-1.1 and MPL-2.0) are
   now included in <file>/usr/share/common-licenses</file> and do not need
   to be copied verbatim in the package <file>copyright</file> file.</item>
+<tag>copyright-format</tag>
+  <item>The <tt>https</tt> form of the copyright-format URL is now allowed
+  and preferred in the <tt>Format</tt> field.</item>
 <tag>perl</tag>
   <item>The Perl search path now includes multiarch directories.  The
   vendor directory for architecture-specific modules is now versioned to

@@ -260,7 +260,7 @@
 
       <section id="example-header-paragraph">
         <title>Example header paragraph</title>
-<programlisting>Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+<programlisting>Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: SOFTware
 Upstream-Contact: John Doe &lt;john.doe@example.com&gt;
 Source: http://www.example.com/software/project</programlisting>
@@ -414,7 +414,15 @@ License: MPL-1.1
       <para>
         Single-line: URI of the format specification.  The field that
         should be used for the current version of this document is:
+<programlisting>Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/</programlisting>
+      </para>
+      <para>
+        The original version of this specification used the non-https
+        version of this URL as its URI, namely:
 <programlisting>Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/</programlisting>
+        Both versions are valid and refer to the same specification, and
+        parsers should interpret both as referencing the same format.  The
+        https URI is preferred.
       </para>
     </section>
 
@@ -1225,7 +1233,7 @@ also delete it here.</programlisting>
         correct copyright file for the actual <literal>xsol</literal>
         package):
 <programlisting><![CDATA[
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: X Solitaire
 Source: ftp://ftp.example.com/pub/games
 
@@ -1266,7 +1274,7 @@ License: GPL-2+
         correct copyright file for the actual
         <literal>planet-venus</literal> package):
 <programlisting><![CDATA[
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Planet Venus
 Upstream-Contact: John Doe <jdoe@example.com>
 Source: http://www.example.com/code/venus

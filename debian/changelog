@@ -64,6 +64,12 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Raphael Hertzog <hertzog@debian.org>
     Seconded: Niels Thykier <niels@thykier.net>
     Closes: #823348
+  * Policy: Explicitly allow https form of copyright-format URL
+    Wording: Russ Allbery <rra@debian.org>
+    Seconded: Andrey Rahmatullin <wrar@debian.org>
+    Seconded: gregor herrmann <gregoa@debian.org>
+    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
+    Closes: #850646
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>
