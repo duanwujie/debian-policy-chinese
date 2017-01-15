@@ -222,7 +222,8 @@
 	  id="mailto:debian-policy@lists.debian.org">. Proposals
           are discussed there and inserted into policy after a certain
           consensus is established.
-          <!-- insert shameless policy-process plug here eventually -->
+          The current policy process is described in the <url name="Process"
+          id="Process.md"> document.
           The actual editing is done by a group of maintainers that have
           no editorial powers. These are the current maintainers:
 
