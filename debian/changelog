@@ -120,10 +120,10 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     dbus-run-session.  Patch from Simon McVittie.  (Closes: #835876)
   * Add an example of an architecture restriction in a dependency with
     multiple architectures separated by spaces.  (Closes: #734662)
-  * Change emacs build dependency to specify the major version instead of
-    relying on metapackages, and stop using a versioned dependency on the
-    emacs metapackage (which didn't do what was intended anyway).  Switch
-    to Emacs 25 for the build.  (Closes: #849483)
+  * Replace use of markdown with MultiMarkdown for the autopkgtest
+    documentation and convert README and Process to MultiMarkdown, thus
+    dropping the last org-mode files and the build dependency on Emacs.
+    Patch from Guillem Jover.  (Closes: #849483)
   * Add some additional information to the upgrading-checklist entry for
     the 3.9.8.0 release.
   * Fix debian/changelog and upgrading-checklist dates for the 3.9.8.0
