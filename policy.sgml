@@ -7078,12 +7078,6 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
 		  in <file>/run</file> should be stored on a temporary
 		  file system.
 		</p>
-		<p>
-		  Packages must not assume the <file>/run</file>
-		  directory exists or is usable without a dependency
-		  on <tt>initscripts (&gt;= 2.88dsf-13.3)</tt> until the
-		  stable release of Debian supports <file>/run</file>.
-		</p>
 	      </item>
 	      <item>
 		<p>

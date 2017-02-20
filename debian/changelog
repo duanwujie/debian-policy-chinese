@@ -81,6 +81,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Felipe Sateler <fsateler@debian.org>
     Seconded: Ondřej Nový <novy@ondrej.org>
     Closes: #181123
+  * Policy: No special dependency now required for /run
+    Wording: Marc Haber <mh+debian-packages@zugschlus.de>
+    Seconded: Andreas Henriksson <andreas@fatal.se>
+    Seconded: Russ Allbery <rra@debian.org>
+    Closes: #852314
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>

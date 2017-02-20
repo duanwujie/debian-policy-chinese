@@ -68,6 +68,10 @@ Not Released Yet
   is now <var>libraryname</var>-dev
   or <var>libraryname</var><var>apiversion</var>-dev,
   not <var>libraryname</var><var>soversion</var>-dev.</item>
+<tag>9.1.1</tag>
+  <item>The stable release of Debian supports <file>/run</file>, so
+  packages may now assume that it exists and do not need any special
+  dependency on a version of initscripts.</item>
 <tag>9.3.2</tag>
   <item>New optional <tt>try-restart</tt> standard init script argument,
   which (if supported) should restart the service if it is already
