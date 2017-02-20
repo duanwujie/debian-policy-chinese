@@ -75,6 +75,12 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Julien Cristau <jcristau@debian.org>
     Seconded: Emilio Pozuelo Monfort <pochu@debian.org>
     Closes: #568374
+  * Policy: Add optional try-restart init status, make status recommended
+    Wording: Andreas Henriksson <andreas@fatal.se>
+    Seconded: Simon McVittie <smcv@debian.org>
+    Seconded: Felipe Sateler <fsateler@debian.org>
+    Seconded: Ondřej Nový <novy@ondrej.org>
+    Closes: #181123
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>

@@ -68,6 +68,13 @@ Not Released Yet
   is now <var>libraryname</var>-dev
   or <var>libraryname</var><var>apiversion</var>-dev,
   not <var>libraryname</var><var>soversion</var>-dev.</item>
+<tag>9.3.2</tag>
+  <item>New optional <tt>try-restart</tt> standard init script argument,
+  which (if supported) should restart the service if it is already
+  running and otherwise just report success.</item>
+<tag>9.3.2</tag>
+  <item>The <tt>status</tt> init script argument is now recommended rather
+  than just optional.</item>
 <tag>9.3.3.2</tag>
   <item>Packages must not call <file>/etc/init.d</file> scripts directly
   even as a fallback, and instead must always use <prgn>invoke-rc.d</prgn>
