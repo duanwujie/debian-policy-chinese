@@ -6009,12 +6009,12 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
       <p>
 	If there are development files associated with a shared library,
 	the source package needs to generate a binary development package
-	named <package><var>libraryname</var><var>soversion</var>-dev</package>,
-	or if you prefer only to support one development version at a
-	time, <package><var>libraryname</var>-dev</package>.  Installing
-	the development package must result in installation of all the
-	development files necessary for compiling programs against that
-	shared library.<footnote>
+	named <package><var>libraryname</var>-dev</package>, or if you
+	need to support multiple development versions at a
+	time, <package><var>libraryname</var><var>apiversion</var>-dev</package>.
+	Installing the development package must result in installation of
+	all the development files necessary for compiling programs against
+	that shared library.<footnote>
 	  This wording allows the development files to be split into
 	  several packages, such as a separate architecture-independent
 	  <package><var>libraryname</var>-headers</package>, provided that

@@ -70,6 +70,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: gregor herrmann <gregoa@debian.org>
     Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
     Closes: #850646
+  * Policy: Recommend libraryname-dev or librarynameAPIVERSION-dev
+    Wording: Ansgar Burchardt <ansgar@debian.org>
+    Seconded: Julien Cristau <jcristau@debian.org>
+    Seconded: Emilio Pozuelo Monfort <pochu@debian.org>
+    Closes: #568374
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>

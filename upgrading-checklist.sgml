@@ -63,6 +63,11 @@ Not Released Yet
 <tag>7.7</tag>
   <item>New <tt>Build-Depends-Arch</tt> and <tt>Build-Conflicts-Arch</tt>
   fields are now supported.</item>
+<tag>8.4</tag>
+  <item>The recommended package name for shared library development files
+  is now <var>libraryname</var>-dev
+  or <var>libraryname</var><var>apiversion</var>-dev,
+  not <var>libraryname</var><var>soversion</var>-dev.</item>
 <tag>9.3.3.2</tag>
   <item>Packages must not call <file>/etc/init.d</file> scripts directly
   even as a fallback, and instead must always use <prgn>invoke-rc.d</prgn>
