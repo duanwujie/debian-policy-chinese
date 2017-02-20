@@ -75,8 +75,17 @@ mkdir   := install -d -o root -g root -m 755
 
 all build build-indep: stamp-build
 build-arch:
-stamp-build: version.ent copyright-format/version.xml \
-	     autopkgtest/version.txt \
+stamp-build: $(MDWN_FILES:=.md)				\
+	     $(SGML_FILES:=.sgml)			\
+	     version.ent				\
+	     copyright-format/copyright-format-1.0.xml	\
+	     copyright-format/version.xml		\
+	     autopkgtest/autopkgtest.md			\
+	     autopkgtest/version.txt			\
+	     debconf_spec/include/commands.xml		\
+	     debconf_spec/include/priorities.xml	\
+	     debconf_spec/include/statuscodes.xml	\
+	     debconf_spec/include/types.xml		\
 	     debconf_spec/include/version.xml
 	$(MAKE) $(SGML_FILES:=.sgml.validate) \
 		$(SGML_FILES:=.html.tar.gz) \

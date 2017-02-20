@@ -148,6 +148,9 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Samir.  (Closes: #830989)
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
+  * Redo some of the Makefile and debian/rules dependencies to avoid
+    ambiguous pattern rules and to ensure that make at the top level
+    rebuilds output files if input files change.
   * Switch to https URLs for Vcs-Git and Vcs-Browser.
   * Use the same URL for both Vcs-Git and Vcs-Browser, which now works
     fine and has some advantages over the gitweb version for Vcs-Browser.

@@ -4,11 +4,11 @@ policy.sgml: version.ent
 menu-policy.sgml: version.ent
 perl-policy.sgml: version.ent
 
-%.txt: %.md
+$(MDWN_FILES:=.txt): %.txt: %.md
 	cat $^ > $@
 	test "$@" != "README.txt"  ||                            \
            perl -pli -e 's,./Process.md,Process.txt,g' $@
-%.html: %.md
+$(MDWN_FILES:=.html): %.html: %.md
 	$(MDWN) $< > $@
 
 %.validate: %
@@ -25,7 +25,7 @@ perl-policy.sgml: version.ent
 %.html.tar.gz: %.html/index.html
 	GZIP=-n9 tar -czf $(<:/index.html=.tar.gz) $(<:/index.html=)
 
-%.txt: %.sgml
+$(SGML_FILES:=.txt): %.txt: %.sgml
 	LANG=C debiandoc2text $<
 
 %.txt.gz: %.txt
@@ -63,7 +63,7 @@ policy: html txt ps pdf
 
 leavealone :=	$(FHS_HTML) $(FHS_FILES) $(FHS_ARCHIVE) \
 		libc6-migration.txt
-	      
+
 .PHONY: distclean
 distclean:
 	rm -rf $(filter-out $(leavealone),$(wildcard *.html))
