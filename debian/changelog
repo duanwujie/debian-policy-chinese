@@ -129,6 +129,17 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     documentation and convert README and Process to MultiMarkdown, thus
     dropping the last org-mode files and the build dependency on Emacs.
     Patch from Guillem Jover.  (Closes: #849483)
+  * Apply multiple patches from Guillem Jover to pave the way for a more
+    successful conversion to DocBook XML:
+    - Use entities instead of literal <, >, and & characters.
+    - Use <var> instead of escaped angle brackets for metavariables.
+    - Use <var> instead of <em> inside <tt>.
+    - Avoid slashes in section IDs.
+    - Convert a comment about maintenance policy in the Menu Policy
+      document to a regular paragraph in the document.
+    - Replace a comment reference to the policy maintenance process with
+      an actual link to Process.md.
+    - Remove obsolete SGML comments.
   * Add some additional information to the upgrading-checklist entry for
     the 3.9.8.0 release.
   * Fix debian/changelog and upgrading-checklist dates for the 3.9.8.0
