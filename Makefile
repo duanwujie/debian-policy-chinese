@@ -3,7 +3,6 @@ include debian/rules
 policy.xml: version.xml
 menu-policy.xml: version.xml
 perl-policy.xml: version.xml
-upgrading-checklist.xml: version.xml
 
 XSLTPROC = xsltproc --nonet --xinclude
 XMLLINT  = xmllint --nonet --noout --postvalid --xinclude
@@ -16,8 +15,7 @@ $(MDWN_FILES:=.txt): %.txt: %.md
 $(MDWN_FILES:=.html): %.html: %.md
 	$(MDWN) $< > $@
 
-upgrading-checklist-1.html \
-upgrading-checklist.html/index.html: XSLPARAMS = --stringparam generate.toc ''
+upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
 
 %.validate: %
 	$(XMLLINT) $<
@@ -34,7 +32,7 @@ upgrading-checklist.html/index.html: XSLPARAMS = --stringparam generate.toc ''
 %.html.tar.gz: %.html/index.html
 	GZIP=-n9 tar -czf $(<:/index.html=.tar.gz) $(<:/index.html=)
 
-$(XML_FILES:=.txt): %.txt: %.xml
+$(XML_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): %.txt: %.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/text.xsl $< > $@.html
 	links -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
@@ -53,16 +51,6 @@ $(XML_FILES:=.txt): %.txt: %.xml
 
 %.pdf.gz: %.pdf
 	gzip -ncf9 $< > $@
-
-# This is a temporary hack to fold the upgrading-checklist into the Policy
-# HTML directory so that it can be deployed alongside Policy on
-# www.debian.org in a way that lets the cross-document links work properly.
-# The correct solution is to make upgrading-checklist an appendix of Policy,
-# which will probably be done as part of a general conversion to DocBook.
-policy.html.tar.gz:: policy.html/upgrading-checklist.html
-policy.html/upgrading-checklist.html: upgrading-checklist-1.html \
-				      policy.html/index.html
-	cp -p $< $@
 
 # convenience aliases :)
 html: policy.html/index.html

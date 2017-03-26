@@ -10732,6 +10732,8 @@ it well.
 </para>
 </appendix>
 
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+            href="upgrading-checklist.xml" />
 
 </book>
 

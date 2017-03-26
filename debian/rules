@@ -18,7 +18,11 @@ LIBDIR	:= $(TMPTOP)/usr/share/doc-base
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
-XML_FILES   := policy menu-policy perl-policy upgrading-checklist
+XML_FILES   := policy menu-policy perl-policy
+
+# The upgrading-checklist used to be a document of its own, which was merged
+# with the conversion to DocBook. Keep backwards compatibility files.
+XML_SPLIT_FILES := upgrading-checklist
 
 XML_VERSION := copyright-format/version.xml debconf_spec/include/version.xml \
 	       version.xml
@@ -41,6 +45,8 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 # handled separately.
 POLICY_FILES := $(XML_FILES:=.txt.gz)					\
 		$(XML_FILES:=-1.html)					\
+		$(XML_SPLIT_FILES:=.txt.gz)				\
+		$(XML_SPLIT_FILES:=-1.html)				\
 		virtual-package-names-list.txt	                        \
 		copyright-format/copyright-format-1.0.html		\
 		copyright-format/copyright-format-1.0.txt.gz		\
@@ -60,6 +66,8 @@ STAMPS_TO_CLEAN := stamp-binary stamp-build
 DIRS_TO_CLEAN   := $(XML_FILES:=.html) debian/tmp fhs
 FILES_TO_CLEAN  := $(XML_FILES:=.txt) $(XML_FILES:=.txt.gz)		\
 		   $(XML_FILES:=.html.tar.gz) $(XML_FILES:=-1.html)	\
+		   $(XML_SPLIT_FILES:=.txt) $(XML_SPLIT_FILES:=.txt.gz)	\
+		   $(XML_SPLIT_FILES:=-1.html)				\
 		   $(MDWN_FILES:=.html) $(MDWN_FILES:=.txt)		\
 		   policy.pdf.gz policy.ps.gz				\
 		   policy.pdf policy.ps policy.tpt policy.txt		\
@@ -89,6 +97,8 @@ stamp-build: $(MDWN_FILES:=.md)				\
 		$(XML_FILES:=.html.tar.gz) \
 		$(XML_FILES:=-1.html) \
 		$(XML_FILES:=.txt.gz) \
+		$(XML_SPLIT_FILES:=-1.html) \
+		$(XML_SPLIT_FILES:=.txt.gz) \
 		policy.ps.gz policy.pdf.gz
 	$(MAKE) $(MDWN_FILES:=.html) \
 		$(MDWN_FILES:=.txt)
@@ -148,13 +158,6 @@ stamp-binary: stamp-build
 	@set -ex; for file in $(XML_FILES); do			\
 		tar -C $(DOCDIR) -zxf $$file.html.tar.gz;	\
 	done
-#
-# Make upgrading-checklist-1.html a symlink to the copy in the policy.html
-# directory.  This is temporary until it becomes a proper appendix.
-#
-	rm -f $(DOCDIR)/upgrading-checklist-1.html
-	ln -s policy.html/upgrading-checklist.html \
-		$(DOCDIR)/upgrading-checklist-1.html
 #
 # Install doc-base files.
 #

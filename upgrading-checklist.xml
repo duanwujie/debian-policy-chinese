@@ -1,33 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- -*- DocBook -*- -->
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
     "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
-<!ENTITY % versiondata SYSTEM "version.xml"> %versiondata;
 ]>
 
-<book lang="en">
+<appendix id="upgrading-checklist"><title>Upgrading checklist</title>
 
-<title>Policy checklist for upgrading your packages</title>
-
-<bookinfo>
-
-<authorgroup>
-<author><personname><firstname>Bill</firstname><surname>Allombert</surname></personname><email>ballombe@debian.org</email></author>
-<author><personname><firstname>Josip</firstname><surname>Rodin</surname></personname></author>
-<author><personname><firstname>Julian</firstname><surname>Gilbey</surname></personname></author>
-<author><personname><firstname>Russ</firstname><surname>Allbery</surname></personname><email>rra@debian.org</email></author>
-<author><personname><firstname>Manoj</firstname><surname>Srivastava</surname></personname><email>srivasta@debian.org</email></author>
-
-</authorgroup>
-<releaseinfo></releaseinfo>
-
-<pubdate>&date;</pubdate>
-
-
-</bookinfo>
-
-
-<chapter id="ch1"><title>About the checklist</title>
+<abstract>
+<title>About the checklist</title>
 <para>
 The checklist below has been created to simplify the upgrading process of old
 packages.  Note that this list is not "official"; it simply gives an indication
@@ -49,9 +29,8 @@ and then check out the Policy Manual for details.  If you are upgrading from
 Policy version &lt; 2.5.0, it may be easier to check through the whole of
 policy instead of picking your way through this list.
 </para>
-</chapter>
+</abstract>
 
-<chapter id="ch2"><title>The checklist</title>
 <section id="s-3.9.9.0"><title>Version 3.9.9.0</title>
 <para>
 Not Released Yet
@@ -3494,8 +3473,4 @@ Upstream changelog must be installed too
 </itemizedlist>
 </section>
 
-</chapter>
-
-
-</book>
-
+</appendix>
