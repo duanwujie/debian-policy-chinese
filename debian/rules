@@ -20,6 +20,8 @@ LIBDIR	:= $(TMPTOP)/usr/share/doc-base
 # with each of these: validate, build text, HTML, and one-page HTML output.
 SGML_FILES  := policy menu-policy perl-policy upgrading-checklist
 
+XML_VERSION := copyright-format/version.xml debconf_spec/include/version.xml
+
 # Markdown source files in the top-level directory.  We generate text and
 # HTML versions from these.
 MDWN_FILES  := Process README
@@ -60,9 +62,9 @@ FILES_TO_CLEAN	:= $(SGML_FILES:=.txt) $(SGML_FILES:=.txt.gz)		\
 		   $(MDWN_FILES:=.html) $(MDWN_FILES:=.txt)		\
 		   policy.pdf.gz policy.ps.gz				\
 		   policy.pdf policy.ps policy.tpt policy.txt		\
-		   copyright-format/version.xml				\
 		   autopkgtest/version.txt				\
-		   debconf_spec/include/version.xml version.ent		\
+		   $(XML_VERSION)					\
+		   version.ent						\
 		   debian/files
 
 # Install files and directories with the correct ownership and permissions.
@@ -74,16 +76,15 @@ all build build-indep: stamp-build
 build-arch:
 stamp-build: $(MDWN_FILES:=.md)				\
 	     $(SGML_FILES:=.sgml)			\
+	     $(XML_VERSION)				\
 	     version.ent				\
 	     copyright-format/copyright-format-1.0.xml	\
-	     copyright-format/version.xml		\
 	     autopkgtest/autopkgtest.md			\
 	     autopkgtest/version.txt			\
 	     debconf_spec/include/commands.xml		\
 	     debconf_spec/include/priorities.xml	\
 	     debconf_spec/include/statuscodes.xml	\
-	     debconf_spec/include/types.xml		\
-	     debconf_spec/include/version.xml
+	     debconf_spec/include/types.xml
 	$(MAKE) $(SGML_FILES:=.sgml.validate) \
 		$(SGML_FILES:=.html.tar.gz) \
                 $(SGML_FILES:=-1.html) \
@@ -99,21 +100,14 @@ stamp-build: $(MDWN_FILES:=.md)				\
 # Create the version files for inclusion in the various documents.  We want
 # to put the Policy version and date in each document, even if they
 # separately have their own versions.
-configure: version.ent copyright-format/version.xml \
-	   autopkgtest/version.txt \
-	   debconf_spec/include/version.xml
+configure: version.ent $(XML_VERSION) autopkgtest/version.txt
 version.ent: debian/changelog
 	rm -f $@
 	echo "<!entity version \"$(version)\">" >> $@
 	echo "<!entity date    \"$(date)\">"	>> $@
-copyright-format/version.xml: debian/changelog
+$(XML_VERSION): debian/changelog
 	rm -f $@
-	echo '<?xml version="1.0" standalone="no"?>' >  $@
-	echo '<!ENTITY version "$(version)">'        >> $@
-	echo '<!ENTITY date    "$(date)">'           >> $@
-debconf_spec/include/version.xml: debian/changelog
-	rm -f $@
-	echo '<?xml version="1.0" standalone="no"?>' >  $@
+	echo '<?xml version="1.0" encoding="utf-8"?>' > $@
 	echo '<!ENTITY version "$(version)">'        >> $@
 	echo '<!ENTITY date    "$(date)">'           >> $@
 autopkgtest/version.txt: debian/changelog
