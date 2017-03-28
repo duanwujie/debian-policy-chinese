@@ -8,17 +8,14 @@ Uploaders:
 Section: doc
 Priority: optional
 Build-Depends:
- bsdmainutils,
  debiandoc-sgml (>= 1.1.47),
  docbook-dsssl,
  docbook-xml,
  ghostscript,
- groff,
  libtext-multimarkdown-perl,
  links | elinks,
  openjade,
  opensp,
- pstoedit,
  sgml-data,
  texlive,
  texlive-latex-extra,
