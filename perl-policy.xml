@@ -6,542 +6,642 @@
 ]>
 
 <book lang="en">
+  <title>Debian Perl Policy</title>
 
-<title>Debian Perl Policy</title>
+  <bookinfo>
+    <authorgroup>
+      <author>
+        <personname>
+          <firstname>Rapha&euml;l</firstname><surname>Hertzog</surname>
+        </personname>
+      </author>
+      <author>
+        <personname>
+          <firstname>Brendan</firstname><surname>O'Dea</surname>
+        </personname>
+      </author>
+      <author>
+        <othername>The Debian Policy mailing list</othername>
+        <email>debian-policy@lists.debian.org</email>
+      </author>
+    </authorgroup>
 
-<bookinfo>
+    <releaseinfo>version &version;</releaseinfo>
+    <pubdate>&date;</pubdate>
 
-<authorgroup>
-<author><personname><firstname>Rapha&euml;l</firstname><surname>Hertzog</surname></personname></author>
-<author><personname><firstname>Brendan</firstname><surname>O'Dea</surname></personname></author>
-<author><othername>The Debian Policy mailing list</othername><email>debian-policy@lists.debian.org</email></author>
+    <abstract>
+      <para>
+        This document describes the packaging of Perl within the Debian
+        distribution and the policy requirements for packaged Perl
+        programs and modules.
+      </para>
+    </abstract>
 
-</authorgroup>
-<releaseinfo>version &version;</releaseinfo>
+    <copyright>
+      <year>1999, 2001</year>
+      <holder>Software in the Public Interest</holder>
+    </copyright>
+    <legalnotice>
+      <para>
+        This manual is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License as
+        published by the Free Software Foundation; either version 2 of the
+        License, or (at your option) any later version.
+      </para>
+      <para>
+        This is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+        General Public License for more details.
+      </para>
+      <para>
+        A copy of the GNU General Public License is available as
+        <literal>/usr/share/common-licenses/GPL</literal> in the Debian
+        distribution or on the World Wide Web at <ulink
+        url="http://www.gnu.org/copyleft/gpl.html">The GNU Public
+        Licence</ulink>.
+      </para>
+      <para>
+        You can also obtain it by writing to the Free Software Foundation,
+        Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+      </para>
+    </legalnotice>
+  </bookinfo>
 
-<pubdate>&date;</pubdate>
+  <chapter id="ch1">
+    <title>About this document</title>
+    <para>
+      This document is distributed as the <literal>perl-policy</literal>
+      files in the Debian package <systemitem role="package"><ulink
+      url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
+      It is also available from the Debian web mirrors at <literal><ulink
+      url="http://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
+    </para>
+  </chapter>
 
+  <chapter id="ch-perl">
+    <title>Perl Packaging</title>
 
-<abstract>
-<para>
-This document describes the packaging of Perl within the Debian distribution
-and the policy requirements for packaged Perl programs and modules.
-</para>
-</abstract>
+    <section id="s-versions">
+      <title>Versions</title>
 
-<copyright><year>1999, 2001</year><holder>Software in the Public Interest</holder></copyright>
-<legalnotice>
-<para>
-This manual is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation; either version 2 of the License, or (at your option) any later
-version.
-</para>
-<para>
-This is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-</para>
-<para>
-A copy of the GNU General Public License is available as
-<literal>/usr/share/common-licenses/GPL</literal> in the Debian distribution or
-on the World Wide Web at <ulink url="http://www.gnu.org/copyleft/gpl.html">The
-GNU Public Licence</ulink>.
-</para>
-<para>
-You can also obtain it by writing to the Free Software Foundation, Inc., 51
-Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
-</para>
-</legalnotice>
+      <para>
+        At any given time, the package <systemitem
+        role="package">perl</systemitem> should represent the current
+        stable upstream version of Perl revision 5 (see <xref
+        linkend="ap-perl6"/>).
+      </para>
+      <para>
+        Only one package may contain the
+        <filename>/usr/bin/perl</filename> binary and that package must
+        either be <systemitem role="package">perl</systemitem> or a
+        dependency of that package (see <xref linkend="s-base"/>).
+      </para>
+      <para>
+        Where possible, Perl should be compiled to provide binary
+        compatibility to at least the last released package version to
+        allow a grace period over which binary module packages may be
+        re-built against the new package (see <xref
+        linkend="s-binary-modules"/>).
+      </para>
+      <para>
+        The <systemitem role="package">perl-base</systemitem> package must
+        provide <systemitem
+        role="package">perlapi-<replaceable>abiname</replaceable></systemitem>
+        for all released package versions it is compatible with.  The
+        choice of <replaceable>abiname</replaceable> is arbitrary, but if
+        it differs from
+        <literal>$Config{version}</literal><footnote><para> see the
+        <literal>Config</literal> module </para> </footnote>, it must be
+        specified in <literal>$Config{debian_abi}</literal>.
+      </para>
+    </section>
 
-</bookinfo>
+    <section id="s-base">
+      <title>Base Package</title>
 
+      <para>
+        In order to provide a minimal installation of Perl for use by
+        applications without requiring the whole of Perl to be installed,
+        the <systemitem role="package">perl-base</systemitem> package
+        contains the binary and a basic set of modules.
+      </para>
+      <para>
+        As Perl has been part of the essential set for some time and is
+        used without dependencies by such things as package maintainer
+        scripts, <systemitem role="package">perl-base</systemitem> must be
+        priority <emphasis>required</emphasis> and marked as
+        <emphasis>essential</emphasis>.
+      </para>
+      <para>
+        Note that the <systemitem role="package">perl-base</systemitem>
+        package is intended only to provide for exceptional circumstances
+        and the contents may change.  In general, only packages which form
+        part of the base system should use only the facilities of
+        <systemitem role="package">perl-base</systemitem> rather than
+        declaring a dependency on <systemitem
+        role="package">perl</systemitem>.
+      </para>
+    </section>
 
-<chapter id="ch1"><title>About this document</title>
-<para>
-This document is distributed as the <literal>perl-policy</literal> files in the
-Debian package <systemitem role="package"><ulink
-url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
-It is also available from the Debian web mirrors at <literal><ulink
-url="http://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
-</para>
-</chapter>
+    <section id="s-paths">
+      <title>Module Path</title>
 
-<chapter id="ch-perl"><title>Perl Packaging</title>
-<section id="s-versions"><title>Versions</title>
-<para>
-At any given time, the package <systemitem role="package">perl</systemitem>
-should represent the current stable upstream version of Perl revision 5 (see
-<xref linkend="ap-perl6"/>).
-</para>
-<para>
-Only one package may contain the <filename>/usr/bin/perl</filename> binary and
-that package must either be <systemitem role="package">perl</systemitem> or a
-dependency of that package (see <xref linkend="s-base"/>).
-</para>
-<para>
-Where possible, Perl should be compiled to provide binary compatibility to at
-least the last released package version to allow a grace period over which
-binary module packages may be re-built against the new package (see <xref
-linkend="s-binary-modules"/>).
-</para>
-<para>
-The <systemitem role="package">perl-base</systemitem> package must provide
-<systemitem
-role="package">perlapi-<replaceable>abiname</replaceable></systemitem> for all
-released package versions it is compatible with.  The choice of
-<replaceable>abiname</replaceable> is arbitrary, but if it differs from
-<literal>$Config{version}</literal><footnote><para> see the
-<literal>Config</literal> module </para> </footnote>, it must be specified in
-<literal>$Config{debian_abi}</literal>.
-</para>
-</section>
-
-<section id="s-base"><title>Base Package</title>
-<para>
-In order to provide a minimal installation of Perl for use by applications
-without requiring the whole of Perl to be installed, the <systemitem
-role="package">perl-base</systemitem> package contains the binary and a basic
-set of modules.
-</para>
-<para>
-As Perl has been part of the essential set for some time and is used without
-dependencies by such things as package maintainer scripts, <systemitem
-role="package">perl-base</systemitem> must be priority
-<emphasis>required</emphasis> and marked as <emphasis>essential</emphasis>.
-</para>
-<para>
-Note that the <systemitem role="package">perl-base</systemitem> package is
-intended only to provide for exceptional circumstances and the contents may
-change.  In general, only packages which form part of the base system should
-use only the facilities of <systemitem role="package">perl-base</systemitem>
-rather than declaring a dependency on <systemitem
-role="package">perl</systemitem>.
-</para>
-</section>
-
-<section id="s-paths"><title>Module Path</title>
-<para>
-Perl searches several different locations for modules, referred to in this
-document as <replaceable>core</replaceable> in which modules distributed with
-Perl are installed, <replaceable>vendor</replaceable> for packaged modules and
-<replaceable>site</replaceable> for modules installed by the local
-administrator.
-</para>
-<para>
-The module search path (<literal>@INC</literal>) in the current Debian packages
-has been ordered to include these locations in the following
-order<footnote><para> @INC contains other paths which should be considered
-internal to the implementation of the perl packaging </para> </footnote>
-</para>
-<variablelist>
-<varlistentry>
-<term><replaceable>site</replaceable> (current)</term>
-<listitem>
-<para>
-Modules installed by the local administrator for the current version of Perl
-(see <xref linkend="ch-site"/>).
-</para>
-<screen>
+      <para>
+        Perl searches several different locations for modules, referred to
+        in this document as <replaceable>core</replaceable> in which
+        modules distributed with Perl are installed,
+        <replaceable>vendor</replaceable> for packaged modules and
+        <replaceable>site</replaceable> for modules installed by the local
+        administrator.
+      </para>
+      <para>
+        The module search path (<literal>@INC</literal>) in the current
+        Debian packages has been ordered to include these locations in the
+        following order<footnote><para>@INC contains other paths which
+        should be considered internal to the implementation of the perl
+        packaging</para></footnote>
+      </para>
+      <variablelist>
+        <varlistentry>
+          <term><replaceable>site</replaceable> (current)</term>
+          <listitem>
+            <para>
+              Modules installed by the local administrator for the current
+              version of Perl (see <xref linkend="ch-site"/>).
+            </para>
+            <screen>
 $Config{sitearch}  (currently /usr/local/lib/<replaceable>arch-triplet</replaceable>/perl/<replaceable>version</replaceable>)
 $Config{sitelib}   (currently /usr/local/share/perl/<replaceable>version</replaceable>)
-</screen>
-<para>
-Where <replaceable>version</replaceable> indicates the current Perl version
-(<literal>$Config{version}</literal>).
-</para>
-<para>
-These locations, particularly <literal>$Config{sitearch}</literal>, may change
-if the binary interface between the Perl interpreter and compiled modules has
-to be changed in an incompatible way without a change in
-<replaceable>version</replaceable>.  While this will only be done as a last
-resort, packages should use <literal>$Config{sitelib}</literal> and
-<literal>$Config{sitearch}</literal>, not hardcode the current
-locations.<footnote><para> Build systems based on
-<literal>ExtUtils::MakeMaker</literal> and <literal>Module::Build</literal> do
-this automatically.  </para> </footnote>
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><replaceable>vendor</replaceable></term>
-<listitem>
-<para>
-Packaged modules (see <xref linkend="ch-module_packages"/>).
-</para>
-<screen>
+            </screen>
+            <para>
+              Where <replaceable>version</replaceable> indicates the
+              current Perl version (<literal>$Config{version}</literal>).
+            </para>
+            <para>
+              These locations, particularly
+              <literal>$Config{sitearch}</literal>, may change if the
+              binary interface between the Perl interpreter and compiled
+              modules has to be changed in an incompatible way without a
+              change in <replaceable>version</replaceable>.  While this
+              will only be done as a last resort, packages should use
+              <literal>$Config{sitelib}</literal> and
+              <literal>$Config{sitearch}</literal>, not hardcode the
+              current locations.<footnote><para> Build systems based on
+              <literal>ExtUtils::MakeMaker</literal> and
+              <literal>Module::Build</literal> do this
+              automatically.</para></footnote>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><replaceable>vendor</replaceable></term>
+          <listitem>
+            <para>
+              Packaged modules (see <xref linkend="ch-module_packages"/>).
+            </para>
+            <screen>
 $Config{vendorarch} (currently /usr/lib/<replaceable>arch-triplet</replaceable>/perl5/<replaceable>shortversion</replaceable>)
 $Config{vendorlib}  (currently /usr/share/perl5)
-</screen>
-<para>
-Where <replaceable>shortversion</replaceable> indicates the current Perl major
-version (for example <literal>5.22</literal>).
-</para>
-<para>
-These locations, particularly <literal>$Config{vendorarch}</literal>, may
-change if necessary<footnote><para> For example, to include the multiarch
-triplet </para> </footnote>.  Packages should use
-<literal>$Config{vendorlib}</literal> and
-<literal>$Config{vendorarch}</literal>, not hardcode the current
-locations.<footnote><para> Build systems based on
-<literal>ExtUtils::MakeMaker</literal> and <literal>Module::Build</literal> do
-this automatically.  </para> </footnote>
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><replaceable>core</replaceable></term>
-<listitem>
-<para>
-Modules included in the core Perl distribution.
-</para>
-<screen>
+            </screen>
+            <para>
+              Where <replaceable>shortversion</replaceable> indicates the
+              current Perl major version (for example
+              <literal>5.22</literal>).
+            </para>
+            <para>
+              These locations, particularly
+              <literal>$Config{vendorarch}</literal>, may change if
+              necessary<footnote><para> For example, to include the
+              multiarch triplet </para> </footnote>.  Packages should use
+              <literal>$Config{vendorlib}</literal> and
+              <literal>$Config{vendorarch}</literal>, not hardcode the
+              current locations.<footnote><para> Build systems based on
+              <literal>ExtUtils::MakeMaker</literal> and
+              <literal>Module::Build</literal> do this automatically.
+              </para> </footnote>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><replaceable>core</replaceable></term>
+          <listitem>
+            <para>
+              Modules included in the core Perl distribution.
+            </para>
+            <screen>
 $Config{archlib} (currently /usr/lib/<replaceable>arch-triplet</replaceable>/perl/<replaceable>shortversion</replaceable>)
 $Config{privlib} (currently /usr/share/perl/<replaceable>shortversion</replaceable>)
-</screen>
-<para>
-Where <replaceable>shortversion</replaceable> indicates the current Perl major
-version (for example <literal>5.22</literal>).
-</para>
-<para>
-These locations should be considered internal to the <systemitem
-role="package">perl</systemitem> source package.  If necessary, packages should
-use <literal>$Config{archlib}</literal> and <literal>$Config{privlib}</literal>
-instead of hardcoding the current locations.<footnote><para> Build systems
-based on <literal>ExtUtils::MakeMaker</literal> and
-<literal>Module::Build</literal> do this automatically.  </para> </footnote>
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><replaceable>site</replaceable> (old)</term>
-<listitem>
-<para>
-<replaceable>site</replaceable> directories (as above) for modules installed
-with previously released <systemitem role="package">perl</systemitem> packages
-for which the current package is binary compatible are included if present.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para>
-In each of the directory pairs above, the <filename>lib</filename> component is
-for binary (XS) modules, and <filename>share</filename> for
-architecture-independent (pure-perl) modules.
-</para>
-</section>
+            </screen>
+            <para>
+              Where <replaceable>shortversion</replaceable> indicates the
+              current Perl major version (for example
+              <literal>5.22</literal>).
+            </para>
+            <para>
+              These locations should be considered internal to the
+              <systemitem role="package">perl</systemitem> source package.
+              If necessary, packages should use
+              <literal>$Config{archlib}</literal> and
+              <literal>$Config{privlib}</literal> instead of hardcoding
+              the current locations.<footnote><para> Build systems based
+              on <literal>ExtUtils::MakeMaker</literal> and
+              <literal>Module::Build</literal> do this automatically.
+              </para> </footnote>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><replaceable>site</replaceable> (old)</term>
+          <listitem>
+            <para>
+              <replaceable>site</replaceable> directories (as above) for
+              modules installed with previously released <systemitem
+              role="package">perl</systemitem> packages for which the
+              current package is binary compatible are included if
+              present.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>
+        In each of the directory pairs above, the <filename>lib</filename>
+        component is for binary (XS) modules, and
+        <filename>share</filename> for architecture-independent
+        (pure-perl) modules.
+      </para>
+    </section>
 
-<section id="s-docs"><title>Documentation</title>
-<para>
-The POD files and manual pages which do not refer to programs may be split out
-into a separate <systemitem role="package">perl-doc</systemitem> package.
-</para>
-<para>
-Manual pages distributed with packages built from the perl source package must
-be installed into the standard directories:
-</para>
-<variablelist>
-<varlistentry>
-<term>Programs</term>
-<listitem>
-<para>
-Manual pages for programs and scripts are installed into
-<filename>/usr/share/man/man1</filename> with the extension
-<literal>.1</literal>.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>Modules</term>
-<listitem>
-<para>
-Manual pages for modules are installed into
-<filename>/usr/share/man/man3</filename> with the extension
-<literal>.3perl</literal>.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para>
-The extensions used for manual pages distributed with module packages are
-different.  See <xref linkend="s-vendor-dirs"/>.
-</para>
-</section>
+    <section id="s-docs">
+      <title>Documentation</title>
 
-</chapter>
+      <para>
+        The POD files and manual pages which do not refer to programs may
+        be split out into a separate <systemitem
+        role="package">perl-doc</systemitem> package.
+      </para>
+      <para>
+        Manual pages distributed with packages built from the perl source
+        package must be installed into the standard directories:
+      </para>
+      <variablelist>
+        <varlistentry>
+          <term>Programs</term>
+          <listitem>
+            <para>
+              Manual pages for programs and scripts are installed into
+              <filename>/usr/share/man/man1</filename> with the extension
+              <literal>.1</literal>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Modules</term>
+          <listitem>
+            <para>
+              Manual pages for modules are installed into
+              <filename>/usr/share/man/man3</filename> with the extension
+              <literal>.3perl</literal>.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>
+        The extensions used for manual pages distributed with module
+        packages are different.  See <xref linkend="s-vendor-dirs"/>.
+      </para>
+    </section>
 
-<chapter id="ch-site"><title>Locally Installed Modules</title>
-<section id="s-site-dirs"><title>Site Directories</title>
-<para>
-The Perl packages must provide a mechanism for the local administrator to
-install modules under <filename>/usr/local</filename> but must not create or
-remove those directories.
-</para>
-<para>
-Modules should be installed to the directories described above in <xref
-linkend="s-paths"/> as <replaceable>site</replaceable> (current), programs to
-<filename>/usr/local/bin</filename> and manual pages under
-<filename>/usr/local/man</filename>.
-</para>
-</section>
+  </chapter>
 
-<section id="s-site-install"><title>Site Installation</title>
-<para>
-The following commands should be sufficient in the majority of cases for the
-local administrator to install modules and must create directories as required:
-</para>
-<screen>
+  <chapter id="ch-site">
+    <title>Locally Installed Modules</title>
+
+    <section id="s-site-dirs">
+      <title>Site Directories</title>
+
+      <para>
+        The Perl packages must provide a mechanism for the local
+        administrator to install modules under
+        <filename>/usr/local</filename> but must not create or remove
+        those directories.
+      </para>
+      <para>
+        Modules should be installed to the directories described above in
+        <xref linkend="s-paths"/> as <replaceable>site</replaceable>
+        (current), programs to <filename>/usr/local/bin</filename> and
+        manual pages under <filename>/usr/local/man</filename>.
+      </para>
+    </section>
+
+    <section id="s-site-install">
+      <title>Site Installation</title>
+
+      <para>
+        The following commands should be sufficient in the majority of
+        cases for the local administrator to install modules and must
+        create directories as required:
+      </para>
+      <screen>
 perl Makefile.PL
 make install
-</screen>
-</section>
+      </screen>
+    </section>
 
-</chapter>
+  </chapter>
 
-<chapter id="ch-module_packages"><title>Packaged Modules</title>
-<section id="s-vendor-dirs"><title>Vendor Directories</title>
-<para>
-The installation directory for Debian modules must be different from that for
-<replaceable>core</replaceable> and <replaceable>site</replaceable> modules.
-</para>
-<para>
-The current Perl packaging uses the <replaceable>vendor</replaceable>
-directories for this purpose, which are at present as described in <xref
-linkend="s-paths"/> as <replaceable>vendor</replaceable>.
-</para>
-<para>
-The Perl distribution includes many modules available separately from
-CPAN<footnote><para> <ulink
-url="http://www.perl.com/CPAN">http://www.perl.com/CPAN</ulink> </para>
-</footnote>, which may have a newer version.  The intent of the
-<literal>@INC</literal> ordering (described in <xref linkend="s-paths"/>) is to
-allow such modules to be packaged to <replaceable>vendor</replaceable> which
-take precedence over the version in <replaceable>core</replaceable>.  A
-packaged module which shadows a <replaceable>core</replaceable> module in this
-way must be a newer version.
-</para>
-<para>
-Module packages must install manual pages into the standard directories (see
-<xref linkend="s-docs"/>) using the extensions <literal>.1p</literal> and
-<literal>.3pm</literal> to ensure that no conflict arises where a packaged
-module duplicates a <replaceable>core</replaceable> module.
-</para>
-<para>
-<filename>.packlist</filename> files should not be installed.
-</para>
-</section>
+  <chapter id="ch-module_packages">
+    <title>Packaged Modules</title>
 
-<section id="s-package-names"><title>Module Package Names</title>
-<para>
-Perl module packages should be named for the primary module provided.  The
-naming convention is to lowercase the Perl module name, prepend,
-<literal>lib</literal>, change all occurrences of <literal>::</literal> to
-<literal>-</literal>, and append <literal>-perl</literal>.  For example:
-</para>
-<screen>
+    <section id="s-vendor-dirs">
+      <title>Vendor Directories</title>
+
+      <para>
+        The installation directory for Debian modules must be different
+        from that for <replaceable>core</replaceable> and
+        <replaceable>site</replaceable> modules.
+      </para>
+      <para>
+        The current Perl packaging uses the
+        <replaceable>vendor</replaceable> directories for this purpose,
+        which are at present as described in <xref linkend="s-paths"/> as
+        <replaceable>vendor</replaceable>.
+      </para>
+      <para>
+        The Perl distribution includes many modules available separately
+        from CPAN<footnote><para> <ulink
+        url="http://www.perl.com/CPAN">http://www.perl.com/CPAN</ulink></para></footnote>,
+        which may have a newer version.  The intent of the
+        <literal>@INC</literal> ordering (described in <xref
+        linkend="s-paths"/>) is to allow such modules to be packaged to
+        <replaceable>vendor</replaceable> which take precedence over the
+        version in <replaceable>core</replaceable>.  A packaged module
+        which shadows a <replaceable>core</replaceable> module in this way
+        must be a newer version.
+      </para>
+      <para>
+        Module packages must install manual pages into the standard
+        directories (see <xref linkend="s-docs"/>) using the extensions
+        <literal>.1p</literal> and <literal>.3pm</literal> to ensure that
+        no conflict arises where a packaged module duplicates a
+        <replaceable>core</replaceable> module.
+      </para>
+      <para>
+        <filename>.packlist</filename> files should not be installed.
+      </para>
+    </section>
+
+    <section id="s-package-names">
+      <title>Module Package Names</title>
+      <para>
+        Perl module packages should be named for the primary module
+        provided.  The naming convention is to lowercase the Perl module
+        name, prepend, <literal>lib</literal>, change all occurrences of
+        <literal>::</literal> to <literal>-</literal>, and append
+        <literal>-perl</literal>.  For example:
+      </para>
+      <screen>
 Foo::Bar        libfoo-bar-perl
 Foo::Bar::Baz   libfoo-bar-baz-perl
 Foo::BarBaz     libfoo-barbaz-perl
-</screen>
-<para>
-Packages which include multiple modules may additionally include provides for
-the additional modules using the same convention.
-</para>
-</section>
+      </screen>
+      <para>
+        Packages which include multiple modules may additionally include
+        provides for the additional modules using the same convention.
+      </para>
+    </section>
 
-<section id="s-vendor-install"><title>Vendor Installation</title>
-<para>
-A module should use the following lines in the
-<filename>debian/rules</filename> <literal>build</literal>
-target<footnote><para> The environment variable <literal>PERL_MM_OPT</literal>
-may be used to pass the <literal>INSTALLDIRS=vendor</literal> option in cases
-where <filename>Makefile.PL</filename> is not invoked directly from
-<filename>debian/rules</filename> </para> </footnote>:
-</para>
-<screen>
+    <section id="s-vendor-install">
+      <title>Vendor Installation</title>
+      <para>
+        A module should use the following lines in the
+        <filename>debian/rules</filename> <literal>build</literal>
+        target<footnote><para> The environment variable
+        <literal>PERL_MM_OPT</literal> may be used to pass the
+        <literal>INSTALLDIRS=vendor</literal> option in cases where
+        <filename>Makefile.PL</filename> is not invoked directly from
+        <filename>debian/rules</filename></para></footnote>:
+      </para>
+      <screen>
 perl Makefile.PL INSTALLDIRS=vendor
 $(MAKE) OPTIMIZE="-O2 -g -Wall"
-</screen>
-<para>
-and this one to install the results into the temporary tree:
-</para>
-<screen>
+      </screen>
+      <para>
+        and this one to install the results into the temporary tree:
+      </para>
+      <screen>
 $(MAKE) install DESTDIR=$(CURDIR)/debian/&lt;tmp&gt;
-</screen>
-<para>
-<footnote><para> Replace &lt;tmp&gt; with the appropriate directory
-(nominally just tmp) </para> </footnote>
-</para>
-</section>
+      </screen>
+      <para>
+        <footnote><para>Replace &lt;tmp&gt; with the appropriate directory
+        (nominally just tmp)</para></footnote>
+      </para>
+    </section>
 
-<section id="s-module-deps"><title>Module Dependencies</title>
-<section id="s-indep-modules"><title>Architecture-Independent Modules</title>
-<para>
-Architecture-independent modules which require <replaceable>core</replaceable>
-modules from the <systemitem role="package">perl</systemitem> package must
-specify a dependency on that package.
-</para>
-<para>
-Modules which contain explicit <literal>require
-<replaceable>version</replaceable></literal> or <literal>use
-<replaceable>version</replaceable></literal> statements must specify a
-dependency on <systemitem role="package">perl</systemitem> or <systemitem
-role="package">perl-base</systemitem> with the minimum required version, or
-more simply the current version.
-</para>
-</section>
+    <section id="s-module-deps">
+      <title>Module Dependencies</title>
 
-<section id="s-binary-modules"><title>Binary and Other Architecture Dependent Modules</title>
-<para>
-Binary modules must specify a dependency on either <systemitem
-role="package">perl</systemitem> or <systemitem
-role="package">perl-base</systemitem> with a minimum version of the <systemitem
-role="package">perl</systemitem> package used to build the module.
-Additionally, all binary modules (regardless of their installation directory)
-and any other modules installed into <literal>$Config{vendorarch}</literal>
-must depend on the expansion of <systemitem
-role="package">perlapi-$Config{debian_abi}</systemitem> using the
-<literal>Config</literal> module.  If <literal>$Config{debian_abi}</literal> is
-empty or not set, <literal>$Config{version}</literal> must be used.
-</para>
-</section>
+      <section id="s-indep-modules">
+        <title>Architecture-Independent Modules</title>
 
-<section id="s-dh-perl"><title>Automating Perl Dependencies</title>
-<para>
-Rather than hard-coding the dependencies into the control file, using a
-substitution such as <literal>${perl:Depends}</literal> is suggested.  This
-allows the dependencies to be determined at build time and written to the
-<filename>substvars</filename> file in the form
-<literal>perl:Depends=<replaceable>deps</replaceable></literal>.<footnote><para>
-Please note that dependencies caused by versioned uses and on separately
-packaged modules are not included in this variable and must be explicitly
-included.  </para> </footnote>
-</para>
-<para>
-Packages built with <command>debhelper</command> may use
-<citerefentry><refentrytitle>dh_perl</refentrytitle><manvolnum>1</manvolnum></citerefentry>
-to generate this substitution automatically.  This additionally requires a
-versioned <literal>Build-Depends</literal> (or
-<literal>Build-Depends-Indep</literal>) on <literal>debhelper (>=
-3.0.18)</literal>.
-</para>
-</section>
+        <para>
+          Architecture-independent modules which require
+          <replaceable>core</replaceable> modules from the <systemitem
+          role="package">perl</systemitem> package must specify a
+          dependency on that package.
+        </para>
+        <para>
+          Modules which contain explicit <literal>require
+          <replaceable>version</replaceable></literal> or <literal>use
+          <replaceable>version</replaceable></literal> statements must
+          specify a dependency on <systemitem
+          role="package">perl</systemitem> or <systemitem
+          role="package">perl-base</systemitem> with the minimum required
+          version, or more simply the current version.
+        </para>
+      </section>
 
-</section>
+      <section id="s-binary-modules">
+        <title>Binary and Other Architecture Dependent Modules</title>
 
-</chapter>
+        <para>
+          Binary modules must specify a dependency on either <systemitem
+          role="package">perl</systemitem> or <systemitem
+          role="package">perl-base</systemitem> with a minimum version of
+          the <systemitem role="package">perl</systemitem> package used to
+          build the module.  Additionally, all binary modules (regardless
+          of their installation directory) and any other modules installed
+          into <literal>$Config{vendorarch}</literal> must depend on the
+          expansion of <systemitem
+          role="package">perlapi-$Config{debian_abi}</systemitem> using
+          the <literal>Config</literal> module.  If
+          <literal>$Config{debian_abi}</literal> is empty or not set,
+          <literal>$Config{version}</literal> must be used.
+        </para>
+      </section>
 
-<chapter id="ch-programs"><title>Perl Programs</title>
-<section id="s-hash-bang"><title>Script Magic</title>
-<para>
-All packaged perl programs must start with <literal>#!/usr/bin/perl</literal>
-and may append such flags as are required.
-</para>
-</section>
+      <section id="s-dh-perl">
+        <title>Automating Perl Dependencies</title>
 
-<section id="s-program-deps"><title>Program Dependencies</title>
-<para>
-Programs which require <replaceable>core</replaceable> modules from the
-<systemitem role="package">perl</systemitem> package must specify a dependency
-on that package.
-</para>
-<para>
-Programs which contain explicit <literal>require
-<replaceable>version</replaceable></literal> or <literal>use
-<replaceable>version</replaceable></literal> statements must specify a
-dependency on <systemitem role="package">perl</systemitem> or <systemitem
-role="package">perl-base</systemitem> with the minimum required version, or
-more simply the current version.
-</para>
-<para>
-As with modules, packages using <command>debhelper</command> may use
-<citerefentry><refentrytitle>dh_perl</refentrytitle><manvolnum>1</manvolnum></citerefentry>
-to automatically generate dependences (see <xref linkend="s-dh-perl"/>).
-</para>
-</section>
+        <para>
+          Rather than hard-coding the dependencies into the control file,
+          using a substitution such as <literal>${perl:Depends}</literal>
+          is suggested.  This allows the dependencies to be determined at
+          build time and written to the <filename>substvars</filename>
+          file in the form
+          <literal>perl:Depends=<replaceable>deps</replaceable></literal>.<footnote><para>
+          Please note that dependencies caused by versioned uses and on
+          separately packaged modules are not included in this variable
+          and must be explicitly included.  </para> </footnote>
+        </para>
+        <para>
+          Packages built with <command>debhelper</command> may use
+          <citerefentry><refentrytitle>dh_perl</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+          to generate this substitution automatically.  This additionally
+          requires a versioned <literal>Build-Depends</literal> (or
+          <literal>Build-Depends-Indep</literal>) on <literal>debhelper
+          (>= 3.0.18)</literal>.
+        </para>
+      </section>
+    </section>
+  </chapter>
 
-</chapter>
+  <chapter id="ch-programs">
+    <title>Perl Programs</title>
 
-<chapter id="ch-embed"><title>Programs Embedding Perl</title>
-<section id="s-build-embedded"><title>Building Embedded Programs</title>
-<para>
-Programs which embed a perl interpreter must declare a
-<literal>Build-Depends</literal> on <systemitem
-role="package">libperl-dev</systemitem>.
-</para>
-<para>
-The default linker options produced by
-</para>
-<screen>
+    <section id="s-hash-bang">
+      <title>Script Magic</title>
+
+      <para>
+        All packaged perl programs must start with
+        <literal>#!/usr/bin/perl</literal> and may append such flags as
+        are required.
+      </para>
+    </section>
+
+    <section id="s-program-deps">
+      <title>Program Dependencies</title>
+
+      <para>
+        Programs which require <replaceable>core</replaceable> modules
+        from the <systemitem role="package">perl</systemitem> package must
+        specify a dependency on that package.
+      </para>
+      <para>
+        Programs which contain explicit <literal>require
+        <replaceable>version</replaceable></literal> or <literal>use
+        <replaceable>version</replaceable></literal> statements must
+        specify a dependency on <systemitem
+        role="package">perl</systemitem> or <systemitem
+        role="package">perl-base</systemitem> with the minimum required
+        version, or more simply the current version.
+      </para>
+      <para>
+        As with modules, packages using <command>debhelper</command> may
+        use
+        <citerefentry><refentrytitle>dh_perl</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+        to automatically generate dependences (see <xref
+        linkend="s-dh-perl"/>).
+      </para>
+    </section>
+
+  </chapter>
+
+  <chapter id="ch-embed">
+    <title>Programs Embedding Perl</title>
+
+    <section id="s-build-embedded">
+      <title>Building Embedded Programs</title>
+
+      <para>
+        Programs which embed a perl interpreter must declare a
+        <literal>Build-Depends</literal> on <systemitem
+        role="package">libperl-dev</systemitem>.
+      </para>
+      <para>
+        The default linker options produced by
+      </para>
+      <screen>
 perl -MExtUtils::Embed -e ldopts
-</screen>
-<para>
-will link against the dynamic <literal>libperl</literal>.  If programs wish to
-link to the static library, then <literal>-lperl</literal> should be changed to
-<filename>/usr/lib/libperl.a</filename> in those options.
-</para>
-</section>
+      </screen>
+      <para>
+        will link against the dynamic <literal>libperl</literal>.  If
+        programs wish to link to the static library, then
+        <literal>-lperl</literal> should be changed to
+        <filename>/usr/lib/libperl.a</filename> in those options.
+      </para>
+    </section>
 
-<section id="s-embedded-deps"><title>Embedded Perl Dependencies</title>
-<para>
-Dependencies for programs linking against the shared Perl library will be
-automatically created by <command>dpkg-shlibdeps</command>.  Note however that
-the shared perl library package only suggests <systemitem
-role="package">perl-base</systemitem> and packages requiring any
-<replaceable>core</replaceable> modules from the <systemitem
-role="package">perl</systemitem> package must depend upon it explicitly.
-</para>
-</section>
+    <section id="s-embedded-deps">
+      <title>Embedded Perl Dependencies</title>
 
-<section id="s-perl-upgrades"><title>Perl Package Upgrades</title>
-<para>
-Starting from <systemitem role="package">perl</systemitem> 5.12.3-2, a dpkg
-trigger named <replaceable>perl-major-upgrade</replaceable> will be triggered
-by the postinst of the <systemitem role="package">perl</systemitem> package
-during major upgrades.  Some examples of things which constitute a major
-upgrade are an upgrade which would change the value of versioned directories in
-<literal>@INC</literal>, or one which changes <literal>abiname</literal>.  Any
-package may declare an interest in the trigger, especially packages including
-long-running daemons which would stop working until restart.
-</para>
-<para>
-It is suggested that such packages include an appropriate section in their
-postinst to handle the trigger by restarting relevant daemons or notifying
-users of further action.
-</para>
-</section>
+      <para>
+        Dependencies for programs linking against the shared Perl library
+        will be automatically created by
+        <command>dpkg-shlibdeps</command>.  Note however that the shared
+        perl library package only suggests <systemitem
+        role="package">perl-base</systemitem> and packages requiring any
+        <replaceable>core</replaceable> modules from the <systemitem
+        role="package">perl</systemitem> package must depend upon it
+        explicitly.
+      </para>
+    </section>
 
-</chapter>
+    <section id="s-perl-upgrades">
+      <title>Perl Package Upgrades</title>
 
-<appendix id="ap-perl6"><title>Perl 6</title>
-<para>
-The current stable upstream version at the time of this writing is 5.6.0.
-There is currently work in progress on the next major revision, although the
-specifications have yet to be finalised.
-</para>
-<para>
-It is anticipated that when Perl 6 is released it will initially be packaged as
-<systemitem role="package">perl6</systemitem>, install the binary as
-<filename>/usr/bin/perl6</filename> and use different directories for packaged
-modules to <systemitem role="package">perl</systemitem>:
-</para>
-<screen>
+      <para>
+        Starting from <systemitem role="package">perl</systemitem>
+        5.12.3-2, a dpkg trigger named
+        <replaceable>perl-major-upgrade</replaceable> will be triggered by
+        the postinst of the <systemitem role="package">perl</systemitem>
+        package during major upgrades.  Some examples of things which
+        constitute a major upgrade are an upgrade which would change the
+        value of versioned directories in <literal>@INC</literal>, or one
+        which changes <literal>abiname</literal>.  Any package may declare
+        an interest in the trigger, especially packages including
+        long-running daemons which would stop working until restart.
+      </para>
+      <para>
+        It is suggested that such packages include an appropriate section
+        in their postinst to handle the trigger by restarting relevant
+        daemons or notifying users of further action.
+      </para>
+    </section>
+
+  </chapter>
+
+  <appendix id="ap-perl6">
+    <title>Perl 6</title>
+
+    <para>
+      The current stable upstream version at the time of this writing is
+      5.6.0.  There is currently work in progress on the next major
+      revision, although the specifications have yet to be finalised.
+    </para>
+    <para>
+      It is anticipated that when Perl 6 is released it will initially be
+      packaged as <systemitem role="package">perl6</systemitem>, install
+      the binary as <filename>/usr/bin/perl6</filename> and use different
+      directories for packaged modules to <systemitem
+      role="package">perl</systemitem>:
+    </para>
+    <screen>
 /usr/lib/perl6
 /usr/share/perl6
-</screen>
-<para>
-This will allow Perl 5 and 6 packages and modules (which should be packaged as
-<systemitem role="package">libfoo-bar-perl6</systemitem>), to co-exist for as
-long as required.
-</para>
-<para>
-At some stage in the future when Perl 6 is sufficiently mature, the package
-naming may be reversed such that the <systemitem
-role="package">perl</systemitem> package contains Perl 6 and the current
-package becomes <systemitem role="package">perl5</systemitem>.
-</para>
-</appendix>
-
-
+    </screen>
+    <para>
+      This will allow Perl 5 and 6 packages and modules (which should be
+      packaged as <systemitem
+      role="package">libfoo-bar-perl6</systemitem>), to co-exist for as
+      long as required.
+    </para>
+    <para>
+      At some stage in the future when Perl 6 is sufficiently mature, the
+      package naming may be reversed such that the <systemitem
+      role="package">perl</systemitem> package contains Perl 6 and the
+      current package becomes <systemitem
+      role="package">perl5</systemitem>.
+    </para>
+  </appendix>
 </book>
-
