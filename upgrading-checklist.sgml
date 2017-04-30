@@ -83,6 +83,9 @@ Not Released Yet
   <item>Packages must not call <file>/etc/init.d</file> scripts directly
   even as a fallback, and instead must always use <prgn>invoke-rc.d</prgn>
   (which is essential and shouldn't require any conditional).</item>
+<tag>9.11.1</tag>
+  <item>Instructions for <prgn>upstart</prgn> integration removed
+  since <prgn>upstart</prgn> is no longer maintained in Debian.</item>
 <tag>10.1</tag>
   <item>Packages may not install files in
   both <file><var>path</var></file> and <file>/usr/<var>path</var></file>

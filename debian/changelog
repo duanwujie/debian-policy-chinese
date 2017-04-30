@@ -91,6 +91,12 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Andreas Henriksson <andreas@fatal.se>
     Seconded: Simon McVittie <smcv@debian.org>
     Closes: #698012
+  * Policy: Remove integration instructions for upstart
+    Wording: Ansgar Burchardt <ansgar@debian.org>
+    Seconded: Michael Biebl <biebl@debian.org>
+    Seconded: Andrey Rahmatullin <wrar@debian.org>
+    Seconded: Simon McVittie <smcv@debian.org>
+    Closes: #835490
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>
