@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % versiondata SYSTEM "version.xml"> %versiondata;
+]>
+
+<book lang="en">
+
+<title>The Debian Menu sub-policy</title>
+
+<bookinfo>
+
+<authorgroup>
+<author><personname><firstname>Chris</firstname><surname>Waters</surname></personname></author>
+<author><personname><firstname>Joey</firstname><surname>Hess</surname></personname></author>
+<author><personname><firstname>Joost</firstname><surname>Witteveen</surname></personname></author>
+<author><othername>The Debian Policy mailing List</othername><email>debian-policy@lists.debian.org</email></author>
+
+</authorgroup>
+<releaseinfo>version &version;</releaseinfo>
+
+<pubdate>&date;</pubdate>
+
+
+<abstract>
+<para>
+This manual describes the policy requirements for the Menu system used in the
+Debian distribution.  This document is part of the policy package for Debian.
+</para>
+</abstract>
+
+<copyright><year>1999</year><holder>Software in the Public Interest, Inc.</holder></copyright>
+<legalnotice>
+<para>
+This manual is free software; you may redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version.
+</para>
+<para>
+This is distributed in the hope that it will be useful, but <emphasis>without
+any warranty</emphasis>; without even the implied warranty of merchantability
+or fitness for a particular purpose.  See the GNU General Public License for
+more details.
+</para>
+<para>
+A copy of the GNU General Public License is available as
+<literal>/usr/doc/copyright/GPL</literal> in the Debian distribution or on the
+World Wide Web at <ulink url="http://www.gnu.org/copyleft/gpl.html">The GNU
+General Public Licence</ulink>.  You can also obtain it by writing to the Free
+Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+USA.
+</para>
+</legalnotice>
+
+</bookinfo>
+
+
+<chapter id="ch1"><title>About this document</title>
+<para>
+This document is distributed as the <literal>menu-policy</literal> files in the
+Debian package <systemitem role="package"><ulink
+url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
+It is also available from the Debian web mirrors at <literal><ulink
+url="http://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
+</para>
+<para>
+This document has been extracted and separated from the
+<emphasis>Menu</emphasis> package to:
+</para>
+<orderedlist numeration="arabic">
+<listitem>
+<para>
+Increase the visibility of the Menu sub policy
+</para>
+</listitem>
+<listitem>
+<para>
+Reduce the coupling between policy and implementation.  If this separation is
+not made, every time we want to change menu policy, we have to arrange to get
+the maintainer to release a new version of the package, even if the package has
+not otherwise changed.  It also involves yet another layer, making the policy
+changes that much harder to implement.
+</para>
+</listitem>
+</orderedlist>
+<para>
+The <ulink url="mailto:debian-policy@lists.debian.org">debian-policy mailing
+list</ulink> has taken responsibility for the contents of this document, with
+the <emphasis>Menu</emphasis> package maintainer's responsible for packaging
+administrivia only.
+</para>
+</chapter>
+
+<chapter id="ch2"><title>Menu Structure</title>
+<para>
+If you have a package which doesn't fit within the existing menu hierarchy,
+please bring it up on the debian-devel mailing list.  If you have other
+proposals for changing the menu hierarchy, or making other changes to menu
+policy, please bring it up on debian-policy.
+</para>
+<section id="s2.1"><title>Preferred menu structure</title>
+<para>
+Here is the authoritative list of Debian's menu structure.  Packages must be
+placed in leaf sections.
+</para>
+<variablelist>
+<varlistentry>
+<term>Applications</term>
+<listitem>
+<para>
+Normal applications
+</para>
+<variablelist>
+<varlistentry>
+<term>Applications/Accessibility</term>
+<listitem>
+<para>
+Tools to aid people with disabilities or for machines lacking usual input
+devices.
+</para>
+<para>
+Examples: gok, yasr, dasher.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Amateur Radio</term>
+<listitem>
+<para>
+Anything relating to HAM radio.
+</para>
+<para>
+Examples: baken, hamsoft, twlog
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Data Management</term>
+<listitem>
+<para>
+Interactive database programs, collection managers, address books, bibliography
+tools, etc.
+</para>
+<para>
+gaby, alexandria, mdbtools
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Editors</term>
+<listitem>
+<para>
+Editors, other than office word processors, for text-based information.
+</para>
+<para>
+Examples: ksubtile, nano, hexedit
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Education</term>
+<listitem>
+<para>
+Educational and training softwares.
+</para>
+<para>
+Examples: gtypist, gcompris, quiz
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Emulators</term>
+<listitem>
+<para>
+Software that allows you to run non-native software or more than one OS at a
+time.
+</para>
+<para>
+Examples: wine, dosemu, qemu
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/File Management</term>
+<listitem>
+<para>
+Tools for file management, archiving, searching, CD/DVD burning, backup, etc.
+</para>
+<para>
+Examples: file-roller, mc, baobab
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Graphics</term>
+<listitem>
+<para>
+2D and 3D graphics manipulation software.
+</para>
+<para>
+Examples: gimp, inkscape, imagemagick
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Mobile Devices</term>
+<listitem>
+<para>
+Software that allows you to interface with mobile devices (phones, PDAs, etc.).
+</para>
+<para>
+Examples: kandy, gnokii, gnome-pilot
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Network</term>
+<listitem>
+<para>
+Network related software.  This is a three-level section, do not put entries
+directly here.
+</para>
+<variablelist>
+<varlistentry>
+<term>Applications/Network/Communication</term>
+<listitem>
+<para>
+Mail, USENET news, chat, instant messaging, IP telephony, video conferencing
+software, etc.
+</para>
+<para>
+Examples: xchat, gaim, mutt
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Network/File Transfer</term>
+<listitem>
+<para>
+File transfer software such as download managers, FTP clients, P2P clients,
+etc.
+</para>
+<para>
+Examples: amule, gftp, d4x
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Network/Monitoring</term>
+<listitem>
+<para>
+Network monitoring software
+</para>
+<para>
+Examples: gip, ettercap, iptstate
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Network/Web Browsing</term>
+<listitem>
+<para>
+Web browsers, tools for offline browsing, etc.
+</para>
+<para>
+Examples: elinks, epiphany-browser, webhttrack
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Network/Web News</term>
+<listitem>
+<para>
+Web feed (RSS, Atom, etc.) and podcast aggregators.
+</para>
+<para>
+Examples: akregator, kitty, liferea
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Office</term>
+<listitem>
+<para>
+Office suites, word processors, spreadsheets, CRM, ERP, financial sofware, etc.
+</para>
+<para>
+Examples: openoffice.org, tinyerp-client, gnucash
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Programming</term>
+<listitem>
+<para>
+IDEs, debuggers, etc.
+</para>
+<para>
+Examples: anjuta, gdb, eclipse
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Project Management</term>
+<listitem>
+<para>
+Timetable managers, group task trackers, bug tracking software, etc.
+</para>
+<para>
+Examples: planner, bugzilla, gnotime
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science</term>
+<listitem>
+<para>
+Scientific and engineering-related software.
+</para>
+<variablelist>
+<varlistentry>
+<term>Applications/Science/Astronomy</term>
+<listitem>
+<para>
+Astronomy-related software.
+</para>
+<para>
+Examples: celestia, spacechart, stellarium
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Biology</term>
+<listitem>
+<para>
+Biology-related software.
+</para>
+<para>
+Examples: arb, ncbi-tools-x11, seaview
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Chemistry</term>
+<listitem>
+<para>
+Chemistry-related software.
+</para>
+<para>
+Examples: chemtool, kalzium, xdrawchem
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Data Analysis</term>
+<listitem>
+<para>
+Software designed for processing, extracting, and presenting generic scientific
+data.
+</para>
+<para>
+Examples: fityk, ygraph, mn-fit
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Electronics</term>
+<listitem>
+<para>
+Circuit design tools, simulators and assemblers for microprocessors, etc
+</para>
+<para>
+Examples: geda, gnucap, tkgate
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Engineering</term>
+<listitem>
+<para>
+CAD, UML tools, diagram-drawing and other engineering-related software.
+</para>
+<para>
+Examples: tcm, dia, qcad
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Geoscience</term>
+<listitem>
+<para>
+Geoscience-related software.
+</para>
+<para>
+Examples: earth3d, qgis, therion
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Mathematics</term>
+<listitem>
+<para>
+Mathematics-related software.
+</para>
+<para>
+Examples: gcalctool, snappea, xeukleides
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Medicine</term>
+<listitem>
+<para>
+Medicine-related software.
+</para>
+<para>
+Examples: mssstest, gnumed-client, xmedcon
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Physics</term>
+<listitem>
+<para>
+Physics-related software.
+</para>
+<para>
+Examples: kxterm, ifrit, paw
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Science/Social</term>
+<listitem>
+<para>
+Social sciences-related software.
+</para>
+<para>
+Examples: gnomesword, hanzim, bibletime
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Shells</term>
+<listitem>
+<para>
+Various shells to be used inside a terminal emulator.
+</para>
+<para>
+Examples: bash, ksh, zsh
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Sound</term>
+<listitem>
+<para>
+Sound players, editors, and rippers/recorders.
+</para>
+<para>
+Examples: beep-media-player, grip, audacity
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System</term>
+<listitem>
+<para>
+System related software.
+</para>
+<variablelist>
+<varlistentry>
+<term>Applications/System/Administration</term>
+<listitem>
+<para>
+Administrative and system configuration utilities, also tools for personal user
+settings.
+</para>
+<para>
+Examples: gnome-control-center, configure-debian, gksu
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System/Hardware</term>
+<listitem>
+<para>
+Tools for manipulating specific hardware, especially non-standard laptop
+hardware.
+</para>
+<para>
+Examples: toshutils, nvclock-gtk, nvtv
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System/Language Environment</term>
+<listitem>
+<para>
+This section is reserved for language-env as a special case.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System/Monitoring</term>
+<listitem>
+<para>
+System information and monitoring tools, log viewers, etc.
+</para>
+<para>
+Examples: top, hal-device-manager, gtkdiskfree
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System/Package Management</term>
+<listitem>
+<para>
+Package managers and related tools.
+</para>
+<para>
+Examples: aptitude, deborphan, smartpm
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/System/Security</term>
+<listitem>
+<para>
+Security, cryptography and privacy related software, antiviruses, tools to
+track and report bugs, etc.
+</para>
+<para>
+Examples: gpgkeys, bastille, avscan
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Terminal Emulators</term>
+<listitem>
+<para>
+Graphical terminal emulators.
+</para>
+<para>
+Examples: xterm, gnome-terminal, rxvt
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Text</term>
+<listitem>
+<para>
+Text oriented tools like dictionaries, OCR, translation, text analysis
+software, etc.
+</para>
+<para>
+Examples: kdrill, stardict, turkey
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/TV and Radio</term>
+<listitem>
+<para>
+TV-in, TV-out, FM radio, teletext browsers, etc.
+</para>
+<para>
+Examples: gradio, gatos, alevt
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Viewers</term>
+<listitem>
+<para>
+Software for viewing images, documents and other (non-video) media.
+</para>
+<para>
+Examples: gqview, evince, gthumb
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Video</term>
+<listitem>
+<para>
+Video players, editors, and rippers/recorders.
+</para>
+<para>
+Examples: istanbul, totem, kino
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Applications/Web Development</term>
+<listitem>
+<para>
+Software for web site editing, web programming, and site administration.
+</para>
+<para>
+Examples: bluefish, screem, gphpedit
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games</term>
+<listitem>
+<para>
+Games and recreations
+</para>
+<variablelist>
+<varlistentry>
+<term>Games/Action</term>
+<listitem>
+<para>
+Games that involve a lot of action and require fast reflexes.
+</para>
+<para>
+Examples: xsoldier, supertux, xmoto
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Adventure</term>
+<listitem>
+<para>
+Role playing and adventure games, interactive movies and stories, etc.
+</para>
+<para>
+Examples: beneath-a-steel-sky, egoboo, kq
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Blocks</term>
+<listitem>
+<para>
+Tetris-like games involving falling blocks.
+</para>
+<para>
+Examples: crack-attack, frozen-bubble, netris
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Board</term>
+<listitem>
+<para>
+Games played on a board.
+</para>
+<para>
+Examples: phalanx, xshogi, xboard
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Card</term>
+<listitem>
+<para>
+Games involving a deck of cards.
+</para>
+<para>
+Examples: pysol, ace-of-penguins, xpat2
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Puzzles</term>
+<listitem>
+<para>
+Tests of ingenuity and logic.
+</para>
+<para>
+Examples: xmpuzzles, sgt-puzzles, enigma
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Simulation</term>
+<listitem>
+<para>
+Simulations of the real world in all detail and complexity.
+</para>
+<para>
+Examples: flightgear, torcs
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Strategy</term>
+<listitem>
+<para>
+Games involving long-term strategic thinking.
+</para>
+<para>
+Examples: wesnoth, widelands, netpanzer
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Tools</term>
+<listitem>
+<para>
+Server browsers, configurators, editors, and other game-related tools that are
+not games themselves.
+</para>
+<para>
+Examples: xqf, crystalspace
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Games/Toys</term>
+<listitem>
+<para>
+Amusements, eye-candy, entertaining demos, screen hacks (screensavers), etc.
+</para>
+<para>
+Examples: xdesktopwaves, xphoon, xpenguins
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Help</term>
+<listitem>
+<para>
+programs that provide user documentation
+</para>
+<para>
+Examples: debian-reference, apt-howto, dhelp
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Screen</term>
+<listitem>
+<para>
+Programs that affect the whole screen.
+</para>
+<variablelist>
+<varlistentry>
+<term>Screen/Saving</term>
+<listitem>
+<para>
+Tools for blanking the screen.  Entries of screen hacks and configuration GUIs
+should go to other appropriate sections.
+</para>
+<para>
+Examples: xscreensaver, xlockmore
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Screen/Locking</term>
+<listitem>
+<para>
+Tools for locking the screen.
+</para>
+<para>
+Examples: xscreensaver, xlockmore
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Window Managers</term>
+<listitem>
+<para>
+X window managers.
+</para>
+<para>
+Examples: fluxbox, metacity, waimea
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>FVWM Modules</term>
+<listitem>
+<para>
+FVWM-based window manager modules.  As only modules related to the running
+window-manager are displayed, do not create subsections for specific
+window-managers.
+</para>
+<para>
+Examples: fvwm, fvwm-gnome, fvwm95
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Window Maker</term>
+<listitem>
+<para>
+This section is reserved for wmaker as a special case.
+</para>
+<para>
+All wmaker specific entries must go here.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+
+</chapter>
+
+
+</book>
+
