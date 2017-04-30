@@ -86,6 +86,11 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     Seconded: Andreas Henriksson <andreas@fatal.se>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #852314
+  * Policy: Update policy on /dev and device file management
+    Wording: Russ Allbery <rra@debian.org>
+    Seconded: Andreas Henriksson <andreas@fatal.se>
+    Seconded: Simon McVittie <smcv@debian.org>
+    Closes: #698012
   * Perl: Update module search path for multiarch support
     Wording: Dominic Hargreaves <dom@earth.li>
     Seconded: Niko Tyni <ntyni@debian.org>

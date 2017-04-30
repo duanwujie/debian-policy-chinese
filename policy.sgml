@@ -9147,15 +9147,15 @@ ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
 	  necessary by the programs in the package, by init scripts or
 	  systemd unit files, or by similar on-demand mechanisms.  If such
 	  files need to be created during package installation, they must
-	  be created in the <pgrn>postinst</pgrn> maintainer
+	  be created in the <prgn>postinst</prgn> maintainer
 	  script<footnote>
 	    It's better to use <prgn>mkfifo</prgn> rather
 	    than <prgn>mknod</prgn> to create named pipes to avoid false
 	    positives from automated checks for packages incorrectly
 	    creating device files.
 	  </footnote>
-	  and removed in either the <pgrn>prerm</pgrn> or
-	  the <pgrn>postrm</pgrn> maintainer script.
+	  and removed in either the <prgn>prerm</prgn> or
+	  the <prgn>postrm</prgn> maintainer script.
 	</p>
       </sect>
 

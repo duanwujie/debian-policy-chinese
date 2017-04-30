@@ -89,6 +89,15 @@ Not Released Yet
   and manage any backward-compatibility symlinks so that they don't break
   if <file><var>path</var></file> and <file>/usr/<var>path</var></file>
   are the same directory.</item>
+<tag>10.6</tag>
+  <item>Packages should assume device files in <file>/dev</file> are
+  dynamically managed and don't have to be created by the package.
+  Packages other than those whose purpose is to manage <file>/dev</file>
+  must not create or remove files there when a dynamic management facility
+  is in use.  Named pipes and device files outside of <file>/dev</file>
+  should normally be created on demand via init scripts, systemd units, or
+  similar mechanisms, but may be created and removed in maintainer scripts
+  if the must be created during package installation.</item>
 <tag>10.9</tag>
   <item>Checking with the base-passwd maintainer is no longer required (or
   desirable) when creating a new dynamic user or group in a
