@@ -1,4 +1,4 @@
-debian-policy (3.9.9.0) UNRELEASED; urgency=medium
+debian-policy (4.0.0.0) UNRELEASED; urgency=medium
 
   [ Andreas Barth ]
   * Policy: Add the MPLs to /usr/share/common-licenses
@@ -180,6 +180,15 @@ debian-policy (3.9.9.0) UNRELEASED; urgency=medium
     release to match the actual upload.  (Closes: #822059)
   * Fix duplicated "the" words in 4.4 and 8.6.3.2.  Patch from Valentin
     Samir.  (Closes: #830989)
+  * Clean up the upgrading checklist a bit:
+    - Rewrite the introduction to read a bit more smoothly and mention
+      that the Standards-Version value omits the minor patch number.
+    - Remove the minor patch number from all the versions except for the
+      anomalies that contain normative changes, and note those
+      explicitly.
+    - Remove some unhelpful section headings and trailing colons in very
+      old upgrading checklist entries.
+    - Standardize the release date format.
   * Compress all files with gzip -n to avoid embedding timestamps,
     enabling reproducible builds.
   * Redo some of the Makefile and debian/rules dependencies to avoid
