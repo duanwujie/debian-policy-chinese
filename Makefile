@@ -1,6 +1,6 @@
 include debian/rules
 
-policy.xml: version.xml
+policy.xml: version.xml upgrading-checklist.xml
 menu-policy.xml: version.xml
 perl-policy.xml: version.xml
 
@@ -16,6 +16,7 @@ $(MDWN_FILES:=.html): %.html: %.md
 	$(MDWN) $< > $@
 
 upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
+upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 
 %.validate: %
 	$(XMLLINT) $<

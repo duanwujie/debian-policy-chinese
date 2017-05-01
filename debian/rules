@@ -85,6 +85,7 @@ all build build-indep: stamp-build
 build-arch:
 stamp-build: $(MDWN_FILES:=.md)				\
 	     $(XML_FILES:=.xml)				\
+	     $(XML_SPLIT_FILES:=.xml)			\
 	     $(XML_VERSION)				\
 	     copyright-format/copyright-format-1.0.xml	\
 	     autopkgtest/autopkgtest.md			\
