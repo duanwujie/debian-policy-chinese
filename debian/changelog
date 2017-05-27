@@ -183,8 +183,8 @@ debian-policy (4.0.0.0) UNRELEASED; urgency=medium
   * Clean up the upgrading checklist a bit:
     - Rewrite the introduction to read a bit more smoothly and mention
       that the Standards-Version value omits the minor patch number.
-    - Remove the minor patch number from all the versions except for the
-      anomalies that contain normative changes, and note those
+    - Remove the minor patch number from all the version headings except
+      for the anomalies that contain normative changes, and note those
       explicitly.
     - Remove some unhelpful section headings and trailing colons in very
       old upgrading checklist entries.
