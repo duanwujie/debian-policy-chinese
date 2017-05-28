@@ -203,6 +203,7 @@ debian-policy (4.0.0.0) UNRELEASED; urgency=medium
 
   [ Sean Whitton ]
   * Remove references to DebianDoc-SGML from README.md.
+  * Fix typo & comma splice in Process.md.
 
  -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
 
