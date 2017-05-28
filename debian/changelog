@@ -201,6 +201,9 @@ debian-policy (4.0.0.0) UNRELEASED; urgency=medium
   * Run wrap-and-sort -ast.
   * Tag as Multi-Arch: foreign (mostly to silence the hinter).
 
+  [ Sean Whitton ]
+  * Remove references to DebianDoc-SGML from README.md.
+
  -- Russ Allbery <rra@debian.org>  Sat, 31 Dec 2016 13:53:33 -0800
 
 debian-policy (3.9.8.0) unstable; urgency=medium

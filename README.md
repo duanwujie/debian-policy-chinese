@@ -142,14 +142,6 @@ independently, so there's a lot of opportunity for people to help.
 
 There are also some other, larger projects:
 
-+ Policy is currently maintained in DebianDoc-SGML, which is no longer
-  very actively maintained and isn't a widely used or understood
-  format. The most logical replacement would be DocBook. However,
-  DocBook is a huge language with many tags and options, making it
-  rather overwhelming. We badly need someone with DocBook experience
-  to write a style guide specifying exactly which tags should be used
-  and what they should be used for so that we can limit ourselves to
-  an easy-to-understand and documented subset of the language.
 + Policy contains several appendices which are really documentation of
   how parts of the dpkg system works rather than technical
   Policy. Those appendices should be removed from the Policy document
@@ -159,13 +151,10 @@ There are also some other, larger projects:
   the useful bits that aren't currently documented back to the dpkg
   team as documentation patches.
 + Policy has grown organically over the years and suffers from
-  organizational issues because of it. It also doesn't make use of the
-  abilities that a current XML language might give us, such as being
-  able to extract useful portions of the document (all **must**
-  directives, for example). There has been quite a bit of discussion
-  of a new format that would allow for this, probably as part of
-  switching to DocBook, but as yet such a reorganization and reworking
-  has not been started.
+  organizational issues because of it. There has been quite a bit of
+  discussion of a new format that would allow for this, probably as
+  part of switching to DocBook, but as yet such a reorganization and
+  reworking has not been started.
 
 If you want to work on any of these projects, please mail
 [debian-policy@lists.debian.org](mailto:debian-policy@lists.debian.org)
