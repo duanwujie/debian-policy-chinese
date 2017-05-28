@@ -184,12 +184,13 @@
         <listitem>
           <para>
             Packages may not install files in both
-            <filename><replaceable>path</replaceable></filename> and
-            <filename>/usr/<replaceable>path</replaceable></filename> and
-            manage any backward-compatibility symlinks so that they don't
-            break if <filename><replaceable>path</replaceable></filename>
-            and <filename>/usr/<replaceable>path</replaceable></filename>
-            are the same directory.
+            <filename>/<replaceable>path</replaceable></filename> and
+            <filename>/usr/<replaceable>path</replaceable></filename>, and
+            must manage any backward-compatibility symlinks so that they
+            don't break if
+            <filename>/<replaceable>path</replaceable></filename> and
+            <filename>/usr/<replaceable>path</replaceable></filename> are
+            the same directory.
           </para>
         </listitem>
       </varlistentry>
