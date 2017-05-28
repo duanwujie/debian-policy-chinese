@@ -145,7 +145,7 @@ that appeal proceeds.
 
 We may use one of the following tags here, but to date we have only
 used dubious and ctte. It's not clear whether we need more tags for
-this tage.
+this stage.
 
 **dubious**
 :   Not a policy matter
