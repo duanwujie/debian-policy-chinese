@@ -35,7 +35,7 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 
 $(XML_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): %.txt: %.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/text.xsl $< > $@.html
-	links -dump $@.html | perl -pe 's/[\r\0]//g' > $@
+	links -codepage utf-8 -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
 
 %.txt.gz: %.txt
