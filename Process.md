@@ -55,7 +55,7 @@ of the Policy Team.
 
 Detect need, like gaps/flaws in current policy, or a new rule should
 be added. Any user or developer may start this step. There is a
-decision point here, not all issues are in scope of policy.
+decision point here; not all issues are in scope of policy.
 [TAG: issue](http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&tag=issue)
 
 What needs to happen next: If this is in scope for Policy, discuss the
