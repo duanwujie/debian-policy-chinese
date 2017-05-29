@@ -1,6 +1,10 @@
 debian-policy (4.0.0.1) UNRELEASED; urgency=low
 
   * Change http URLs to https for every resource available over https.
+  * Replace broken CPAN URL in the Perl policy with the current URL, and
+    turn this into an in-line link rather than a footnote with the full
+    URL.  This hides the URL in the text output, but it's not horribly
+    important for the text version and easy to find with a search.
   * Fix formatting of the list of shlibs and symbol file locations.  These
     were mistakenly converted to itemized lists instead of variable lists
     during the DocBook conversion, which produced inferior output.

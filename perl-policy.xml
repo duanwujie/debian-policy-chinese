@@ -369,15 +369,14 @@ make install
       </para>
       <para>
         The Perl distribution includes many modules available separately
-        from CPAN<footnote><para> <ulink
-        url="https://www.perl.com/CPAN">https://www.perl.com/CPAN</ulink></para></footnote>,
-        which may have a newer version.  The intent of the
-        <literal>@INC</literal> ordering (described in <xref
-        linkend="s-paths"/>) is to allow such modules to be packaged to
-        <replaceable>vendor</replaceable> which take precedence over the
-        version in <replaceable>core</replaceable>.  A packaged module
-        which shadows a <replaceable>core</replaceable> module in this way
-        must be a newer version.
+        from <ulink url="https://www.cpan.org/">CPAN</ulink> which may
+        have a newer version.  The intent of the <literal>@INC</literal>
+        ordering (described in <xref linkend="s-paths"/>) is to allow such
+        modules to be packaged to <replaceable>vendor</replaceable> which
+        take precedence over the version in
+        <replaceable>core</replaceable>.  A packaged module which shadows
+        a <replaceable>core</replaceable> module in this way must be a
+        newer version.
       </para>
       <para>
         Module packages must install manual pages into the standard
