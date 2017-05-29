@@ -3,26 +3,26 @@ Css: README.css
 Title: Debian Policy
 Author: Manoj Srivastava and Russ Allbery
 Email: debian-policy@packages.debian.org
-Link Home: http://wiki.debian.org/Teams/Policy
-Link Up: http://www.debian.org/
+Link Home: https://wiki.debian.org/Teams/Policy
+Link Up: https://www.debian.org/
 
 # Debian Policy
 
 ## Infrastructure
 
-+ Website:: <http://www.debian.org/doc/devel-manuals#policy>
++ Website:: <https://www.debian.org/doc/devel-manuals#policy>
 + Mailing list:: <debian-policy@lists.debian.org> lists
 + Source Code::
   * git clone git://anonscm.debian.org/dbnpolicy/policy.git
-  * Browser: <http://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git>
+  * Browser: <https://anonscm.debian.org/gitweb/?p=dbnpolicy/policy.git>
 + Unix group:: dbnpolicy
-+ Alioth Project:: <http://alioth.debian.org/projects/dbnpolicy> (exists
++ Alioth Project:: <https://alioth.debian.org/projects/dbnpolicy> (exists
   to manage the repository but not otherwise used)
 
 ### Interacting with the team
 
 + Email contact:: <debian-policy@lists.debian.org>
-+ Request tracker:: <http://bugs.debian.org/src:debian-policy>
++ Request tracker:: <https://bugs.debian.org/src:debian-policy>
 
 Debian Policy uses a formal procedure and a set of user tags to manage
 the lifecycle of change proposals. For definitions of those tags and
@@ -114,19 +114,19 @@ mailing list without being project delegates.
 
 In addition to the main technical manual, the team currently also maintains:
 
-+ [Machine-readable debian/copyright format](http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/)
-+ [Debian Menu sub-policy](http://www.debian.org/doc/packaging-manuals/menu-policy/)
-+ [Debian Perl Policy](http://www.debian.org/doc/packaging-manuals/perl-policy/)
-+ [Debconf Specification](http://www.debian.org/doc/packaging-manuals/debconf_specification.html)
-+ [Authoritative list of virtual package names ](http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
++ [Machine-readable debian/copyright format](https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/)
++ [Debian Menu sub-policy](https://www.debian.org/doc/packaging-manuals/menu-policy/)
++ [Debian Perl Policy](https://www.debian.org/doc/packaging-manuals/perl-policy/)
++ [Debconf Specification](https://www.debian.org/doc/packaging-manuals/debconf_specification.html)
++ [Authoritative list of virtual package names ](https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
 
 These documents are maintained using the [Policy changes process](./Process.md), and
 the current state of all change proposals is tracked using the
-[debian-policy BTS](http://bugs.debian.org/src:debian-policy).
+[debian-policy BTS](https://bugs.debian.org/src:debian-policy).
 
 ## Get involved
 
-The best way to help is to review the [current open bugs](http://bugs.debian.org/src:debian-policy),
+The best way to help is to review the [current open bugs](https://bugs.debian.org/src:debian-policy),
 pick a bug that no one is currently shepherding (ask on
 [debian-policy@lists.debian.org](mailto:debian-policy@lists.debian.org) if
 you're not sure if a particular bug

@@ -64,7 +64,7 @@
         A copy of the GNU General Public License is available as
         <literal>/usr/doc/copyright/GPL</literal> in the Debian distribution
         or on the World Wide Web at <ulink
-        url="http://www.gnu.org/copyleft/gpl.html">The GNU General Public
+        url="https://www.gnu.org/copyleft/gpl.html">The GNU General Public
         Licence</ulink>.  You can also obtain it by writing to the Free
         Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
         02110-1301, USA.
@@ -77,9 +77,9 @@
     <para>
       This document is distributed as the <literal>menu-policy</literal>
       files in the Debian package <systemitem role="package"><ulink
-      url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
+      url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
       It is also available from the Debian web mirrors at <literal><ulink
-      url="http://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
+      url="https://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
     </para>
     <para>
       This document has been extracted and separated from the

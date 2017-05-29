@@ -16,7 +16,7 @@ a cooperating group of packages) unless they have been agreed upon and
 appear in this list.
 
 The latest version of this file can be found in the debian-policy, or at
-http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt
+https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt
 (or any other Debian web mirror).
 
 The procedure for updating the list is as follows:

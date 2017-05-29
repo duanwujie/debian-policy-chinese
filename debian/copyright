@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: The FHS documents were downloaded from <http://www.pathname.com/fhs/>
 Comment: Complete copyright notices for all contributors to the various
  documents included in this package have not been comprehensively tracked.

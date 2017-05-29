@@ -60,7 +60,7 @@
         A copy of the GNU General Public License is available as
         <filename>/usr/share/common-licenses/GPL</filename> in the Debian
         distribution or on the World Wide Web at <ulink
-        url="http://www.gnu.org/copyleft/gpl.html">the GNU General Public
+        url="https://www.gnu.org/copyleft/gpl.html">the GNU General Public
         Licence</ulink>.  You can also obtain it by writing to the Free
         Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
         02110-1301, USA.
@@ -180,7 +180,7 @@
         udebs (stripped-down binary packages used by the Debian Installer)
         do not comply with all of the requirements discussed here.  See
         the <ulink
-        url="http://d-i.alioth.debian.org/doc/internals/ch03.html">Debian
+        url="https://d-i.alioth.debian.org/doc/internals/ch03.html">Debian
         Installer internals manual</ulink> for more information about
         them.
       </para>
@@ -192,26 +192,26 @@
       <para>
         This manual is distributed via the Debian package <systemitem
         role="package"><ulink
-        url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>
+        url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>
         (<ulink
-        url="http://packages.debian.org">http://packages.debian.org</ulink>
+        url="https://packages.debian.org">https://packages.debian.org</ulink>
         <ulink
-        url="http://packages.debian.org/debian-policy">http://packages.debian.org/debian-policy</ulink>).
+        url="https://packages.debian.org/debian-policy">https://packages.debian.org/debian-policy</ulink>).
       </para>
       <para>
         The current version of this document is also available from the
         Debian web mirrors at <literal><ulink
-        url="http://www.debian.org/doc/debian-policy/">/doc/debian-policy/</ulink></literal>.
-        ( <ulink url="http://www.debian.org">http://www.debian.org</ulink>
+        url="https://www.debian.org/doc/debian-policy/">/doc/debian-policy/</ulink></literal>.
+        ( <ulink url="https://www.debian.org">https://www.debian.org</ulink>
         <ulink
-        url="http://www.debian.org/doc/debian-policy/">http://www.debian.org/doc/debian-policy/</ulink>)
+        url="https://www.debian.org/doc/debian-policy/">https://www.debian.org/doc/debian-policy/</ulink>)
         Also available from the same directory are several other formats:
         <filename>policy.html.tar.gz</filename> (<ulink
-        url="http://www.debian.org/doc/debian-policy/policy.html.tar.gz">http://www.debian.org/doc/debian-policy/policy.html.tar.gz</ulink>),
+        url="https://www.debian.org/doc/debian-policy/policy.html.tar.gz">https://www.debian.org/doc/debian-policy/policy.html.tar.gz</ulink>),
         <filename>policy.pdf.gz</filename> (<ulink
-        url="http://www.debian.org/doc/debian-policy/policy.pdf.gz">http://www.debian.org/doc/debian-policy/policy.pdf.gz</ulink>)
+        url="https://www.debian.org/doc/debian-policy/policy.pdf.gz">https://www.debian.org/doc/debian-policy/policy.pdf.gz</ulink>)
         and <filename>policy.ps.gz</filename> (<ulink
-        url="http://www.debian.org/doc/debian-policy/policy.ps.gz">http://www.debian.org/doc/debian-policy/policy.ps.gz</ulink>).
+        url="https://www.debian.org/doc/debian-policy/policy.ps.gz">https://www.debian.org/doc/debian-policy/policy.ps.gz</ulink>).
       </para>
       <para>
         The <systemitem role="package">debian-policy</systemitem> package
@@ -334,7 +334,7 @@
         The Developer's Reference is available in the <systemitem
         role="package">developers-reference</systemitem> package.  It's
         also available from the Debian web mirrors at <literal><ulink
-        url="http://www.debian.org/doc/developers-reference/">/doc/developers-reference/</ulink></literal>.
+        url="https://www.debian.org/doc/developers-reference/">/doc/developers-reference/</ulink></literal>.
       </para>
       <para>
         Finally, a <link linkend="s-copyrightformat">specification for
@@ -372,7 +372,7 @@
               The transformation format (sometimes called encoding) of
               <ulink url="http://www.unicode.org/">Unicode</ulink> defined
               by <ulink
-              url="http://www.rfc-editor.org/rfc/rfc3629.txt">RFC
+              url="https://www.rfc-editor.org/rfc/rfc3629.txt">RFC
               3629</ulink>.  UTF-8 has the useful property of having ASCII
               as a subset, so any text encoded in ASCII is trivially also
               valid UTF-8.
@@ -582,7 +582,7 @@
           of that area to function.  Anyone may use, share, modify and
           redistribute the packages in this archive area
           freely<footnote><para> See <ulink
-          url="http://www.debian.org/intro/free">What Does Free
+          url="https://www.debian.org/intro/free">What Does Free
           Mean?</ulink> for more about what we mean by free software.
           </para> </footnote>.
         </para>
@@ -834,7 +834,7 @@
       </para>
       <para>
         For more information about the sections and their definitions, see
-        the <ulink url="http://packages.debian.org/unstable/">list of
+        the <ulink url="https://packages.debian.org/unstable/">list of
         sections in unstable</ulink>.
       </para>
     </section>
@@ -1282,7 +1282,7 @@
         names can be found in the <literal>debian-policy</literal>
         package.  It is also available from the Debian web mirrors at
         <literal><ulink
-        url="http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">/doc/packaging-manuals/virtual-package-names-list.txt</ulink></literal>.
+        url="https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">/doc/packaging-manuals/virtual-package-names-list.txt</ulink></literal>.
       </para>
       <para>
         The procedure for updating the list is described in the preface to
@@ -1416,7 +1416,7 @@
           <systemitem role="package">debian-policy</systemitem> package.
           It is also available from the Debian web mirrors at
           <literal><ulink
-          url="http://www.debian.org/doc/packaging-manuals/debconf_specification.html">/doc/packaging-manuals/debconf_specification.html</ulink></literal>.
+          url="https://www.debian.org/doc/packaging-manuals/debconf_specification.html">/doc/packaging-manuals/debconf_specification.html</ulink></literal>.
         </para>
         <para>
           Packages which use the Debian Configuration Management
@@ -4438,7 +4438,7 @@ Comment: I stand between the candle and the star.
           Debian archive.  The only valid value is <literal>yes</literal>.
           This field was used to regulate uploads by Debian Maintainers,
           See the General Resolution <ulink
-          url="http://www.debian.org/vote/2007/vote_003">Endorse the
+          url="https://www.debian.org/vote/2007/vote_003">Endorse the
           concept of Debian Maintainers</ulink> for more details.
         </para>
       </section>
@@ -7884,7 +7884,7 @@ udeb: libz 1 zlib1g-udeb (&gt;= 1:1.2.3.3.dfsg)
         <para>
           The version of this document referred here can be found in the
           <literal>debian-policy</literal> package or on <ulink
-          url="http://www.debian.org/doc/packaging-manuals/fhs/">FHS
+          url="https://www.debian.org/doc/packaging-manuals/fhs/">FHS
           (Debian copy)</ulink> alongside this manual (or, if you have the
           <systemitem role="package">debian-policy</systemitem> installed,
           you can try <ulink
@@ -8898,7 +8898,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
       <para>
         Unlike <filename>crontab</filename> files described in the IEEE
         Std 1003.1-2008 (POSIX.1) available from <ulink
-        url="http://www.opengroup.org/onlinepubs/9699919799/">The Open
+        url="https://www.opengroup.org/onlinepubs/9699919799/">The Open
         Group</ulink>, the files in <filename>/etc/cron.d</filename> and
         the file <filename>/etc/crontab</filename> have seven fields;
         namely:
@@ -8999,10 +8999,10 @@ Reloading <replaceable>description</replaceable> configuration...done.
         using text files called <emphasis>desktop entries</emphasis>.
         Their format is described in the <emphasis>Desktop Entry
         Specification</emphasis> at <ulink
-        url="http://standards.freedesktop.org/desktop-entry-spec/latest/">http://standards.freedesktop.org/desktop-entry-spec/latest/</ulink>
+        url="https://standards.freedesktop.org/desktop-entry-spec/latest/">https://standards.freedesktop.org/desktop-entry-spec/latest/</ulink>
         and complementary information can be found in the
         <emphasis>Desktop Menu Specification</emphasis> at <ulink
-        url="http://standards.freedesktop.org/menu-spec/latest/">http://standards.freedesktop.org/menu-spec/latest/</ulink>.
+        url="https://standards.freedesktop.org/menu-spec/latest/">https://standards.freedesktop.org/menu-spec/latest/</ulink>.
       </para>
       <para>
         The desktop entry files are installed by the packages in the
@@ -9065,7 +9065,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
         <literal>menu-policy</literal> files in the
         <literal>debian-policy</literal> package.  It is also available
         from the Debian web mirrors at <literal><ulink
-        url="http://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
+        url="https://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
       </para>
     </section>
 
@@ -9168,7 +9168,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
           characteristic file extensions and magic patterns should be
           registered to the IANA (Internet Assigned Numbers Authority).
           See <ulink
-          url="http://www.iana.org/assignments/media-types">http://www.iana.org/assignments/media-types</ulink>
+          url="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</ulink>
           and RFC 6838 for details.  This information will then propagate
           to the systems discovering file media types in Debian, provided
           by the <systemitem role="package">shared-mime-info</systemitem>,
@@ -9183,7 +9183,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
           <emphasis>Shared MIME Info</emphasis> system by installing in
           the directory <filename>/usr/share/mime/packages</filename> a
           file in the XML format specified at <ulink
-          url="http://standards.freedesktop.org/shared-mime-info-spec/latest/">http://standards.freedesktop.org/shared-mime-info-spec/latest/</ulink>.
+          url="https://standards.freedesktop.org/shared-mime-info-spec/latest/">https://standards.freedesktop.org/shared-mime-info-spec/latest/</ulink>.
         </para>
       </section>
     </section>
@@ -11133,9 +11133,9 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
           <listitem>
             <para>
               If the window manager complies with <ulink
-              url="http://www.freedesktop.org/wiki/Specifications/wm-spec">The
+              url="https://www.freedesktop.org/wiki/Specifications/wm-spec">The
               Window Manager Specification Project</ulink>, written by the
-              <ulink url="http://www.freedesktop.org/wiki/">Free Desktop
+              <ulink url="https://www.freedesktop.org/wiki/">Free Desktop
               Group</ulink>, add 40 points.
             </para>
           </listitem>
@@ -11445,7 +11445,7 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
         The Perl policy can be found in the <literal>perl-policy</literal>
         files in the <literal>debian-policy</literal> package.  It is also
         available from the Debian web mirrors at <literal><ulink
-        url="http://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
+        url="https://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
       </para>
     </section>
 
@@ -11461,7 +11461,7 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
         <filename>debian-emacs-policy.gz</filename> of the <systemitem
         role="package">emacsen-common</systemitem> package.  It is also
         available from the Debian web mirrors at <literal><ulink
-        url="http://www.debian.org/doc/packaging-manuals/debian-emacs-policy">/doc/packaging-manuals/debian-emacs-policy</ulink></literal>.
+        url="https://www.debian.org/doc/packaging-manuals/debian-emacs-policy">/doc/packaging-manuals/debian-emacs-policy</ulink></literal>.
       </para>
     </section>
 
@@ -11926,7 +11926,7 @@ END-INFO-DIR-ENTRY
           <filename>copyright-format</filename> files in the <systemitem
           role="package">debian-policy</systemitem> package.  It is also
           available from the Debian web mirrors at <literal><ulink
-          url="http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/">/doc/packaging-manuals/copyright-format/1.0/</ulink></literal>.
+          url="https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/">/doc/packaging-manuals/copyright-format/1.0/</ulink></literal>.
         </para>
         <para>
           Use of this format is optional.

@@ -14,7 +14,7 @@ use SOAP::Lite ();
 
 # The URL to the SOAP interface for the Debian BTS interface and the SOAP
 # namespace used by that interface.
-our $URL       = 'http://bugs.debian.org/cgi-bin/soap.cgi';
+our $URL       = 'https://bugs.debian.org/cgi-bin/soap.cgi';
 our $NAMESPACE = 'Debbugs/SOAP/1';
 
 # Abort if we get a SOAP error.  This function is used as the error handler

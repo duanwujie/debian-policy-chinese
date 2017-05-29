@@ -1,5 +1,6 @@
 debian-policy (4.0.0.1) UNRELEASED; urgency=low
 
+  * Change http URLs to https for every resource available over https.
   * Use UTF-8 instead of ISO-8859-1 as the character set for the text
     versions of policy documents.
   * Add missing release date to the 4.0.0 upgrading-checklist entry.

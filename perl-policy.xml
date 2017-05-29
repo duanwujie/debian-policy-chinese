@@ -58,7 +58,7 @@
         A copy of the GNU General Public License is available as
         <literal>/usr/share/common-licenses/GPL</literal> in the Debian
         distribution or on the World Wide Web at <ulink
-        url="http://www.gnu.org/copyleft/gpl.html">The GNU Public
+        url="https://www.gnu.org/copyleft/gpl.html">The GNU Public
         Licence</ulink>.
       </para>
       <para>
@@ -73,9 +73,9 @@
     <para>
       This document is distributed as the <literal>perl-policy</literal>
       files in the Debian package <systemitem role="package"><ulink
-      url="http://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
+      url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
       It is also available from the Debian web mirrors at <literal><ulink
-      url="http://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
+      url="https://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
     </para>
   </chapter>
 
@@ -370,7 +370,7 @@ make install
       <para>
         The Perl distribution includes many modules available separately
         from CPAN<footnote><para> <ulink
-        url="http://www.perl.com/CPAN">http://www.perl.com/CPAN</ulink></para></footnote>,
+        url="https://www.perl.com/CPAN">https://www.perl.com/CPAN</ulink></para></footnote>,
         which may have a newer version.  The intent of the
         <literal>@INC</literal> ordering (described in <xref
         linkend="s-paths"/>) is to allow such modules to be packaged to
