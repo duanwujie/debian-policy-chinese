@@ -1,5 +1,7 @@
 debian-policy (4.0.0.1) UNRELEASED; urgency=low
 
+  * Clarify the conflict policy between /path and /usr/path by adding the
+    leading slash in front of the first path.  Thanks, Ferenc Wágner.
   * Change http URLs to https for every resource available over https.
   * Replace broken CPAN URL in the Perl policy with the current URL, and
     turn this into an in-line link rather than a footnote with the full

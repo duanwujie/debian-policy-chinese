@@ -9500,7 +9500,7 @@ exec /usr/lib/foo/foo "$@"
       <para>
         To support merged-<filename>/usr</filename> systems, packages must
         not install files in both
-        <filename><replaceable>path</replaceable></filename> and
+        <filename>/<replaceable>path</replaceable></filename> and
         <filename>/usr/<replaceable>path</replaceable></filename>.  For
         example, a package may not install both
         <filename>/bin/example</filename> and
@@ -9508,12 +9508,12 @@ exec /usr/lib/foo/foo "$@"
       </para>
       <para>
         If a file is moved between
-        <filename><replaceable>path</replaceable></filename> and
+        <filename>/<replaceable>path</replaceable></filename> and
         <filename>/usr/<replaceable>path</replaceable></filename> in
         revisions of a Debian package, and a compatibility symlink at the
         old path is needed, the symlink must be managed in a way that will
         not break when
-        <filename><replaceable>path</replaceable></filename> and
+        <filename>/<replaceable>path</replaceable></filename> and
         <filename>/usr/<replaceable>path</replaceable></filename> are the
         same underlying directory due to symlinks or other mechanisms.
       </para>
