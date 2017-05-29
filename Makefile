@@ -62,7 +62,7 @@ pdf: policy.pdf
 policy: html txt ps pdf
 
 leavealone :=	$(FHS_HTML) $(FHS_FILES) $(FHS_ARCHIVE) \
-		libc6-migration.txt
+		libc6-migration.txt virtual-package-names-list.txt
 
 .PHONY: distclean
 distclean:
