@@ -9,7 +9,10 @@
 /debconf_spec/debconf_specification.html
 /debconf_spec/debconf_specification.txt
 /debconf_spec/include/version.xml
+/debian/*.substvars
 /debian/debhelper-build-stamp
+/debian/debian-policy/
+/debian/files
 /menu-policy.html/
 /perl-policy.html/
 /policy.html/
