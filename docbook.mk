@@ -1,5 +1,7 @@
-XSLDIR   ?= ../xsl
-XSLTPROC = xsltproc --nonet --xinclude
+# Shared build rules for DocBook files built in subdirectories.  Keep these
+# rules consistent with the top-level Makefile.
+
+XSLDIR ?= ../xsl
 
 %.html: %.xml $(XSLDIR)/html-single.xsl
 	$(XSLTPROC) $(XSLPARAMS) $(XSLDIR)/html-single.xsl $< > $@
@@ -9,5 +11,6 @@ XSLTPROC = xsltproc --nonet --xinclude
 	links -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
 
-%.txt.gz: %.txt
-	gzip -ncf9 $< > $@
+%.validate: %.xml
+	$(XMLLINT) $<
+	touch $@

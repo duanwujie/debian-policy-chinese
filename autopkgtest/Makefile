@@ -1,15 +1,15 @@
 MDWN ?= multimarkdown
 
-all: autopkgtest.html autopkgtest.txt.gz
+all: autopkgtest.html autopkgtest.txt
 
 autopkgtest.html: autopkgtest.md.expanded
 	$(MDWN) $< > $@
 
-autopkgtest.txt.gz: autopkgtest.md.expanded
-	gzip -ncf9 $< > $@
+autopkgtest.txt: autopkgtest.md.expanded
+	cat $< > $@
 
 autopkgtest.md.expanded: autopkgtest.md version.txt
 	cat $^ > $@
 
 clean:
-	rm -f autopkgtest.html autopkgtest.txt.gz $(wildcard *.expanded)
+	rm -f autopkgtest.html autopkgtest.txt $(wildcard *.expanded)

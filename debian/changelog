@@ -20,6 +20,23 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
     - Replace (incorrect) Software in the Public Interest copyrights with
       copyright notices for the original authors.
     - Standardize capitalization of Debian Policy Mailing List in notices.
+  * Completely rewrite the build system to use debhelper.
+    - Remove all hand-rolled package build rules and let debhelper do the
+      package construction.
+    - Remove gzip compression from the main build and let debhelper handle
+      compression of text files.  This allows debhelper to control the
+      gzip flags and do whatever is correct for reproducible builds.
+    - The top-level Makefile now has conventional all and install targets
+      that build all documents and would install them (not that anyone is
+      likely to use the install target other than the packaging).
+    - Get the document publication dates from debian/changelog instead of
+      the current date for more reproducible builds.
+    - Do xmllint validation of the copyright-format and debconf
+      specification documents as well.
+    - Remove a bunch of old leftovers from the clean and distclean targets
+      and make distclean identical to clean.  Stop cleaning editor
+      autosave files and patch droppings (this can be destructive).
+    - Move all doc-base files into the debian packaging directory.
   * Restructure the command list in the debconf specification document to
     pass xmllint, which didn't like including the body of an itemizedlist
     as an XML entity.
