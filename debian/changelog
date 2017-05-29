@@ -1,6 +1,9 @@
 debian-policy (4.0.0.1) UNRELEASED; urgency=low
 
   * Change http URLs to https for every resource available over https.
+  * Fix formatting of the list of shlibs and symbol file locations.  These
+    were mistakenly converted to itemized lists instead of variable lists
+    during the DocBook conversion, which produced inferior output.
   * Use UTF-8 instead of ISO-8859-1 as the character set for the text
     versions of policy documents.
   * Add missing release date to the 4.0.0 upgrading-checklist entry.

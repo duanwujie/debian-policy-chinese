@@ -7141,95 +7141,102 @@ int library_do_operation(enum library_op);
             by <command>dpkg-shlibdeps</command> The first one that
             contains the required information is used.
           </para>
-          <itemizedlist>
-            <listitem>
-              <para>
+          <variablelist>
+            <varlistentry>
+              <term>
                 <filename>debian/*/DEBIAN/symbols</filename>
-              </para>
-              <para>
-                During the package build, if the package itself contains
-                shared libraries with <filename>symbols</filename> files,
-                they will be generated in these staging directories by
-                <command>dpkg-gensymbols</command> (see <xref
-                linkend="s-providing-symbols"/>).
-                <filename>symbols</filename> files found in the build tree
-                take precedence over <filename>symbols</filename> files
-                from other binary packages.
-              </para>
-              <para>
-                These files must exist before
-                <command>dpkg-shlibdeps</command> is run or the
-                dependencies of binaries and libraries from a source
-                package on other libraries from that same source package
-                will not be correct.  In practice, this means that
-                <command>dpkg-gensymbols</command> must be run before
-                <command>dpkg-shlibdeps</command> during the package
-                build.
-                <footnote>
-                  <para>
-                    An example may clarify.  Suppose the source package
-                    <literal>foo</literal> generates two binary packages,
-                    <literal>libfoo2</literal> and
-                    <literal>foo-runtime</literal>.  When building the
-                    binary packages, the contents of the packages are
-                    staged in the directories
-                    <filename>debian/libfoo2</filename> and
-                    <filename>debian/foo-runtime</filename> respectively.
-                    (<filename>debian/tmp</filename> could be used instead
-                    of one of these.) Since <literal>libfoo2</literal>
-                    provides the <literal>libfoo</literal> shared library,
-                    it will contain a <literal>symbols</literal> file,
-                    which will be installed in
-                    <filename>debian/libfoo2/DEBIAN/symbols</filename>,
-                    eventually to be included as a control file in that
-                    package.  When <command>dpkg-shlibdeps</command> is
-                    run on the executable
-                    <filename>debian/foo-runtime/usr/bin/foo-prog</filename>,
-                    it will examine the
-                    <filename>debian/libfoo2/DEBIAN/symbols</filename>
-                    file to determine whether
-                    <literal>foo-prog</literal>'s library dependencies are
-                    satisfied by any of the libraries provided by
-                    <literal>libfoo2</literal>.  Since those binaries were
-                    linked against the just-built shared library as part
-                    of the build process, the <filename>symbols</filename>
-                    file for the newly-built <literal>libfoo2</literal>
-                    must take precedence over a
-                    <filename>symbols</filename> file for any other
-                    <literal>libfoo2</literal> package already installed
-                    on the system.
-                  </para>
-                </footnote>
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  During the package build, if the package itself contains
+                  shared libraries with <filename>symbols</filename>
+                  files, they will be generated in these staging
+                  directories by <command>dpkg-gensymbols</command> (see
+                  <xref linkend="s-providing-symbols"/>).
+                  <filename>symbols</filename> files found in the build
+                  tree take precedence over <filename>symbols</filename>
+                  files from other binary packages.
+                </para>
+                <para>
+                  These files must exist before
+                  <command>dpkg-shlibdeps</command> is run or the
+                  dependencies of binaries and libraries from a source
+                  package on other libraries from that same source package
+                  will not be correct.  In practice, this means that
+                  <command>dpkg-gensymbols</command> must be run before
+                  <command>dpkg-shlibdeps</command> during the package
+                  build.
+                  <footnote>
+                    <para>
+                      An example may clarify.  Suppose the source package
+                      <literal>foo</literal> generates two binary
+                      packages, <literal>libfoo2</literal> and
+                      <literal>foo-runtime</literal>.  When building the
+                      binary packages, the contents of the packages are
+                      staged in the directories
+                      <filename>debian/libfoo2</filename> and
+                      <filename>debian/foo-runtime</filename>
+                      respectively.  (<filename>debian/tmp</filename>
+                      could be used instead of one of these.) Since
+                      <literal>libfoo2</literal> provides the
+                      <literal>libfoo</literal> shared library, it will
+                      contain a <literal>symbols</literal> file, which
+                      will be installed in
+                      <filename>debian/libfoo2/DEBIAN/symbols</filename>,
+                      eventually to be included as a control file in that
+                      package.  When <command>dpkg-shlibdeps</command> is
+                      run on the executable
+                      <filename>debian/foo-runtime/usr/bin/foo-prog</filename>,
+                      it will examine the
+                      <filename>debian/libfoo2/DEBIAN/symbols</filename>
+                      file to determine whether
+                      <literal>foo-prog</literal>'s library dependencies
+                      are satisfied by any of the libraries provided by
+                      <literal>libfoo2</literal>.  Since those binaries
+                      were linked against the just-built shared library as
+                      part of the build process, the
+                      <filename>symbols</filename> file for the
+                      newly-built <literal>libfoo2</literal> must take
+                      precedence over a <filename>symbols</filename> file
+                      for any other <literal>libfoo2</literal> package
+                      already installed on the system.
+                    </para>
+                  </footnote>
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>/etc/dpkg/symbols/<replaceable>package</replaceable>.symbols.<replaceable>arch</replaceable></filename>
                 and
                 <filename>/etc/dpkg/symbols/<replaceable>package</replaceable>.symbols</filename>
-              </para>
-              <para>
-                Per-system overrides of shared library dependencies.
-                These files normally do not exist.  They are maintained by
-                the local system administrator and must not be created by
-                any Debian package.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  Per-system overrides of shared library dependencies.
+                  These files normally do not exist.  They are maintained
+                  by the local system administrator and must not be
+                  created by any Debian package.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>symbols</filename> control files for packages
                 installed on the system
-              </para>
-              <para>
-                The <filename>symbols</filename> control files for all the
-                packages currently installed on the system are searched
-                last.  This will be the most common source of shared
-                library dependency information.  These files can be read
-                with <literal>dpkg-query --control-show
-                <replaceable>package</replaceable> symbols</literal>.
-              </para>
-            </listitem>
-          </itemizedlist>
+              </term>
+              <listitem>
+                <para>
+                  The <filename>symbols</filename> control files for all
+                  the packages currently installed on the system are
+                  searched last.  This will be the most common source of
+                  shared library dependency information.  These files can
+                  be read with <literal>dpkg-query --control-show
+                  <replaceable>package</replaceable> symbols</literal>.
+                </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
           <para>
             Be aware that if a <filename>debian/shlibs.local</filename>
             exists in the source package, it will override any
@@ -7519,68 +7526,81 @@ libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
             which they are read by <command>dpkg-shlibdeps</command>.
             (The first one which gives the required information is used.)
           </para>
-          <itemizedlist>
-            <listitem>
-              <para>
+          <variablelist>
+            <varlistentry>
+              <term>
                 <filename>debian/shlibs.local</filename>
-              </para>
-              <para>
-                This lists overrides for this package.  This file should
-                normally not be used, but may be needed temporarily in
-                unusual situations to work around bugs in other packages,
-                or in unusual cases where the normally declared dependency
-                information in the installed <filename>shlibs</filename>
-                file for a library cannot be used.  This file overrides
-                information obtained from any other source.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  This lists overrides for this package.  This file should
+                  normally not be used, but may be needed temporarily in
+                  unusual situations to work around bugs in other
+                  packages, or in unusual cases where the normally
+                  declared dependency information in the installed
+                  <filename>shlibs</filename> file for a library cannot be
+                  used.  This file overrides information obtained from any
+                  other source.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>/etc/dpkg/shlibs.override</filename>
-              </para>
-              <para>
-                This lists global overrides.  This list is normally empty.
-                It is maintained by the local system administrator.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  This lists global overrides.  This list is normally
+                  empty.  It is maintained by the local system
+                  administrator.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>DEBIAN/shlibs</filename> files in the "build
                 directory"
-              </para>
-              <para>
-                These files are generated as part of the package build
-                process and staged for inclusion as control files in the
-                binary packages being built.  They provide details of any
-                shared libraries included in the same package.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  These files are generated as part of the package build
+                  process and staged for inclusion as control files in the
+                  binary packages being built.  They provide details of
+                  any shared libraries included in the same package.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>shlibs</filename> control files for packages
                 installed on the system
-              </para>
-              <para>
-                The <filename>shlibs</filename> control files for all the
-                packages currently installed on the system.  These files
-                can be read using <literal>dpkg-query --control-show
-                <replaceable>package</replaceable> shlibs</literal>.
-              </para>
-            </listitem>
-            <listitem>
-              <para>
+              </term>
+              <listitem>
+                <para>
+                  The <filename>shlibs</filename> control files for all
+                  the packages currently installed on the system.  These
+                  files can be read using <literal>dpkg-query
+                  --control-show <replaceable>package</replaceable>
+                  shlibs</literal>.
+                </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>
                 <filename>/etc/dpkg/shlibs.default</filename>
-              </para>
-              <para>
-                This file lists any shared libraries whose packages have
-                failed to provide correct <filename>shlibs</filename>
-                files.  It was used when the <filename>shlibs</filename>
-                setup was first introduced, but it is now normally empty.
-                It is maintained by the <literal>dpkg</literal>
-                maintainer.
-              </para>
-            </listitem>
-          </itemizedlist>
+              </term>
+              <listitem>
+                <para>
+                  This file lists any shared libraries whose packages have
+                  failed to provide correct <filename>shlibs</filename>
+                  files.  It was used when the <filename>shlibs</filename>
+                  setup was first introduced, but it is now normally
+                  empty.  It is maintained by the <literal>dpkg</literal>
+                  maintainer.
+                </para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
           <para>
             If a <filename>symbols</filename> file for a shared library
             package is available, <command>dpkg-shlibdeps</command> will
