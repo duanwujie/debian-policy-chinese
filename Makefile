@@ -7,10 +7,10 @@
 # independent of their Debian packaging in the debian directory.
 
 # Basic package information.
-PACKAGE   := $(shell dpkg-parsechangelog | grep '^Source:' | cut -d' ' -f2)
-TIMESTAMP := $(shell dpkg-parsechangelog | grep '^Timestamp:' | cut -d' ' -f2)
+PACKAGE   := $(shell dpkg-parsechangelog -SSource)
+TIMESTAMP := $(shell dpkg-parsechangelog -STimestamp)
 DATE      := $(shell date -d '@$(TIMESTAMP)' +'%Y-%m-%d')
-VERSION   := $(shell dpkg-parsechangelog | grep '^Version:' | cut -d' ' -f2)
+VERSION   := $(shell dpkg-parsechangelog -SVersion)
 
 # Conversion programs to use.  Export these so that they're visible to
 # submakes.
