@@ -31,7 +31,9 @@
     </author>
     <author>
       <othername>The Debian Policy Mailing List</othername>
-      <email>debian-policy@lists.debian.org</email>
+      <affiliation>
+        <address><email>debian-policy@lists.debian.org</email></address>
+      </affiliation>
     </author>
     <copyright>
       <year>1998</year>
@@ -237,9 +239,7 @@ Description: domain for this computer
     <para>
       Here are the currently supported commands.
     </para>
-    <itemizedlist>
-        &command_list;
-    </itemizedlist>
+    &command_list;
   </sect1>
   <sect1>
     <title>

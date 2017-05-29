@@ -1,307 +1,301 @@
-<listitem id="command_version">
-  <para>
-    VERSION
-    <parameter>number</parameter>
-  </para>
-  <para>
-    This exchanges with the frontend the protocol version
-    number that is being used. The current version is
-    2.1. Versions in the 2.x series will be
-    backwards-compatible. You may specify the protocol version
-    number you are speaking. The frontend will return the version
-    of the protocol it speaks. If the version you specify is too
-    low, this command will return the numeric return code
-    <literal>30</literal>.
-  </para>
-</listitem>
-<listitem id="command_capb">
-  <para>
-    CAPB
-    <parameter>capabilities</parameter>
-  </para>
-  <para>
-    This exchanges with the frontend a list of supported capabilities
-    Capabilities both the frontend and your confmodule support may be
-    used; the capabilities supported by the frontend are returned by
-    this command.
-    <table frame="all">
-      <title>Currently used capabilities</title>
-      <tgroup cols="2">
-      <thead>
-        <row>
-          <entry>capability</entry>
-	  <entry>description</entry>
-        </row>
-      </thead>
-      <tbody>
-        <row>
-          <entry>backup</entry>
- 	  <entry>
-	    Backing up to a previous step is supported.
-	  </entry>
-        </row>
-	<row>
-	  <entry>escape</entry>
-	  <entry>
-	    The frontend expects commands sent to it to have backslashes and
-	    newlines quoted as <literal>\\</literal> and <literal>\n</literal>
-	    respectively and will in turn quote backslashes and newlines in its
-	    replies.  See <citerefentry><refentrytitle>debconf-escape</refentrytitle>
-	    <manvolnum>1</manvolnum></citerefentry>.
-	  </entry>
-	</row>
-	<row>
-	  <entry>multiselect</entry>
-	  <entry>
-	    The multiselect data type is supported. You do not need to
-	    check this capability if you depend on any modern version
-	    of debconf.
-	  </entry>
-	</row>
-      </tbody>
-      </tgroup>
-    </table>
-  </para>
-</listitem>
-<listitem id="command_settitle">
-  <para>
-    SETTITLE
-    <parameter>template</parameter>
-  </para>
-  <para>
-    You can use this command to set a title in the
-    frontend. This may appear in different ways, depending on the
-    frontend being used, for example it might change the title
-    of the frontend's window. If you don't specify anything, a
-    title will automatically be generated.
-  </para>
-  <para>
-    Using a template has the advantage that titles are translatable
-    and that they can be maintained in the same place as other text
-    displayed to users.
-  </para> 
-</listitem>
-<listitem id="command_title">
-  <para>
-    TITLE
-    <parameter>string</parameter>
-  </para>
-  <para>
-    Similar to SETTITLE, but takes a string instead of a template as
-    parameter. Consequence is that the title will not be translatable,
-    unless some other mechanism (like gettext) is used.
-  </para>
-</listitem>
-<listitem id="command_stop">
-  <para>
-    STOP
-  </para>
-  <para>
-    This command tells the frontend you're done talking to it. Typically
-    the frontend can detect the termination of your program and this
-    command is not necessary.
-  </para>
-</listitem>
-<listitem id="command_input">
-  <para>
-    INPUT
-    <parameter>priority</parameter>
-    <parameter>question</parameter>
-  </para>
-  <para>
-    This tells the frontend to display a question (or other type of
-    item) to the user. <parameter>question</parameter> is the name of the
-    item to display, all other information about the item is retrieved
-    from the templates described previously.
-    <parameter>priority</parameter> is how important it is that the
-    user be prompted. The frontend need only ask this question if the
-    priority is high enough. The question is not displayed until a go
-    command is given. This allows us to ask multiple questions in a single
-    screen. Once a question has been displayed to the user and the user has
-    provided input, the frontend will set the
-    <literal>seen</literal> flag.
-    &priority_table;
-  </para>
-  <para>
-    Note that the frontend decides if the user is actually
-    prompted or not. If the user has already answered a
-    question, they are normally not asked it again even if
-    input is called again. And if the user is ignoring low
-    priority items, they will not see them. In either of
-    these cases, this command returns the numeric return code
-    <literal>30</literal>.
-  </para>
-</listitem>
-<listitem id="command_beginblock">
-  <para>
-    BEGINBLOCK
-  </para>
-</listitem>
-<listitem id="command_endblock">
-  <para>
-    ENDBLOCK
-  </para>
-  <para>
-    Some frontends are able to display a number of items to
-    the user at once. To do this, they need to be given blocks
-    of input commands, enclosed in the BEGINBLOCK and ENDBLOCK
-    commands. Blocks can be nested and very advanced frontends
-    may use this as a user interface hint.
-  </para>
-  <note>
+<itemizedlist>
+  <listitem id="command_version">
     <para>
-      There is an implicit block around any set of INPUT commands
-      that are not enclosed in an explicit block.
+      VERSION
+      <parameter>number</parameter>
     </para>
-  </note>
-</listitem>
-<listitem id="command_go">
-  <para>
-    GO
-  </para>
-  <para>
-    Shows the current set of accumulated items to the user and lets
-    them fill in values, etc. If the backup capability is supported
-    and the user indicates they want to back up a step, this command
-    returns the numeric return code <literal>30</literal>.
-  </para>
-</listitem>
-<listitem id="command_clear">
-  <para>
-    CLEAR
-  </para>
-  <para>
-    Clears the accumulated set of INPUT commands without displaying
-    them to the user.
-  </para>
-</listitem>
-<listitem id="command_get">
-  <para>
-    GET <parameter>question</parameter>
-  </para>
-  <para>
-    Ask the frontend to tell you how the user answered a question. The
-    value is returned to you.
-  </para>
-</listitem>
-<listitem id="command_set">
-  <para>
-    SET
-    <parameter>question</parameter>
-    <parameter>value</parameter>
-  </para>
-  <para>
-    Set the answer of a question to a value.
-  </para>
-</listitem>
-<listitem id="command_reset">
-  <para>
-    RESET <parameter>question</parameter>
-  </para>
-  <para>
-    Reset the question to its default value. This includes
-    resetting flags to their defaults.
-  </para>
-</listitem>
-<listitem id="command_subst">
-  <para>
+    <para>
+      This exchanges with the frontend the protocol version number that is
+      being used. The current version is 2.1. Versions in the 2.x series
+      will be backwards-compatible. You may specify the protocol version
+      number you are speaking. The frontend will return the version of the
+      protocol it speaks. If the version you specify is too low, this
+      command will return the numeric return code <literal>30</literal>.
+    </para>
+  </listitem>
+  <listitem id="command_capb">
+    <para>
+      CAPB
+      <parameter>capabilities</parameter>
+    </para>
+    <para>
+      This exchanges with the frontend a list of supported capabilities
+      Capabilities both the frontend and your confmodule support may be
+      used; the capabilities supported by the frontend are returned by
+      this command.
+      <table frame="all">
+        <title>Currently used capabilities</title>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>capability</entry>
+	      <entry>description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>backup</entry>
+ 	      <entry>
+	        Backing up to a previous step is supported.
+	      </entry>
+            </row>
+	    <row>
+	      <entry>escape</entry>
+	      <entry>
+	        The frontend expects commands sent to it to have
+	        backslashes and newlines quoted as <literal>\\</literal>
+	        and <literal>\n</literal> respectively and will in turn
+	        quote backslashes and newlines in its replies.  See
+	        <citerefentry><refentrytitle>debconf-escape</refentrytitle>
+	        <manvolnum>1</manvolnum></citerefentry>.
+	      </entry>
+	    </row>
+	    <row>
+	      <entry>multiselect</entry>
+	      <entry>
+	        The multiselect data type is supported. You do not need to
+	        check this capability if you depend on any modern version
+	        of debconf.
+	      </entry>
+	    </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+  </listitem>
+  <listitem id="command_settitle">
+    <para>
+      SETTITLE
+      <parameter>template</parameter>
+    </para>
+    <para>
+      You can use this command to set a title in the frontend. This may
+      appear in different ways, depending on the frontend being used, for
+      example it might change the title of the frontend's window. If you
+      don't specify anything, a title will automatically be generated.
+    </para>
+    <para>
+      Using a template has the advantage that titles are translatable and
+      that they can be maintained in the same place as other text
+      displayed to users.
+    </para> 
+  </listitem>
+  <listitem id="command_title">
+    <para>
+      TITLE
+      <parameter>string</parameter>
+    </para>
+    <para>
+      Similar to SETTITLE, but takes a string instead of a template as
+      parameter. Consequence is that the title will not be translatable,
+      unless some other mechanism (like gettext) is used.
+    </para>
+  </listitem>
+  <listitem id="command_stop">
+    <para>
+      STOP
+    </para>
+    <para>
+      This command tells the frontend you're done talking to it. Typically
+      the frontend can detect the termination of your program and this
+      command is not necessary.
+    </para>
+  </listitem>
+  <listitem id="command_input">
+    <para>
+      INPUT
+      <parameter>priority</parameter>
+      <parameter>question</parameter>
+    </para>
+    <para>
+      This tells the frontend to display a question (or other type of
+      item) to the user. <parameter>question</parameter> is the name of
+      the item to display, all other information about the item is
+      retrieved from the templates described previously.
+      <parameter>priority</parameter> is how important it is that the user
+      be prompted. The frontend need only ask this question if the
+      priority is high enough. The question is not displayed until a go
+      command is given. This allows us to ask multiple questions in a
+      single screen. Once a question has been displayed to the user and
+      the user has provided input, the frontend will set the
+      <literal>seen</literal> flag.
+      &priority_table;
+    </para>
+    <para>
+      Note that the frontend decides if the user is actually prompted or
+      not. If the user has already answered a question, they are normally
+      not asked it again even if input is called again. And if the user is
+      ignoring low priority items, they will not see them. In either of
+      these cases, this command returns the numeric return code
+      <literal>30</literal>.
+    </para>
+  </listitem>
+  <listitem id="command_beginblock">
+    <para>
+      BEGINBLOCK
+    </para>
+  </listitem>
+  <listitem id="command_endblock">
+    <para>
+      ENDBLOCK
+    </para>
+    <para>
+      Some frontends are able to display a number of items to the user at
+      once. To do this, they need to be given blocks of input commands,
+      enclosed in the BEGINBLOCK and ENDBLOCK commands. Blocks can be
+      nested and very advanced frontends may use this as a user interface
+      hint.
+    </para>
+    <note>
+      <para>
+        There is an implicit block around any set of INPUT commands that
+        are not enclosed in an explicit block.
+      </para>
+    </note>
+  </listitem>
+  <listitem id="command_go">
+    <para>
+      GO
+    </para>
+    <para>
+      Shows the current set of accumulated items to the user and lets them
+      fill in values, etc. If the backup capability is supported and the
+      user indicates they want to back up a step, this command returns the
+      numeric return code <literal>30</literal>.
+    </para>
+  </listitem>
+  <listitem id="command_clear">
+    <para>
+      CLEAR
+    </para>
+    <para>
+      Clears the accumulated set of INPUT commands without displaying them
+      to the user.
+    </para>
+  </listitem>
+  <listitem id="command_get">
+    <para>
+      GET <parameter>question</parameter>
+    </para>
+    <para>
+      Ask the frontend to tell you how the user answered a question. The
+      value is returned to you.
+    </para>
+  </listitem>
+  <listitem id="command_set">
+    <para>
+      SET
+      <parameter>question</parameter>
+      <parameter>value</parameter>
+    </para>
+    <para>
+      Set the answer of a question to a value.
+    </para>
+  </listitem>
+  <listitem id="command_reset">
+    <para>
+      RESET <parameter>question</parameter>
+    </para>
+    <para>
+      Reset the question to its default value. This includes resetting
+      flags to their defaults.
+    </para>
+  </listitem>
+  <listitem id="command_subst">
+    <para>
       SUBST
       <parameter>question</parameter>
       <parameter>key</parameter>
       <parameter>value</parameter>
-  </para>
-  <para>
-    Questions (and other items) can have substitutions embedded in
-    their descriptions (and, currently in their choices fields). These
-    substitutions look like "<literal>${key}</literal>". When the
-    question is displayed, the substitutions are replaced with their
-    values. This command can be used to set the value of a
-    substitution.
-  </para>
-</listitem>
-<listitem id="command_fget">
-  <para>
-    FGET
-    <parameter>question</parameter>
-    <parameter>flag</parameter>
-  </para>
-  <para>
-    Questions (and other items) can have flags associated with them. The
-    flags have a value of "<literal>true</literal>" or
-    "<literal>false</literal>". This command returns
-    the value of a flag.
-  </para>
-</listitem>
-<listitem id="command_fset">
-  <para>
-    FSET
-    <parameter>question</parameter>
-    <parameter>flag</parameter>
-    <parameter>value</parameter>
-  </para>
-  <para>
-    This sets the state of a flag on a question. Valid
-    states for the flag are "<literal>true</literal>" and
-    "<literal>false</literal>".
-  </para>
-  <para>
-    One common flag is the
-    "<literal>seen</literal>" flag. It is normally only set if
-    a user already seen a question.
-    Typically, frontends only display questions to users if they have the
-    seen flag set to "false". Sometimes you want the user to see a
-    question again -- in these cases you can set the seen flag to
-    false to force the frontend to redisplay it.
-  </para>
-  <para>
-    Note that as a special convenience behavior, frontends will
-    redisplay already seen questions if the question was first seen by
-    the user in the same confmodule run. This makes it easy for a
-    confmodule to back up to previous questions without having to reset
-    the seen flag.
-  </para>
-</listitem>
-<listitem id="command_metaget">
-  <para>
-    METAGET
-    <parameter>question</parameter>
-    <parameter>field</parameter>
-  </para>
-  <para>
-    This returns the value of any field of a question (the description, for
-    example).
-  </para>
-</listitem>
-<listitem id="command_register">
-  <para>
-    REGISTER
-    <parameter>template</parameter>
-    <parameter>question</parameter>
-  </para>
-  <para>
-    This creates a new question that is bound to a
-    template. By default each template has an associated
-    question with the same name. However, any number of
-    questions can really be associated with a template, and
-    this lets you create more such questions.
-  </para>
-</listitem>
-<listitem id="command_unregister">
-  <para>
-    UNREGISTER
-    <parameter>question</parameter>
-  </para>
-  <para>
-    This removes a question from the database.
-  </para>
-</listitem>
-<listitem id="command_purge">
-  <para>
-    PURGE
-  </para>
-  <para>
-    Call this in your postrm when your package is
-    purged. It removes all templates and questions your
-    package has generated.
-  </para>
-</listitem>
+    </para>
+    <para>
+      Questions (and other items) can have substitutions embedded in their
+      descriptions (and, currently in their choices fields). These
+      substitutions look like "<literal>${key}</literal>". When the
+      question is displayed, the substitutions are replaced with their
+      values. This command can be used to set the value of a substitution.
+    </para>
+  </listitem>
+  <listitem id="command_fget">
+    <para>
+      FGET
+      <parameter>question</parameter>
+      <parameter>flag</parameter>
+    </para>
+    <para>
+      Questions (and other items) can have flags associated with them. The
+      flags have a value of "<literal>true</literal>" or
+      "<literal>false</literal>". This command returns the value of a
+      flag.
+    </para>
+  </listitem>
+  <listitem id="command_fset">
+    <para>
+      FSET
+      <parameter>question</parameter>
+      <parameter>flag</parameter>
+      <parameter>value</parameter>
+    </para>
+    <para>
+      This sets the state of a flag on a question. Valid states for the
+      flag are "<literal>true</literal>" and "<literal>false</literal>".
+    </para>
+    <para>
+      One common flag is the "<literal>seen</literal>" flag. It is
+      normally only set if a user already seen a question.  Typically,
+      frontends only display questions to users if they have the seen flag
+      set to "false". Sometimes you want the user to see a question again
+      -- in these cases you can set the seen flag to false to force the
+      frontend to redisplay it.
+    </para>
+    <para>
+      Note that as a special convenience behavior, frontends will
+      redisplay already seen questions if the question was first seen by
+      the user in the same confmodule run. This makes it easy for a
+      confmodule to back up to previous questions without having to reset
+      the seen flag.
+    </para>
+  </listitem>
+  <listitem id="command_metaget">
+    <para>
+      METAGET
+      <parameter>question</parameter>
+      <parameter>field</parameter>
+    </para>
+    <para>
+      This returns the value of any field of a question (the description,
+      for example).
+    </para>
+  </listitem>
+  <listitem id="command_register">
+    <para>
+      REGISTER
+      <parameter>template</parameter>
+      <parameter>question</parameter>
+    </para>
+    <para>
+      This creates a new question that is bound to a template. By default
+      each template has an associated question with the same
+      name. However, any number of questions can really be associated with
+      a template, and this lets you create more such questions.
+    </para>
+  </listitem>
+  <listitem id="command_unregister">
+    <para>
+      UNREGISTER
+      <parameter>question</parameter>
+    </para>
+    <para>
+      This removes a question from the database.
+    </para>
+  </listitem>
+  <listitem id="command_purge">
+    <para>
+      PURGE
+    </para>
+    <para>
+      Call this in your postrm when your package is purged. It removes all
+      templates and questions your package has generated.
+    </para>
+  </listitem>
+</itemizedlist>

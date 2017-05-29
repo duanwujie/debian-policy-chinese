@@ -20,6 +20,9 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
     - Replace (incorrect) Software in the Public Interest copyrights with
       copyright notices for the original authors.
     - Standardize capitalization of Debian Policy Mailing List in notices.
+  * Restructure the command list in the debconf specification document to
+    pass xmllint, which didn't like including the body of an itemizedlist
+    as an XML entity.
   * Add missing release date to the 4.0.0 upgrading-checklist entry.
   * Fix tools/policy-bug-report to not fail when bug lists are empty and
     to ignore closed bugs.
