@@ -11,6 +11,8 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
   * Use UTF-8 instead of ISO-8859-1 as the character set for the text
     versions of policy documents.
   * Add missing release date to the 4.0.0 upgrading-checklist entry.
+  * Fix tools/policy-bug-report to not fail when bug lists are empty and
+    to ignore closed bugs.
   * Don't delete virtual-package-names-list.txt during make distclean.
   * Make distclean depend on clean to remove stamp-* files.
   * Update Standards-Version of the debian-policy package itself.

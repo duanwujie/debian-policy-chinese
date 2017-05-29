@@ -44,10 +44,12 @@ sub init_soap {
 # cannot handle usertags, only regular search criteria.
 sub print_bug_list {
     my ($soap, @criteria) = @_;
+    unshift (@criteria, status => 'open');
     unshift (@criteria, package => 'debian-policy');
     my $bugs = $soap->get_bugs (@criteria)->result;
     unless (@$bugs) {
         print "No bugs found\n";
+        return;
     }
     my $info = $soap->get_status (@$bugs)->result;
     for my $bug (sort keys %$info) {
