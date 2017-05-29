@@ -12,6 +12,14 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
     during the DocBook conversion, which produced inferior output.
   * Use UTF-8 instead of ISO-8859-1 as the character set for the text
     versions of policy documents.
+  * Further standardize author and copyright notices.
+    - Add the notice from the main document that the copyright notices are
+      incomplete to the other documents with copyright notices.
+    - Add the Debian Policy Mailing List as an author of the debconf
+      specification.
+    - Replace (incorrect) Software in the Public Interest copyrights with
+      copyright notices for the original authors.
+    - Standardize capitalization of Debian Policy Mailing List in notices.
   * Add missing release date to the 4.0.0 upgrading-checklist entry.
   * Fix tools/policy-bug-report to not fail when bug lists are empty and
     to ignore closed bugs.

@@ -21,7 +21,7 @@
         </personname>
       </author>
       <author>
-        <othername>The Debian Policy mailing list</othername>
+        <othername>The Debian Policy Mailing List</othername>
         <email>debian-policy@lists.debian.org</email>
       </author>
     </authorgroup>
@@ -38,10 +38,17 @@
     </abstract>
 
     <copyright>
-      <year>1999, 2001</year>
-      <holder>Software in the Public Interest</holder>
+      <year>1999</year>
+      <year>2001</year>
+      <holder>Rapha&euml;l Hertzog and Brendan O'Dea</holder>
     </copyright>
     <legalnotice>
+      <para>
+        These are the copyright dates of the original Debian Perl Policy.
+        Since then, this document has been updated by many others.  No
+        comprehensive collection of copyright notices for subsequent work
+        exists.
+      </para>
       <para>
         This manual is free software; you can redistribute it and/or
         modify it under the terms of the GNU General Public License as

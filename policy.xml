@@ -34,8 +34,10 @@
     </abstract>
 
     <copyright>
-      <year>1996,1997,1998</year>
-      <holder>Ian Jackson and Christian Schwarz.</holder>
+      <year>1996</year>
+      <year>1997</year>
+      <year>1998</year>
+      <holder>Ian Jackson and Christian Schwarz</holder>
     </copyright>
     <legalnotice>
       <para>
@@ -269,9 +271,9 @@
         While the authors of this document have tried hard to avoid typos
         and other errors, these do still occur.  If you discover an error
         in this manual or if you want to give any comments, suggestions,
-        or criticisms please send an email to the Debian Policy List,
-        <email>debian-policy@lists.debian.org</email>, or submit a bug
-        report against the <literal>debian-policy</literal> package.
+        or criticisms please send an email to the Debian Policy Mailing
+        List, <email>debian-policy@lists.debian.org</email>, or submit a
+        bug report against the <literal>debian-policy</literal> package.
       </para>
       <para>
         Please do not try to reach the individual authors or maintainers

@@ -26,7 +26,7 @@
         </personname>
       </author>
       <author>
-        <othername>The Debian Policy mailing List</othername>
+        <othername>The Debian Policy Mailing List</othername>
         <email>debian-policy@lists.debian.org</email>
       </author>
     </authorgroup>
@@ -44,10 +44,16 @@
 
     <copyright>
       <year>1999</year>
-      <holder>Software in the Public Interest, Inc.</holder>
+      <holder>Chris Waters, Joey Hess, and Joost Witteveen</holder>
     </copyright>
 
     <legalnotice>
+      <para>
+        These are the copyright dates of the original Debian Menu
+        sub-policy.  Since then, this document has been updated by many
+        others.  No comprehensive collection of copyright notices for
+        subsequent work exists.
+      </para>
       <para>
         This manual is free software; you may redistribute it and/or modify
         it under the terms of the GNU General Public License as published by

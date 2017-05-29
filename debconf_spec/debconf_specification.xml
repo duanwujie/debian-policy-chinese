@@ -29,6 +29,10 @@
 	<address><email>joeyh@debian.org</email></address>
       </affiliation>
     </author>
+    <author>
+      <othername>The Debian Policy Mailing List</othername>
+      <email>debian-policy@lists.debian.org</email>
+    </author>
     <copyright>
       <year>1998</year>
       <year>1999</year>
@@ -36,6 +40,12 @@
       <holder>Wichert Akkerman and Joey Hess</holder>
     </copyright>
     <legalnotice>
+      <para>
+        These are the copyright dates of the original configuration
+        management protocol document.  Since then, this document has been
+        updated by many others.  No comprehensive collection of copyright
+        notices for subsequent work exists.
+      </para>
       <para>
         This text is copyright by the authors under the terms of the
 	BSD license, sans advertising clause.
