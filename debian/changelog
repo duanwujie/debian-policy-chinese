@@ -9,6 +9,7 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
   * Add missing release date to the 4.0.0 upgrading-checklist entry.
   * Don't delete virtual-package-names-list.txt during make distclean.
   * Make distclean depend on clean to remove stamp-* files.
+  * Update Standards-Version of the debian-policy package itself.
 
  -- Russ Allbery <rra@debian.org>  Sun, 28 May 2017 14:42:56 -0700
 
