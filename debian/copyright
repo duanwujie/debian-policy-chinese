@@ -2,13 +2,14 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: The FHS documents were downloaded from <http://www.pathname.com/fhs/>
 Comment: Complete copyright notices for all contributors to the various
  documents included in this package have not been comprehensively tracked.
- A somewhat incomplete list of contributors can be found in the credited
- contributors in debian/copyright, but it is likely that some are missing.
+ For a more thorough (but still incomplete) list of contributors who may
+ have a copyright interest in these documents, see debian/changelog.
 
 Files: *
 Copyright: 1996, 1997, 1998, Ian Jackson and Christian Schwarz
-  1999, Software in the Public Interest, Inc.
-  1999-2012, many other Debian contributors
+  1999, Chris Waters, Joey Hess, and Joost Witteveen
+  1999, 2001, Raphaël Hertzog and Brendan O'Dea
+  1999-2017, many other Debian contributors
 License: GPL-2+
  This manual is free software; you may redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
@@ -30,7 +31,7 @@ Comment: Be aware that the GNU General Public License as applied to
  sometimes surprising for text documents.
 
 Files: copyright-format/*
-Copyright: 2007-2012, many Debian contributors
+Copyright: 2007-2017, many Debian contributors
 License: preserve-notice
  Copying and distribution of this file, with or without modification, are
  permitted in any medium without royalty provided this notice is
@@ -38,7 +39,7 @@ License: preserve-notice
 
 Files: debconf_spec/*
 Copyright: 1998, 1998, 2000, Wichert Akkerman and Joey Hess
-  2000-2012, many other Debian contributors
+  2000-2017, many other Debian contributors
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are
