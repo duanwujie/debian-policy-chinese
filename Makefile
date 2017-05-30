@@ -146,9 +146,13 @@ autopkgtest/version.txt: debian/changelog
 # Individual file and pattern build rules.
 #
 
-policy.xml: version.xml upgrading-checklist.xml
-menu-policy.xml: version.xml
-perl-policy.xml: version.xml
+# There doesn't seem to be a better way of adding this include dependency.
+policy-1.html: upgrading-checklist.xml
+policy.html/index.html: upgrading-checklist.xml
+policy.pdf: upgrading-checklist.xml
+policy.ps: upgrading-checklist.xml
+policy.txt: upgrading-checklist.xml
+policy.validate: upgrading-checklist.xml
 
 $(MDWN_FILES:=.txt): %.txt: %.md
 	cat $^ > $@
@@ -158,7 +162,7 @@ $(MDWN_FILES:=.txt): %.txt: %.md
 $(MDWN_FILES:=.html): %.html: %.md
 	$(MDWN) $< > $@
 
-# Suppress the table of contents for the standalone upgradingn checklist.
+# Suppress the table of contents for the standalone upgrading checklist.
 upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
 upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 
