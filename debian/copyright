@@ -10,6 +10,24 @@ Copyright: 1996, 1997, 1998, Ian Jackson and Christian Schwarz
   1999, Software in the Public Interest, Inc.
   1999-2012, many other Debian contributors
 License: GPL-2+
+ This manual is free software; you may redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2 of the License, or (at your
+ option) any later version.
+ .
+ This is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ details.
+ .
+ A copy of the GNU General Public License is available as
+ /usr/share/common-licenses/GPL in the Debian distribution or on the World
+ Wide Web at https://www.gnu.org/licenses/.
+Comment: Be aware that the GNU General Public License as applied to
+ standards documents requires distribution or availability of the SGML
+ source when a generated (such as HTML or text) version of the document is
+ distributed.  This is the same as with the source code of software but is
+ sometimes surprising for text documents.
 
 Files: copyright-format/*
 Copyright: 2007-2012, many Debian contributors
@@ -68,25 +86,3 @@ License: FHS
  standard into another language, under the above conditions for modified
  versions, except that this permission notice may be stated in a
  translation approved by the copyright holder.
-
-License: GPL-2+
- This manual is free software; you may redistribute it and/or modify it
- under the terms of the GNU General Public License as published by the
- Free Software Foundation; either version 2, or (at your option) any later
- version.
- .
- This is distributed in the hope that it will be useful, but without any
- warranty; without even the implied warranty of merchantability or fitness
- for a particular purpose. See the GNU General Public License for more
- details.
- .
- A copy of the GNU General Public License version 2 is available as
- /usr/share/common-licenses/GPL-2 in the Debian distribution or on the
- World Wide Web at <http://www.gnu.org/copyleft/gpl.html>.  You can also
- obtain it by writing to the Free Software Foundation, Inc., 51 Franklin
- St, Fifth Floor, Boston, MA 02110-1301, USA.
-Comment: Be aware that the GNU General Public License as applied to
- standards documents requires distribution or availability of the SGML
- source when a generated (such as HTML or text) version of the document is
- distributed.  This is the same as with the source code of software but is
- sometimes surprising for text documents.

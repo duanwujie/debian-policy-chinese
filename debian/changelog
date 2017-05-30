@@ -20,6 +20,12 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
     - Replace (incorrect) Software in the Public Interest copyrights with
       copyright notices for the original authors.
     - Standardize capitalization of Debian Policy Mailing List in notices.
+  * Update the GPL license statements to the current recommended form,
+    which doesn't include a street address for the FSF.  Use all-caps for
+    the warranty disclaimer just in case it matters.  Link to the general
+    FSF license page to make it easier to find the GPLv2, which is
+    technically the license under which these documents are distributed,
+    even if the GPLv3 may be used if desired.
   * Completely rewrite the build system to use debhelper.
     - Remove all hand-rolled package build rules and let debhelper do the
       package construction.

@@ -50,7 +50,7 @@
         exists.
       </para>
       <para>
-        This manual is free software; you can redistribute it and/or
+        This manual is free software; you may redistribute it and/or
         modify it under the terms of the GNU General Public License as
         published by the Free Software Foundation; either version 2 of the
         License, or (at your option) any later version.
@@ -63,14 +63,9 @@
       </para>
       <para>
         A copy of the GNU General Public License is available as
-        <literal>/usr/share/common-licenses/GPL</literal> in the Debian
+        <filename>/usr/share/common-licenses/GPL</filename> in the Debian
         distribution or on the World Wide Web at <ulink
-        url="https://www.gnu.org/copyleft/gpl.html">The GNU Public
-        Licence</ulink>.
-      </para>
-      <para>
-        You can also obtain it by writing to the Free Software Foundation,
-        Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+        url="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</ulink>.
       </para>
     </legalnotice>
   </bookinfo>
