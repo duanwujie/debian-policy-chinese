@@ -21,6 +21,9 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
       copyright notices for the original authors.
     - Standardize capitalization of Debian Policy Mailing List in notices.
     - Update copyright notices in debian/copyright.
+  * Add a full copy of the BSD license without advertising clause to the
+    <legalinfo> section of the debconf specification, instead of just a
+    reference to it.
   * Update the GPL license statements to the current recommended form,
     which doesn't include a street address for the FSF.  Use all-caps for
     the warranty disclaimer just in case it matters.  Link to the general
