@@ -1,5 +1,6 @@
 debian-policy (4.0.0.1) UNRELEASED; urgency=low
 
+  [ Russ Allbery ]
   * Clarify the conflict policy between /path and /usr/path by adding the
     leading slash in front of the first path.  Thanks, Ferenc Wágner.
   * Change http URLs to https for every resource available over https.
@@ -56,6 +57,10 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
   * Don't delete virtual-package-names-list.txt during make distclean.
   * Make distclean depend on clean to remove stamp-* files.
   * Update Standards-Version of the debian-policy package itself.
+
+  [ Sean Whitton ]
+  * Update list of Policy Editors in various places.
+    See https://lists.debian.org/debian-devel-announce/2017/06/msg00005.html
 
  -- Russ Allbery <rra@debian.org>  Sun, 28 May 2017 14:42:56 -0700
 
