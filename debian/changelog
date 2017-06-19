@@ -1,5 +1,6 @@
-debian-policy (4.0.0.1) UNRELEASED; urgency=low
+debian-policy (4.0.0.1) unstable; urgency=low
 
+  * Upload to unstable.
   * Clarify the conflict policy between /path and /usr/path by adding the
     leading slash in front of the first path.  Thanks, Ferenc Wágner.
   * Change http URLs to https for every resource available over https.
@@ -57,7 +58,7 @@ debian-policy (4.0.0.1) UNRELEASED; urgency=low
   * Make distclean depend on clean to remove stamp-* files.
   * Update Standards-Version of the debian-policy package itself.
 
- -- Russ Allbery <rra@debian.org>  Sun, 28 May 2017 14:42:56 -0700
+ -- Russ Allbery <rra@debian.org>  Sun, 18 Jun 2017 19:27:48 -0700
 
 debian-policy (4.0.0.0) experimental; urgency=low
 
