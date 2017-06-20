@@ -82,7 +82,7 @@ consensus has been reached. The current delegates are:
 
 + Andreas Barth (aba)
 + Bill Allombert (ballombe)
-+ Jonathan Nieder (jrnieder)
++ Sean Whitton (spwhitton)
 + Russ Allbery (rra)
 
 ## Task description

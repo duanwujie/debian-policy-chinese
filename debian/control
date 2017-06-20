@@ -3,7 +3,7 @@ Maintainer: Debian Policy List <debian-policy@lists.debian.org>
 Uploaders:
  Andreas Barth <aba@debian.org>,
  Bill Allombert <ballombe@debian.org>,
- Jonathan Nieder <jrnieder@gmail.com>,
+ Sean Whitton <spwhitton@spwhitton.name>
  Russ Allbery <rra@debian.org>,
 Section: doc
 Priority: optional
