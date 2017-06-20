@@ -4,6 +4,10 @@ debian-policy (4.0.0.2) unstable; urgency=low
   * Update list of Policy Editors in various places.
     See https://lists.debian.org/debian-devel-announce/2017/06/msg00005.html
 
+  [ Russ Allbery ]
+  * Remove mention of the libc6 migration paper from the package long
+    description.  This is no longer shipped in the debian-policy package.
+
  -- Russ Allbery <rra@debian.org>  Mon, 19 Jun 2017 19:10:18 -0700
 
 debian-policy (4.0.0.1) unstable; urgency=low
