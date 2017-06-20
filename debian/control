@@ -3,7 +3,7 @@ Maintainer: Debian Policy List <debian-policy@lists.debian.org>
 Uploaders:
  Andreas Barth <aba@debian.org>,
  Bill Allombert <ballombe@debian.org>,
- Sean Whitton <spwhitton@spwhitton.name>
+ Sean Whitton <spwhitton@spwhitton.name>,
  Russ Allbery <rra@debian.org>,
 Section: doc
 Priority: optional
@@ -23,7 +23,8 @@ Vcs-Git: https://anonscm.debian.org/git/dbnpolicy/policy.git
 Package: debian-policy
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}
+Depends:
+ ${misc:Depends},
 Suggests:
  doc-base,
 Description: Debian Policy Manual and related documents
