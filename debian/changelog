@@ -1,4 +1,4 @@
-debian-policy (4.0.0.3) UNRELEASED; urgency=medium
+debian-policy (4.0.0.3) unstable; urgency=medium
 
   [ Sean Whitton ]
   * Fix typo 'the' -> 'they' in upgrading checklist (Closes: #865685).
@@ -18,7 +18,7 @@ debian-policy (4.0.0.3) UNRELEASED; urgency=medium
     directory are of historical interest only and are not included in the
     debian-policy binary package.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 24 Jun 2017 21:14:46 +0100
+ -- Russ Allbery <rra@debian.org>  Sat, 24 Jun 2017 14:11:19 -0700
 
 debian-policy (4.0.0.2) unstable; urgency=low
 

@@ -30,14 +30,14 @@ Comment: Be aware that the GNU General Public License as applied to
  distributed.  This is the same as with the source code of software but is
  sometimes surprising for text documents.
 
-Files: copyright-format/*
+Files: copyright-format*.xml
 Copyright: 2007-2017, many Debian contributors
 License: preserve-notice
  Copying and distribution of this file, with or without modification, are
  permitted in any medium without royalty provided this notice is
  preserved.
 
-Files: debconf_spec/*
+Files: debconf_specification.xml debconf/*
 Copyright: 1998, 1998, 2000, Wichert Akkerman and Joey Hess
   2000-2017, many other Debian contributors
 License: BSD-3-clause
