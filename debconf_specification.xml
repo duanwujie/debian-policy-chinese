@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
      "dtd/docbook-xml/4.1.2/docbookx.dtd" [
-<!ENTITY statuscodes_table SYSTEM "include/statuscodes.xml">
-<!ENTITY command_list SYSTEM "include/commands.xml">
-<!ENTITY priority_table SYSTEM "include/priorities.xml">
-<!ENTITY type_table SYSTEM "include/types.xml">
-<!ENTITY % versiondata SYSTEM "include/version.xml"> %versiondata;
+<!ENTITY statuscodes_table SYSTEM "debconf/statuscodes.xml">
+<!ENTITY command_list SYSTEM "debconf/commands.xml">
+<!ENTITY priority_table SYSTEM "debconf/priorities.xml">
+<!ENTITY type_table SYSTEM "debconf/types.xml">
+<!ENTITY % versiondata SYSTEM "version.xml"> %versiondata;
 ]>
 <article>
 

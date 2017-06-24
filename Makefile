@@ -31,9 +31,13 @@ docdir      = $(datadir)/doc/$(PACKAGE)
 INSTALL = install -p -o root -g root -m 644
 MKDIR   = install -d -o root -g root -m 755
 
+# Files included by debconf_specification.xml.
+DEBCONF_INCLUDES := debconf/commands.xml debconf/priorities.xml	\
+	            debconf/statuscodes.xml debconf/types.xml
+
 # doc-base description files for the documents we include.
-DESC_FILES  := copyright-format-1.0 debian-policy debian-menu-policy \
-	       debian-perl-policy debconf-spec fhs autopkgtest
+DESC_FILES  := autopkgtest copyright-format-1.0 debconf-spec debian-policy \
+	       debian-menu-policy debian-perl-policy fhs
 
 # Our local copy of the File Hierarchy Standard.  We don't build this from
 # source, but we do have a copy of the source in FHS_ARCHIVE.
@@ -42,11 +46,15 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 
 # Markdown source files in the top-level directory.  We generate text and
 # HTML versions from these.
-MDWN_FILES  := Process README
+MDWN_FILES  := Process README autopkgtest
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
-XML_FILES   := policy menu-policy perl-policy
+XML_FILES   := menu-policy perl-policy policy
+
+# DocBook source files in the top-level directory that should only generate
+# single-page HTML output (no split HTML output).
+XML_SINGLE_FILES := copyright-format-1.0 debconf_specification
 
 # The upgrading-checklist used to be a document of its own, which was merged
 # with the conversion to DocBook. Keep backwards compatibility files.
@@ -64,32 +72,30 @@ POLICY_FILES := $(MDWN_FILES:=.html)		\
 		$(MDWN_FILES:=.txt)		\
 		$(XML_FILES:=-1.html)		\
 		$(XML_FILES:=.txt)		\
+		$(XML_SINGLE_FILES:=.html)	\
+		$(XML_SINGLE_FILES:=.txt)	\
 		$(XML_SPLIT_FILES:=-1.html)	\
 		$(XML_SPLIT_FILES:=.txt)	\
 		README.css			\
 		policy.ps policy.pdf		\
 		virtual-package-names-list.txt
-SUBDIR_FILES := autopkgtest/autopkgtest.html			\
-		autopkgtest/autopkgtest.txt			\
-		copyright-format/copyright-format-1.0.html	\
-		copyright-format/copyright-format-1.0.txt	\
-		debconf_spec/debconf_specification.html		\
-		debconf_spec/debconf_specification.txt
 
 # Used by the clean rules.  FILES_TO_CLEAN are individual generated files to
 # remove.  DIRS_TO_CLEAN are entire directories to remove.
 DIRS_TO_CLEAN  := $(XML_FILES:=.html) fhs
-FILES_TO_CLEAN := $(MDWN_FILES:=.html)		\
-		  $(MDWN_FILES:=.txt)		\
-		  $(XML_FILES:=.html.tar.gz)	\
-		  $(XML_FILES:=-1.html)		\
-		  $(XML_FILES:=.txt)		\
-		  $(XML_FILES:=.validate)	\
-		  $(XML_SPLIT_FILES:=-1.html)	\
-		  $(XML_SPLIT_FILES:=.txt)	\
-		  $(XML_VERSION)		\
-		  policy.pdf policy.ps		\
-		  autopkgtest/version.txt
+FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
+		  $(MDWN_FILES:=.txt)			\
+		  $(XML_FILES:=.html.tar.gz)		\
+		  $(XML_FILES:=-1.html)			\
+		  $(XML_FILES:=.txt)			\
+		  $(XML_FILES:=.validate)		\
+		  $(XML_SINGLE_FILES:=.html)		\
+		  $(XML_SINGLE_FILES:=.txt)		\
+		  $(XML_SINGLE_FILES:=.validate)	\
+		  $(XML_SPLIT_FILES:=-1.html)		\
+		  $(XML_SPLIT_FILES:=.txt)		\
+		  version.md version.xml		\
+		  policy.pdf policy.ps
 
 
 #
@@ -97,16 +103,10 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)		\
 # command line, or that are used by the Debian build system.
 #
 
-all: $(XML_FILES:=.validate) $(XML_FILES:=.html.tar.gz) $(POLICY_FILES) \
-     $(XML_VERSION) autopkgtest/version.txt
-	$(MAKE) -C autopkgtest      all
-	$(MAKE) -C copyright-format all
-	$(MAKE) -C debconf_spec     all
+all: $(XML_FILES:=.validate) $(XML_SINGLE_FILES:=.validate) \
+     $(XML_FILES:=.html.tar.gz) $(POLICY_FILES)
 
 clean distclean:
-	$(MAKE) -C autopkgtest      clean
-	$(MAKE) -C copyright-format clean
-	$(MAKE) -C debconf_spec     clean
 	rm -f $(FILES_TO_CLEAN)
 	rm -rf $(DIRS_TO_CLEAN)
 
@@ -114,7 +114,6 @@ install:
 	$(MKDIR) $(DESTDIR)$(docdir)
 	$(MKDIR) $(DESTDIR)$(docdir)/fhs
 	$(INSTALL) $(POLICY_FILES) $(DESTDIR)$(docdir)
-	$(INSTALL) $(SUBDIR_FILES) $(DESTDIR)$(docdir)
 	$(INSTALL) $(FHS_FILES)    $(DESTDIR)$(docdir)/fhs
 	@set -ex; for file in $(XML_FILES); do		\
 	    tar -C $(DESTDIR)$(docdir) -zxf $$file.html.tar.gz;	\
@@ -129,17 +128,17 @@ install:
 # publication date.
 #
 
-$(XML_VERSION): debian/changelog
-	rm -f $@
-	echo '<?xml version="1.0" encoding="utf-8"?>' > $@
-	echo '<!ENTITY version "$(VERSION)">'	     >> $@
-	echo '<!ENTITY date    "$(DATE)">'	     >> $@
-
-autopkgtest/version.txt: debian/changelog
+version.md: debian/changelog
 	rm -f $@
 	echo					 > $@
 	echo '---'				 >> $@
 	echo 'Debian Policy $(VERSION), $(DATE)' >> $@
+
+version.xml: debian/changelog
+	rm -f $@
+	echo '<?xml version="1.0" encoding="utf-8"?>' > $@
+	echo '<!ENTITY version "$(VERSION)">'	     >> $@
+	echo '<!ENTITY date    "$(DATE)">'	     >> $@
 
 
 #
@@ -147,6 +146,9 @@ autopkgtest/version.txt: debian/changelog
 #
 
 # There doesn't seem to be a better way of adding this include dependency.
+debconf_specification.html: $(DEBCONF_INCLUDES)
+debconf_specification.txt: $(DEBCONF_INCLUDES)
+debconf_specification.validate: $(DEBCONF_INCLUDES)
 policy-1.html: upgrading-checklist.xml
 policy.html/index.html: upgrading-checklist.xml
 policy.pdf: upgrading-checklist.xml
@@ -154,19 +156,19 @@ policy.ps: upgrading-checklist.xml
 policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
 
-$(MDWN_FILES:=.txt): %.txt: %.md
+$(MDWN_FILES:=.txt): %.txt: %.md version.md
 	cat $^ > $@
 	test "$@" != "README.txt"  ||				\
            perl -pli -e 's,./Process.md,Process.txt,g' $@
 
-$(MDWN_FILES:=.html): %.html: %.md
-	$(MDWN) $< > $@
+$(MDWN_FILES:=.html): %.html: %.md version.md
+	cat $^ | $(MDWN) > $@
 
 # Suppress the table of contents for the standalone upgrading checklist.
 upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
 upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 
-%.validate: %.xml
+%.validate: %.xml version.xml
 	$(XMLLINT) $<
 	touch $@
 
@@ -176,13 +178,17 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 	    --stringparam base.dir $(@D)/	\
 	    xsl/html-chunk.xsl $<
 
+$(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
+	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
+
 %-1.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
 
 %.html.tar.gz: %.html/index.html
 	tar -czf $(<:/index.html=.tar.gz) $(<:/index.html=)
 
-$(XML_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): %.txt: %.xml version.xml
+$(XML_FILES:=.txt) $(XML_SINGLE_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): \
+%.txt: %.xml version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/text.xsl $< > $@.html
 	links -codepage utf-8 -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html

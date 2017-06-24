@@ -1,7 +1,18 @@
 debian-policy (4.0.0.3) UNRELEASED; urgency=medium
 
+  [ Sean Whitton ]
   * Fix typo 'the' -> 'they' in upgrading checklist (Closes: #865685).
     Thanks Sven Joachim for the report.
+
+  [ Russ Allbery ]
+  * Move the autopkgtest, copyright-format, and debconf_specification
+    source files to the top-level directory and the debconf_spec/include
+    files to a debconf directory.  Simplify the build system to eliminate
+    recursive make, reuse the same XML version file for all files, and use
+    the same method of embedding a version in Markdown output for all
+    files.
+  * Fix dependencies so that version.xml is generated before XML
+    validation is done on XML source files.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 24 Jun 2017 21:14:46 +0100
 
