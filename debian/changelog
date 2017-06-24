@@ -13,6 +13,10 @@ debian-policy (4.0.0.3) UNRELEASED; urgency=medium
     files.
   * Fix dependencies so that version.xml is generated before XML
     validation is done on XML source files.
+  * Move README.shlibdeps and libc6-migration.txt to a new historical
+    subdirectory and add a README explaining that the files in this
+    directory are of historical interest only and are not included in the
+    debian-policy binary package.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 24 Jun 2017 21:14:46 +0100
 
