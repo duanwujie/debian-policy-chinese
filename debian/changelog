@@ -1,3 +1,10 @@
+debian-policy (4.0.0.3) UNRELEASED; urgency=medium
+
+  * Fix typo 'the' -> 'they' in upgrading checklist (Closes: #865685).
+    Thanks Sven Joachim for the report.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 24 Jun 2017 21:14:46 +0100
+
 debian-policy (4.0.0.2) unstable; urgency=low
 
   [ Sean Whitton ]
