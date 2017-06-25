@@ -4578,18 +4578,18 @@ Comment: I stand between the candle and the star.
       <variablelist>
         <varlistentry>
           <term>
-            <replaceable>new-preinst</replaceable>
-            <literal>install</literal>
-          </term>
-          <term>
-            <replaceable>new-preinst</replaceable>
-            <literal>install</literal>
-            <replaceable>old-version</replaceable>
-          </term>
-          <term>
-            <replaceable>new-preinst</replaceable>
-            <literal>upgrade</literal>
-            <replaceable>old-version</replaceable>
+            <cmdsynopsis>
+              <command>new-preinst</command>
+              <arg choice="plain">install</arg>
+
+              <command>new-preinst</command>
+              <arg choice="plain">install</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+
+              <command>new-preinst</command>
+              <arg choice="plain">upgrade</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4608,9 +4608,11 @@ Comment: I stand between the candle and the star.
         </varlistentry>
         <varlistentry>
           <term>
-            <replaceable>old-preinst</replaceable>
-            <literal>abort-upgrade</literal>
-            <replaceable>new-version</replaceable>
+            <cmdsynopsis>
+              <command>old-preinst</command>
+              <arg choice="plain">abort-upgrade</arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4641,9 +4643,11 @@ Comment: I stand between the candle and the star.
       <variablelist>
         <varlistentry>
           <term>
-            <replaceable>postinst</replaceable>
-            <literal>configure</literal>
-            <replaceable>most-recently-configured-version</replaceable>
+            <cmdsynopsis>
+              <command>postinst</command>
+              <arg choice="plain">configure</arg>
+              <arg choice="plain"><replaceable>most-recently-configured-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4658,30 +4662,31 @@ Comment: I stand between the candle and the star.
         </varlistentry>
         <varlistentry>
           <term>
-            <replaceable>old-postinst</replaceable>
-            <literal>abort-upgrade</literal>
-            <replaceable>new-version</replaceable>
-          </term>
-          <term>
-            <replaceable>conflictor's-postinst</replaceable>
-            <literal>abort-remove</literal>
-            <literal>in-favour</literal>
-            <replaceable>package</replaceable>
-            <replaceable>new-version</replaceable>
-          </term>
-          <term>
-            <replaceable>postinst</replaceable>
-            <literal>abort-remove</literal>
-          </term>
-          <term>
-            <replaceable>deconfigured's-postinst</replaceable>
-            <literal>abort-deconfigure</literal>
-            <literal>in-favour</literal>
-            <replaceable>failed-install-package</replaceable>
-            <replaceable>version</replaceable>
-            [<literal>removing</literal>
-            <replaceable>conflicting-package</replaceable>
-            <replaceable>version</replaceable>]
+            <cmdsynopsis>
+              <command>old-postinst</command>
+              <arg choice="plain">abort-upgrade</arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+
+              <command>conflictor's-postinst</command>
+              <arg choice="plain">abort-remove</arg>
+              <arg choice="plain">in-favour</arg>
+              <arg choice="plain"><replaceable>package</replaceable></arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+
+              <command>postinst</command>
+              <arg choice="plain">abort-remove</arg>
+
+              <command>deconfigured's-postinst</command>
+              <arg choice="plain">abort-deconfigure</arg>
+              <arg choice="plain">in-favour</arg>
+              <arg choice="plain"><replaceable>failed-install-package</replaceable></arg>
+              <arg choice="plain"><replaceable>version</replaceable></arg>
+              <arg>
+                <arg choice="plain">removing</arg>
+                <arg choice="plain"><replaceable>conflicting-package</replaceable></arg>
+                <arg choice="plain"><replaceable>version</replaceable></arg>
+              </arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4719,30 +4724,31 @@ Comment: I stand between the candle and the star.
       <variablelist>
         <varlistentry>
           <term>
-            <replaceable>prerm</replaceable>
-            <literal>remove</literal>
-          </term>
-          <term>
-            <replaceable>old-prerm</replaceable>
-            <literal>upgrade</literal>
-            <replaceable>new-version</replaceable>
-          </term>
-          <term>
-            <replaceable>conflictor's-prerm</replaceable>
-            <literal>remove</literal>
-            <literal>in-favour</literal>
-            <replaceable>package</replaceable>
-            <replaceable>new-version</replaceable>
-          </term>
-          <term>
-            <replaceable>deconfigured's-prerm</replaceable>
-            <literal>deconfigure</literal>
-            <literal>in-favour</literal>
-            <replaceable>package-being-installed</replaceable>
-            <replaceable>version</replaceable>
-            [<literal>removing</literal>
-            <replaceable>conflicting-package</replaceable>
-            <replaceable>version</replaceable>]
+            <cmdsynopsis>
+              <command>prerm</command>
+              <arg choice="plain">remove</arg>
+
+              <command>old-prerm</command>
+              <arg choice="plain">upgrade</arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+
+              <command>conflictor's-prerm</command>
+              <arg choice="plain">remove</arg>
+              <arg choice="plain">in-favour</arg>
+              <arg choice="plain"><replaceable>package</replaceable></arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+
+              <command>deconfigured's-prerm</command>
+              <arg choice="plain">deconfigure</arg>
+              <arg choice="plain">in-favour</arg>
+              <arg choice="plain"><replaceable>package-being-installed</replaceable></arg>
+              <arg choice="plain"><replaceable>version</replaceable></arg>
+              <arg>
+                <arg choice="plain">removing</arg>
+                <arg choice="plain"><replaceable>conflicting-package</replaceable></arg>
+                <arg choice="plain"><replaceable>version</replaceable></arg>
+              </arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4758,9 +4764,11 @@ Comment: I stand between the candle and the star.
         </varlistentry>
         <varlistentry>
           <term>
-            <replaceable>new-prerm</replaceable>
-            <literal>failed-upgrade</literal>
-            <replaceable>old-version</replaceable>
+            <cmdsynopsis>
+              <command>new-prerm</command>
+              <arg choice="plain">failed-upgrade</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4779,23 +4787,22 @@ Comment: I stand between the candle and the star.
       <variablelist>
         <varlistentry>
           <term>
-            <replaceable>postrm</replaceable>
-            <literal>remove</literal>
-          </term>
-          <term>
-            <replaceable>postrm</replaceable>
-            <literal>purge</literal>
-          </term>
-          <term>
-            <replaceable>old-postrm</replaceable>
-            <literal>upgrade</literal>
-            <replaceable>new-version</replaceable>
-          </term>
-          <term>
-            <replaceable>disappearer's-postrm</replaceable>
-            <literal>disappear</literal>
-            <replaceable>overwriter</replaceable>
-            <replaceable>overwriter-version</replaceable>
+            <cmdsynopsis>
+              <command>postrm</command>
+              <arg choice="plain">remove</arg>
+
+              <command>postrm</command>
+              <arg choice="plain">purge</arg>
+
+              <command>old-postrm</command>
+              <arg choice="plain">upgrade</arg>
+              <arg choice="plain"><replaceable>new-version</replaceable></arg>
+
+              <command>disappearer's-postrm</command>
+              <arg choice="plain">disappear</arg>
+              <arg choice="plain"><replaceable>overwriter</replaceable></arg>
+              <arg choice="plain"><replaceable>overwriter-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4831,9 +4838,11 @@ fi
         </varlistentry>
         <varlistentry>
           <term>
-            <replaceable>new-postrm</replaceable>
-            <literal>failed-upgrade</literal>
-            <replaceable>old-version</replaceable>
+            <cmdsynopsis>
+              <command>new-postrm</command>
+              <arg choice="plain">failed-upgrade</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4848,18 +4857,18 @@ fi
         </varlistentry>
         <varlistentry>
           <term>
-            <replaceable>new-postrm</replaceable>
-            <literal>abort-install</literal>
-          </term>
-          <term>
-            <replaceable>new-postrm</replaceable>
-            <literal>abort-install</literal>
-            <replaceable>old-version</replaceable>
-          </term>
-          <term>
-            <replaceable>new-postrm</replaceable>
-            <literal>abort-upgrade</literal>
-            <replaceable>old-version</replaceable>
+            <cmdsynopsis>
+              <command>new-postrm</command>
+              <arg choice="plain">abort-install</arg>
+
+              <command>new-postrm</command>
+              <arg choice="plain">abort-install</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+
+              <command>new-postrm</command>
+              <arg choice="plain">abort-upgrade</arg>
+              <arg choice="plain"><replaceable>old-version</replaceable></arg>
+            </cmdsynopsis>
           </term>
           <listitem>
             <para>
@@ -4886,30 +4895,27 @@ fi
       </para>
       <orderedlist numeration="arabic">
         <listitem>
-          <orderedlist numeration="arabic">
+          <para>
+            Notify the currently installed package:
+          </para>
+          <orderedlist numeration="loweralpha">
             <listitem>
               <para>
                 If a version of the package is already "Installed", call
               </para>
-              <screen>
-<replaceable>old-prerm</replaceable> upgrade <replaceable>new-version</replaceable>
-              </screen>
+              <screen><replaceable>old-prerm</replaceable> upgrade <replaceable>new-version</replaceable></screen>
             </listitem>
             <listitem>
               <para>
                 If the script runs but exits with a non-zero exit status,
                 <command>dpkg</command> will attempt:
               </para>
-              <screen>
-<replaceable>new-prerm</replaceable> failed-upgrade <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-prerm</replaceable> failed-upgrade <replaceable>old-version</replaceable></screen>
               <para>
                 If this works, the upgrade continues.  If this does not
                 work, the error unwind:
               </para>
-              <screen>
-<replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable>
-              </screen>
+              <screen><replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable></screen>
               <para>
                 If this works, then the old-version is "Installed", if
                 not, the old version is in a "Half-Configured" state.
@@ -4923,7 +4929,7 @@ fi
             or if any package will be broken (due to
             <literal>Breaks</literal>):
           </para>
-          <orderedlist numeration="arabic">
+          <orderedlist numeration="loweralpha">
             <listitem>
               <para>
                 If <literal>--auto-deconfigure</literal> is specified,
@@ -4932,15 +4938,13 @@ fi
               </para>
               <screen>
 <replaceable>deconfigured's-prerm</replaceable> deconfigure \
-    in-favour <replaceable>package-being-installed</replaceable> <replaceable>version</replaceable>
-              </screen>
+    in-favour <replaceable>package-being-installed</replaceable> <replaceable>version</replaceable></screen>
               <para>
                 Error unwind:
               </para>
               <screen>
 <replaceable>deconfigured's-postinst</replaceable> abort-deconfigure \
-    in-favour <replaceable>package-being-installed-but-failed</replaceable> <replaceable>version</replaceable>
-              </screen>
+    in-favour <replaceable>package-being-installed-but-failed</replaceable> <replaceable>version</replaceable></screen>
               <para>
                 The deconfigured packages are marked as requiring
                 configuration, so that if <literal>--install</literal> is
@@ -4956,16 +4960,14 @@ fi
               <screen>
 <replaceable>deconfigured's-prerm</replaceable> deconfigure \
     in-favour <replaceable>package-being-installed</replaceable> <replaceable>version</replaceable> \
-    removing <replaceable>conflicting-package</replaceable> <replaceable>version</replaceable>
-              </screen>
+    removing <replaceable>conflicting-package</replaceable> <replaceable>version</replaceable></screen>
               <para>
                 Error unwind:
               </para>
               <screen>
 <replaceable>deconfigured's-postinst</replaceable> abort-deconfigure \
     in-favour <replaceable>package-being-installed-but-failed</replaceable> <replaceable>version</replaceable> \
-    removing <replaceable>conflicting-package</replaceable> <replaceable>version</replaceable>
-              </screen>
+    removing <replaceable>conflicting-package</replaceable> <replaceable>version</replaceable></screen>
               <para>
                 The deconfigured packages are marked as requiring
                 configuration, so that if <literal>--install</literal> is
@@ -4978,41 +4980,36 @@ fi
               </para>
               <screen>
 <replaceable>conflictor's-prerm</replaceable> remove \
-    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable>
-              </screen>
+    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable></screen>
               <para>
                 Error unwind:
               </para>
               <screen>
 <replaceable>conflictor's-postinst</replaceable> abort-remove \
-    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable>
-              </screen>
+    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable></screen>
             </listitem>
           </orderedlist>
         </listitem>
         <listitem>
-          <orderedlist numeration="arabic">
+          <para>
+            Run the <command>preinst</command> of the new package:
+          </para>
+          <orderedlist numeration="loweralpha">
             <listitem>
               <para>
                 If the package is being upgraded, call:
               </para>
-              <screen>
-<replaceable>new-preinst</replaceable> upgrade <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-preinst</replaceable> upgrade <replaceable>old-version</replaceable></screen>
               <para>
                 If this fails, we call:
               </para>
-              <screen>
-<replaceable>new-postrm</replaceable> abort-upgrade <replaceable>old-version</replaceable>
-              </screen>
-              <orderedlist numeration="arabic">
+              <screen><replaceable>new-postrm</replaceable> abort-upgrade <replaceable>old-version</replaceable></screen>
+              <orderedlist numeration="lowerroman">
                 <listitem>
                   <para>
                     If that works, then
                   </para>
-                  <screen>
-<replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable>
-                  </screen>
+                  <screen><replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable></screen>
                   <para>
                     is called.  If this works, then the old version is in
                     an "Installed" state, or else it is left in an
@@ -5033,15 +5030,11 @@ fi
                 from a previous version installed (i.e., it is in the
                 "Config-Files" state):
               </para>
-              <screen>
-<replaceable>new-preinst</replaceable> install <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-preinst</replaceable> install <replaceable>old-version</replaceable></screen>
               <para>
                 Error unwind:
               </para>
-              <screen>
-<replaceable>new-postrm</replaceable> abort-install <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-postrm</replaceable> abort-install <replaceable>old-version</replaceable></screen>
               <para>
                 If this fails, the package is left in a "Half-Installed"
                 state, which requires a reinstall.  If it works, the
@@ -5052,15 +5045,11 @@ fi
               <para>
                 Otherwise (i.e., the package was completely purged):
               </para>
-              <screen>
-<replaceable>new-preinst</replaceable> install
-              </screen>
+              <screen><replaceable>new-preinst</replaceable> install</screen>
               <para>
                 Error unwind:
               </para>
-              <screen>
-<replaceable>new-postrm</replaceable> abort-install
-              </screen>
+              <screen><replaceable>new-postrm</replaceable> abort-install</screen>
               <para>
                 If the error-unwind fails, the package is in a
                 "Half-Installed" phase, and requires a reinstall.  If the
@@ -5114,49 +5103,42 @@ fi
           </para>
         </listitem>
         <listitem>
-          <orderedlist numeration="arabic">
+          <para>
+            If the package is being upgraded:
+          </para>
+          <orderedlist numeration="loweralpha">
             <listitem>
               <para>
-                If the package is being upgraded, call
+                Call:
               </para>
-              <screen>
-<replaceable>old-postrm</replaceable> upgrade <replaceable>new-version</replaceable>
-              </screen>
+              <screen><replaceable>old-postrm</replaceable> upgrade <replaceable>new-version</replaceable></screen>
             </listitem>
             <listitem>
               <para>
                 If this fails, <command>dpkg</command> will attempt:
               </para>
-              <screen>
-<replaceable>new-postrm</replaceable> failed-upgrade <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-postrm</replaceable> failed-upgrade <replaceable>old-version</replaceable></screen>
               <para>
                 If this works, installation continues.  If not, Error unwind:
               </para>
-              <screen>
-<replaceable>old-preinst</replaceable> abort-upgrade <replaceable>new-version</replaceable>
-              </screen>
+              <screen><replaceable>old-preinst</replaceable> abort-upgrade <replaceable>new-version</replaceable></screen>
               <para>
                 If this fails, the old version is left in a
                 "Half-Installed" state.  If it works, dpkg now calls:
               </para>
-              <screen>
-<replaceable>new-postrm</replaceable> abort-upgrade <replaceable>old-version</replaceable>
-              </screen>
+              <screen><replaceable>new-postrm</replaceable> abort-upgrade <replaceable>old-version</replaceable></screen>
               <para>
                 If this fails, the old version is left in a
                 "Half-Installed" state.  If it works, dpkg now calls:
               </para>
-              <screen>
-<replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable>
-              </screen>
+              <screen><replaceable>old-postinst</replaceable> abort-upgrade <replaceable>new-version</replaceable></screen>
               <para>
                 If this fails, the old version is in an "Unpacked" state.
               </para>
             </listitem>
           </orderedlist>
           <para>
-            This is the point of no return - if <command>dpkg</command>
+            This is the point of no return.  If <command>dpkg</command>
             gets this far, it won't back off past this point if an error
             occurs.  This will leave the package in a fairly bad state,
             which will require a successful re-installation to clear up,
@@ -5186,15 +5168,14 @@ fi
             the installation, and which aren't required for dependencies,
             are considered to have been removed.  For each such package
           </para>
-          <orderedlist numeration="arabic">
+          <orderedlist numeration="loweralpha">
             <listitem>
               <para>
                 <command>dpkg</command> calls:
               </para>
               <screen>
 <replaceable>disappearer's-postrm</replaceable> disappear \
-    <replaceable>overwriter</replaceable> <replaceable>overwriter-version</replaceable>
-              </screen>
+    <replaceable>overwriter</replaceable> <replaceable>overwriter-version</replaceable></screen>
             </listitem>
             <listitem>
               <para>
@@ -5232,9 +5213,9 @@ fi
             The new package's status is now sane, and recorded as "Unpacked".
           </para>
           <para>
-            Here is another point of no return - if the conflicting
+            Here is another point of no return: if the conflicting
             package's removal fails we do not unwind the rest of the
-            installation; the conflicting package is left in a
+            installation.  The conflicting package is left in a
             half-removed limbo.
           </para>
         </listitem>
@@ -5258,9 +5239,7 @@ fi
         --install</literal> and <literal>dpkg --configure</literal>), we
         first update any <literal>conffile</literal>s and then call:
       </para>
-      <screen>
-<replaceable>postinst</replaceable> configure <replaceable>most-recently-configured-version</replaceable>
-      </screen>
+      <screen><replaceable>postinst</replaceable> configure <replaceable>most-recently-configured-version</replaceable></screen>
       <para>
         No attempt is made to unwind after errors during configuration.
         If the configuration fails, the package is in a "Half-Configured"
@@ -5289,22 +5268,17 @@ fi
 
       <orderedlist numeration="arabic">
         <listitem>
-          <screen>
-<replaceable>prerm</replaceable> remove
-          </screen>
+          <screen><replaceable>prerm</replaceable> remove</screen>
           <para>
             If prerm fails during replacement due to conflict
           </para>
           <screen>
 <replaceable>conflictor's-postinst</replaceable> abort-remove \
-    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable>
-          </screen>
+    in-favour <replaceable>package</replaceable> <replaceable>new-version</replaceable></screen>
           <para>
             Or else we call:
           </para>
-          <screen>
-<replaceable>postinst</replaceable> abort-remove
-          </screen>
+          <screen><replaceable>postinst</replaceable> abort-remove</screen>
           <para>
             If this fails, the package is in a "Half-Configured" state, or
             else it remains "Installed".
@@ -5347,9 +5321,7 @@ fi
           </para>
         </listitem>
         <listitem>
-          <screen>
-<replaceable>postrm</replaceable> purge
-          </screen>
+          <screen><replaceable>postrm</replaceable> purge</screen>
           <para>
             If this fails, the package remains in a "Config-Files" state.
           </para>

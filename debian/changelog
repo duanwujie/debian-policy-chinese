@@ -6,6 +6,16 @@ debian-policy (4.0.0.4) UNRELEASED; urgency=medium
     version.  Replace that style with just the full URL as anchor text for
     a link to that URL, which is not ideal for HTML output but produces
     reasonable results for both HTML and text.
+  * Extensive reformatting of the maintainer script section.
+    - Use <cmdsynopsis> in the summary of how maintainer scripts are
+      called, with a single <term>.  This avoids gluing all the command
+      summaries together with commas.  The output in text is radically
+      better; HTML has some font issues, but isn't awful.
+    - Avoid trailing newlines in <screen> examples, which produce extra
+      whitespace in text and HTML output.
+    - Use different numeration methods at different levels of the nested
+      ordered lists and ensure there is some introductory text for each
+      list element to avoid awkward formatting.
 
  -- Russ Allbery <rra@debian.org>  Sun, 25 Jun 2017 10:44:44 -0700
 
