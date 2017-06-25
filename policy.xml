@@ -192,31 +192,22 @@
       <para>
         This manual is distributed via the Debian package <systemitem
         role="package"><ulink
-        url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>
-        (<ulink
-        url="https://packages.debian.org">https://packages.debian.org</ulink>
-        <ulink
-        url="https://packages.debian.org/debian-policy">https://packages.debian.org/debian-policy</ulink>).
+        url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
       </para>
       <para>
         The current version of this document is also available from the
-        Debian web mirrors at <literal><ulink
-        url="https://www.debian.org/doc/debian-policy/">/doc/debian-policy/</ulink></literal>.
-        ( <ulink url="https://www.debian.org">https://www.debian.org</ulink>
-        <ulink
-        url="https://www.debian.org/doc/debian-policy/">https://www.debian.org/doc/debian-policy/</ulink>)
+        Debian web mirrors at <ulink
+        url="https://www.debian.org/doc/debian-policy/">https://www.debian.org/doc/debian-policy/</ulink>.
         Also available from the same directory are several other formats:
-        <filename>policy.html.tar.gz</filename> (<ulink
-        url="https://www.debian.org/doc/debian-policy/policy.html.tar.gz">https://www.debian.org/doc/debian-policy/policy.html.tar.gz</ulink>),
-        <filename>policy.pdf.gz</filename> (<ulink
-        url="https://www.debian.org/doc/debian-policy/policy.pdf.gz">https://www.debian.org/doc/debian-policy/policy.pdf.gz</ulink>)
-        and <filename>policy.ps.gz</filename> (<ulink
-        url="https://www.debian.org/doc/debian-policy/policy.ps.gz">https://www.debian.org/doc/debian-policy/policy.ps.gz</ulink>).
-      </para>
-      <para>
-        The <systemitem role="package">debian-policy</systemitem> package
-        also includes the file
-        <filename>upgrading-checklist.txt.gz</filename> which indicates
+        <ulink
+        url="https://www.debian.org/doc/debian-policy/policy.html.tar.gz"><filename>policy.html.tar.gz</filename></ulink>,
+        <ulink
+        url="https://www.debian.org/doc/debian-policy/policy.pdf.gz"><filename>policy.pdf.gz</filename></ulink>,
+        and <ulink
+        url="https://www.debian.org/doc/debian-policy/policy.ps.gz"><filename>policy.ps.gz</filename></ulink>.
+        Included in both the same directory and in the <systemitem
+        role="package">debian-policy</systemitem> package is a standalone
+        copy of <xref linkend="upgrading-checklist"/>, which indicates
         policy changes between versions of this document.
       </para>
     </section>
@@ -333,8 +324,8 @@
       <para>
         The Developer's Reference is available in the <systemitem
         role="package">developers-reference</systemitem> package.  It's
-        also available from the Debian web mirrors at <literal><ulink
-        url="https://www.debian.org/doc/developers-reference/">/doc/developers-reference/</ulink></literal>.
+        also available from the Debian web mirrors at <ulink
+        url="https://www.debian.org/doc/developers-reference/">https://www.debian.org/doc/developers-reference/</ulink>.
       </para>
       <para>
         Finally, a <link linkend="s-copyrightformat">specification for
@@ -1281,8 +1272,8 @@
         The latest version of the authoritative list of virtual package
         names can be found in the <literal>debian-policy</literal>
         package.  It is also available from the Debian web mirrors at
-        <literal><ulink
-        url="https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">/doc/packaging-manuals/virtual-package-names-list.txt</ulink></literal>.
+        <ulink
+        url="https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt</ulink>.
       </para>
       <para>
         The procedure for updating the list is described in the preface to
@@ -1414,9 +1405,8 @@
           The Debian Configuration Management Specification is included in
           the <filename>debconf_specification</filename> files in the
           <systemitem role="package">debian-policy</systemitem> package.
-          It is also available from the Debian web mirrors at
-          <literal><ulink
-          url="https://www.debian.org/doc/packaging-manuals/debconf_specification.html">/doc/packaging-manuals/debconf_specification.html</ulink></literal>.
+          It is also available from the Debian web mirrors at <ulink
+          url="https://www.debian.org/doc/packaging-manuals/debconf_specification.html">https://www.debian.org/doc/packaging-manuals/debconf_specification.html</ulink>.
         </para>
         <para>
           Packages which use the Debian Configuration Management
@@ -9084,8 +9074,8 @@ Reloading <replaceable>description</replaceable> configuration...done.
         <emphasis>Debian menu policy</emphasis>, which can be found in the
         <literal>menu-policy</literal> files in the
         <literal>debian-policy</literal> package.  It is also available
-        from the Debian web mirrors at <literal><ulink
-        url="https://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
+        from the Debian web mirrors at <ulink
+        url="https://www.debian.org/doc/packaging-manuals/menu-policy/">https://www.debian.org/doc/packaging-manuals/menu-policy/</ulink>.
       </para>
     </section>
 
@@ -11464,8 +11454,8 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
       <para>
         The Perl policy can be found in the <literal>perl-policy</literal>
         files in the <literal>debian-policy</literal> package.  It is also
-        available from the Debian web mirrors at <literal><ulink
-        url="https://www.debian.org/doc/packaging-manuals/perl-policy/">/doc/packaging-manuals/perl-policy/</ulink></literal>.
+        available from the Debian web mirrors at <ulink
+        url="https://www.debian.org/doc/packaging-manuals/perl-policy/">https://www.debian.org/doc/packaging-manuals/perl-policy/</ulink>.
       </para>
     </section>
 
@@ -11480,8 +11470,8 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
         The Emacs policy is available in
         <filename>debian-emacs-policy.gz</filename> of the <systemitem
         role="package">emacsen-common</systemitem> package.  It is also
-        available from the Debian web mirrors at <literal><ulink
-        url="https://www.debian.org/doc/packaging-manuals/debian-emacs-policy">/doc/packaging-manuals/debian-emacs-policy</ulink></literal>.
+        available from the Debian web mirrors at <ulink
+        url="https://www.debian.org/doc/packaging-manuals/debian-emacs-policy">https://www.debian.org/doc/packaging-manuals/debian-emacs-policy</ulink>.
       </para>
     </section>
 
@@ -11945,8 +11935,8 @@ END-INFO-DIR-ENTRY
           document may be found in the
           <filename>copyright-format</filename> files in the <systemitem
           role="package">debian-policy</systemitem> package.  It is also
-          available from the Debian web mirrors at <literal><ulink
-          url="https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/">/doc/packaging-manuals/copyright-format/1.0/</ulink></literal>.
+          available from the Debian web mirrors at <ulink
+          url="https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/">https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/</ulink>.
         </para>
         <para>
           Use of this format is optional.

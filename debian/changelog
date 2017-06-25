@@ -1,3 +1,14 @@
+debian-policy (4.0.0.4) UNRELEASED; urgency=medium
+
+  * Fix URLs to Policy documents.  Policy previously used the full URL as
+    the link but a partial URL as anchor text, and then sometimes added
+    the full URL in parentheses.  The result was very ugly in the text
+    version.  Replace that style with just the full URL as anchor text for
+    a link to that URL, which is not ideal for HTML output but produces
+    reasonable results for both HTML and text.
+
+ -- Russ Allbery <rra@debian.org>  Sun, 25 Jun 2017 10:44:44 -0700
+
 debian-policy (4.0.0.3) unstable; urgency=medium
 
   [ Sean Whitton ]
