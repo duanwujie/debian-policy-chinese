@@ -9352,11 +9352,14 @@ Reloading <replaceable>description</replaceable> configuration...done.
       <title>Environment variables</title>
 
       <para>
-        A program must not depend on environment variables to get
-        reasonable defaults.  (That's because these environment variables
-        would have to be set in a system-wide configuration file like
-        <filename>/etc/profile</filename>, which is not supported by all
-        shells.)
+        Programs installed on the system PATH (<filename>/bin</filename>,
+        <filename>/usr/bin</filename>, <filename>/sbin</filename>,
+        <filename>/usr/sbin</filename>, or similar directories) must not
+        depend on custom environment variable settings to get reasonable
+        defaults.  This is because such environment variables would have
+        to be set in a system-wide configuration file such as a file in
+        <filename>/etc/profile.d</filename>, which is not supported by all
+        shells.
       </para>
       <para>
         If a program usually depends on environment variables for its
@@ -9364,7 +9367,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
         reasonable default configuration if these environment variables
         are not present.  If this cannot be done easily (e.g., if the
         source code of a non-free program is not available), the program
-        must be replaced by a small "wrapper" shell script which sets the
+        must be replaced by a small "wrapper" shell script that sets the
         environment variables if they are not already defined, and calls
         the original program.
       </para>
@@ -9377,12 +9380,6 @@ BAR=${BAR:-/var/lib/fubar}
 export BAR
 exec /usr/lib/foo/foo "$@"
       </screen>
-      <para>
-        Furthermore, as <filename>/etc/profile</filename> is a
-        configuration file of the <command>base-files</command> package,
-        other packages must not put any environment variables or other
-        commands into that file.
-      </para>
     </section>
 
     <section id="s-doc-base">
