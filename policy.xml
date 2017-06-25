@@ -589,10 +589,13 @@
             <para>
               must not require or recommend a package outside of
               <emphasis>main</emphasis> for compilation or execution
-              (thus, the package must not declare a "Pre-Depends",
-              "Depends", "Recommends", "Build-Depends",
-              "Build-Depends-Indep", or "Build-Depends-Arch" relationship
-              on a non-<emphasis>main</emphasis> package),
+              (thus, the package must not declare a
+              <literal>Pre-Depends</literal>, <literal>Depends</literal>,
+              <literal>Recommends</literal>,
+              <literal>Build-Depends</literal>,
+              <literal>Build-Depends-Indep</literal>, or
+              <literal>Build-Depends-Arch</literal> relationship on a
+              non-<emphasis>main</emphasis> package),
             </para>
           </listitem>
           <listitem>
