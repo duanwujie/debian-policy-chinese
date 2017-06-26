@@ -1,4 +1,4 @@
-debian-policy (4.0.0.4) UNRELEASED; urgency=medium
+debian-policy (4.0.0.4) unstable; urgency=medium
 
   * Fix URLs to Policy documents.  Policy previously used the full URL as
     the link but a partial URL as anchor text, and then sometimes added
@@ -25,7 +25,7 @@ debian-policy (4.0.0.4) UNRELEASED; urgency=medium
     the Perl Policy from a verbatim block to a table.
   * Change the list of cron directories from a verbatim block to a list.
 
- -- Russ Allbery <rra@debian.org>  Sun, 25 Jun 2017 10:44:44 -0700
+ -- Russ Allbery <rra@debian.org>  Sun, 25 Jun 2017 20:34:27 -0700
 
 debian-policy (4.0.0.3) unstable; urgency=medium
 
