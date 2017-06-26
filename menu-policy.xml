@@ -83,8 +83,8 @@
       This document is distributed as the <literal>menu-policy</literal>
       files in the Debian package <systemitem role="package"><ulink
       url="https://packages.debian.org/debian-policy">debian-policy</ulink></systemitem>.
-      It is also available from the Debian web mirrors at <literal><ulink
-      url="https://www.debian.org/doc/packaging-manuals/menu-policy/">/doc/packaging-manuals/menu-policy/</ulink></literal>.
+      It is also available from the Debian web mirrors at <ulink
+      url="https://www.debian.org/doc/packaging-manuals/menu-policy/">https://www.debian.org/doc/packaging-manuals/menu-policy/</ulink>.
     </para>
     <para>
       This document has been extracted and separated from the
