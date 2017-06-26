@@ -16,6 +16,14 @@ debian-policy (4.0.0.4) UNRELEASED; urgency=medium
     - Use different numeration methods at different levels of the nested
       ordered lists and ensure there is some introductory text for each
       list element to avoid awkward formatting.
+  * Convert many of the <screen> tags in Policy to </programlisting> since
+    the semantics are slightly more correct.
+  * Remove the newline before </screen> or </programlisting> end tags,
+    since it produces an extraneous and distracting blank line in both
+    text and HTML output.
+  * Change the mapping of Perl module names to Debian package names in
+    the Perl Policy from a verbatim block to a table.
+  * Change the list of cron directories from a verbatim block to a list.
 
  -- Russ Allbery <rra@debian.org>  Sun, 25 Jun 2017 10:44:44 -0700
 

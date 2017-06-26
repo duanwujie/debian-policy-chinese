@@ -175,8 +175,7 @@
             </para>
             <screen>
 $Config{sitearch}  (currently /usr/local/lib/<replaceable>arch-triplet</replaceable>/perl/<replaceable>version</replaceable>)
-$Config{sitelib}   (currently /usr/local/share/perl/<replaceable>version</replaceable>)
-            </screen>
+$Config{sitelib}   (currently /usr/local/share/perl/<replaceable>version</replaceable>)</screen>
             <para>
               Where <replaceable>version</replaceable> indicates the
               current Perl version (<literal>$Config{version}</literal>).
@@ -205,8 +204,7 @@ $Config{sitelib}   (currently /usr/local/share/perl/<replaceable>version</replac
             </para>
             <screen>
 $Config{vendorarch} (currently /usr/lib/<replaceable>arch-triplet</replaceable>/perl5/<replaceable>shortversion</replaceable>)
-$Config{vendorlib}  (currently /usr/share/perl5)
-            </screen>
+$Config{vendorlib}  (currently /usr/share/perl5)</screen>
             <para>
               Where <replaceable>shortversion</replaceable> indicates the
               current Perl major version (for example
@@ -234,8 +232,7 @@ $Config{vendorlib}  (currently /usr/share/perl5)
             </para>
             <screen>
 $Config{archlib} (currently /usr/lib/<replaceable>arch-triplet</replaceable>/perl/<replaceable>shortversion</replaceable>)
-$Config{privlib} (currently /usr/share/perl/<replaceable>shortversion</replaceable>)
-            </screen>
+$Config{privlib} (currently /usr/share/perl/<replaceable>shortversion</replaceable>)</screen>
             <para>
               Where <replaceable>shortversion</replaceable> indicates the
               current Perl major version (for example
@@ -347,8 +344,7 @@ $Config{privlib} (currently /usr/share/perl/<replaceable>shortversion</replaceab
       </para>
       <screen>
 perl Makefile.PL
-make install
-      </screen>
+make install</screen>
     </section>
 
   </chapter>
@@ -402,11 +398,31 @@ make install
         <literal>::</literal> to <literal>-</literal>, and append
         <literal>-perl</literal>.  For example:
       </para>
-      <screen>
-Foo::Bar        libfoo-bar-perl
-Foo::Bar::Baz   libfoo-bar-baz-perl
-Foo::BarBaz     libfoo-barbaz-perl
-      </screen>
+      <table frame="all">
+        <title>Module to package mappings</title>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>Module</entry>
+              <entry>Package</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Foo::Bar</entry>
+              <entry>libfoo-bar-perl</entry>
+            </row>
+            <row>
+              <entry>Foo::Bar::Baz</entry>
+              <entry>libfoo-bar-baz-perl</entry>
+            </row>
+            <row>
+              <entry>Foo::BarBaz</entry>
+              <entry>libfoo-barbaz-perl</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
       <para>
         Packages which include multiple modules may additionally include
         provides for the additional modules using the same convention.
@@ -418,22 +434,24 @@ Foo::BarBaz     libfoo-barbaz-perl
       <para>
         A module should use the following lines in the
         <filename>debian/rules</filename> <literal>build</literal>
-        target<footnote><para> The environment variable
-        <literal>PERL_MM_OPT</literal> may be used to pass the
-        <literal>INSTALLDIRS=vendor</literal> option in cases where
-        <filename>Makefile.PL</filename> is not invoked directly from
-        <filename>debian/rules</filename></para></footnote>:
+        target:
+        <footnote>
+          <para>
+            The environment variable <literal>PERL_MM_OPT</literal> may be
+            used to pass the <literal>INSTALLDIRS=vendor</literal> option
+            in cases where <filename>Makefile.PL</filename> is not invoked
+            directly from
+            <filename>debian/rules</filename>
+          </para>
+        </footnote>
       </para>
       <screen>
 perl Makefile.PL INSTALLDIRS=vendor
-$(MAKE) OPTIMIZE="-O2 -g -Wall"
-      </screen>
+$(MAKE) OPTIMIZE="-O2 -g -Wall"</screen>
       <para>
         and this one to install the results into the temporary tree:
       </para>
-      <screen>
-$(MAKE) install DESTDIR=$(CURDIR)/debian/&lt;tmp&gt;
-      </screen>
+      <screen>$(MAKE) install DESTDIR=$(CURDIR)/debian/&lt;tmp&gt;</screen>
       <para>
         <footnote><para>Replace &lt;tmp&gt; with the appropriate directory
         (nominally just tmp)</para></footnote>
@@ -563,9 +581,7 @@ $(MAKE) install DESTDIR=$(CURDIR)/debian/&lt;tmp&gt;
       <para>
         The default linker options produced by
       </para>
-      <screen>
-perl -MExtUtils::Embed -e ldopts
-      </screen>
+      <screen>perl -MExtUtils::Embed -e ldopts</screen>
       <para>
         will link against the dynamic <literal>libperl</literal>.  If
         programs wish to link to the static library, then
@@ -630,8 +646,7 @@ perl -MExtUtils::Embed -e ldopts
     </para>
     <screen>
 /usr/lib/perl6
-/usr/share/perl6
-    </screen>
+/usr/share/perl6</screen>
     <para>
       This will allow Perl 5 and 6 packages and modules (which should be
       packaged as <systemitem

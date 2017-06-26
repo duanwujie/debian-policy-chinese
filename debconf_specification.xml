@@ -212,8 +212,7 @@ Template: domain
 Type: string
 Description: domain for this computer
   This is the domain your computer is a member of. Typically it is
-  something like "mycompany.com" or "myuniversity.edu".
-	</programlisting>
+  something like "mycompany.com" or "myuniversity.edu".</programlisting>
       </para>
       <para>
 	For localization, the description field (and also the choices

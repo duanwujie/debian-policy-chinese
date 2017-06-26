@@ -1696,7 +1696,7 @@
       <para>
         That format is a series of entries like this:
       </para>
-      <screen>
+      <programlisting>
 <replaceable>package</replaceable> (<replaceable>version</replaceable>) <replaceable>distribution(s)</replaceable>; urgency=<replaceable>urgency</replaceable>
   <replaceable>[optional blank line(s), stripped]</replaceable>
   * <replaceable>change details</replaceable>
@@ -1704,8 +1704,7 @@
   <replaceable>[blank line(s), included in output of dpkg-parsechangelog]</replaceable>
   * <replaceable>even more change details</replaceable>
   <replaceable>[optional blank line(s), stripped]</replaceable>
--- <replaceable>maintainer name</replaceable> &lt;<replaceable>email address</replaceable>&gt;<replaceable>[two spaces]</replaceable>  <replaceable>date</replaceable>
-      </screen>
+-- <replaceable>maintainer name</replaceable> &lt;<replaceable>email address</replaceable>&gt;<replaceable>[two spaces]</replaceable>  <replaceable>date</replaceable></programlisting>
       <para>
         <replaceable>package</replaceable> and
         <replaceable>version</replaceable> are the source package name and
@@ -1748,9 +1747,7 @@
             To be precise, the string should match the following Perl
             regular expression:
           </para>
-          <screen>
-/closes:\s*(?:bug)?\#?\s?\d+(?:,\s*(?:bug)?\#?\s?\d+)*/i
-          </screen>
+          <screen>/closes:\s*(?:bug)?\#?\s?\d+(?:,\s*(?:bug)?\#?\s?\d+)*/i</screen>
           <para>
             Then all of the bug numbers listed will be closed by the
             archive maintenance software (<command>dak</command>) using
@@ -1799,9 +1796,7 @@
         </footnote>
         (compatible and with the same semantics of RFC 2822 and RFC 5322):
       </para>
-      <screen>
-day-of-week, dd month yyyy hh:mm:ss +zzzz
-      </screen>
+      <screen>day-of-week, dd month yyyy hh:mm:ss +zzzz</screen>
       <para>
         where:
       </para>
@@ -2441,7 +2436,7 @@ day-of-week, dd month yyyy hh:mm:ss +zzzz
           implement the build options; you will probably have to massage
           this example in order to make it work for your package.
         </para>
-        <screen>
+        <programlisting>
 CFLAGS = -Wall -g
 INSTALL = install
 INSTALL_FILE    = $(INSTALL) -p    -o root -g root  -m  644
@@ -2466,8 +2461,7 @@ build:
         # ...
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
         # Code to run the package test suite.
-endif
-        </screen>
+endif</programlisting>
       </section>
     </section>
 
@@ -2720,9 +2714,7 @@ endif
         ignored there; it is conventional to put a single space after the
         colon.  For example, a field might be:
       </para>
-      <screen>
-Package: libc6
-      </screen>
+      <programlisting>Package: libc6</programlisting>
       <para>
         the field name is <literal>Package</literal> and the field value
         <literal>libc6</literal>.
@@ -3826,10 +3818,9 @@ Package: libc6
           short description, and the long description.  It is a multiline
           field with the following format:
         </para>
-        <screen>
+        <programlisting>
 Description: <replaceable>single line synopsis</replaceable>
- <replaceable>extended description over several lines</replaceable>
-        </screen>
+ <replaceable>extended description over several lines</replaceable></programlisting>
         <para>
           The lines in the extended description can have these formats:
         </para>
@@ -4028,9 +4019,8 @@ Description: <replaceable>single line synopsis</replaceable>
           (separated by a space) which is usually in parentheses.  For
           example:
         </para>
-        <screen>
-Urgency: low (HIGH for users of diversions)
-        </screen>
+        <programlisting>
+Urgency: low (HIGH for users of diversions)</programlisting>
         <para>
           The value of this field is usually extracted from the
           <filename>debian/changelog</filename> file - see <xref
@@ -4142,11 +4132,10 @@ Urgency: low (HIGH for users of diversions)
           </footnote>
           For example:
         </para>
-        <screen>
+        <programlisting>
 Files:
  c6f698f19f2a2aa07dbb9bbda90a2754 571925 example_1.2.orig.tar.gz
- 938512f08422f3509ff36f125f5873ba 6220 example_1.2-1.diff.gz
-        </screen>
+ 938512f08422f3509ff36f125f5873ba 6220 example_1.2-1.diff.gz</programlisting>
         <para>
           The exact forms of the filenames are described in <xref
           linkend="s-pkg-sourcearchives"/>.
@@ -4156,13 +4145,12 @@ Files:
           per file being uploaded.  Each line contains the MD5 checksum,
           size, section and priority and the filename.  For example:
         </para>
-        <screen>
+        <programlisting>
 Files:
  4c31ab7bfc40d3cf49d7811987390357 1428 text extra example_1.2-1.dsc
  c6f698f19f2a2aa07dbb9bbda90a2754 571925 text extra example_1.2.orig.tar.gz
  938512f08422f3509ff36f125f5873ba 6220 text extra example_1.2-1.diff.gz
- 7c98fe853b3bbb47a00e5cd129b6cb56 703542 text extra example_1.2-1_i386.deb
-        </screen>
+ 7c98fe853b3bbb47a00e5cd129b6cb56 703542 text extra example_1.2-1_i386.deb</programlisting>
         <para>
           The <link linkend="s-f-Section">section</link> and <link
           linkend="s-f-Priority">priority</link> are the values of the
@@ -4241,7 +4229,7 @@ Files:
           file size, a space, and the file name.  For example (from a
           <filename>.changes</filename> file):
         </para>
-        <screen>
+        <programlisting>
 Checksums-Sha1:
  1f418afaa01464e63cc1ee8a66a05f0848bd155c 1276 example_1.0-1.dsc
  a0ed1456fad61116f868b1855530dbe948e20f06 171602 example_1.0.orig.tar.gz
@@ -4251,8 +4239,7 @@ Checksums-Sha256:
  ac9d57254f7e835bed299926fd51bf6f534597cc3fcc52db01c4bffedae81272 1276 example_1.0-1.dsc
  0d123be7f51e61c4bf15e5c492b484054be7e90f3081608a5517007bfb1fd128 171602 example_1.0.orig.tar.gz
  f54ae966a5f580571ae7d9ef5e1df0bd42d63e27cb505b27957351a495bc6288 6137 example_1.0-1.debian.tar.gz
- 3bec05c03974fdecd11d020fc2e8250de8404867a8a2ce865160c250eb723664 548402 example_1.0-1_i386.deb
-        </screen>
+ 3bec05c03974fdecd11d020fc2e8250de8404867a8a2ce865160c250eb723664 548402 example_1.0-1_i386.deb</programlisting>
         <para>
           In the <filename>.dsc</filename> file, these fields list all
           files that make up the source package.  In the
@@ -4403,16 +4390,14 @@ Checksums-Sha256:
         For example, if the main source information control file contains
         the field
       </para>
-      <screen>
-XBS-Comment: I stand between the candle and the star.
-      </screen>
+      <programlisting>
+XBS-Comment: I stand between the candle and the star.</programlisting>
       <para>
         then the binary and Debian source control files will contain the
         field
       </para>
-      <screen>
-Comment: I stand between the candle and the star.
-      </screen>
+      <programlisting>
+Comment: I stand between the candle and the star.</programlisting>
     </section>
 
     <section id="s-obsolete-control-data-fields">
@@ -4824,11 +4809,10 @@ Comment: I stand between the candle and the star.
                   facility the <command>postrm</command> intends to call
                   is available before calling it.  For example:
                 </para>
-                <screen>
+                <programlisting>
 if [ "$1" = purge ] &amp;&amp; [ -e /usr/share/debconf/confmodule ]; then
     . /usr/share/debconf/confmodule db_purge
-fi
-                </screen>
+fi</programlisting>
                 <para>
                   in <command>postrm</command> purges the
                   <command>debconf</command> configuration for the package
@@ -5294,9 +5278,7 @@ fi
           </para>
         </listitem>
         <listitem>
-          <screen>
-<replaceable>postrm</replaceable> remove
-          </screen>
+          <screen><replaceable>postrm</replaceable> remove</screen>
           <para>
             If it fails, there's no error unwind, and the package is in an
             "Half-Installed" state.
@@ -5402,11 +5384,10 @@ fi
       <para>
         For example, a list of dependencies might appear as:
       </para>
-      <screen>
+      <programlisting>
 Package: mutt
 Version: 1.3.17-1
-Depends: libc6 (&gt;= 2.2.1), exim | mail-transport-agent
-      </screen>
+Depends: libc6 (&gt;= 2.2.1), exim | mail-transport-agent</programlisting>
       <para>
         Relationships may be restricted to a certain set of architectures.
         This is indicated in brackets after each individual package name
@@ -5433,12 +5414,11 @@ Depends: libc6 (&gt;= 2.2.1), exim | mail-transport-agent
       <para>
         For example:
       </para>
-      <screen>
+      <programlisting>
 Source: glibc
 Build-Depends-Indep: texinfo
 Build-Depends: kernel-headers-2.2.10 [!hurd-i386],
- hurd-dev [hurd-i386], gnumach-dev [hurd-i386]
-      </screen>
+ hurd-dev [hurd-i386], gnumach-dev [hurd-i386]</programlisting>
       <para>
         requires <literal>kernel-headers-2.2.10</literal> on all
         architectures other than hurd-i386 and requires
@@ -5446,11 +5426,10 @@ Build-Depends: kernel-headers-2.2.10 [!hurd-i386],
         only on hurd-i386.  Here is another example showing multiple
         architectures separated by spaces:
       </para>
-      <screen>
+      <programlisting>
 Build-Depends:
  libluajit5.1-dev [i386 amd64 kfreebsd-i386 armel armhf powerpc mips],
- liblua5.1-dev [hurd-i386 ia64 kfreebsd-amd64 s390x sparc],
-      </screen>
+ liblua5.1-dev [hurd-i386 ia64 kfreebsd-amd64 s390x sparc],</programlisting>
       <para>
         For binary relationship fields and the
         <literal>Built-Using</literal> field, the architecture restriction
@@ -5466,9 +5445,7 @@ Build-Depends:
       <para>
         For example:
       </para>
-      <screen>
-Depends: foo [i386], bar [amd64]
-      </screen>
+      <programlisting>Depends: foo [i386], bar [amd64]</programlisting>
       <para>
         becomes <literal>Depends: foo</literal> when the package is built
         on the <literal>i386</literal> architecture, <literal>Depends:
@@ -5482,9 +5459,7 @@ Depends: foo [i386], bar [amd64]
         ignored completely on architectures that do not match the
         restriction.  For example:
       </para>
-      <screen>
-Build-Depends: foo [!i386] | bar [!amd64]
-      </screen>
+      <programlisting>Build-Depends: foo [!i386] | bar [!amd64]</programlisting>
       <para>
         is equivalent to <literal>bar</literal> on the i386 architecture,
         to <literal>foo</literal> on the amd64 architecture, and to
@@ -5498,9 +5473,7 @@ Build-Depends: foo [!i386] | bar [!amd64]
         using a certain set of architectures without architecture
         wildcards.  For example:
       </para>
-      <screen>
-Build-Depends: foo [linux-any], bar [any-i386], baz [!linux-any]
-      </screen>
+      <programlisting>Build-Depends: foo [linux-any], bar [any-i386], baz [!linux-any]</programlisting>
       <para>
         is equivalent to <literal>foo</literal> on architectures using the
         Linux kernel and any cpu, <literal>bar</literal> on architectures
@@ -5963,18 +5936,16 @@ Build-Depends: foo [linux-any], bar [any-i386], baz [!linux-any]
         concrete package which provides the virtual package with the name
         in question.  This is so that, for example, supposing we have
       </para>
-      <screen>
+      <programlisting>
 Package: foo
-Depends: bar
-      </screen>
+Depends: bar</programlisting>
       <para>
         and someone else releases an enhanced version of the
         <literal>bar</literal> package they can say:
       </para>
-      <screen>
+      <programlisting>
 Package: bar-plus
-Provides: bar
-      </screen>
+Provides: bar</programlisting>
       <para>
         and the <literal>bar-plus</literal> package will now also satisfy
         the dependency for the <literal>foo</literal> package.
@@ -6080,17 +6051,15 @@ Provides: bar
           <systemitem role="package">foo-data</systemitem> would have the
           fields
         </para>
-        <screen>
+        <programlisting>
 Replaces: foo (&lt;&lt; 1.2-3)
-Breaks: foo (&lt;&lt; 1.2-3)
-        </screen>
+Breaks: foo (&lt;&lt; 1.2-3)</programlisting>
         <para>
           in its control file.  The new version of the package <systemitem
           role="package">foo</systemitem> would normally have the field
         </para>
-        <screen>
-Depends: foo-data (&gt;= 1.2-3)
-        </screen>
+        <programlisting>
+Depends: foo-data (&gt;= 1.2-3)</programlisting>
         <para>
           (or possibly <literal>Recommends</literal> or even
           <literal>Suggests</literal> if the files moved into <systemitem
@@ -6146,11 +6115,10 @@ Depends: foo-data (&gt;= 1.2-3)
           a virtual package, so for example, all mail transport agents
           (MTAs) would have the following fields in their control files:
         </para>
-        <screen>
+        <programlisting>
 Provides: mail-transport-agent
 Conflicts: mail-transport-agent
-Replaces: mail-transport-agent
-        </screen>
+Replaces: mail-transport-agent</programlisting>
         <para>
           ensuring that only one MTA can be unpacked at any one time.  See
           <xref linkend="s-virtual"/> for more information about this
@@ -6291,16 +6259,12 @@ Replaces: mail-transport-agent
         package built from the gcc-4.6 source package would have this
         field in its control file:
       </para>
-      <screen>
-Built-Using: gcc-4.6 (= 4.6.0-11)
-      </screen>
+      <programlisting>Built-Using: gcc-4.6 (= 4.6.0-11)</programlisting>
       <para>
         A package including binaries from grub2 and loadlin would have
         this field in its control file:
       </para>
-      <screen>
-Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
-      </screen>
+      <programlisting>Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)</programlisting>
     </section>
   </chapter>
 
@@ -7047,10 +7011,9 @@ Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
           required is a function that takes an enum or struct argument
           that controls what the function does.  For example:
         </para>
-        <screen>
+        <programlisting>
 enum library_op { OP_FOO, OP_BAR };
-int library_do_operation(enum library_op);
-        </screen>
+int library_do_operation(enum library_op);</programlisting>
         <para>
           If a new operation, <literal>OP_BAZ</literal>, is added, the
           <replaceable>minimal-version</replaceable> of
@@ -7238,14 +7201,13 @@ int library_do_operation(enum library_op);
             corresponding to that <filename>symbols</filename>.  Each
             entry has the following format:
           </para>
-          <screen>
+          <programlisting>
 <replaceable>library-soname</replaceable> <replaceable>main-dependency-template</replaceable>
  [| <replaceable>alternative-dependency-template</replaceable>]
  [...]
  [* <replaceable>field-name</replaceable>: <replaceable>field-value</replaceable>]
  [...]
- <replaceable>symbol</replaceable> <replaceable>minimal-version</replaceable>[ <replaceable>id-of-dependency-template</replaceable> ]
-          </screen>
+ <replaceable>symbol</replaceable> <replaceable>minimal-version</replaceable>[ <replaceable>id-of-dependency-template</replaceable> ]</programlisting>
           <para>
             To explain this format, we'll use the
             <literal>zlib1g</literal> package as an example, which (at the
@@ -7262,9 +7224,7 @@ int library_do_operation(enum library_op);
               <para>
                 This can be determined by using the command
               </para>
-              <screen>
-readelf -d /usr/lib/libz.so.1.2.3.4 | grep SONAME
-              </screen>
+              <screen>readelf -d /usr/lib/libz.so.1.2.3.4 | grep SONAME</screen>
             </footnote>
           </para>
           <para>
@@ -7291,9 +7251,7 @@ readelf -d /usr/lib/libz.so.1.2.3.4 | grep SONAME
             <literal>zlib1g</literal> <filename>symbols</filename> file
             would be:
           </para>
-          <screen>
-libz.so.1 zlib1g #MINVER#
-          </screen>
+          <programlisting>libz.so.1 zlib1g #MINVER#</programlisting>
           <para>
             Each public symbol exported by the shared library must have a
             corresponding symbol line, indented by one space.
@@ -7323,10 +7281,9 @@ libz.so.1 zlib1g #MINVER#
             behavior.  Its <filename>symbols</filename> file therefore
             contains the lines:
           </para>
-          <screen>
+          <programlisting>
 compress@Base 1:1.1.4
-compressBound@ZLIB_1.2.0 1:1.2.0
-          </screen>
+compressBound@ZLIB_1.2.0 1:1.2.0</programlisting>
           <para>
             Packages using only <literal>compress</literal> would then get
             a dependency on <literal>zlib1g (&gt;= 1:1.1.4)</literal>, but
@@ -7354,11 +7311,10 @@ compressBound@ZLIB_1.2.0 1:1.2.0
                 So, for example, libgl1-mesa-glx may use the following
                 <filename>symbols</filename> file:
               </para>
-              <screen>
+              <programlisting>
 libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
  publicGlSymbol@Base 6.3-1 [...] implementationSpecificSymbol@Base 6.5.2-7 1
- [...]
-              </screen>
+ [...]</programlisting>
               <para>
                 Binaries or shared libraries using only
                 <literal>publicGlSymbol</literal> would depend only on
@@ -7398,9 +7354,7 @@ libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
             For our example, the <literal>zlib1g</literal>
             <filename>symbols</filename> file would contain:
           </para>
-          <screen>
-* Build-Depends-Package: zlib1g-dev
-          </screen>
+          <programlisting>* Build-Depends-Package: zlib1g-dev</programlisting>
           <para>
             Also see
             <citerefentry><refentrytitle>deb-symbols</refentrytitle><manvolnum>5</manvolnum></citerefentry>.
@@ -7586,8 +7540,7 @@ libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
             comments and are ignored.  Each line is of the form:
           </para>
           <screen>
-[<replaceable>type</replaceable>: ]<replaceable>library-name</replaceable> <replaceable>soname-version</replaceable> <replaceable>dependencies ...</replaceable>
-          </screen>
+[<replaceable>type</replaceable>: ]<replaceable>library-name</replaceable> <replaceable>soname-version</replaceable> <replaceable>dependencies ...</replaceable></screen>
           <para>
             We will explain this by reference to the example of the
             <literal>zlib1g</literal> package, which (at the time of
@@ -7629,9 +7582,7 @@ libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
             <literal>1:1.2.3.3.dfsg-1</literal>, then the
             <literal>shlibs</literal> entry for this library could say:
           </para>
-          <screen>
-libz 1 zlib1g (&gt;= 1:1.2.3.3.dfsg)
-          </screen>
+          <programlisting>libz 1 zlib1g (&gt;= 1:1.2.3.3.dfsg)</programlisting>
           <para>
             This version restriction must be new enough that any binary
             built against the current version of the library will work
@@ -7642,9 +7593,7 @@ libz 1 zlib1g (&gt;= 1:1.2.3.3.dfsg)
             As zlib1g also provides a udeb containing the shared library,
             there would also be a second line:
           </para>
-          <screen>
-udeb: libz 1 zlib1g-udeb (&gt;= 1:1.2.3.3.dfsg)
-          </screen>
+          <programlisting>udeb: libz 1 zlib1g-udeb (&gt;= 1:1.2.3.3.dfsg)</programlisting>
         </section>
 
         <section id="s8.6.4.3">
@@ -7926,22 +7875,20 @@ udeb: libz 1 zlib1g-udeb (&gt;= 1:1.2.3.3.dfsg)
           For example, the <literal>emacsen-common</literal> package could
           contain something like
         </para>
-        <screen>
+        <programlisting>
 if [ ! -e /usr/local/share/emacs ]; then
     if mkdir /usr/local/share/emacs 2&gt;/dev/null; then
         if chown root:staff /usr/local/share/emacs; then
             chmod 2775 /usr/local/share/emacs || true
         fi
     fi
-fi
-        </screen>
+fi</programlisting>
         <para>
           in its <command>postinst</command> script, and
         </para>
-        <screen>
+        <programlisting>
 rmdir /usr/local/share/emacs/site-lisp 2&gt;/dev/null || true
-rmdir /usr/local/share/emacs 2&gt;/dev/null || true
-        </screen>
+rmdir /usr/local/share/emacs 2&gt;/dev/null || true</programlisting>
         <para>
           in the <command>prerm</command> script.  (Note that this form is
           used to ensure that if the script is interrupted, the directory
@@ -8265,8 +8212,7 @@ rmdir /usr/local/share/emacs 2&gt;/dev/null || true
         </para>
         <screen>
 /etc/rc2.d/S17bind
-/etc/rc2.d/S70inn
-        </screen>
+/etc/rc2.d/S70inn</screen>
         <para>
           The two runlevels 0 (halt) and 6 (reboot) are slightly
           different.  In these runlevels, the links with an
@@ -8423,9 +8369,8 @@ rmdir /usr/local/share/emacs 2&gt;/dev/null || true
           Therefore, you should include a <literal>test</literal>
           statement at the top of the script, like this:
         </para>
-        <screen>
-test -f <replaceable>program-executed-later-in-script</replaceable> || exit 0
-        </screen>
+        <programlisting>
+test -f <replaceable>program-executed-later-in-script</replaceable> || exit 0</programlisting>
         <para>
           Often there are some variables in the
           <filename>init.d</filename> scripts whose values control the
@@ -8528,17 +8473,15 @@ test -f <replaceable>program-executed-later-in-script</replaceable> || exit 0
             To get the default behavior for your package, put in your
             <command>postinst</command> script
           </para>
-          <screen>
-update-rc.d <replaceable>package</replaceable> defaults
-          </screen>
+          <programlisting>
+update-rc.d <replaceable>package</replaceable> defaults</programlisting>
           <para>
             and in your <command>postrm</command>
           </para>
-          <screen>
+          <programlisting>
 if [ "$1" = purge ]; then
     update-rc.d <replaceable>package</replaceable> remove
-fi
-          </screen>
+fi</programlisting>
           <para>
             Note that if your package changes runlevels or priority, you
             may have to remove and recreate the links, since otherwise the
@@ -8587,16 +8530,14 @@ fi
           <para>
             Most packages will simply need to change:
           </para>
-          <screen>
-/etc/init.d/<replaceable>package</replaceable> <replaceable>action</replaceable>
-          </screen>
+          <programlisting>
+/etc/init.d/<replaceable>package</replaceable> <replaceable>action</replaceable></programlisting>
           <para>
             in their <command>postinst</command> and
             <command>prerm</command> scripts to:
           </para>
-          <screen>
-invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
-          </screen>
+          <programlisting>
+invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable></programlisting>
           <para>
             A package should register its initscript services using
             <command>update-rc.d</command> before it tries to invoke them
@@ -8677,15 +8618,11 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
             user what it is doing (politely :-), but should not mention
             "it" directly.  For example, instead of:
           </para>
-          <screen>
-I'm starting network daemons: nfsd mountd.
-          </screen>
+          <screen>I'm starting network daemons: nfsd mountd.</screen>
           <para>
             the message should say
           </para>
-          <screen>
-Starting network daemons: nfsd mountd.
-          </screen>
+          <screen>Starting network daemons: nfsd mountd.</screen>
         </listitem>
       </itemizedlist>
       <para>
@@ -8702,8 +8639,7 @@ Starting network daemons: nfsd mountd.
             look like this (a single line, no leading spaces):
           </para>
           <screen>
-Starting <replaceable>description</replaceable>: <replaceable>daemon-1</replaceable> ... <replaceable>daemon-n</replaceable>.
-          </screen>
+Starting <replaceable>description</replaceable>: <replaceable>daemon-1</replaceable> ... <replaceable>daemon-n</replaceable>.</screen>
           <para>
             The <replaceable>description</replaceable> should describe the
             subsystem the daemon or set of daemons are part of, while
@@ -8715,28 +8651,24 @@ Starting <replaceable>description</replaceable>: <replaceable>daemon-1</replacea
             For example, the output of
             <filename>/etc/init.d/lpd</filename> would look like:
           </para>
-          <screen>
-Starting printer spooler: lpd.
-          </screen>
+          <screen>Starting printer spooler: lpd.</screen>
           <para>
             This can be achieved by saying
           </para>
-          <screen>
+          <programlisting>
 echo -n "Starting printer spooler: lpd"
 start-stop-daemon --start --quiet --exec /usr/sbin/lpd
-echo "."
-          </screen>
+echo "."</programlisting>
           <para>
             in the script.  If there are more than one daemon to start,
             the output should look like this:
           </para>
-          <screen>
+          <programlisting>
 echo -n "Starting remote file system services:"
 echo -n " nfsd"; start-stop-daemon --start --quiet nfsd
 echo -n " mountd"; start-stop-daemon --start --quiet mountd
 echo -n " ugidd"; start-stop-daemon --start --quiet ugidd
-echo "."
-          </screen>
+echo "."</programlisting>
           <para>
             This makes it possible for the user to see what is happening
             and when the final daemon has been started.  Care should be
@@ -8755,15 +8687,12 @@ echo "."
             system boot, you should use this format:
           </para>
           <screen>
-Setting <replaceable>parameter</replaceable> to "<replaceable>value</replaceable>".
-          </screen>
+Setting <replaceable>parameter</replaceable> to "<replaceable>value</replaceable>".</screen>
           <para>
             You can use a statement such as the following to get the
             quotes right:
           </para>
-          <screen>
-echo "Setting DNS domainname to \"$domainname\"."
-          </screen>
+          <programlisting>echo "Setting DNS domainname to \"$domainname\"."</programlisting>
           <para>
             Note that the same symbol (<literal>"</literal><!-- balance "
             -->) is used for the left and right quotation marks.  A grave
@@ -8785,9 +8714,7 @@ echo "Setting DNS domainname to \"$domainname\"."
           <para>
             For example, stopping the printer daemon will look like this:
           </para>
-          <screen>
-Stopping printer spooler: lpd.
-          </screen>
+          <screen>Stopping printer spooler: lpd.</screen>
         </listitem>
         <listitem>
           <para>
@@ -8800,19 +8727,16 @@ Stopping printer spooler: lpd.
             <command>netdate</command> or killing all processes when the
             system shuts down.  Your message should look like this:
           </para>
-          <screen>
-Doing something very useful...done.
-          </screen>
+          <screen>Doing something very useful...done.</screen>
           <para>
             You should print the <literal>done.</literal> immediately
             after the job has been completed, so that the user is informed
             why they have to wait.  You can get this behavior by saying
           </para>
-          <screen>
+          <programlisting>
 echo -n "Doing something very useful..."
 do_something
-echo "done."
-          </screen>
+echo "done."</programlisting>
           <para>
             in your script.
           </para>
@@ -8826,8 +8750,7 @@ echo "done."
             should use the following format:
           </para>
           <screen>
-Reloading <replaceable>description</replaceable> configuration...done.
-          </screen>
+Reloading <replaceable>description</replaceable> configuration...done.</screen>
           <para>
             where <replaceable>description</replaceable> is the same as in
             the daemon starting message.
@@ -8850,12 +8773,12 @@ Reloading <replaceable>description</replaceable> configuration...done.
         linkend="s-cron-files"/> into one or more of the following
         directories:
       </para>
-      <screen>
-/etc/cron.hourly
-/etc/cron.daily
-/etc/cron.weekly
-/etc/cron.monthly
-      </screen>
+      <itemizedlist spacing="compact">
+        <listitem><para><filename>/etc/cron.hourly</filename></para></listitem>
+        <listitem><para><filename>/etc/cron.daily</filename></para></listitem>
+        <listitem><para><filename>/etc/cron.weekly</filename></para></listitem>
+        <listitem><para><filename>/etc/cron.monthly</filename></para></listitem>
+      </itemizedlist>
       <para>
         As these directory names imply, the files within them are executed
         on an hourly, daily, weekly, or monthly basis, respectively.  The
@@ -8888,7 +8811,7 @@ Reloading <replaceable>description</replaceable> configuration...done.
         the file <filename>/etc/crontab</filename> have seven fields;
         namely:
       </para>
-      <orderedlist numeration="arabic">
+      <orderedlist numeration="arabic" spacing="compact">
         <listitem>
           <para>
             Minute [0,59]
@@ -9371,12 +9294,11 @@ Reloading <replaceable>description</replaceable> configuration...done.
       <para>
         Here is an example of a wrapper script for this purpose:
       </para>
-      <screen>
+      <programlisting>
 #!/bin/sh
 BAR=${BAR:-/var/lib/fubar}
 export BAR
-exec /usr/lib/foo/foo "$@"
-      </screen>
+exec /usr/lib/foo/foo "$@"</programlisting>
       <para>
         Furthermore, as <filename>/etc/profile</filename> is a
         configuration file of the <command>base-files</command> package,
@@ -9502,12 +9424,11 @@ exec /usr/lib/foo/foo "$@"
         For the C programming language, this means the following
         compilation parameters should be used:
       </para>
-      <screen>
+      <programlisting>
 CC = gcc
 CFLAGS = -O2 -g -Wall # sane warning options vary between programs
 LDFLAGS = # none
-INSTALL = install -s # (or use strip on the files in debian/tmp)
-      </screen>
+INSTALL = install -s # (or use strip on the files in debian/tmp)</programlisting>
       <para>
         Note that by default all installed binaries should be stripped,
         either by using the <literal>-s</literal> flag to
@@ -9627,8 +9548,7 @@ INSTALL = install -s # (or use strip on the files in debian/tmp)
         All installed shared libraries should be stripped with
       </para>
       <screen>
-strip --strip-unneeded <replaceable>your-lib</replaceable>
-      </screen>
+strip --strip-unneeded <replaceable>your-lib</replaceable></screen>
       <para>
         (The option <literal>--strip-unneeded</literal> makes
         <command>strip</command> remove only the symbols which aren't
@@ -9818,12 +9738,11 @@ strip --strip-unneeded <replaceable>your-lib</replaceable>
             not preserve the variable value from an outer scope if no
             assignment is present.  Uses such as:
           </para>
-          <screen>
+          <programlisting>
 fname () {
     local a b c=delta d
     # ... use a, b, c, d ...
-}
-          </screen>
+}</programlisting>
           <para>
             must be supported and must set the value of
             <literal>c</literal> to <literal>delta</literal>.
@@ -9942,12 +9861,11 @@ fname () {
         For example, in your <command>Makefile</command> or
         <filename>debian/rules</filename>, you can do things like:
       </para>
-      <screen>
+      <programlisting>
 ln -fs gcc $(prefix)/bin/cc
 ln -fs gcc debian/tmp/usr/bin/cc
 ln -fs ../sbin/sendmail $(prefix)/bin/runq
-ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
-      </screen>
+ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq</programlisting>
       <para>
         A symbolic link pointing to a compressed file (in the sense that
         it is meant to be uncompressed with <command>unzip</command> or
@@ -10338,7 +10256,7 @@ ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
         information see
         <citerefentry><refentrytitle>logrotate</refentrytitle><manvolnum>8</manvolnum></citerefentry>):
       </para>
-      <screen>
+      <programlisting>
 /var/log/foo/*.log {
     rotate 12
     weekly
@@ -10347,8 +10265,7 @@ ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
     postrotate
         start-stop-daemon -K -p /var/run/foo.pid -s HUP -x /usr/sbin/foo -q
     endscript
-}
-      </screen>
+}</programlisting>
       <para>
         This rotates all files under <filename>/var/log/foo</filename>,
         saves 12 compressed generations, and tells the daemon to reopen
@@ -10528,7 +10445,7 @@ ln -fs ../sbin/sendmail debian/tmp/usr/bin/runq
           package's <command>postinst</command>, where
           <literal>sysuser</literal> is a dynamically allocated id:
         </para>
-        <screen>
+        <programlisting>
 for i in /usr/bin/foo /usr/sbin/bar; do
     # only do something when no setting exists
     if ! dpkg-statoverride --list $i &gt;/dev/null 2&gt;&amp;1; then
@@ -10537,19 +10454,17 @@ for i in /usr/bin/foo /usr/sbin/bar; do
             dpkg-statoverride --update --add sysuser root 4755 $i
         fi
     fi
-done
-        </screen>
+done</programlisting>
         <para>
           The corresponding code to remove the override when the package
           is purged would be:
         </para>
-        <screen>
+        <programlisting>
 for i in /usr/bin/foo /usr/sbin/bar; do
     if dpkg-statoverride --list $i &gt;/dev/null 2&gt;&amp;1; then
         dpkg-statoverride --remove $i
     fi
-done
-        </screen>
+done</programlisting>
       </section>
     </section>
 
@@ -10744,21 +10659,15 @@ done
           <para>
             Cgi-bin executable files are installed in the directory
           </para>
-          <screen>
-/usr/lib/cgi-bin
-          </screen>
+          <screen>/usr/lib/cgi-bin</screen>
           <para>
             or a subdirectory of that directory, and the script
           </para>
-          <screen>
-/usr/lib/cgi-bin/.../<replaceable>cgi-bin-name</replaceable>
-          </screen>
+          <screen>/usr/lib/cgi-bin/.../<replaceable>cgi-bin-name</replaceable></screen>
           <para>
             should be referred to as
           </para>
-          <screen>
-http://localhost/cgi-bin/.../<replaceable>cgi-bin-name</replaceable>
-          </screen>
+          <screen>http://localhost/cgi-bin/.../<replaceable>cgi-bin-name</replaceable></screen>
         </listitem>
         <listitem>
           <para>
@@ -10776,8 +10685,7 @@ http://localhost/cgi-bin/.../<replaceable>cgi-bin-name</replaceable>
             <literal>/images/</literal> as
           </para>
           <screen>
-http://localhost/images/<replaceable>package</replaceable>/<replaceable>filename</replaceable>
-          </screen>
+http://localhost/images/<replaceable>package</replaceable>/<replaceable>filename</replaceable></screen>
         </listitem>
         <listitem>
           <para>
@@ -10791,9 +10699,7 @@ http://localhost/images/<replaceable>package</replaceable>/<replaceable>filename
             <systemitem role="package">doc-base</systemitem> package.  If
             access to the web document root is unavoidable then use
           </para>
-          <screen>
-/var/www/html
-          </screen>
+          <screen>/var/www/html</screen>
           <para>
             as the Document Root.  This might be just a symbolic link to
             the location where the system administrator has put the real
@@ -10943,8 +10849,7 @@ Please enter the "mail name" of your system.  This is the hostname portion
 of the address to be shown on outgoing news and mail messages.  The
 default is <replaceable>syshostname</replaceable>, your system's host name.
 
-Mail name ["<replaceable>syshostname</replaceable>"]:
-      </screen>
+Mail name ["<replaceable>syshostname</replaceable>"]:</screen>
       <para>
         where <replaceable>syshostname</replaceable> is the output of
         <literal>hostname --fqdn</literal>.
@@ -11651,12 +11556,11 @@ Mail name ["<replaceable>syshostname</replaceable>"]:
         <literal>START-INFO-DIR-ENTRY</literal> line and an
         <literal>END-INFO-DIR-ENTRY</literal> line.  For example:
       </para>
-      <screen>
+      <programlisting>
 INFO-DIR-SECTION Individual utilities
 START-INFO-DIR-ENTRY
 * example: (example).               An example info directory entry.
-END-INFO-DIR-ENTRY
-      </screen>
+END-INFO-DIR-ENTRY</programlisting>
       <para>
         To determine which section to use, you should look at
         <filename>/usr/share/info/dir</filename> on your system and choose
@@ -11668,12 +11572,11 @@ END-INFO-DIR-ENTRY
             To include this information in the generated info document, if
             it is absent, add commands like:
           </para>
-          <screen>
+          <programlisting>
 @dircategory Individual utilities
 @direntry
 * example: (example).  An example info directory entry.
-@end direntry
-          </screen>
+@end direntry</programlisting>
           <para>
             to the Texinfo source of the document and ensure that the info
             documents are rebuilt from source during the package build.
@@ -12124,9 +12027,7 @@ END-INFO-DIR-ENTRY
       <para>
         When you've prepared the package, you should invoke:
       </para>
-      <screen>
-dpkg --build <replaceable>directory</replaceable>
-      </screen>
+      <screen>dpkg --build <replaceable>directory</replaceable></screen>
       <para>
         This will build the package in
         <filename><replaceable>directory</replaceable>.deb</filename>.
@@ -12144,14 +12045,12 @@ dpkg --build <replaceable>directory</replaceable>
       <screen>
 dpkg-deb --info <replaceable>filename</replaceable>.deb
 dpkg-deb --contents <replaceable>filename</replaceable>.deb
-dpkg --contents <replaceable>filename</replaceable>.deb
-      </screen>
+dpkg --contents <replaceable>filename</replaceable>.deb</screen>
       <para>
         To view the copyright file for a package you could use this command:
       </para>
       <screen>
-dpkg --fsys-tarfile <replaceable>filename</replaceable>.deb | tar xOf - --wildcards \*/copyright | pager
-      </screen>
+dpkg --fsys-tarfile <replaceable>filename</replaceable>.deb | tar xOf - --wildcards \*/copyright | pager</screen>
     </section>
 
     <section id="s-pkg-controlarea">
@@ -12327,8 +12226,7 @@ dpkg --fsys-tarfile <replaceable>filename</replaceable>.deb | tar xOf - --wildca
           To unpack a package it is typically invoked with
         </para>
         <screen>
-dpkg-source -x <replaceable>.../path/to/filename</replaceable>.dsc
-        </screen>
+dpkg-source -x <replaceable>.../path/to/filename</replaceable>.dsc</screen>
         <para>
           with the
           <filename><replaceable>filename</replaceable>.tar.gz</filename>
@@ -12344,8 +12242,7 @@ dpkg-source -x <replaceable>.../path/to/filename</replaceable>.dsc
           To create a packed source archive it is typically invoked:
         </para>
         <screen>
-dpkg-source -b <replaceable>package</replaceable>-<replaceable>version</replaceable>
-        </screen>
+dpkg-source -b <replaceable>package</replaceable>-<replaceable>version</replaceable></screen>
         <para>
           This will create the <filename>.dsc</filename>,
           <filename>.tar.gz</filename> and <filename>.diff.gz</filename>
@@ -12418,8 +12315,7 @@ dpkg-source -b <replaceable>package</replaceable>-<replaceable>version</replacea
           something like:
         </para>
         <screen>
-dpkg-gencontrol -Pdebian/<replaceable>pkg</replaceable> -p<replaceable>package</replaceable>
-        </screen>
+dpkg-gencontrol -Pdebian/<replaceable>pkg</replaceable> -p<replaceable>package</replaceable></screen>
         <para>
           The <literal>-P</literal> tells
           <command>dpkg-gencontrol</command> that the package is being
@@ -12467,8 +12363,7 @@ dpkg-gencontrol -Pdebian/<replaceable>pkg</replaceable> -p<replaceable>package</
           of <filename>debian/rules</filename>:
         </para>
         <screen>
-dpkg-distaddfile <replaceable>filename</replaceable> <replaceable>section</replaceable> <replaceable>priority</replaceable>
-        </screen>
+dpkg-distaddfile <replaceable>filename</replaceable> <replaceable>section</replaceable> <replaceable>priority</replaceable></screen>
         <para>
           The <replaceable>filename</replaceable> is relative to the
           directory where <command>dpkg-genchanges</command> will expect
@@ -13192,8 +13087,7 @@ dpkg-distaddfile <replaceable>filename</replaceable> <replaceable>section</repla
     </para>
     <screen>
 dpkg-divert --package smailwrapper --add --rename \
-    --divert /usr/sbin/smail.real /usr/sbin/smail
-    </screen>
+    --divert /usr/sbin/smail.real /usr/sbin/smail</screen>
     <para>
       The <literal>--package smailwrapper</literal> ensures that
       <command>smailwrapper</command>'s copy of
@@ -13204,12 +13098,11 @@ dpkg-divert --package smailwrapper --add --rename \
       message.  To suppress that message, make the command conditional on
       the version from which the package is being upgraded:
     </para>
-    <screen>
+    <programlisting>
 if [ upgrade != "$1" ] || dpkg --compare-versions "$2" lt 1.0-2; then
     dpkg-divert --package smailwrapper --add --rename \
         --divert /usr/sbin/smail.real /usr/sbin/smail
-fi
-    </screen>
+fi</programlisting>
     <para>
       where <literal>1.0-2</literal> is the version at which the diversion
       was first added to the package.  Running the command during
@@ -13218,24 +13111,22 @@ fi
     <para>
       The postrm has to do the reverse:
     </para>
-    <screen>
+    <programlisting>
 if [ remove = "$1" -o abort-install = "$1" -o disappear = "$1" ]; then
     dpkg-divert --package smailwrapper --remove --rename \
         --divert /usr/sbin/smail.real /usr/sbin/smail
-fi
-    </screen>
+fi</programlisting>
     <para>
       If the diversion was added at a particular version, the postrm
       should also handle the failure case of upgrading from an older
       version (unless the older version is so old that direct upgrades are
       no longer supported):
     </para>
-    <screen>
+    <programlisting>
 if [ abort-upgrade = "$1" ] &amp;&amp; dpkg --compare-versions "$2" lt 1.0-2; then
     dpkg-divert --package smailwrapper --remove --rename \
         --divert /usr/sbin/smail.real /usr/sbin/smail
-fi
-    </screen>
+fi</programlisting>
     <para>
       where <literal>1.0-2</literal> is the version at which the diversion
       was first added to the package.  The postrm should not remove the
