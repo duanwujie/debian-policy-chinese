@@ -76,6 +76,17 @@
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term>9.9</term>
+        <listitem>
+          <para>
+            The prohibition against depending on environment variables for
+            reasonble defaults is only for programs on the system PATH and
+            only for custom environment variable settings (not, say, a
+            sane PATH).
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
 
   <section id="s-4.0.0">
