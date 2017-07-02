@@ -1,3 +1,9 @@
+debian-policy (4.0.0.5) UNRELEASED; urgency=medium
+
+  * Convert Process.md to an appendix to Policy itself.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>  Sun, 02 Jul 2017 11:22:35 +0100
+
 debian-policy (4.0.0.4) unstable; urgency=medium
 
   * Fix URLs to Policy documents.  Policy previously used the full URL as
