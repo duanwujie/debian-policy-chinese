@@ -837,11 +837,33 @@
       <title>Priorities</title>
 
       <para>
-        Each package should have a <emphasis>priority</emphasis> value,
-        which is included in the package's <emphasis>control
-        record</emphasis> (see <xref linkend="s-f-Priority"/>).  This
-        information is used by the Debian package management tools to
-        separate high-priority packages from less-important packages.
+        Each package must have a <emphasis>priority</emphasis> value,
+        which is set in the metadata for the Debian archive and is also
+        included in the package's control files (see <xref
+        linkend="s-f-Priority"/>).  This information is used to control
+        which packages are included in standard or minimal Debian
+        installations.
+      </para>
+      <para>
+        Most Debian packages will have a priority of
+        <literal>optional</literal>.  Priority levels other than
+        <literal>optional</literal> are only used for packages that should
+        be included by default in a standard installation of Debian.
+      </para>
+      <para>
+        The priority of a package is determined solely by the
+        functionality it provides directly to the user.  The priority of a
+        package should not be increased merely because another
+        higher-priority package depends on it; instead, the tools used to
+        construct Debian installations will correctly handle package
+        dependencies.  In particular, this means that C-like libraries
+        will almost never have a priority above
+        <literal>optional</literal>, since they do not provide
+        functionality directly to users.  However, as an exception, the
+        maintainers of Debian installers may request an increase of the
+        priority of a package to resolve installation issues and ensure
+        that the correct set of packages is included in a standard or
+        minimal install.
       </para>
       <para>
         The following <emphasis>priority levels</emphasis> are recognized
@@ -874,9 +896,13 @@
               an experienced Unix person who found it missing would say
               "What on earth is going on, where is
               <command>foo</command>?", it must be an
-              <literal>important</literal> package.<footnote><para> This
-              is an important criterion because we are trying to produce,
-              amongst other things, a free Unix.  </para> </footnote>
+              <literal>important</literal> package.
+              <footnote>
+                <para>
+                  This is an important criterion because we are trying to
+                  produce, amongst other things, a free Unix.
+                </para>
+              </footnote>
               Other packages without which the system will not run well or
               be usable must also have priority
               <literal>important</literal>.  This does
@@ -896,19 +922,22 @@
               installed by default if the user doesn't select anything
               else.  It doesn't include many large applications.
             </para>
+            <para>
+              No two packages that both have a priority of
+              <literal>standard</literal> or higher may conflict with each
+              other.
+            </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term><literal>optional</literal></term>
           <listitem>
             <para>
-              (In a sense everything that isn't required is optional, but
-              that's not what is meant here.) This is all the software
-              that you might reasonably want to install if you didn't know
-              what it was and don't have specialized requirements.  This
-              is a much larger system and includes the X Window System, a
-              full TeX distribution, and many applications.  Note that
-              optional packages should not conflict with each other.
+              This is the default priority for the majority of the
+              archive.  Unless a package should be installed by default on
+              standard Debian systems, it should have a priority of
+              <literal>optional</literal>.  Packages with a priority of
+              <literal>optional</literal> may conflict with each other.
             </para>
           </listitem>
         </varlistentry>
@@ -916,22 +945,21 @@
           <term><literal>extra</literal></term>
           <listitem>
             <para>
-              This contains all packages that conflict with others with
-              required, important, standard or optional priorities, or are
-              only likely to be useful if you already know what they are
-              or have specialized requirements (such as packages
-              containing only detached debugging symbols).
+              <emphasis>This priority is deprecated.</emphasis>  Use the
+              <literal>optional</literal> priority instead.
+            </para>
+            <para>
+              The <literal>extra</literal> priority was previously used
+              for packages that conflicted with other packages and
+              packages that were only likely to be useful to people with
+              specialized requirements.  However, this distinction was
+              somewhat arbitrary, not consistently followed, and not
+              useful enough to warrant the maintenance effort.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Packages must not depend on packages with lower priority values
-        (excluding build-time dependencies).  In order to ensure this, the
-        priorities of one or more packages may need to be adjusted.
-      </para>
     </section>
-
   </chapter>
 
   <chapter id="ch-binary">
@@ -9275,11 +9303,14 @@ Reloading <replaceable>description</replaceable> configuration...done.</screen>
       <title>Environment variables</title>
 
       <para>
-        A program must not depend on environment variables to get
-        reasonable defaults.  (That's because these environment variables
-        would have to be set in a system-wide configuration file like
-        <filename>/etc/profile</filename>, which is not supported by all
-        shells.)
+        Programs installed on the system PATH (<filename>/bin</filename>,
+        <filename>/usr/bin</filename>, <filename>/sbin</filename>,
+        <filename>/usr/sbin</filename>, or similar directories) must not
+        depend on custom environment variable settings to get reasonable
+        defaults.  This is because such environment variables would have
+        to be set in a system-wide configuration file such as a file in
+        <filename>/etc/profile.d</filename>, which is not supported by all
+        shells.
       </para>
       <para>
         If a program usually depends on environment variables for its
@@ -9287,7 +9318,7 @@ Reloading <replaceable>description</replaceable> configuration...done.</screen>
         reasonable default configuration if these environment variables
         are not present.  If this cannot be done easily (e.g., if the
         source code of a non-free program is not available), the program
-        must be replaced by a small "wrapper" shell script which sets the
+        must be replaced by a small "wrapper" shell script that sets the
         environment variables if they are not already defined, and calls
         the original program.
       </para>
@@ -9299,12 +9330,6 @@ Reloading <replaceable>description</replaceable> configuration...done.</screen>
 BAR=${BAR:-/var/lib/fubar}
 export BAR
 exec /usr/lib/foo/foo "$@"</programlisting>
-      <para>
-        Furthermore, as <filename>/etc/profile</filename> is a
-        configuration file of the <command>base-files</command> package,
-        other packages must not put any environment variables or other
-        commands into that file.
-      </para>
     </section>
 
     <section id="s-doc-base">
