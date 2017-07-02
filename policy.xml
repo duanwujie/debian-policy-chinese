@@ -945,8 +945,10 @@
           <term><literal>extra</literal></term>
           <listitem>
             <para>
-              <emphasis>This priority is deprecated.</emphasis>  Use the
-              <literal>optional</literal> priority instead.
+              <emphasis>This priority is deprecated.</emphasis> Use the
+              <literal>optional</literal> priority instead.  This priority
+              should be treated as equivalent to
+              <literal>optional</literal>.
             </para>
             <para>
               The <literal>extra</literal> priority was previously used

@@ -1,3 +1,14 @@
+debian-policy (4.0.1.0) UNRELEASED; urgency=medium
+
+  * Policy: Overhaul priorities, deprecate extra
+    Wording: Russ Allbery <rra@debian.org>
+    Seconded: Niels Thykier <niels@thykier.net>
+    Seconded: Andreas Henriksson <andreas@fatal.se>
+    Seconded: Ansgar Burchardt <ansgar@debian.org>
+    Closes: #758234, #759260, #660249
+
+ -- Russ Allbery <rra@debian.org>  Sun, 02 Jul 2017 13:41:14 -0700
+
 debian-policy (4.0.0.4) unstable; urgency=medium
 
   * Fix URLs to Policy documents.  Policy previously used the full URL as

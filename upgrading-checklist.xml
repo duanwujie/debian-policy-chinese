@@ -45,6 +45,39 @@
     </para>
   </section>
 
+  <section id="s-4.0.1">
+    <title>Version 4.0.1</title>
+
+    <para>
+      Unreleased.
+    </para>
+
+    <variablelist>
+      <varlistentry>
+        <term>2.5</term>
+        <listitem>
+          <para>
+            Priorities are now used only for controlling which packages
+            are part of a minimal or standard Debian installation and
+            should be selected based on functionality provided directly to
+            users (so nearly all shared libraries should have a priority
+            of <literal>optional</literal>).  Packages may now depend on
+            packages with a lower priority.
+          </para>
+          <para>
+            The <literal>extra</literal> priority has been deprecated and
+            should be treated as equivalent to
+            <literal>optional</literal>.  All <literal>extra</literal>
+            priorities should be changed to <literal>optional</literal>.
+            Packages with a priority of <literal>optional</literal> may
+            conflict with each other (but packages that both have a
+            priority of <literal>standard</literal> or higher still may
+            not conflict).
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
   <section id="s-4.0.0">
     <title>Version 4.0.0</title>
 
