@@ -11902,15 +11902,16 @@ END-INFO-DIR-ENTRY</programlisting>
     <title>Introduction and scope of these appendices</title>
 
     <para>
-      These appendices are taken essentially verbatim from the
-      now-deprecated Packaging Manual, version 3.2.1.0.  They are the
-      chapters which are likely to be of use to package maintainers and
-      which have not already been included in the policy document itself.
-      Most of these sections are very likely not relevant to policy; they
-      should be treated as documentation for the packaging system.  Please
-      note that these appendices are included for convenience, and for
-      historical reasons: they used to be part of policy package, and they
-      have not yet been incorporated into dpkg documentation.  However,
+      These appendices, except the final two, are taken essentially
+      verbatim from the now-deprecated Packaging Manual, version
+      3.2.1.0.  They are the chapters which are likely to be of use to
+      package maintainers and which have not already been included in
+      the policy document itself.  Most of these sections are very
+      likely not relevant to policy; they should be treated as
+      documentation for the packaging system.  Please note that these
+      appendices are included for convenience, and for historical
+      reasons: they used to be part of policy package, and they have
+      not yet been incorporated into dpkg documentation.  However,
       they still have value, and hence they are presented here.
     </para>
     <para>

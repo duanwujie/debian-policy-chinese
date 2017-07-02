@@ -3,6 +3,9 @@ debian-policy (4.0.0.5) UNRELEASED; urgency=medium
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
+  * Update first paragraph of Appendix A to note that the final two
+    appendices (the policy changes process and the upgrading checklist)
+    were not taken from the packaging manual.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Sun, 02 Jul 2017 11:22:35 +0100
 
