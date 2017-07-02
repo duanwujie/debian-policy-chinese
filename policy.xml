@@ -224,15 +224,15 @@
         Standard".  Julian Gilbey largely restructured it in 2001.
       </para>
       <para>
-        Since September 1998, the responsibility for the contents of this
-        document lies on the <ulink
-        url="mailto:debian-policy@lists.debian.org">debian-policy mailing
-        list</ulink>.  Proposals are discussed there and inserted into
-        policy after a certain consensus is established.  The current
-        policy process is described in the <ulink
-        url="Process.md">Process</ulink> document.  The actual editing is
-        done by a group of maintainers that have no editorial powers.
-        These are the current maintainers:
+        Since September 1998, the responsibility for the contents of
+        this document lies on the <ulink
+        url="mailto:debian-policy@lists.debian.org">debian-policy
+        mailing list</ulink>.  Proposals are discussed there and
+        inserted into policy after a certain consensus is established.
+        The current policy process is described in an appendix, <xref
+        linkend="ap-process"/>.  The actual editing is done by a group
+        of maintainers that have no editorial powers.  These are the
+        current maintainers:
       </para>
       <orderedlist numeration="arabic">
         <listitem>
