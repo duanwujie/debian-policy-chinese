@@ -5,7 +5,7 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: Niels Thykier <niels@thykier.net>
     Seconded: Andreas Henriksson <andreas@fatal.se>
     Seconded: Ansgar Burchardt <ansgar@debian.org>
-    Closes: #758234, #759260, #660249
+    Closes: #758234, #759260, #660249, #196367
   * Policy: Clarify prohibition on depending on environment variables
     Wording: Russ Allbery <rra@debian.org>
     Seconded: Simon McVittie <smcv@debian.org>
