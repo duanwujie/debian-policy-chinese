@@ -2209,6 +2209,15 @@
               <literal>build</literal> may create directories, for
               example).
             </para>
+            <para>
+              The <literal>clean</literal> target cannot be used to
+              remove files in the source tree that are not compatible
+              with the DFSG.  This is because the files would remain
+              in the upstream tarball, and thus in the source package,
+              so the source package would continue to violate DFSG.
+              Instead, the upstream source should be repacked to
+              remove those files.
+            </para>
           </listitem>
         </varlistentry>
         <varlistentry>

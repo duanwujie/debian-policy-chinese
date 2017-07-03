@@ -21,6 +21,8 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     appendices (the policy changes process and the upgrading checklist)
     were not taken from the Packaging Manual.
   * Add a footnote linking to the REJECT-FAQ (Closes: #849853).
+  * Note that the debian/rules clean target is useless for removing files
+    not compatible with the DFSG (Closes: #849851).
 
  -- Russ Allbery <rra@debian.org>  Sun, 02 Jul 2017 13:41:14 -0700
 
