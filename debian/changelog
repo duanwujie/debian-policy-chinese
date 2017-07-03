@@ -1,5 +1,6 @@
 debian-policy (4.0.1.0) UNRELEASED; urgency=medium
 
+  [ Russ Allbery ]
   * Policy: Overhaul priorities, deprecate extra
     Wording: Russ Allbery <rra@debian.org>
     Seconded: Niels Thykier <niels@thykier.net>
@@ -12,10 +13,7 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: Niels Thykier <niels@thykier.net>
     Closes: #640263
 
- -- Russ Allbery <rra@debian.org>  Sun, 02 Jul 2017 13:41:14 -0700
-
-debian-policy (4.0.0.5) UNRELEASED; urgency=medium
-
+  [ Sean Whitton ]
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
@@ -23,7 +21,7 @@ debian-policy (4.0.0.5) UNRELEASED; urgency=medium
     appendices (the policy changes process and the upgrading checklist)
     were not taken from the packaging manual.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Sun, 02 Jul 2017 11:22:35 +0100
+ -- Russ Allbery <rra@debian.org>  Sun, 02 Jul 2017 13:41:14 -0700
 
 debian-policy (4.0.0.4) unstable; urgency=medium
 
