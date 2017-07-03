@@ -46,7 +46,7 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 
 # Markdown source files in the top-level directory.  We generate text and
 # HTML versions from these.
-MDWN_FILES  := Process README autopkgtest
+MDWN_FILES  := README autopkgtest
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
