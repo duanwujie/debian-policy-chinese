@@ -822,17 +822,19 @@
         </listitem>
       </itemizedlist>
       <para>
-        The Debian archive maintainers provide the authoritative list of
-        sections.  At present, they are: admin, cli-mono, comm, database,
-        debug, devel, doc, editors, education, electronics, embedded,
-        fonts, games, gnome, gnu-r, gnustep, graphics, hamradio, haskell,
-        httpd, interpreters, introspection, java, javascript, kde, kernel, libdevel,
-        libs, lisp, localization, mail, math, metapackages, misc, net,
-        news, ocaml, oldlibs, otherosfs, perl, php, python, ruby, science,
-        shells, sound, tasks, tex, text, utils, vcs, video, web, x11,
-        xfce, zope.  The additional section
-        <emphasis>debian-installer</emphasis> contains special packages
-        used by the installer and is not used for normal Debian packages.
+        The Debian archive maintainers provide the authoritative list
+        of sections.  At present, they are: admin, cli-mono, comm,
+        database, debug, devel, doc, editors, education, electronics,
+        embedded, fonts, games, gnome, gnu-r, gnustep, graphics,
+        hamradio, haskell, httpd, interpreters, introspection, java,
+        javascript, kde, kernel, libdevel, libs, lisp, localization,
+        mail, math, metapackages, misc, net, news, ocaml, oldlibs,
+        otherosfs, perl, php, python, ruby, rust, science, shells,
+        sound, tasks, tex, text, utils, vcs, video, web, x11, xfce,
+        zope.  The additional section
+        <emphasis>debian-installer</emphasis> contains special
+        packages used by the installer and is not used for normal
+        Debian packages.
       </para>
       <para>
         For more information about the sections and their definitions, see
