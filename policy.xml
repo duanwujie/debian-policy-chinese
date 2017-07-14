@@ -11777,8 +11777,12 @@ END-INFO-DIR-ENTRY</programlisting>
       </para>
       <para>
         In addition, the copyright file must say where the upstream
-        sources (if any) were obtained, and should name the original
-        authors.
+        sources (if any) were obtained, and should include a name or
+        contact address for the upstream authors.  This can be the
+        name of an individual or an organization, an email address, a
+        web forum or bugtracker, or any other means to unambiguously
+        identify who to contact to participate in the development of
+        the upstream source code.
       </para>
       <para>
         Packages in the <emphasis>contrib</emphasis> or
