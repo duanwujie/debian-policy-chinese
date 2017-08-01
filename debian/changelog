@@ -20,7 +20,6 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: David Bremner <bremner@debian.org>
     Seconded: Jonas Smedegaard <dr@jones.dk>
     Closes: #678607
-    Thanks to Jonathan Nieder for the text of the patch.
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
