@@ -6566,70 +6566,12 @@ Replaces: mail-transport-agent</programlisting>
           must use <command>ldconfig</command> to update the shared
           library system.
         </para>
+
         <para>
-          The package maintainer scripts must only call
-          <command>ldconfig</command> under these circumstances:
-        </para>
-        <itemizedlist>
-          <listitem>
-            <para>
-              When the <command>postinst</command> script is run with a
-              first argument of <literal>configure</literal>, the script
-              must call <command>ldconfig</command>, and may optionally
-              invoke <command>ldconfig</command> at other times.
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              When the <command>postrm</command> script is run with a
-              first argument of <literal>remove</literal>, the script
-              should call <command>ldconfig</command>.
-            </para>
-          </listitem>
-        </itemizedlist>
-        <para>
-          <footnote>
-            <para>
-              During install or upgrade, the preinst is called before the
-              new files are unpacked, so calling "ldconfig" is pointless.
-              The preinst of an existing package can also be called if an
-              upgrade fails.  However, this happens during the critical
-              time when a shared libs may exist on-disk under a temporary
-              name.  Thus, it is dangerous and forbidden by current policy
-              to call "ldconfig" at this time.
-            </para>
-            <para>
-              When a package is installed or upgraded, "postinst
-              configure" runs after the new files are safely on-disk.
-              Since it is perfectly safe to invoke ldconfig
-              unconditionally in a postinst, it is OK for a package to
-              simply put ldconfig in its postinst without checking the
-              argument.  The postinst can also be called to recover from a
-              failed upgrade.  This happens before any new files are
-              unpacked, so there is no reason to call "ldconfig" at this
-              point.
-            </para>
-            <para>
-              For a package that is being removed, prerm is called with
-              all the files intact, so calling ldconfig is useless.  The
-              other calls to "prerm" happen in the case of upgrade at a
-              time when all the files of the old package are on-disk, so
-              again calling "ldconfig" is pointless.
-            </para>
-            <para>
-              postrm, on the other hand, is called with the "remove"
-              argument just after the files are removed, so this is the
-              proper time to call "ldconfig" to notify the system of the
-              fact that the shared libraries from the package are removed.
-              The postrm can be called at several other times.  At the
-              time of "postrm purge", "postrm abort-install", or "postrm
-              abort-upgrade", calling "ldconfig" is useless because the
-              shared lib files are not on-disk.  However, when "postrm" is
-              invoked with arguments "upgrade", "failed-upgrade", or
-              "disappear", a shared lib may exist on-disk under a
-              temporary filename.
-            </para>
-          </footnote>
+          Any such package must have the line
+          <literal>activate-noawait ldconfig</literal> in its
+          <literal>triggers</literal> control file
+          (i.e. <filename>DEBIAN/triggers</filename>
         </para>
       </section>
     </section>
