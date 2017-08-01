@@ -87,6 +87,15 @@
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term>5.6.30</term>
+        <listitem>
+          <para>
+            New section documenting the <literal>Testsuite</literal> field in
+            Debian source control files.
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </section>
 
