@@ -26,6 +26,12 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: Sean Whitton <spwhitton@spwhitton.name>
     Seconded: David Bremner <bremner@debian.org>
     Closes: #758124
+  * Policy: Require calling ldconfig by means of triggers
+    Wording: Niels Thykier <niels@thykier.net>
+    Seconded: Andreas Henriksson <andreas@fatal.se>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: David Bremner <bremner@debian.org>
+    Closes: #822430
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
