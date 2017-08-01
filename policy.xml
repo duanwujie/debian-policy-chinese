@@ -4370,25 +4370,6 @@ Checksums-Sha256:
         </variablelist>
       </section>
 
-      <section id="s-f-Testsuite">
-        <title><literal>Testsuite</literal></title>
-
-        <para>
-          Simple field containing a comma-separated list of values
-          allowing test execution environments to discover packages
-          which provide tests.  Currently, the only defined value is
-          <literal>autopkgtest</literal>.
-        </para>
-
-        <para>
-           This field is automatically added to Debian source control
-           files by <command>dpkg</command> when a
-           <filename>debian/tests/control</filename> file is present
-           in the source package.  This field may also be used in
-           source package control files if needed in other situations.
-        </para>
-      </section>
-
       <section id="s-f-Package-List">
         <title><literal>Package-List</literal></title>
 
@@ -4436,6 +4417,25 @@ Checksums-Sha256:
           one reference whose name matches <literal>refs/dgit/*</literal>.
           See the manual page of <command>dgit</command> for further
           details.
+        </para>
+      </section>
+
+      <section id="s-f-Testsuite">
+        <title><literal>Testsuite</literal></title>
+
+        <para>
+          Simple field containing a comma-separated list of values
+          allowing test execution environments to discover packages
+          which provide tests.  Currently, the only defined value is
+          <literal>autopkgtest</literal>.
+        </para>
+
+        <para>
+           This field is automatically added to Debian source control
+           files by <command>dpkg</command> when a
+           <filename>debian/tests/control</filename> file is present
+           in the source package.  This field may also be used in
+           source package control files if needed in other situations.
         </para>
       </section>
     </section>
