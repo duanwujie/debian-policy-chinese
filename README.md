@@ -120,8 +120,9 @@ In addition to the main technical manual, the team currently also maintains:
 + [Debconf Specification](https://www.debian.org/doc/packaging-manuals/debconf_specification.html)
 + [Authoritative list of virtual package names](https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
 
-These documents are maintained using the [Policy changes process](./Process.md), and
-the current state of all change proposals is tracked using the
+These documents are maintained using the Policy changes process (see
+final appendix to policy), and the current state of all change
+proposals is tracked using the
 [debian-policy BTS](https://bugs.debian.org/src:debian-policy).
 
 ## Get involved
@@ -135,7 +136,7 @@ will involve guiding the discussion, seeking additional input
 (particularly from experts in the area being discussed), possibly
 raising the issue on other mailing lists, proposing or getting other
 people to propose specific wording changes, and writing diffs against
-the current Policy document. All of the steps of [Policy changes process](./Process.md)
+the current Policy document. All of the steps of the Policy changes process
 can be done by people other than Policy team members except
 the final acceptance steps and almost every change can be worked on
 independently, so there's a lot of opportunity for people to help.
