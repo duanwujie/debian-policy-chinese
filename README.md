@@ -233,7 +233,7 @@ The Git commands used for this workflow are:
 For the debian/changelog entry, use the following format:
 
     * <document>: <brief change description>
-      Wording: <proposer of wording>
+      Wording: <author of wording>
       Seconded: <seconder>
       Seconded: <seconder>
       Closes: <bug numbers>
