@@ -77,6 +77,15 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>5.6.30</term>
+        <listitem>
+          <para>
+            New section documenting the <literal>Testsuite</literal> field in
+            Debian source control files.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>9.9</term>
         <listitem>
           <para>
@@ -84,15 +93,6 @@
             reasonble defaults is only for programs on the system PATH and
             only for custom environment variable settings (not, say, a
             sane PATH).
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>5.6.30</term>
-        <listitem>
-          <para>
-            New section documenting the <literal>Testsuite</literal> field in
-            Debian source control files.
           </para>
         </listitem>
       </varlistentry>
