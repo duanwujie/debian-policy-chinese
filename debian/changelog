@@ -20,6 +20,12 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: David Bremner <bremner@debian.org>
     Seconded: Jonas Smedegaard <dr@jones.dk>
     Closes: #678607
+  * Policy: Document Testsuite: field
+    Wording: Charles Plessy <plessy@debian.org>
+    Seconded: Antonio Terceiro <terceiro@debian.org>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: David Bremner <bremner@debian.org>
+    Closes: #758124
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
