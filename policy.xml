@@ -2941,6 +2941,12 @@ endif</programlisting>
             <literal>Vcs-Git</literal>, et al.</link>
           </para>
         </listitem>
+        <listitem>
+          <para>
+            <link
+            linkend="s-f-Testsuite"><literal>Testsuite</literal></link>
+          </para>
+        </listitem>
       </itemizedlist>
       <para>
         The fields in the binary package paragraphs are:
@@ -3189,6 +3195,11 @@ endif</programlisting>
           <para>
             <link linkend="s-f-VCS-fields"><literal>Vcs-Browser</literal>,
             <literal>Vcs-Git</literal>, et al.</link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <link linkend="s-f-Testsuite"><literal>Testsuite</literal></link>
           </para>
         </listitem>
         <listitem>
@@ -4357,6 +4368,25 @@ Checksums-Sha256:
             </listitem>
           </varlistentry>
         </variablelist>
+      </section>
+
+      <section id="s-f-Testsuite">
+        <title><literal>Testsuite</literal></title>
+
+        <para>
+          Simple field containing a comma-separated list of values
+          allowing test execution environments to discover packages
+          which provide tests.  Currently, the only defined value is
+          <literal>autopkgtest</literal>.
+        </para>
+
+        <para>
+           This field is automatically added to Debian source control
+           files by <command>dpkg</command> when a
+           <filename>debian/tests/control</filename> file is present
+           in the source package.  This field may also be used in
+           source package control files if needed in other situations.
+        </para>
       </section>
 
       <section id="s-f-Package-List">
