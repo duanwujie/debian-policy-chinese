@@ -15,7 +15,7 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
 
   [ Sean Whitton ]
   * Policy: Disambiguate "original authors" in 12.5
-    Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Wording: Jonathan Nieder <jrnieder@gmail.com>
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: David Bremner <bremner@debian.org>
     Seconded: Jonas Smedegaard <dr@jones.dk>
