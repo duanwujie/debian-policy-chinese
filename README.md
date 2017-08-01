@@ -118,7 +118,7 @@ In addition to the main technical manual, the team currently also maintains:
 + [Debian Menu sub-policy](https://www.debian.org/doc/packaging-manuals/menu-policy/)
 + [Debian Perl Policy](https://www.debian.org/doc/packaging-manuals/perl-policy/)
 + [Debconf Specification](https://www.debian.org/doc/packaging-manuals/debconf_specification.html)
-+ [Authoritative list of virtual package names ](https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
++ [Authoritative list of virtual package names](https://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt)
 
 These documents are maintained using the [Policy changes process](./Process.md), and
 the current state of all change proposals is tracked using the
