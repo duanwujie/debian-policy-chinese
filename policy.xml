@@ -890,10 +890,13 @@
               <literal>required</literal> package may cause your system to
               become totally broken and you may not even be able to use
               <command>dpkg</command> to put things back, so only do so if
-              you know what you are doing.  Systems with only the
-              <literal>required</literal> packages are probably unusable,
-              but they do have enough functionality to allow the sysadmin
-              to boot and install more software.
+              you know what you are doing.
+            </para>
+            <para>
+              Systems with only the <literal>required</literal>
+              packages installed have at least enough functionality
+              for the sysadmin to boot the system and install more
+              software.
             </para>
           </listitem>
         </varlistentry>
