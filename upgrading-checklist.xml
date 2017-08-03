@@ -96,6 +96,39 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>9.3.3</term>
+        <listitem>
+          <para>
+            Packages are recommended to use debhelper tools instead of
+            invoking <command>update-rc.d</command> and
+            <command>invoke-rc.d</command> directly.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>9.3.3</term>
+        <listitem>
+          <para>
+            Policy's description of how the local system administrator
+            may modify the runlevels at which a daemon is started and
+            stopped, and how init scripts may depend on other init
+            scripts, have been removed.  These are now handled by LSB
+            headers.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>9.4</term>
+        <listitem>
+          <para>
+            Policy's specification of the console messages that should
+            be emitted by <literal>init.d</literal> scripts has been
+            removed.  This is now defined by LSB, for sysvinit, and is
+            not expected to be followed by other init systems.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>9.9</term>
         <listitem>
           <para>
