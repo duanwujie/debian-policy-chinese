@@ -8575,12 +8575,12 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
         <title>Example</title>
 
         <para>
-          An example on which you can base your
-          <filename>/etc/init.d</filename> scripts is found in
-          <filename>/etc/init.d/skeleton</filename>.
           Examples on which you can base your systemd integration on
           is available in the man page
           <citerefentry><refentrytitle>systemd.unit</refentrytitle><manvolnum>8</manvolnum></citerefentry>.
+          An example on which you can base your
+          <filename>/etc/init.d</filename> scripts is found in
+          <filename>/etc/init.d/skeleton</filename>.
         </para>
       </section>
     </section>
