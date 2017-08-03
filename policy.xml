@@ -8525,6 +8525,14 @@ fi</programlisting>
             <literal>update-rc.d</literal>, please consult its man page
             <citerefentry><refentrytitle>update-rc.d</refentrytitle><manvolnum>8</manvolnum></citerefentry>.
           </para>
+          <para>
+            It is easiest for packages not to call
+            <command>update-rc.d</command> directly, but instead use
+            debhelper programs that add the required
+            <command>update-rc.d</command> calls automatically.  See
+            <command>dh_installinit</command>,
+            <command>dh_systemd_enable</command>, etc.
+          </para>
         </section>
 
         <section id="s9.3.3.2">
@@ -8572,6 +8580,14 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
             For more information about using
             <command>invoke-rc.d</command>, please consult its man page
             <citerefentry><refentrytitle>invoke-rc.d</refentrytitle><manvolnum>8</manvolnum></citerefentry>.
+          </para>
+          <para>
+            It is easiest for packages not to call
+            <command>invoke-rc.d</command> directly, but instead use
+            debhelper programs that add the required
+            <command>invoke-rc.d</command> calls automatically.  See
+            <command>dh_installinit</command>,
+            <command>dh_systemd_start</command>, etc.
           </para>
         </section>
 
