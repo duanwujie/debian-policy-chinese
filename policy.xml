@@ -8808,14 +8808,8 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
         receive extra contributions such as translations.
       </para>
       <para>
-        Packages can, to be compatible with Debian additions to some
-        window managers that do not support the FreeDesktop standard, also
-        provide a <emphasis>Debian menu</emphasis> file, following the
-        <emphasis>Debian menu policy</emphasis>, which can be found in the
-        <literal>menu-policy</literal> files in the
-        <literal>debian-policy</literal> package.  It is also available
-        from the Debian web mirrors at <ulink
-        url="https://www.debian.org/doc/packaging-manuals/menu-policy/">https://www.debian.org/doc/packaging-manuals/menu-policy/</ulink>.
+        If a package installs a FreeDesktop desktop entries, it must
+        not also install a Debian menu entry.
       </para>
     </section>
 
