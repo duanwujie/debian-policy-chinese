@@ -8571,6 +8571,14 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
 
       </section>
 
+      <section id="s9.3.4">
+        <title>Boot-time initialization</title>
+
+        <para>
+          This section has been deleted.
+        </para>
+      </section>
+
       <section id="s9.3.5">
         <title>Example</title>
 
@@ -8583,6 +8591,14 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
           <filename>/etc/init.d/skeleton</filename>.
         </para>
       </section>
+    </section>
+
+    <section id="s9.4">
+      <title>Console messages from <filename>init.d</filename> scripts</title>
+
+      <para>
+        This section has been deleted.
+      </para>
     </section>
 
     <section id="s-cron-jobs">
