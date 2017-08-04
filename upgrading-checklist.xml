@@ -129,6 +129,15 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>9.6</term>
+        <listitem>
+          <para>
+            Packages installing a Free Desktop entry must not also
+            install a Debian menu system entry.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>9.9</term>
         <listitem>
           <para>
