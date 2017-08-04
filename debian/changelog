@@ -41,6 +41,12 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
     Seconded: Sean Whitton <spwhitton@spwhitton.name>
     Seconded: Russ Allbery <rra@debian.org>
     Closes: #835520
+  * Policy: Packages may not install both a desktop entry and a menu entry
+    Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Philip Hands <phil@hands.com>
+    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
+    Seconded: David Bremner <bremner@debian.org>
+    Closes: #839172
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
