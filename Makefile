@@ -50,10 +50,14 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 MDWN_FILES  := README autopkgtest
 
 # Dia diagrams in the dia/ subdirectory.
-DIA_FILES   := dia/install.dia dia/install-conffiles.dia dia/upgrade.dia \
-               dia/remove.dia dia/purge.dia dia/remove-purge.dia
+DIA_FILES   := install.dia install-conffiles.dia upgrade.dia \
+               remove.dia purge.dia remove-purge.dia
 
-PNG_FILES := $(DIA_FILES:.dia=.png)
+# Dia diagrams converted to PNG in img/ subdirectory.
+DIA_PNGS    := $(addprefix img/, $(DIA_FILES:.dia=.png))
+
+# Dia diagrams converted to PNG in img/ subdirectory.
+DIA_SVGS    := $(addprefix img/, $(DIA_FILES:.dia=.svg))
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
@@ -101,6 +105,8 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SINGLE_FILES:=.validate)	\
 		  $(XML_SPLIT_FILES:=-1.html)		\
 		  $(XML_SPLIT_FILES:=.txt)		\
+		  $(DIA_PNGS)				\
+		  $(DIA_SVGS)				\
 		  version.md version.xml		\
 		  policy.pdf policy.ps
 
@@ -173,7 +179,10 @@ $(MDWN_FILES:=.txt): %.txt: %.md version.md
 $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
 
-%.png: %.dia
+$(DIA_PNGS): img/%.png: dia/%.dia
+	$(DIA) -e $@ $^
+
+$(DIA_SVGS): img/%.svg: dia/%.dia
 	$(DIA) -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
