@@ -4984,7 +4984,7 @@ fi</programlisting>
         <title>Installing a package that was not previously installed</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="install.png" format="PNG"/> -->
+            <imagedata fileref="dia/install.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -4993,7 +4993,7 @@ fi</programlisting>
         <title>Installing a package that was previously removed, but not purged</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="install-conffiles.png" format="PNG"/> -->
+            <imagedata fileref="dia/install-conffiles.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -5002,7 +5002,7 @@ fi</programlisting>
         <title>Upgrading a package</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="upgrade.png" format="PNG"/> -->
+            <imagedata fileref="dia/upgrade.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -5393,7 +5393,7 @@ fi</programlisting>
         <title>Removing an installed package</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="install-remove.png" format="PNG"/> -->
+	    <imagedata fileref="dia/install-remove.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -5402,7 +5402,7 @@ fi</programlisting>
         <title>Purging a package that has already been removed</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="install-purge.png" format="PNG"/> -->
+            <imagedata fileref="dia/install-purge.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -5411,7 +5411,7 @@ fi</programlisting>
         <title>Purging an installed package</title>
         <mediaobject>
           <imageobject>
-            <!-- <imagedata fileref="install-remove-purge.png" format="PNG"/> -->
+            <imagedata fileref="dia/install-remove-purge.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </figure>
