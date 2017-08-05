@@ -193,11 +193,12 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 	$(XMLLINT) $<
 	touch $@
 
-%.html/index.html: %.xml xsl/html-chunk.xsl version.xml
-	mkdir -p $(@D)
+%.html/index.html: %.xml xsl/html-chunk.xsl version.xml $(DIA_PNGS)
+	mkdir -p $(@D)/img
 	$(XSLTPROC) $(XSLPARAMS)		\
 	    --stringparam base.dir $(@D)/	\
 	    xsl/html-chunk.xsl $<
+	cp $(DIA_PNGS) $(@D)/img
 
 $(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
