@@ -4570,6 +4570,33 @@ Comment: I stand between the candle and the star.</programlisting>
         prepending or appending package-specific directories.  These
         considerations really apply to all shell scripts.
       </para>
+
+      <section>
+        <title>Note on maintainer script flowcharts</title>
+
+        <para>
+          The flowcharts included in this section use the following conventions:
+        </para>
+
+        <itemizedlist>
+          <listitem>
+            <para>
+              maintainer scripts and their arguments are within boxes;
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              actions carried out external to the scripts are in italics; and
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              the <command>dpkg</command> status of the package at the
+              end of the run are in bold type.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </section>
     </section>
 
     <section id="s-idempotency">
