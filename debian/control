@@ -10,6 +10,7 @@ Priority: optional
 Build-Depends:
  dblatex,
  debhelper (>= 10),
+ dia,
  docbook-xml,
  docbook-xsl,
  libtext-multimarkdown-perl,
