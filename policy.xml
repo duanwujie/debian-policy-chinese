@@ -4980,6 +4980,33 @@ fi</programlisting>
     <section id="s-unpackphase">
       <title>Details of unpack phase of installation or upgrade</title>
 
+      <figure id="f-maintscript-install" float="1">
+        <title>Installing a package that was not previously installed</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="install.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure id="f-maintscript-install-conffiles" float="1">
+        <title>Installing a package that was previously removed, but not purged</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="install-conffiles.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure id="f-maintscript-upgrade" float="1">
+        <title>Upgrading a package</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="upgrade.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
+
       <para>
         The procedure on installation/upgrade/overwrite/disappear (i.e.,
         when running <literal>dpkg --unpack</literal>, or the unpack stage
@@ -5361,6 +5388,33 @@ fi</programlisting>
 
     <section id="s-removedetails">
       <title>Details of removal and/or configuration purging</title>
+
+      <figure id="f-maintscript-remove" float="1">
+        <title>Removing an installed package</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="install-remove.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure id="f-maintscript-purge" float="1">
+        <title>Purging a package that has already been removed</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="install-purge.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <figure id="f-maintscript-remove-purge" float="1">
+        <title>Purging an installed package</title>
+        <mediaobject>
+          <imageobject>
+            <!-- <imagedata fileref="install-remove-purge.png" format="PNG"/> -->
+          </imageobject>
+        </mediaobject>
+      </figure>
 
       <orderedlist numeration="arabic">
         <listitem>
