@@ -18,6 +18,7 @@ export DBLATEX  = dblatex -p xsl/dblatex.xsl
 export MDWN     = multimarkdown
 export XMLLINT  = xmllint --nonet --noout --postvalid --xinclude
 export XSLTPROC = xsltproc --nonet --xinclude
+export DIA      = dia
 
 # Installation directories.  Normally this is only used by debian/rules
 # build, which will set DESTDIR to put the installation under the temporary
@@ -47,6 +48,10 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 # Markdown source files in the top-level directory.  We generate text and
 # HTML versions from these.
 MDWN_FILES  := README autopkgtest
+
+# Dia diagrams in the dia/ subdirectory.
+DIA_FILES   := dia/install.dia dia/install-conffiles.dia dia/upgrade.dia \
+               dia/remove.dia dia/purge.dia dia/remove-purge.dia
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
@@ -163,6 +168,9 @@ $(MDWN_FILES:=.txt): %.txt: %.md version.md
 
 $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
+
+$(DIA_FILES:=.png): %.png: %.dia
+	dia -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
 upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
