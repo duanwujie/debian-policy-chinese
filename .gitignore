@@ -26,3 +26,17 @@
 *.pdf
 *.ps
 *.validate
+# list these individually for now, because there may be non-generated
+# files in img/
+img/install.png
+img/install-conffiles.png
+img/upgrade.png
+img/remove.png
+img/purge.png
+img/remove-purge.png
+img/install.svg
+img/install-conffiles.svg
+img/upgrade.svg
+img/remove.svg
+img/purge.svg
+img/remove-purge.svg
