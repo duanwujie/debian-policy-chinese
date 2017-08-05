@@ -53,11 +53,11 @@ MDWN_FILES  := README autopkgtest
 DIA_FILES   := install.dia install-conffiles.dia upgrade.dia \
                remove.dia purge.dia remove-purge.dia
 
-# Dia diagrams converted to PNG in img/ subdirectory.
-DIA_PNGS    := $(addprefix img/, $(DIA_FILES:.dia=.png))
+# Dia diagrams converted to PNG in images/ subdirectory.
+DIA_PNGS    := $(addprefix images/, $(DIA_FILES:.dia=.png))
 
-# Dia diagrams converted to PNG in img/ subdirectory.
-DIA_SVGS    := $(addprefix img/, $(DIA_FILES:.dia=.svg))
+# Dia diagrams converted to PNG in images/ subdirectory.
+DIA_SVGS    := $(addprefix images/, $(DIA_FILES:.dia=.svg))
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
@@ -179,10 +179,10 @@ $(MDWN_FILES:=.txt): %.txt: %.md version.md
 $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
 
-$(DIA_PNGS): img/%.png: dia/%.dia
+$(DIA_PNGS): images/%.png: dia/%.dia
 	$(DIA) -e $@ $^
 
-$(DIA_SVGS): img/%.svg: dia/%.dia
+$(DIA_SVGS): images/%.svg: dia/%.dia
 	$(DIA) -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
@@ -194,11 +194,11 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 	touch $@
 
 %.html/index.html: %.xml xsl/html-chunk.xsl version.xml $(DIA_PNGS)
-	mkdir -p $(@D)/img
+	mkdir -p $(@D)/images
 	$(XSLTPROC) $(XSLPARAMS)		\
 	    --stringparam base.dir $(@D)/	\
 	    xsl/html-chunk.xsl $<
-	cp $(DIA_PNGS) $(@D)/img
+	cp $(DIA_PNGS) $(@D)/images
 
 $(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
