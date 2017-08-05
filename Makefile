@@ -53,6 +53,8 @@ MDWN_FILES  := README autopkgtest
 DIA_FILES   := dia/install.dia dia/install-conffiles.dia dia/upgrade.dia \
                dia/remove.dia dia/purge.dia dia/remove-purge.dia
 
+PNG_FILES := $(DIA_FILES:.dia=.png)
+
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
 XML_FILES   := menu-policy perl-policy policy
@@ -161,6 +163,8 @@ policy.ps: upgrading-checklist.xml
 policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
 
+policy.html/index.html: $(PNG_FILES)
+
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
 	cat $^ > $@
 	test "$@" != "README.txt"  ||				\
@@ -169,8 +173,8 @@ $(MDWN_FILES:=.txt): %.txt: %.md version.md
 $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
 
-$(DIA_FILES:=.png): %.png: %.dia
-	dia -e $@ $^
+%.png: %.dia
+	$(DIA) -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
 upgrading-checklist-1.html: XSLPARAMS = --stringparam generate.toc ''
