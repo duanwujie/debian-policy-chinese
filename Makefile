@@ -180,9 +180,11 @@ $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
 
 $(DIA_PNGS): images/%.png: dia/%.dia
+	mkdir -p images
 	$(DIA) -e $@ $^
 
 $(DIA_SVGS): images/%.svg: dia/%.dia
+	mkdir -p images
 	$(DIA) -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
