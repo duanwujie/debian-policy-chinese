@@ -205,7 +205,7 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 $(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
 
-%-1.html: %.xml xsl/html-single.xsl version.xml
+%-1.html: %.xml xsl/html-single.xsl version.xml $(DIA_PNGS)
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
 
 %.html.tar.gz: %.html/index.html
@@ -217,10 +217,10 @@ $(XML_FILES:=.txt) $(XML_SINGLE_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): \
 	links -codepage utf-8 -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
 
-%.ps: %.xml version.xml
+%.ps: %.xml version.xml $(DIA_SVGS)
 	$(DBLATEX) --ps $<
 
-%.pdf: %.xml version.xml
+%.pdf: %.xml version.xml $(DIA_SVGS)
 	$(DBLATEX) --pdf $<
 
 
