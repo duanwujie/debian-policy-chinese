@@ -4989,6 +4989,9 @@ fi</programlisting>
           <imageobject role="html">
             <imagedata fileref="images/install.png"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
@@ -5001,6 +5004,9 @@ fi</programlisting>
           <imageobject role="html">
             <imagedata fileref="images/install-conffiles.png" format="PNG"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
@@ -5013,6 +5019,9 @@ fi</programlisting>
           <imageobject role="html">
             <imagedata fileref="images/upgrade.png" format="PNG"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
@@ -5407,6 +5416,9 @@ fi</programlisting>
           <imageobject role="html">
 	    <imagedata fileref="images/remove.png" format="PNG"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
@@ -5419,6 +5431,9 @@ fi</programlisting>
           <imageobject role="html">
             <imagedata fileref="images/purge.png" format="PNG"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
@@ -5431,6 +5446,9 @@ fi</programlisting>
 	  <imageobject role="html">
             <imagedata fileref="images/remove-purge.png" format="PNG"/>
           </imageobject>
+          <textobject role="text">
+	    <phrase>diagram omitted in text version.</phrase>
+          </textobject>
         </mediaobject>
       </figure>
 
