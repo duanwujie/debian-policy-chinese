@@ -1,4 +1,4 @@
-debian-policy (4.0.1.0) UNRELEASED; urgency=medium
+debian-policy (4.0.1.0) unstable; urgency=medium
 
   [ Russ Allbery ]
   * Policy: Overhaul priorities, deprecate extra
@@ -64,7 +64,7 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
   * Drop remark that systems with only required packages installed are
     "probably unusable", and add a paragraph break. (Closes: #589671).
 
- -- Russ Allbery <rra@debian.org>  Sun, 02 Jul 2017 13:41:14 -0700
+ -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 05 Aug 2017 21:47:47 -0400
 
 debian-policy (4.0.0.4) unstable; urgency=medium
 
