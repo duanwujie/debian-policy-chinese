@@ -4570,33 +4570,6 @@ Comment: I stand between the candle and the star.</programlisting>
         prepending or appending package-specific directories.  These
         considerations really apply to all shell scripts.
       </para>
-
-      <section>
-        <title>Note on maintainer script flowcharts</title>
-
-        <para>
-          The flowcharts included in this section use the following conventions:
-        </para>
-
-        <itemizedlist>
-          <listitem>
-            <para>
-              maintainer scripts and their arguments are within boxes;
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              actions carried out external to the scripts are in italics; and
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              the <command>dpkg</command> status of the package at the
-              end of the run are in bold type.
-            </para>
-          </listitem>
-        </itemizedlist>
-      </section>
     </section>
 
     <section id="s-idempotency">
@@ -4980,57 +4953,6 @@ fi</programlisting>
     <section id="s-unpackphase">
       <title>Details of unpack phase of installation or upgrade</title>
 
-      <figure id="f-maintscript-install" float="0">
-        <title>Installing a package that was not previously installed</title>
-        <mediaobject>
-          <imageobject role="fo">
-            <imagedata fileref="images/install.svg"/>
-          </imageobject>
-          <imageobject role="html">
-            <imagedata fileref="images/install.png"/>
-          </imageobject>
-          <textobject role="text">
-	    <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
-
-      <figure id="f-maintscript-install-conffiles" float="0">
-        <title>Installing a package that was previously removed, but not purged</title>
-        <mediaobject>
-          <imageobject role="fo">
-            <imagedata fileref="images/install-conffiles.svg"/>
-          </imageobject>
-          <imageobject role="html">
-            <imagedata fileref="images/install-conffiles.png" format="PNG"/>
-          </imageobject>
-          <textobject role="text">
-            <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
-
-      <figure id="f-maintscript-upgrade" float="0">
-        <title>Upgrading a package</title>
-        <mediaobject>
-          <imageobject role="fo">
-            <imagedata fileref="images/upgrade.svg"/>
-          </imageobject>
-          <imageobject role="html">
-            <imagedata fileref="images/upgrade.png" format="PNG"/>
-          </imageobject>
-          <textobject role="text">
-            <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
-
       <para>
         The procedure on installation/upgrade/overwrite/disappear (i.e.,
         when running <literal>dpkg --unpack</literal>, or the unpack stage
@@ -5412,57 +5334,6 @@ fi</programlisting>
 
     <section id="s-removedetails">
       <title>Details of removal and/or configuration purging</title>
-
-      <figure id="f-maintscript-remove" float="0">
-        <title>Removing an installed package</title>
-        <mediaobject>
-          <imageobject role="fo">
-	    <imagedata fileref="images/remove.svg"/>
-          </imageobject>
-          <imageobject role="html">
-	    <imagedata fileref="images/remove.png" format="PNG"/>
-          </imageobject>
-          <textobject role="text">
-            <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
-
-      <figure id="f-maintscript-purge" float="0">
-        <title>Purging a package that has already been removed</title>
-        <mediaobject>
-          <imageobject role="fo">
-            <imagedata fileref="images/purge.svg"/>
-          </imageobject>
-          <imageobject role="html">
-            <imagedata fileref="images/purge.png" format="PNG"/>
-          </imageobject>
-          <textobject role="text">
-            <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
-
-      <figure id="f-maintscript-remove-purge" float="0">
-        <title>Purging an installed package</title>
-        <mediaobject>
-          <imageobject role="fo">
-	    <imagedata fileref="images/remove-purge.svg"/>
-	  </imageobject>
-	  <imageobject role="html">
-            <imagedata fileref="images/remove-purge.png" format="PNG"/>
-          </imageobject>
-          <textobject role="text">
-	    <phrase>
-              Figure omitted in plain text version of Policy Manual.
-            </phrase>
-          </textobject>
-        </mediaobject>
-      </figure>
 
       <orderedlist numeration="arabic">
         <listitem>
@@ -13113,6 +12984,153 @@ fi</programlisting>
       Do not attempt to divert a conffile, as <command>dpkg</command> does
       not handle it well.
     </para>
+  </appendix>
+
+  <appendix id="ap-flowcharts">
+    <title>
+      Maintainer script flowcharts
+    </title>
+
+    <!--
+        These maintainer script flowcharts presently reside in an
+        appendix.  It might be more useful if they were interleaved
+        with the description in 6.6 and 6.8, but I'm not yet sure how
+        to do that in such a way that they will look good in all our
+        output formats.
+
+        Sean Whitton <spwhitton@spwhitton.name>
+    -->
+
+    <para>
+      The flowcharts<footnote><para>These flowcharts were originally
+      created by Margarita Manterola for the Debian Women project
+      wiki.</para></footnote> included in this appendix use the
+      following conventions:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          maintainer scripts and their arguments are within boxes;
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          actions carried out external to the scripts are in italics; and
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          the <command>dpkg</command> status of the package at the
+          end of the run are in bold type.
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <figure id="f-maintscript-install" float="0">
+      <title>Installing a package that was not previously installed</title>
+      <mediaobject>
+        <imageobject role="fo">
+          <imagedata fileref="images/install.svg"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="images/install.png"/>
+        </imageobject>
+        <textobject role="text">
+	  <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <figure id="f-maintscript-install-conffiles" float="0">
+      <title>
+        Installing a package that was previously removed, but not purged
+      </title>
+      <mediaobject>
+        <imageobject role="fo">
+          <imagedata fileref="images/install-conffiles.svg"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="images/install-conffiles.png" format="PNG"/>
+        </imageobject>
+        <textobject role="text">
+          <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <figure id="f-maintscript-upgrade" float="0">
+      <title>Upgrading a package</title>
+      <mediaobject>
+        <imageobject role="fo">
+          <imagedata fileref="images/upgrade.svg"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="images/upgrade.png" format="PNG"/>
+        </imageobject>
+        <textobject role="text">
+          <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <figure id="f-maintscript-remove" float="0">
+      <title>Removing a package</title>
+      <mediaobject>
+        <imageobject role="fo">
+	  <imagedata fileref="images/remove.svg"/>
+        </imageobject>
+        <imageobject role="html">
+	  <imagedata fileref="images/remove.png" format="PNG"/>
+        </imageobject>
+        <textobject role="text">
+          <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <figure id="f-maintscript-purge" float="0">
+      <title>Purging a package previously removed</title>
+      <mediaobject>
+        <imageobject role="fo">
+          <imagedata fileref="images/purge.svg"/>
+        </imageobject>
+        <imageobject role="html">
+          <imagedata fileref="images/purge.png" format="PNG"/>
+        </imageobject>
+        <textobject role="text">
+          <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <figure id="f-maintscript-remove-purge" float="0">
+      <title>Removing and purging a package</title>
+      <mediaobject>
+        <imageobject role="fo">
+	  <imagedata fileref="images/remove-purge.svg"/>
+	</imageobject>
+	<imageobject role="html">
+          <imagedata fileref="images/remove-purge.png" format="PNG"/>
+        </imageobject>
+        <textobject role="text">
+	  <phrase>
+            Figure omitted in plain text version of Policy Manual.
+          </phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
   </appendix>
 
   <appendix id="ap-process">
