@@ -4956,11 +4956,17 @@ fi</programlisting>
       <para>
         The procedure on installation/upgrade/overwrite/disappear (i.e.,
         when running <literal>dpkg --unpack</literal>, or the unpack stage
-        of <literal>dpkg --install</literal>) is as follows.  In each
-        case, if a major error occurs (unless listed below) the actions
-        are, in general, run backwards - this means that the maintainer
-        scripts are run with different arguments in reverse order.  These
-        are the "error unwind" calls listed below.
+        of <literal>dpkg --install</literal>) is as follows.
+        <footnote>
+          <para>
+            See <xref linkend="ap-flowcharts"/> for flowcharts
+            illustrating the processes described here.
+          </para>
+        </footnote>
+        In each case, if a major error occurs (unless listed below) the
+        actions are, in general, run backwards - this means that the
+        maintainer scripts are run with different arguments in reverse order.
+        These are the "error unwind" calls listed below.
       </para>
       <orderedlist numeration="arabic">
         <listitem>
