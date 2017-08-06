@@ -142,7 +142,7 @@
         <listitem>
           <para>
             The prohibition against depending on environment variables for
-            reasonble defaults is only for programs on the system PATH and
+            reasonable defaults is only for programs on the system PATH and
             only for custom environment variable settings (not, say, a
             sane PATH).
           </para>
