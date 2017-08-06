@@ -50,6 +50,10 @@ debian-policy (4.0.1.0) UNRELEASED; urgency=medium
   * Convert Process.md to an appendix to Policy itself.
     - Update link in "Authors and Maintainers" to point to this new
       appendix (Closes: #866192).
+  * Incorporate Margarita Manterola's maintscript flowcharts as a new
+    appendix (Closes: #485776).
+    Many thanks to David Bremner for help importing the images to docbook.
+    - Add a footnote to 6.6 linking to the new appendix.
   * Update first paragraph of Appendix A to note that the final three
     appendices (the policy changes process and the upgrading checklist)
     were not taken from the Packaging Manual.
