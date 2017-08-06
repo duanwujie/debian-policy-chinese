@@ -11739,7 +11739,7 @@ END-INFO-DIR-ENTRY</programlisting>
     <title>Introduction and scope of these appendices</title>
 
     <para>
-      These appendices, except the final two, are taken essentially
+      These appendices, except the final three, are taken essentially
       verbatim from the now-deprecated Packaging Manual, version
       3.2.1.0.  They are the chapters which are likely to be of use to
       package maintainers and which have not already been included in
