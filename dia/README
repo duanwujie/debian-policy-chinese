@@ -1,0 +1,13 @@
+Note on file format
+===================
+
+These files are in .dia because that is the format in which they were
+obtained from marga's website, and they have not been edited since
+they became part of the Policy Manual.  We might want to convert them
+to .svg before making further modifications.
+
+The .autosave file was also published online by marga, and is included
+here so that this repository may serve as a backup of marga's original
+work.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>, Sat,  5 Aug 2017 20:34:34 -0400
