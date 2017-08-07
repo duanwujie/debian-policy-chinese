@@ -1,3 +1,10 @@
+debian-policy (4.0.1.1) UNRELEASED; urgency=medium
+
+  * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
+    pointing out the problem.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>  Mon, 07 Aug 2017 12:22:10 -0400
+
 debian-policy (4.0.1.0) unstable; urgency=medium
 
   [ Russ Allbery ]

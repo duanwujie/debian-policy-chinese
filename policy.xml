@@ -8814,8 +8814,8 @@ invoke-rc.d <replaceable>package</replaceable> <replaceable>action</replaceable>
         receive extra contributions such as translations.
       </para>
       <para>
-        If a package installs a FreeDesktop desktop entries, it must
-        not also install a Debian menu entry.
+        If a package installs a FreeDesktop desktop entry, it must not
+        also install a Debian menu entry.
       </para>
     </section>
 
