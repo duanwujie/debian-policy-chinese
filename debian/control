@@ -11,6 +11,8 @@ Build-Depends:
  dblatex,
  debhelper (>= 10),
  dia,
+ sphinx-common,
+ python3-sphinx,
  docbook-xml,
  docbook-xsl,
  inkscape,
