@@ -29,8 +29,10 @@ Architecture: all
 Multi-Arch: foreign
 Depends:
  ${misc:Depends},
+ ${sphinxdoc:Depends},
 Suggests:
  doc-base,
+Built-Using: ${sphinxdoc:Built-Using}
 Description: Debian Policy Manual and related documents
  This package contains:
     - Debian Policy Manual
