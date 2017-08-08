@@ -1,9 +1,18 @@
-debian-policy (4.0.1.1) UNRELEASED; urgency=medium
+debian-policy (4.0.2.0) UNRELEASED; urgency=medium
 
+  [ Sean Whitton ]
   * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
     pointing out the problem.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Mon, 07 Aug 2017 12:22:10 -0400
+  [ Russ Allbery ]
+  * Policy: Recommend including the upstream signing key.
+    Wording: Russ Allbery <rra@debian.org>
+    Seconded: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+    Seconded: Jonathan Nieder <jrnieder@gmail.com>
+    Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
+    Closes: #732445
+
+  -- Russ Allbery <rra@debian.org>  Tue, 08 Aug 2017 06:45:37 -0700
 
 debian-policy (4.0.1.0) unstable; urgency=medium
 

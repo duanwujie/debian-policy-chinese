@@ -45,6 +45,32 @@
     </para>
   </section>
 
+  <section id="s-4.0.2">
+    <title>Version 4.0.2</title>
+
+    <para>
+      Unreleased.
+    </para>
+
+    <variablelist>
+      <varlistentry>
+        <term>4.11</term>
+        <listitem>
+          <para>
+            If upstream provides OpenPGP signatures, including the
+            upstream signing key as
+            <filename>debian/upstream/signing-key.asc</filename> in the
+            source package and using the
+            <literal>pgpsignurlmangle</literal> option in
+            <filename>debian/watch</filename> configuration to indicate
+            how to find the upstream signature for new releases is
+            recommended.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
   <section id="s-4.0.1">
     <title>Version 4.0.1</title>
 
