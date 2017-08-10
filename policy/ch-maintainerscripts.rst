@@ -128,17 +128,18 @@ The ``preinst`` script may be called in the following ways:
 
 The ``postinst`` script may be called in the following ways:
 
-``postinst`` configure most-recently-configured-version
+``postinst`` configure *most-recently-configured-version*
     The files contained in the package will be unpacked. All package
     dependencies will at least be "Unpacked". If there are no circular
     dependencies involved, all package dependencies will be configured.
     For behavior in the case of circular dependencies, see the
     discussion in :ref:`s-binarydeps`.
 
-``old-postinst`` abort-upgrade *new-version* ``conflictor's-postinst``
-abort-remove in-favour package *new-version* ``postinst`` abort-remove
-``deconfigured's-postinst`` abort-deconfigure in-favour
-failed-install-package version removing conflicting-package version
+| ``old-postinst`` abort-upgrade *new-version*
+| ``conflictor's-postinst`` abort-remove in-favour *package* *new-version*
+| ``postinst`` abort-remove
+| ``deconfigured's-postinst`` abort-deconfigure in-favour *failed-install-package* *version* [ removing conflicting-package version ]
+
     The files contained in the package will be unpacked. All package
     dependencies will at least be "Half-Installed" and will have
     previously been configured and not removed. However, dependencies
@@ -473,7 +474,7 @@ When we configure a package (this happens with ``dpkg --install`` and ``dpkg --c
 
 ::
 
-    postinst configure most-recently-configured-version
+    postinst configure *most-recently-configured-version*
 
 No attempt is made to unwind after errors during configuration. If the
 configuration fails, the package is in a "Half-Configured" state, and an
