@@ -172,8 +172,9 @@ The ``prerm`` script may be called in the following ways:
 
 The ``postrm`` script may be called in the following ways:
 
-``postrm`` remove ``postrm`` purge ``old-postrm`` upgrade *new-version*
-``disappearer's-postrm`` disappear overwriter overwriter-version
+| ``postrm`` remove ``postrm`` purge ``old-postrm`` upgrade *new-version*
+| ``disappearer's-postrm`` disappear overwriter *overwriter-version*
+
     The ``postrm`` script is called after the package's files have been
     removed or replaced. The package whose ``postrm`` is being called
     may have previously been deconfigured and only be "Unpacked", at
@@ -190,8 +191,9 @@ The ``postrm`` script may be called in the following ways:
     be "Unpacked" or "Half-Configured" but previously had been
     configured and was never removed.
 
-``new-postrm`` abort-install ``new-postrm`` abort-install *old-version*
-``new-postrm`` abort-upgrade *old-version*
+| ``new-postrm`` abort-install ``new-postrm`` abort-install *old-version*
+| ``new-postrm`` abort-upgrade *old-version*
+
     Called before unpacking the new package as part of the error
     handling of ``preinst`` failures. May assume the same state as
     ``preinst`` can assume.
