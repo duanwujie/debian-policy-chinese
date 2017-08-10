@@ -153,10 +153,10 @@ The ``postinst`` script may be called in the following ways:
 
 The ``prerm`` script may be called in the following ways:
 
-``prerm`` remove ``old-prerm`` upgrade *new-version*
-``conflictor's-prerm`` remove in-favour package *new-version*
-``deconfigured's-prerm`` deconfigure in-favour package-being-installed
-version removing conflicting-package version
+| ``prerm`` remove ``old-prerm`` upgrade *new-version*
+| ``conflictor's-prerm`` remove in-favour package *new-version*
+| ``deconfigured's-prerm`` deconfigure in-favour *package-being-installed* *version* [removing conflicting-package version]
+
     The package whose ``prerm`` is being called will be at least
     "Half-Installed". All package dependencies will at least be
     "Half-Installed" and will have previously been configured and not
