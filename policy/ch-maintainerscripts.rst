@@ -106,8 +106,8 @@ old version of a package that is being upgraded from or downgraded from.
 
 The ``preinst`` script may be called in the following ways:
 
-``new-preinst`` install ``new-preinst`` install old-version
-``new-preinst`` upgrade old-version
+``new-preinst`` install ``new-preinst`` install *old-version*
+``new-preinst`` upgrade *old-version*
     The package will not yet be unpacked, so the ``preinst`` script
     cannot rely on any files included in its package. Only essential
     packages and pre-dependencies (``Pre-Depends``) may be assumed to be
@@ -117,7 +117,7 @@ The ``preinst`` script may be called in the following ways:
     pre-dependency was completely configured and has not been removed
     since then.
 
-``old-preinst`` abort-upgrade new-version
+``old-preinst`` abort-upgrade *new-version*
     Called during error handling of an upgrade that failed after
     unpacking the new package because the ``postrm upgrade`` action failed. The unpacked files may be
     partly from the new version or partly missing, so the script cannot
@@ -135,8 +135,8 @@ The ``postinst`` script may be called in the following ways:
     For behavior in the case of circular dependencies, see the
     discussion in :ref:`s-binarydeps`.
 
-``old-postinst`` abort-upgrade new-version ``conflictor's-postinst``
-abort-remove in-favour package new-version ``postinst`` abort-remove
+``old-postinst`` abort-upgrade *new-version* ``conflictor's-postinst``
+abort-remove in-favour package *new-version* ``postinst`` abort-remove
 ``deconfigured's-postinst`` abort-deconfigure in-favour
 failed-install-package version removing conflicting-package version
     The files contained in the package will be unpacked. All package
@@ -152,8 +152,8 @@ failed-install-package version removing conflicting-package version
 
 The ``prerm`` script may be called in the following ways:
 
-``prerm`` remove ``old-prerm`` upgrade new-version
-``conflictor's-prerm`` remove in-favour package new-version
+``prerm`` remove ``old-prerm`` upgrade *new-version*
+``conflictor's-prerm`` remove in-favour package *new-version*
 ``deconfigured's-prerm`` deconfigure in-favour package-being-installed
 version removing conflicting-package version
     The package whose ``prerm`` is being called will be at least
@@ -164,14 +164,14 @@ version removing conflicting-package version
     where dependencies are only "Half-Installed" due to a partial
     upgrade.
 
-``new-prerm`` failed-upgrade old-version
+``new-prerm`` failed-upgrade *old-version*
     Called during error handling when ``prerm upgrade`` fails. The new package will not yet be
     unpacked, and all the same constraints as for ``preinst upgrade``
     apply.
 
 The ``postrm`` script may be called in the following ways:
 
-``postrm`` remove ``postrm`` purge ``old-postrm`` upgrade new-version
+``postrm`` remove ``postrm`` purge ``old-postrm`` upgrade *new-version*
 ``disappearer's-postrm`` disappear overwriter overwriter-version
     The ``postrm`` script is called after the package's files have been
     removed or replaced. The package whose ``postrm`` is being called
@@ -182,15 +182,15 @@ The ``postrm`` script may be called in the following ways:
     the package's dependencies if those dependencies are unavailable.
      [#]_
 
-``new-postrm`` failed-upgrade old-version
+``new-postrm`` failed-upgrade *old-version*
     Called when the old ``postrm upgrade`` action fails. The new package
     will be unpacked, but only essential packages and pre-dependencies
     can be relied on. Pre-dependencies will either be configured or will
     be "Unpacked" or "Half-Configured" but previously had been
     configured and was never removed.
 
-``new-postrm`` abort-install ``new-postrm`` abort-install old-version
-``new-postrm`` abort-upgrade old-version
+``new-postrm`` abort-install ``new-postrm`` abort-install *old-version*
+``new-postrm`` abort-upgrade *old-version*
     Called before unpacking the new package as part of the error
     handling of ``preinst`` failures. May assume the same state as
     ``preinst`` can assume.
@@ -213,23 +213,23 @@ These are the "error unwind" calls listed below.
 
        ::
 
-           old-prerm upgrade new-version
+           old-prerm upgrade *new-version*
 
     b. If the script runs but exits with a non-zero exit status,
        ``dpkg`` will attempt:
 
        ::
 
-           new-prerm failed-upgrade old-version
+           new-prerm failed-upgrade *old-version*
 
        If this works, the upgrade continues. If this does not work, the
        error unwind:
 
        ::
 
-           old-postinst abort-upgrade new-version
+           old-postinst abort-upgrade *new-version*
 
-       If this works, then the old-version is "Installed", if not, the
+       If this works, then the *old-version* is "Installed", if not, the
        old version is in a "Half-Configured" state.
 
 2.  If a "conflicting" package is being removed at the same time, or if
@@ -281,14 +281,14 @@ These are the "error unwind" calls listed below.
        ::
 
            conflictor's-prerm remove \
-               in-favour package new-version
+               in-favour package *new-version*
 
        Error unwind:
 
        ::
 
            conflictor's-postinst abort-remove \
-               in-favour package new-version
+               in-favour package *new-version*
 
 3.  Run the ``preinst`` of the new package:
 
@@ -296,19 +296,19 @@ These are the "error unwind" calls listed below.
 
        ::
 
-           new-preinst upgrade old-version
+           new-preinst upgrade *old-version*
 
        If this fails, we call:
 
        ::
 
-           new-postrm abort-upgrade old-version
+           new-postrm abort-upgrade *old-version*
 
        i.  If that works, then
 
            ::
 
-               old-postinst abort-upgrade new-version
+               old-postinst abort-upgrade *new-version*
 
            is called. If this works, then the old version is in an
            "Installed" state, or else it is left in an "Unpacked" state.
@@ -322,13 +322,13 @@ These are the "error unwind" calls listed below.
 
        ::
 
-           new-preinst install old-version
+           new-preinst install *old-version*
 
        Error unwind:
 
        ::
 
-           new-postrm abort-install old-version
+           new-postrm abort-install *old-version*
 
        If this fails, the package is left in a "Half-Installed" state,
        which requires a reinstall. If it works, the packages is left in
@@ -382,33 +382,33 @@ These are the "error unwind" calls listed below.
 
        ::
 
-           old-postrm upgrade new-version
+           old-postrm upgrade *new-version*
 
     b. If this fails, ``dpkg`` will attempt:
 
        ::
 
-           new-postrm failed-upgrade old-version
+           new-postrm failed-upgrade *old-version*
 
        If this works, installation continues. If not, Error unwind:
 
        ::
 
-           old-preinst abort-upgrade new-version
+           old-preinst abort-upgrade *new-version*
 
        If this fails, the old version is left in a "Half-Installed"
        state. If it works, dpkg now calls:
 
        ::
 
-           new-postrm abort-upgrade old-version
+           new-postrm abort-upgrade *old-version*
 
        If this fails, the old version is left in a "Half-Installed"
        state. If it works, dpkg now calls:
 
        ::
 
-           old-postinst abort-upgrade new-version
+           old-postinst abort-upgrade *new-version*
 
        If this fails, the old version is in an "Unpacked" state.
 
@@ -496,7 +496,7 @@ Details of removal and/or configuration purging
    ::
 
        conflictor's-postinst abort-remove \
-           in-favour package new-version
+           in-favour package *new-version*
 
    Or else we call:
 
