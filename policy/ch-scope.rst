@@ -67,7 +67,7 @@ from the same directory are several other formats:
 and
 ```policy.ps.gz`` <https://www.debian.org/doc/debian-policy/policy.ps.gz>`_.
 Included in both the same directory and in the debian-policy package is
-a standalone copy of :ref:`upgrading-checklist`, which indicates
+a standalone copy of :doc:`upgrading-checklist`, which indicates
 policy changes between versions of this document.
 
 .. _s-authors:
