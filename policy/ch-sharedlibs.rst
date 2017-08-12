@@ -23,8 +23,7 @@ therefore normally not referenced directly. Instead, the shared library
 is loaded by its ``SONAME``, which exists on the file system as a
 symlink pointing to the full name of the shared library. This symlink
 must be provided by the package.
-:ref:`s-sharedlibs-runtime` describes how to do this.
- [60]_
+:ref:`s-sharedlibs-runtime` describes how to do this.  [#]_
 
 When linking a binary or another shared library against a shared
 library, the ``SONAME`` for that shared library is not yet known.
@@ -450,7 +449,7 @@ information is used.
     dependencies of binaries and libraries from a source package on
     other libraries from that same source package will not be correct.
     In practice, this means that ``dpkg-gensymbols`` must be run before
-    ``dpkg-shlibdeps`` during the package build.  [73]_
+    ``dpkg-shlibdeps`` during the package build.  [#]_
 
 ``/etc/dpkg/symbols/package.symbols.arch`` and ``/etc/dpkg/symbols/package.symbols``
     Per-system overrides of shared library dependencies. These files
