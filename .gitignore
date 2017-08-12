@@ -17,6 +17,8 @@
 /perl-policy.html/
 /perl-policy.txt
 /policy/_build/
+/policy/images/*.png
+/policy/images/*.svg
 /policy.html/
 /policy.txt
 /upgrading-checklist.txt
@@ -27,17 +29,3 @@
 *.pdf
 *.ps
 *.validate
-# list these individually for now, because there may be non-generated
-# files in images/
-images/install.png
-images/install-conffiles.png
-images/upgrade.png
-images/remove.png
-images/purge.png
-images/remove-purge.png
-images/install.svg
-images/install-conffiles.svg
-images/upgrade.svg
-images/remove.svg
-images/purge.svg
-images/remove-purge.svg
