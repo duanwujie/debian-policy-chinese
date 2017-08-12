@@ -67,10 +67,6 @@ XML_FILES   := menu-policy perl-policy
 # single-page HTML output (no split HTML output).
 XML_SINGLE_FILES := copyright-format-1.0 debconf_specification
 
-# The upgrading-checklist used to be a document of its own, which was merged
-# with the conversion to DocBook. Keep backwards compatibility files.
-XML_SPLIT_FILES := upgrading-checklist
-
 # XML document version files.  These are generated at build time from the
 # current version and date information from the Debian changelog.
 XML_VERSION := copyright-format/version.xml debconf_spec/include/version.xml \
@@ -79,18 +75,17 @@ XML_VERSION := copyright-format/version.xml debconf_spec/include/version.xml \
 # A list of the simple Policy files that we build at the top level and in
 # subdirectories and include in the documentation directory of the generated
 # package.  The directories of HTML output are handled separately.
-POLICY_FILES := $(MDWN_FILES:=.html)		\
-		$(MDWN_FILES:=.txt)		\
-		$(XML_FILES:=-1.html)		\
-		$(XML_FILES:=.txt)		\
-		$(XML_SINGLE_FILES:=.html)	\
-		$(XML_SINGLE_FILES:=.txt)	\
-		$(XML_SPLIT_FILES:=-1.html)	\
-		$(XML_SPLIT_FILES:=.txt)	\
-		README.css			\
-		policy/_build/latex/policy.pdf	\
-		policy/_build/policy.txt	\
-		policy.html.tar.gz		\
+POLICY_FILES := $(MDWN_FILES:=.html)				\
+		$(MDWN_FILES:=.txt)				\
+		$(XML_FILES:=-1.html)				\
+		$(XML_FILES:=.txt)				\
+		$(XML_SINGLE_FILES:=.html)			\
+		$(XML_SINGLE_FILES:=.txt)			\
+		README.css					\
+		policy/_build/latex/policy.pdf			\
+		policy/_build/policy.txt			\
+		policy/_build/text/upgrading-checklist.txt	\
+		policy.html.tar.gz				\
 		virtual-package-names-list.txt
 
 # Source files that go into the Debian Policy manual.
@@ -108,8 +103,6 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SINGLE_FILES:=.html)		\
 		  $(XML_SINGLE_FILES:=.txt)		\
 		  $(XML_SINGLE_FILES:=.validate)	\
-		  $(XML_SPLIT_FILES:=-1.html)		\
-		  $(XML_SPLIT_FILES:=.txt)		\
 		  $(DIA_PNGS)				\
 		  policy/index.rst			\
 		  policy.html.tar.gz			\
@@ -171,8 +164,10 @@ debconf_specification.html: $(DEBCONF_INCLUDES)
 debconf_specification.txt: $(DEBCONF_INCLUDES)
 debconf_specification.validate: $(DEBCONF_INCLUDES)
 policy-1.html: upgrading-checklist.xml
-policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
+
+# The text version of the upgrading checklist come from the Policy text build.
+policy/_build/text/upgrading-checklist.txt: policy/_build/policy.txt
 
 policy.html.tar.gz: policy/_build/html/index.html $(DIA_PNGS)
 	tar -czf policy.html.tar.gz				\
