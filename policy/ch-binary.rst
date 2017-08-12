@@ -160,7 +160,7 @@ included either (that is what the copyright file is for).
 The single line synopsis
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The single line synopsis should be kept brief - certainly under 80
+The single line synopsis should be kept brief---certainly under 80
 characters.
 
 Do not include the package name in the synopsis line. The display
