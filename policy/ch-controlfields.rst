@@ -543,20 +543,20 @@ these three components or all four components may be specified. [#]_
 ~~~~~~~~~~~
 
 The version number of a package. The format is:
-[epoch``:``]upstream\_version[\ ``-``\ debian\_revision]
+``[epoch:]upstream_version[-debian_revision]``.
 
 The three components here are:
 
-epoch
+``epoch``
     This is a single (generally small) unsigned integer. It may be
     omitted, in which case zero is assumed. If it is omitted then the
-    upstream\_version may not contain any colons.
+    ``upstream_version`` may not contain any colons.
 
     It is provided to allow mistakes in the version numbers of older
     versions of a package, and also a package's previous version
     numbering schemes, to be left behind.
 
-upstream\_version
+``upstream_version``
     This is the main part of the version number. It is usually the
     version number of the original ("upstream") package from which the
     ``.deb`` file has been made, if this is applicable. Usually this
@@ -565,38 +565,39 @@ upstream\_version
     package management system's format and comparison scheme.
 
     The comparison behavior of the package management system with
-    respect to the upstream\_version is described below. The
-    upstream\_version portion of the version number is mandatory.
+    respect to the ``upstream_version`` is described below. The
+    ``upstream_version`` portion of the version number is mandatory.
 
-    The upstream\_version may contain only alphanumerics  [#]_ and the
-    characters ``.`` ``+`` ``-`` ``~`` (full stop, plus, hyphen, tilde)
-    and should start with a digit. If there is no debian\_revision then
-    hyphens are not allowed.
+    The ``upstream_version`` may contain only alphanumerics [#]_ and
+    the characters ``.`` ``+`` ``-`` ``~`` (full stop, plus, hyphen,
+    tilde) and should start with a digit. If there is no
+    ``debian_revision`` then hyphens are not allowed.
 
-debian\_revision
-    This part of the version number specifies the version of the Debian
-    package based on the upstream version. It may contain only
-    alphanumerics and the characters ``+`` ``.`` ``~`` (plus, full stop,
-    tilde) and is compared in the same way as the upstream\_version is.
+``debian_revision`` This part of the version number specifies the
+    version of the Debian package based on the upstream version. It
+    may contain only alphanumerics and the characters ``+`` ``.``
+    ``~`` (plus, full stop, tilde) and is compared in the same way as
+    the ``upstream_version`` is.
 
-    It is optional; if it isn't present then the upstream\_version may
-    not contain a hyphen. This format represents the case where a piece
-    of software was written specifically to be a Debian package, where
-    the Debian package source must always be identical to the pristine
-    source and therefore no revision indication is required.
+    It is optional; if it isn't present then the ``upstream_version``
+    may not contain a hyphen. This format represents the case where a
+    piece of software was written specifically to be a Debian package,
+    where the Debian package source must always be identical to the
+    pristine source and therefore no revision indication is required.
 
-    It is conventional to restart the debian\_revision at ``1`` each
-    time the upstream\_version is increased.
+    It is conventional to restart the ``debian_revision`` at ``1``
+    each time the ``upstream_version`` is increased.
 
-    The package management system will break the version number apart at
-    the last hyphen in the string (if there is one) to determine the
-    upstream\_version and debian\_revision. The absence of a
-    debian\_revision is equivalent to a debian\_revision of ``0``.
+    The package management system will break the version number apart
+    at the last hyphen in the string (if there is one) to determine
+    the ``upstream_version`` and ``debian_revision``. The absence of a
+    ``debian_revision`` is equivalent to a ``debian_revision`` of
+    ``0``.
 
 When comparing two version numbers, first the epoch of each are
-compared, then the upstream\_version if epoch is equal, and then
-debian\_revision if upstream\_version is also equal. epoch is compared
-numerically. The upstream\_version and debian\_revision parts are
+compared, then the ``upstream_version`` if epoch is equal, and then
+``debian_revision`` if ``upstream_version`` is also equal. epoch is compared
+numerically. The ``upstream_version`` and ``debian_revision`` parts are
 compared by the package management system using the following algorithm:
 
 The strings are compared from left to right.
