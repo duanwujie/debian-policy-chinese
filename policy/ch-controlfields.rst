@@ -58,8 +58,7 @@ folded
     The value of a folded field is a logical line that may span several
     lines. The lines after the first are called continuation lines and
     must start with a space or a tab. Whitespace, including any
-    newlines, is not significant in the field values of folded fields.
-     [#]_
+    newlines, is not significant in the field values of folded fields.  [#]_
 
 multiline
     The value of a multiline field may comprise multiple continuation
