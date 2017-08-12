@@ -165,9 +165,6 @@ debconf_specification.html: $(DEBCONF_INCLUDES)
 debconf_specification.txt: $(DEBCONF_INCLUDES)
 debconf_specification.validate: $(DEBCONF_INCLUDES)
 policy-1.html: upgrading-checklist.xml
-policy.html/index.html: upgrading-checklist.xml
-policy.pdf: upgrading-checklist.xml
-policy.ps: upgrading-checklist.xml
 policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
 
@@ -204,12 +201,11 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 	$(XMLLINT) $<
 	touch $@
 
-%.html/index.html: %.xml xsl/html-chunk.xsl version.xml $(DIA_PNGS)
+%.html/index.html: %.xml xsl/html-chunk.xsl version.xml
 	mkdir -p $(@D)/images
 	$(XSLTPROC) $(XSLPARAMS)		\
 	    --stringparam base.dir $(@D)/	\
 	    xsl/html-chunk.xsl $<
-	cp $(DIA_PNGS) $(@D)/images
 
 $(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
@@ -225,12 +221,6 @@ $(XML_FILES:=.txt) $(XML_SINGLE_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): \
 	$(XSLTPROC) $(XSLPARAMS) xsl/text.xsl $< > $@.html
 	links -codepage utf-8 -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
-
-%.ps: %.xml version.xml $(DIA_SVGS)
-	$(DBLATEX) --ps $<
-
-%.pdf: %.xml version.xml $(DIA_SVGS)
-	$(DBLATEX) --pdf $<
 
 
 #
