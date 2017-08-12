@@ -214,23 +214,23 @@ These are the "error unwind" calls listed below.
 
     a. If a version of the package is already "Installed", call
 
-       ::
+       .. parsed-literal::
 
            old-prerm upgrade *new-version*
 
     b. If the script runs but exits with a non-zero exit status,
        ``dpkg`` will attempt:
 
-       ::
+       .. parsed-literal::
 
            new-prerm failed-upgrade *old-version*
 
        If this works, the upgrade continues. If this does not work, the
        error unwind:
 
-       ::
+       .. parsed-literal::
 
-           old-postinst abort-upgrade *new-version*
+           *old-postinst* abort-upgrade *new-version*
 
        If this works, then the *old-version* is "Installed", if not, the
        old version is in a "Half-Configured" state.
@@ -241,17 +241,17 @@ These are the "error unwind" calls listed below.
     a. If ``--auto-deconfigure`` is specified, call, for each package to
        be deconfigured due to ``Breaks``:
 
-       ::
+       .. parsed-literal::
 
-           deconfigured's-prerm deconfigure \
-               in-favour package-being-installed version
+	    *deconfigured's-prerm* deconfigure \\
+		in-favour *package-being-installed* *version*
 
        Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           deconfigured's-postinst abort-deconfigure \
-               in-favour package-being-installed-but-failed version
+           *deconfigured's-postinst* abort-deconfigure \\
+               in-favour *package-being-installed-but-failed* *version*
 
        The deconfigured packages are marked as requiring configuration,
        so that if ``--install`` is used they will be configured again if
@@ -261,19 +261,19 @@ These are the "error unwind" calls listed below.
        and ``--auto-deconfigure`` is specified, call, for each such
        package:
 
-       ::
+       .. parsed-literal::
 
-           deconfigured's-prerm deconfigure \
-               in-favour package-being-installed version \
-               removing conflicting-package version
+            *deconfigured's-prerm* deconfigure \\
+               in-favour *package-being-installed* *version* \\
+               removing *conflicting-package* *version*
 
        Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           deconfigured's-postinst abort-deconfigure \
-               in-favour package-being-installed-but-failed version \
-               removing conflicting-package version
+           *deconfigured's-postinst* abort-deconfigure \\
+               in-favour *package-being-installed-but-failed* *version* \\
+               removing *conflicting-package* *version*
 
        The deconfigured packages are marked as requiring configuration,
        so that if ``--install`` is used they will be configured again if
@@ -281,37 +281,37 @@ These are the "error unwind" calls listed below.
 
     c. To prepare for removal of each conflicting package, call:
 
-       ::
+       .. parsed-literal::
 
-           conflictor's-prerm remove \
-               in-favour package *new-version*
+           *conflictor's-prerm* remove \\
+               in-favour *package* *new-version*
 
        Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           conflictor's-postinst abort-remove \
-               in-favour package *new-version*
+           *conflictor's-postinst* abort-remove \\
+               in-favour *package* *new-version*
 
 3.  Run the ``preinst`` of the new package:
 
     a. If the package is being upgraded, call:
 
-       ::
+       .. parsed-literal::
 
-           new-preinst upgrade *old-version*
+           *new-preinst* upgrade *old-version*
 
        If this fails, we call:
 
-       ::
+       .. parsed-literal::
 
-           new-postrm abort-upgrade *old-version*
+           *new-postrm* abort-upgrade *old-version*
 
        i.  If that works, then
 
-           ::
+           .. parsed-literal::
 
-               old-postinst abort-upgrade *new-version*
+               *old-postinst* abort-upgrade *new-version*
 
            is called. If this works, then the old version is in an
            "Installed" state, or else it is left in an "Unpacked" state.
@@ -323,15 +323,15 @@ These are the "error unwind" calls listed below.
        previous version installed (i.e., it is in the "Config-Files"
        state):
 
-       ::
+       .. parsed-literal::
 
-           new-preinst install *old-version*
+           *new-preinst* install *old-version*
 
        Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           new-postrm abort-install *old-version*
+           *new-postrm* abort-install *old-version*
 
        If this fails, the package is left in a "Half-Installed" state,
        which requires a reinstall. If it works, the packages is left in
@@ -339,15 +339,15 @@ These are the "error unwind" calls listed below.
 
     c. Otherwise (i.e., the package was completely purged):
 
-       ::
+       .. parsed-literal::
 
-           new-preinst install
+           *new-preinst* install
 
        Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           new-postrm abort-install
+           *new-postrm* abort-install
 
        If the error-unwind fails, the package is in a "Half-Installed"
        phase, and requires a reinstall. If the error unwind works, the
@@ -383,35 +383,35 @@ These are the "error unwind" calls listed below.
 
     a. Call:
 
-       ::
+       .. parsed-literal::
 
-           old-postrm upgrade *new-version*
+           *old-postrm* upgrade *new-version*
 
     b. If this fails, ``dpkg`` will attempt:
 
-       ::
+       .. parsed-literal::
 
-           new-postrm failed-upgrade *old-version*
+           *new-postrm* failed-upgrade *old-version*
 
        If this works, installation continues. If not, Error unwind:
 
-       ::
+       .. parsed-literal::
 
-           old-preinst abort-upgrade *new-version*
-
-       If this fails, the old version is left in a "Half-Installed"
-       state. If it works, dpkg now calls:
-
-       ::
-
-           new-postrm abort-upgrade *old-version*
+           *old-preinst* abort-upgrade *new-version*
 
        If this fails, the old version is left in a "Half-Installed"
        state. If it works, dpkg now calls:
 
-       ::
+       .. parsed-literal::
 
-           old-postinst abort-upgrade *new-version*
+           *new-postrm* abort-upgrade *old-version*
+
+       If this fails, the old version is left in a "Half-Installed"
+       state. If it works, dpkg now calls:
+
+       .. parsed-literal::
+
+           *old-postinst* abort-upgrade *new-version*
 
        If this fails, the old version is in an "Unpacked" state.
 
@@ -434,10 +434,10 @@ These are the "error unwind" calls listed below.
 
     a. ``dpkg`` calls:
 
-       ::
+       .. parsed-literal::
 
-           disappearer's-postrm disappear \
-               overwriter overwriter-version
+           *disappearer's-postrm* disappear \\
+               *overwriter* *overwriter-version*
 
     b. The package's maintainer scripts are removed.
 
@@ -474,7 +474,7 @@ Details of configuration
 When we configure a package (this happens with ``dpkg --install`` and ``dpkg --configure``), we first update any
 ``conffile``\ s and then call:
 
-::
+.. parsed-literal::
 
     postinst configure *most-recently-configured-version*
 
@@ -490,20 +490,20 @@ null argument.  [#]_
 Details of removal and/or configuration purging
 -----------------------------------------------
 
-1. ::
+1. .. parsed-literal::
 
        prerm remove
 
    If prerm fails during replacement due to conflict
 
-   ::
+   .. parsed-literal::
 
        conflictor's-postinst abort-remove \
            in-favour package *new-version*
 
    Or else we call:
 
-   ::
+   .. parsed-literal::
 
        postinst abort-remove
 
@@ -512,7 +512,7 @@ Details of removal and/or configuration purging
 
 2. The package's files are removed (except ``conffile``\ s).
 
-3. ::
+3. .. parsed-literal::
 
        postrm remove
 
@@ -529,7 +529,7 @@ Details of removal and/or configuration purging
 5. The ``conffile``\ s and any backup files (``~``-files, ``#*#`` files,
    ``%``-files, ``.dpkg-{old,new,tmp}``, etc.) are removed.
 
-6. ::
+6. .. parsed-literal::
 
        postrm purge
 
