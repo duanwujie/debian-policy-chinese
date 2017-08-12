@@ -60,15 +60,15 @@ This manual is distributed via the Debian package
 `debian-policy <https://packages.debian.org/debian-policy>`_.
 
 The current version of this document is also available from the Debian
-web mirrors at https://www.debian.org/doc/debian-policy/. Also available
-from the same directory are several other formats:
-```policy.html.tar.gz`` <https://www.debian.org/doc/debian-policy/policy.html.tar.gz>`_,
-```policy.pdf.gz`` <https://www.debian.org/doc/debian-policy/policy.pdf.gz>`__,
-and
-```policy.ps.gz`` <https://www.debian.org/doc/debian-policy/policy.ps.gz>`_.
-Included in both the same directory and in the debian-policy package is
-a standalone copy of :ref:`upgrading-checklist`, which indicates
-policy changes between versions of this document.
+web mirrors at https://www.debian.org/doc/debian-policy/. Also
+available from the same directory are several other formats:
+`policy.html.tar.gz
+<https://www.debian.org/doc/debian-policy/policy.html.tar.gz>`_ and
+`policy.pdf.gz
+<https://www.debian.org/doc/debian-policy/policy.pdf.gz>`_.  Included
+in both the same directory and in the debian-policy package is a
+standalone copy of :ref:`upgrading-checklist`, which indicates policy
+changes between versions of this document.
 
 .. _s-authors:
 
