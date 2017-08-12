@@ -57,7 +57,7 @@ See also :ref:`s-pkg-sourcearchives`.
 ``dpkg-buildpackage`` - overall package-building control script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See dpkg-buildpackage1.
+See ``dpkg-buildpackage(1)``.
 
 .. _s-pkg-dpkg-gencontrol:
 
@@ -104,7 +104,7 @@ of ``dpkg-genchanges``.
 ``dpkg-shlibdeps`` - calculates shared library dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See dpkg-shlibdeps1.
+See ``dpkg-shlibdeps(1)``.
 
 .. _s-pkg-dpkg-distaddfile:
 
@@ -137,21 +137,21 @@ The section and priority are passed unchanged into the resulting
 ``dpkg-genchanges`` - generates a ``.changes`` upload control file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See dpkg-genchanges1.
+See ``dpkg-genchanges(1)``.
 
 .. _s-pkg-dpkg-parsechangelog:
 
 ``dpkg-parsechangelog`` - produces parsed representation of a changelog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See dpkg-parsechangelog1.
+See ``dpkg-parsechangelog(1)``.
 
 .. _s-pkg-dpkg-architecture:
 
 ``dpkg-architecture`` - information about the build and host system
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See dpkg-architecture1.
+See ``dpkg-architecture(1)``.
 
 .. _s-pkg-sourcetree:
 
