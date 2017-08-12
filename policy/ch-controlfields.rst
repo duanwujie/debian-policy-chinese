@@ -266,7 +266,7 @@ about the source package gathered via ``debian/changelog`` and
 
 ``.changes`` files have a format version that is incremented whenever
 the documented fields or their meaning change. This document describes
-format CHANGESVERSION.
+format 1.8.
 
 The fields in this file are:
 
@@ -712,7 +712,7 @@ In |changes link|_ files, this field declares the format version of
 that file. The syntax of the field value is the same as that of a
 :ref:`package version number <s-f-Version>` except that no epoch or
 Debian revision is allowed. The format described in this document is
-````.
+1.8.
 
 In |dsc link|_ files, this field declares the format of the source
 package. The field value is used by programs acting on a source
