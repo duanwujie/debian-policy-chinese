@@ -10,12 +10,12 @@ install on the system when the package is installed, and a set of
 files that provide additional metadata about the package or which are
 executed when the package is installed or removed. This second set of
 files is called *control information files*. Among those files are the
-package maintainer scripts and ``control``, the `binary package
-control file <#s-binarycontrolfiles>`_ that contains the control
-fields for the package. Other control information files include the
-|symbols link|_ or |shlibs link|_ used to store shared library
-dependency information and the ``conffiles`` file that lists the
-package's configuration files (described in :ref:`s-config-files`).
+package maintainer scripts and ``control``, the :ref:`binary package
+control file <s-binarycontrolfiles>` that contains the control fields
+for the package. Other control information files include the |symbols
+link|_ or |shlibs link|_ used to store shared library dependency
+information and the ``conffiles`` file that lists the package's
+configuration files (described in :ref:`s-config-files`).
 
 .. |symbols link| replace:: ``symbols``
 .. _symbols link: #s-sharedlibs-symbols

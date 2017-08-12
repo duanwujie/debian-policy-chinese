@@ -538,9 +538,9 @@ order to make it work for your package.
 Variable substitutions: ``debian/substvars``
 --------------------------------------------
 
-When ``dpkg-gencontrol`` generates `binary package control
-files <#s-binarycontrolfiles>`__ (``DEBIAN/control``), it performs
-variable substitutions on its output just before writing it. Variable
+When ``dpkg-gencontrol`` generates :ref:`binary package control files
+<s-binarycontrolfiles>` (``DEBIAN/control``), it performs variable
+substitutions on its output just before writing it. Variable
 substitutions have the form ``${variable}``. The optional file
 ``debian/substvars`` contains variable substitutions to be used;
 variables can also be set directly from ``debian/rules`` using the
