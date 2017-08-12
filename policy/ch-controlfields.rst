@@ -125,7 +125,7 @@ package) are:
 
 -  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:`Vcs-Browser, ``Vcs-Git``, et al. <s-f-VCS-fields>`
+-  :ref:`Version Control System (VCS) fields <s-f-VCS-fields>`
 
 -  :ref:`Testsuite <s-f-Testsuite>`
 
@@ -230,7 +230,7 @@ is described above, in :ref:`s-controlsyntax`.
 
 -  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:`Vcs-Browser, Vcs-Git, et al. <s-f-VCS-fields>`
+-  :ref:`Version Control System (VCS) fields <s-f-VCS-fields>`
 
 -  :ref:`Testsuite <s-f-Testsuite>`
 
