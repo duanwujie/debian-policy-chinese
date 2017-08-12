@@ -88,9 +88,9 @@ Here is a brief list of the control information files supported by
     :ref:`s-sourcecontrolfiles` and
     :ref:`s-binarycontrolfiles`.
 
-    It is usually generated automatically from information in the source
-    package by the ``dpkg-gencontrol`` program, and with assistance from
-    ``dpkg-shlibdeps``. See `section\_title <#s-pkg-sourcetools>`__.
+    It is usually generated automatically from information in the
+    source package by the ``dpkg-gencontrol`` program, and with
+    assistance from ``dpkg-shlibdeps``. See :doc:`ap-pkg-sourcepkg`.
 
 ``postinst``, ``preinst``, ``postrm``, ``prerm``
     These are executable files (usually scripts) which ``dpkg`` runs
@@ -107,11 +107,10 @@ Here is a brief list of the control information files supported by
     terminal and may not be able to interact with the user. See
     :ref:`s-controllingterminal`.
 
-``conffiles``
-    This file contains a list of configuration files which are to be
-    handled automatically by ``dpkg`` (see
-    `appendix\_title <#ap-pkg-conffiles>`__). Note that not necessarily
-    every configuration file should be listed here.
+``conffiles`` This file contains a list of configuration files which
+    are to be handled automatically by ``dpkg`` (see
+    :doc:`ap-pkg-conffiles`). Note that not necessarily every
+    configuration file should be listed here.
 
 ``shlibs``
     This file contains a list of the shared libraries supplied by the
