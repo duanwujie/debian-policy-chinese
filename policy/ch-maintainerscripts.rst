@@ -476,7 +476,7 @@ When we configure a package (this happens with ``dpkg --install`` and ``dpkg --c
 
 .. parsed-literal::
 
-    postinst configure *most-recently-configured-version*
+    *postinst* configure *most-recently-configured-version*
 
 No attempt is made to unwind after errors during configuration. If the
 configuration fails, the package is in a "Half-Configured" state, and an
@@ -492,20 +492,20 @@ Details of removal and/or configuration purging
 
 1. .. parsed-literal::
 
-       prerm remove
+       *prerm* remove
 
    If prerm fails during replacement due to conflict
 
    .. parsed-literal::
 
-       conflictor's-postinst abort-remove \
-           in-favour package *new-version*
+       *conflictor's-postinst* abort-remove \\
+           in-favour *package* *new-version*
 
    Or else we call:
 
    .. parsed-literal::
 
-       postinst abort-remove
+       *postinst* abort-remove
 
    If this fails, the package is in a "Half-Configured" state, or else
    it remains "Installed".
@@ -514,7 +514,7 @@ Details of removal and/or configuration purging
 
 3. .. parsed-literal::
 
-       postrm remove
+       *postrm* remove
 
    If it fails, there's no error unwind, and the package is in an
    "Half-Installed" state.
@@ -531,7 +531,7 @@ Details of removal and/or configuration purging
 
 6. .. parsed-literal::
 
-       postrm purge
+       *postrm* purge
 
    If this fails, the package remains in a "Config-Files" state.
 
