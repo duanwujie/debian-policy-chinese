@@ -12,7 +12,7 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
     Closes: #732445
 
-  -- Russ Allbery <rra@debian.org>  Tue, 08 Aug 2017 06:45:37 -0700
+ -- Russ Allbery <rra@debian.org>  Tue, 08 Aug 2017 06:45:37 -0700
 
 debian-policy (4.0.1.0) unstable; urgency=medium
 
