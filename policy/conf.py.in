@@ -164,11 +164,20 @@ texinfo_documents = [
 
 # -- Options for Epub output ----------------------------------------------
 
+# Use a simpler file name.
+epub_basename = 'policy'
+
 # Bibliographic Dublin Core info.
 epub_title = project
 epub_author = author
 epub_publisher = author
 epub_copyright = copyright
+epub_description = """
+This manual describes the policy requirements for the Debian distribution.
+This includes the structure and contents of the Debian archive and several
+design issues of the operating system, as well as technical requirements
+that each package must satisfy to be included in the distribution.
+"""
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
@@ -181,5 +190,3 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
-

@@ -83,6 +83,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)				\
 		$(XML_SINGLE_FILES:=.html)			\
 		$(XML_SINGLE_FILES:=.txt)			\
 		README.css					\
+		policy/_build/epub/policy.epub			\
 		policy/_build/latex/policy.pdf			\
 		policy/_build/policy.txt			\
 		policy/_build/text/upgrading-checklist.txt	\
@@ -179,6 +180,9 @@ policy.html.tar.gz: policy/_build/html/index.html $(DIA_PNGS)
 	tar -czf policy.html.tar.gz				\
 	    --transform='s%policy/_build/html%policy.html%'	\
 	    policy/_build/html
+
+policy/_build/epub/policy.epub: $(POLICY_SOURCE) $(DIA_PNGS)
+	$(SPHINX) -M epub policy policy/_build
 
 policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M html policy policy/_build
