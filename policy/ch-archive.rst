@@ -119,15 +119,16 @@ Guidelines).  [#]_
 
 In addition, the packages in *main*
 
--  must not require or recommend a package outside of *main* for
-   compilation or execution (thus, the package must not declare a
-   ``Pre-Depends``, ``Depends``, ``Recommends``, ``Build-Depends``,
-   ``Build-Depends-Indep``, or ``Build-Depends-Arch`` relationship on a
-   non-\ *main* package),
+- must not require or recommend a package outside of *main* for
+  compilation or execution (thus, the package must not declare a
+  ``Pre-Depends``, ``Depends``, ``Recommends``, ``Build-Depends``,
+  ``Build-Depends-Indep``, or ``Build-Depends-Arch`` relationship on a
+  non-*main* package unless that package is only listed as a non-default
+  alternative for a package in *main*),
 
--  must not be so buggy that we refuse to support them, and
+- must not be so buggy that we refuse to support them, and
 
--  must meet all policy requirements presented in this manual.
+- must meet all policy requirements presented in this manual.
 
 .. _s-contrib:
 

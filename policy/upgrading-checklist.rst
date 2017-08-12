@@ -37,6 +37,10 @@ Version 4.0.2
 
 Unreleased.
 
+2.2.1
+    Non-default alternative dependencies on non-free packages are
+    permitted for packages in main.
+
 4.11
     If upstream provides OpenPGP signatures, including the upstream
     signing key as ``debian/upstream/signing-key.asc`` in the source

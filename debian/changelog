@@ -5,12 +5,17 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     pointing out the problem.
 
   [ Russ Allbery ]
-  * Policy: Recommend including the upstream signing key.
+  * Policy: Recommend including the upstream signing key
     Wording: Russ Allbery <rra@debian.org>
     Seconded: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
     Seconded: Jonathan Nieder <jrnieder@gmail.com>
     Seconded: Didier 'OdyX' Raboud <odyx@debian.org>
     Closes: #732445
+  * Policy: Clearly allow non-default alternative non-free dependencies
+    Wording: Russ Allbery <rra@debian.org>
+    Seconded: Simon McVittie <smcv@debian.org>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Closes: #587279
 
   [ Russ Allbery & Sean Whitton ]
   * Convert the source of the Debian Policy Manual to reStructuredText,
