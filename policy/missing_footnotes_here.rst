@@ -295,52 +295,6 @@
    That is, the parts which are not the ``.dsc``.
 
 .. [#]
-   This is so that if an error occurs, the user interrupts ``dpkg`` or
-   some other unforeseen circumstance happens you don't leave the user
-   with a badly-broken package when ``dpkg`` attempts to repeat the
-   action.
-
-.. [#]
-   This can happen if the new version of the package no longer
-   pre-depends on a package that had been partially upgraded.
-
-.. [#]
-   For example, suppose packages foo and bar are "Installed" with foo
-   depending on bar. If an upgrade of bar were started and then aborted,
-   and then an attempt to remove foo failed because its ``prerm`` script
-   failed, foo's ``postinst abort-remove`` would be called with bar only
-   "Half-Installed".
-
-.. [#]
-   This is often done by checking whether the command or facility the
-   ``postrm`` intends to call is available before calling it. For
-   example:
-
-   ::
-
-       if [ "$1" = pur.. [#] && [ -e /usr/share/debconf/confmodule ]; then
-           . /usr/share/debconf/confmodule db_purge
-       fi
-
-   in ``postrm`` purges the ``debconf`` configuration for the package if
-   debconf is installed.
-
-.. [#]
-   See :doc:`ap-flowcharts` for flowcharts illustrating
-   the processes described here.
-
-.. [#]
-   Part of the problem is due to what is arguably a bug in ``dpkg``.
-
-.. [#]
-   Historical note: Truly ancient (pre-1997) versions of ``dpkg`` passed
-   ``<unknown>`` (including the angle brackets) in this case. Even older
-   ones did not pass a second argument at all, under any circumstance.
-   Note that upgrades using such an old dpkg version are unlikely to
-   work for other reasons, even if this old argument behavior is handled
-   by your postinst script.
-
-.. [#]
    The relations ``<`` and ``>`` were previously allowed, but they were
    confusingly defined to mean earlier/later or equal rather than
    strictly earlier/later. ``dpkg`` still supports them with a warning,

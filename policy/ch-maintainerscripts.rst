@@ -205,7 +205,7 @@ Details of unpack phase of installation or upgrade
 
 The procedure on installation/upgrade/overwrite/disappear (i.e., when
 running ``dpkg --unpack``, or the unpack stage of ``dpkg --install``) is
-as follows.  [50]_ In each case, if a major error occurs (unless listed
+as follows.  [#]_ In each case, if a major error occurs (unless listed
 below) the actions are, in general, run backwards - this means that the
 maintainer scripts are run with different arguments in reverse order.
 These are the "error unwind" calls listed below.
@@ -483,7 +483,7 @@ configuration fails, the package is in a "Half-Configured" state, and an
 error message is generated.
 
 If there is no most recently configured version ``dpkg`` will pass a
-null argument.  [52]_
+null argument.  [#]_
 
 .. _s-removedetails:
 
@@ -536,4 +536,50 @@ Details of removal and/or configuration purging
    If this fails, the package remains in a "Config-Files" state.
 
 7. The package's file list is removed.
+
+.. [#]
+   This is so that if an error occurs, the user interrupts ``dpkg`` or
+   some other unforeseen circumstance happens you don't leave the user
+   with a badly-broken package when ``dpkg`` attempts to repeat the
+   action.
+
+.. [#]
+   This can happen if the new version of the package no longer
+   pre-depends on a package that had been partially upgraded.
+
+.. [#]
+   For example, suppose packages foo and bar are "Installed" with foo
+   depending on bar. If an upgrade of bar were started and then aborted,
+   and then an attempt to remove foo failed because its ``prerm`` script
+   failed, foo's ``postinst abort-remove`` would be called with bar only
+   "Half-Installed".
+
+.. [#]
+   This is often done by checking whether the command or facility the
+   ``postrm`` intends to call is available before calling it. For
+   example:
+
+   ::
+
+       if [ "$1" = pur.. [#] && [ -e /usr/share/debconf/confmodule ]; then
+           . /usr/share/debconf/confmodule db_purge
+       fi
+
+   in ``postrm`` purges the ``debconf`` configuration for the package if
+   debconf is installed.
+
+.. [#]
+   See :doc:`ap-flowcharts` for flowcharts illustrating
+   the processes described here.
+
+.. [#]
+   Part of the problem is due to what is arguably a bug in ``dpkg``.
+
+.. [#]
+   Historical note: Truly ancient (pre-1997) versions of ``dpkg`` passed
+   ``<unknown>`` (including the angle brackets) in this case. Even older
+   ones did not pass a second argument at all, under any circumstance.
+   Note that upgrades using such an old dpkg version are unlikely to
+   work for other reasons, even if this old argument behavior is handled
+   by your postinst script.
 
