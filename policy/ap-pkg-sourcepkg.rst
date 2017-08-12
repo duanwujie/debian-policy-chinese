@@ -283,8 +283,8 @@ directly to generate the ``.diff.gz`` file will not work.
 Restrictions on objects in source packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The source package may not contain any hard links,  [#].. [#]_
-device special files, sockets or setuid or setgid files.  [123]_
+The source package may not contain any hard links, [#]_ [#]_ device
+special files, sockets or setuid or setgid files.  [#]_
 
 The source packaging tools manage the changes between the original and
 Debian source using ``diff`` and ``patch``. Turning the original source
