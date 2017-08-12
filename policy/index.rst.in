@@ -16,6 +16,46 @@ Version
 This is Debian Policy version @VERSION@, released on @DATE@.
 
 
+Contents
+========
+
+
+.. toctree::
+   :maxdepth: 3
+   :numbered:
+   
+   ch-scope
+   ch-archive
+   ch-binary
+   ch-source
+   ch-controlfields
+   ch-maintainerscripts
+   ch-relationships
+   ch-sharedlibs
+   ch-opersys
+   ch-files
+   ch-customized-programs
+   ch-docs
+
+.. toctree::
+   :caption: Appendices
+   :name: appendix
+   :maxdepth: 3
+   :numbered:
+
+   ap-pkg-scope
+   ap-pkg-binarypkg
+   ap-pkg-sourcepkg
+   ap-pkg-controlfields
+   ap-pkg-conffiles
+   ap-pkg-alternatives
+   ap-pkg-diversions
+   ap-process
+   ap-flowcharts
+   upgrading-checklist
+
+
+
 Legal Notice
 ============
 
@@ -38,41 +78,3 @@ details.
 A copy of the GNU General Public License is available as
 ``/usr/share/common-licenses/GPL`` in the Debian distribution or on the
 World Wide Web at `<https://www.gnu.org/licenses/>`_.
-
-
-
-.. toctree::
-   :maxdepth: 3
-   :numbered:
-   
-   ch-scope
-   ch-archive
-   ch-binary
-   ch-source
-   ch-controlfields
-   ch-maintainerscripts
-   ch-relationships
-   ch-sharedlibs
-   ch-opersys
-   ch-files
-   ch-customized-programs
-   ch-docs
-
-
-Appendix
---------
-
-.. toctree::
-   :maxdepth: 3
-   :numbered:
-
-   ap-pkg-scope
-   ap-pkg-binarypkg
-   ap-pkg-sourcepkg
-   ap-pkg-controlfields
-   ap-pkg-conffiles
-   ap-pkg-alternatives
-   ap-pkg-diversions
-   ap-process
-   ap-flowcharts
-   upgrading-checklist
