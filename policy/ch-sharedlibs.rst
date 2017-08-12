@@ -571,7 +571,7 @@ our example, the ``zlib1g`` ``symbols`` file would contain:
 
     * Build-Depends-Package: zlib1g-dev
 
-Also see deb-symbols5.
+Also see ``deb-symbols(5)``.
 
 .. _s-providing-symbols:
 
