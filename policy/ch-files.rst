@@ -331,7 +331,7 @@ installation, they must be created in the ``postinst`` maintainer script
 [#]_ and removed in either the ``prerm`` or the ``postrm`` maintainer
 script.
 
-.. \_s-config-files:
+.. _s-config-files:
 
 Configuration files
 -------------------
