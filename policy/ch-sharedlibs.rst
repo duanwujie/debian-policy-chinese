@@ -440,13 +440,13 @@ missing. The following list gives them in the order in which they are
 read by ``dpkg-shlibdeps`` The first one that contains the required
 information is used.
 
-``debian/*/DEBIAN/symbols``
-    During the package build, if the package itself contains shared
-    libraries with ``symbols`` files, they will be generated in these
-    staging directories by ``dpkg-gensymbols`` (see
-    `section\_title <#s-providing-symbols>`__). ``symbols`` files found
-    in the build tree take precedence over ``symbols`` files from other
-    binary packages.
+``debian/*/DEBIAN/symbols`` During the package build, if the package
+    itself contains shared libraries with ``symbols`` files, they will
+    be generated in these staging directories by ``dpkg-gensymbols``
+    (see `Providing a symbols file
+    <#s-providing-symbols>`__). ``symbols`` files found in the build
+    tree take precedence over ``symbols`` files from other binary
+    packages.
 
     These files must exist before ``dpkg-shlibdeps`` is run or the
     dependencies of binaries and libraries from a source package on
