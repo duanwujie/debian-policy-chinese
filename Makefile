@@ -89,7 +89,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)				\
 		virtual-package-names-list.txt
 
 # Source files that go into the Debian Policy manual.
-POLICY_SOURCE := $(wildcard policy/*.rst) policy/index.rst
+POLICY_SOURCE := $(wildcard policy/*.rst) policy/conf.py policy/index.rst
 
 # Used by the clean rules.  FILES_TO_CLEAN are individual generated files to
 # remove.  DIRS_TO_CLEAN are entire directories to remove.
@@ -139,7 +139,7 @@ install:
 # publication date.
 #
 
-policy/index.rst: policy/index.rst.in debian/changelog
+policy/conf.py policy/index.rst: %: %.in debian/changelog
 	sed -e 's/@VERSION@/$(VERSION)/' -e 's/@DATE@/$(DATE)/' $< > $@
 
 version.md: debian/changelog

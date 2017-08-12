@@ -17,6 +17,7 @@
 /perl-policy.html/
 /perl-policy.txt
 /policy/_build/
+/policy/conf.py
 /policy/images/*.png
 /policy/images/*.svg
 /policy/index.rst
