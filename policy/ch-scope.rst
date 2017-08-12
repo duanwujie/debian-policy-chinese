@@ -67,7 +67,7 @@ available from the same directory are several other formats:
 `policy.pdf.gz
 <https://www.debian.org/doc/debian-policy/policy.pdf.gz>`_.  Included
 in both the same directory and in the debian-policy package is a
-standalone copy of :ref:`upgrading-checklist`, which indicates policy
+standalone copy of :doc:`upgrading-checklist`, which indicates policy
 changes between versions of this document.
 
 .. _s-authors:

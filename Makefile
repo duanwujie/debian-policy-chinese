@@ -28,6 +28,7 @@ prefix      = /usr
 datarootdir = $(prefix)/share
 datadir     = $(datarootdir)
 docdir      = $(datadir)/doc/$(PACKAGE)
+infodir     = $(datarootdir)/info
 
 # Installation programs to use.
 INSTALL = install -p -o root -g root -m 644
@@ -88,6 +89,9 @@ POLICY_FILES := $(MDWN_FILES:=.html)				\
 		policy.html.tar.gz				\
 		virtual-package-names-list.txt
 
+# A list of generated info files to install.
+INFO_FILES := policy/_build/texinfo/policy.info
+
 # Source files that go into the Debian Policy manual.
 POLICY_SOURCE := $(wildcard policy/*.rst) policy/conf.py policy/index.rst
 
@@ -115,13 +119,13 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 #
 
 all: $(XML_FILES:=.validate) $(XML_SINGLE_FILES:=.validate) \
-     $(XML_FILES:=.html.tar.gz) $(POLICY_FILES)
+     $(XML_FILES:=.html.tar.gz) $(POLICY_FILES) $(INFO_FILES)
 
 clean distclean:
 	rm -f $(FILES_TO_CLEAN)
 	rm -rf $(DIRS_TO_CLEAN)
 
-install:
+install: all
 	$(MKDIR) $(DESTDIR)$(docdir)
 	$(MKDIR) $(DESTDIR)$(docdir)/fhs
 	$(INSTALL) $(POLICY_FILES) $(DESTDIR)$(docdir)
@@ -129,6 +133,8 @@ install:
 	@set -ex; for file in $(XML_FILES); do		\
 	    tar -C $(DESTDIR)$(docdir) -zxf $$file.html.tar.gz;	\
 	done
+	$(MKDIR) $(DESTDIR)$(infodir)
+	$(INSTALL) $(INFO_FILES) $(DESTDIR)$(infodir)
 
 .PHONY: all clean distclean install
 
@@ -190,6 +196,9 @@ policy/_build/policy.txt: $(POLICY_SOURCE)
 		printf "\n\n\n"                  >>$@;			 \
 		cat policy/_build/text/"$$f".txt >>$@;			 \
 	    done
+
+policy/_build/texinfo/policy.info: $(POLICY_SOURCE)
+	$(SPHINX) -M info policy policy/_build
 
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
 	cat $^ > $@
