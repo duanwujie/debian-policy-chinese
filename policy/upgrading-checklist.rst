@@ -1750,10 +1750,9 @@ Released March, 1997.
 
 -  "Standard for Console Messages"
 
--  Libraries should be compiled with \`-D\_REENTRANT'
+-  Libraries should be compiled with ``-D_REENTRANT``
 
--  Libraries should be stripped with ``strip
-             --strip-unneeded``
+-  Libraries should be stripped with ``strip --strip-unneeded``
 
 Version 2.1.2
 -------------
