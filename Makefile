@@ -89,6 +89,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)		\
 		$(XML_SPLIT_FILES:=.txt)	\
 		README.css			\
 		policy/_build/latex/policy.pdf	\
+		policy/_build/policy.txt	\
 		policy.html.tar.gz		\
 		virtual-package-names-list.txt
 
@@ -183,6 +184,17 @@ policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 
 policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M latexpdf policy policy/_build
+
+policy/_build/policy.txt: $(POLICY_SOURCE)
+	rm -f $@
+	$(SPHINX) -M text policy policy/_build
+	cp policy/_build/text/index.txt $@
+	set -e;								 \
+	    files=$$(egrep '^   (ch-|ap-|upgrading-)' policy/index.rst); \
+	    for f in $$files; do					 \
+		printf "\n\n\n"                  >>$@;			 \
+		cat policy/_build/text/"$$f".txt >>$@;			 \
+	    done
 
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
 	cat $^ > $@
