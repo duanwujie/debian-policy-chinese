@@ -707,21 +707,26 @@ The value of this field is usually extracted from the
 ``Format``
 ~~~~~~~~~~
 
-In :ref:```.changes`` <s-debianchangesfiles>` files, this field declares
-the format version of that file. The syntax of the field value is the
-same as that of a :ref:`package version number <s-f-Version>` except that
-no epoch or Debian revision is allowed. The format described in this
-document is ````.
+In |changes link|_ files, this field declares the format version of
+that file. The syntax of the field value is the same as that of a
+:ref:`package version number <s-f-Version>` except that no epoch or
+Debian revision is allowed. The format described in this document is
+````.
 
-In :ref:```.dsc`` Debian source control <s-debiansourcecontrolfiles>`
-files, this field declares the format of the source package. The field
-value is used by programs acting on a source package to interpret the
-list of files in the source package and determine how to unpack it. The
-syntax of the field value is a numeric major revision, a period, a
-numeric minor revision, and then an optional subtype after whitespace,
-which if specified is an alphanumeric word in parentheses. The subtype
-is optional in the syntax but may be mandatory for particular source
-format revisions.  [#]_
+In |dsc link|_ files, this field declares the format of the source
+package. The field value is used by programs acting on a source
+package to interpret the list of files in the source package and
+determine how to unpack it. The syntax of the field value is a numeric
+major revision, a period, a numeric minor revision, and then an
+optional subtype after whitespace, which if specified is an
+alphanumeric word in parentheses. The subtype is optional in the
+syntax but may be mandatory for particular source format revisions.
+[#]_
+
+.. |changes link| replace:: ``.changes``
+.. _changes link: #s-debianchangesfiles
+.. |dsc link| replace:: ``.dsc`` Debian source control
+.. _dsc link: #s-debiansourcecontrolfiles
 
 .. _s-f-Urgency:
 
