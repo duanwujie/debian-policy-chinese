@@ -320,7 +320,7 @@ compiled libraries or binaries. For example, you could use the ``-T``
 option to the ``dpkg`` utilities to specify a different ``substvars``
 file for each binary package.  [70]_
 
-For more details on ``dpkg-shlibdeps``, see dpkg-shlibdeps1.
+For more details on ``dpkg-shlibdeps``, see its manual page.
 
 We say that a binary ``foo`` *directly* uses a library ``libbar`` if it
 is explicitly linked with that library (that is, the library is listed
