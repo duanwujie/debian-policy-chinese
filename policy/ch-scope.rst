@@ -141,8 +141,8 @@ The Developer's Reference is available in the developers-reference
 package. It's also available from the Debian web mirrors at
 https://www.debian.org/doc/developers-reference/.
 
-Finally, a `specification for machine-readable copyright
-files <#s-copyrightformat>`_ is maintained as part of the debian-policy
+Finally, a :ref:`specification for machine-readable copyright files
+<s-copyrightformat>` is maintained as part of the debian-policy
 package using the same procedure as the other policy documents. Use of
 this format is optional.
 
