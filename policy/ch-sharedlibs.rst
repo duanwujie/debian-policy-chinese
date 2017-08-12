@@ -471,7 +471,7 @@ it will override any ``symbols`` files. This is the only case where a
 :ref:`s-shlibs-paths` and
 :ref:`s-sharedlibs-shlibdeps` for more information.
 
-.. \_s-symbols:
+.. _s-symbols:
 
 The ``symbols`` File Format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
