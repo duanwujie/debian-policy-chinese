@@ -24,7 +24,7 @@ Manual proper, and removed from the appendices. Links have been placed
 from the old locations to the new ones.
 
 ``dpkg`` is a suite of programs for creating binary package files and
-installing and removing them on Unix systems.  [119]_
+installing and removing them on Unix systems.  [#]_
 
 The binary packages are designed for the management of installed
 executable programs (usually compiled binaries) and their associated

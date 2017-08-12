@@ -95,10 +95,7 @@ should not, change if new interfaces are added but none are removed or
 changed, since this will not break binaries linked against the old
 shared library. Correct versioning of dependencies on the newer shared
 library by binaries that use the new interfaces is handled via the
-|symbols link|_.
-
-.. |symbols link| replace:: ``symbols`` or ``shlibs`` system
-.. _symbols link: #s-sharedlibs-depends
+``symbols`` or ``shlibs`` system (see :ref:`s-sharedlibs-depends`).
 
 The package should install the shared libraries under their normal
 names. For example, the libgdbm3 package should install
@@ -118,7 +115,7 @@ example, the libgdbm3 package should include a symbolic link from
 ``/usr/lib/libgdbm.so.3`` to ``libgdbm.so.3.0.0``. This is needed so
 that the dynamic linker (for example ``ld.so`` or ``ld-linux.so.*``) can
 find the library between the time that ``dpkg`` installs it and the time
-that ``ldconfig`` is run in the ``postinst`` script.  [61]_
+that ``ldconfig`` is run in the ``postinst`` script.  [#]_
 
 .. _s-ldconfig:
 
@@ -296,7 +293,7 @@ compiled binary to determine the libraries used and hence the
 dependencies needed by the package. [#]_ To do this, put a call to
 ``dpkg-shlibdeps`` into your ``debian/rules`` file in the source
 package. List all of the compiled binaries, libraries, or loadable
-modules in your package.  [68]_ ``dpkg-shlibdeps`` will use the
+modules in your package.  [#]_ ``dpkg-shlibdeps`` will use the
 ``symbols`` or ``shlibs`` files installed by the shared libraries to
 generate dependency information. The package must then provide a
 substitution variable into which the discovered dependency information
@@ -304,7 +301,7 @@ can be placed.
 
 If you are creating a udeb for use in the Debian Installer, you will
 need to specify that ``dpkg-shlibdeps`` should use the dependency line
-of type ``udeb`` by adding the ``-tudeb`` option.  [69]_ If there is no
+of type ``udeb`` by adding the ``-tudeb`` option.  [#]_ If there is no
 dependency line of type ``udeb`` in the ``shlibs`` file,
 ``dpkg-shlibdeps`` will fall back to the regular dependency line.
 
@@ -317,7 +314,7 @@ libraries, or loadable modules. If you have multiple binary packages,
 you will need to call ``dpkg-shlibdeps`` on each one which contains
 compiled libraries or binaries. For example, you could use the ``-T``
 option to the ``dpkg`` utilities to specify a different ``substvars``
-file for each binary package.  [70]_
+file for each binary package.  [#]_
 
 For more details on ``dpkg-shlibdeps``, see its manual page.
 
@@ -436,14 +433,14 @@ The ``symbols`` files present on the system
 shared library package as a control file, but there are several override
 paths that are checked first in case that information is wrong or
 missing. The following list gives them in the order in which they are
-read by ``dpkg-shlibdeps`` The first one that contains the required
+read by ``dpkg-shlibdeps``. The first one that contains the required
 information is used.
 
-``debian/*/DEBIAN/symbols`` During the package build, if the package
-    itself contains shared libraries with ``symbols`` files, they will
-    be generated in these staging directories by ``dpkg-gensymbols``
-    (see `Providing a symbols file
-    <#s-providing-symbols>`__). ``symbols`` files found in the build
+``debian/*/DEBIAN/symbols``
+    During the package build, if the package itself contains shared
+    libraries with ``symbols`` files, they will be generated in these
+    staging directories by ``dpkg-gensymbols`` (see `Providing a symbols
+    file <#s-providing-symbols>`__). ``symbols`` files found in the build
     tree take precedence over ``symbols`` files from other binary
     packages.
 
@@ -786,8 +783,8 @@ called on any of the binary packages.
 
 .. [#]
    A ``shlibs`` file represents an SONAME as a library name and version
-   number, such as ``libfoo VERSION``, instead of recording the actual SONAME. If the
-   SONAME doesn't match one of the two expected formats
+   number, such as ``libfoo VERSION``, instead of recording the actual
+   SONAME. If the SONAME doesn't match one of the two expected formats
    (``libfoo-VERSION.so`` or ``libfoo.so.VERSION``), it cannot be
    represented.
 

@@ -275,7 +275,8 @@ network access.
 
 The targets are as follows:
 
-``build`` (required)     The ``build`` target should perform all the configuration and
+``build`` (required)
+    The ``build`` target should perform all the configuration and
     compilation of the package. If a package has an interactive
     pre-build configuration routine, the Debian source package must
     either be built after this has taken place (so that the binary
@@ -304,9 +305,10 @@ The targets are as follows:
     ``build`` needs to run ``clean`` first, it is a good idea to
     ``touch build`` when the build process is complete. This will ensure
     that if ``debian/rules build`` is run again it will not rebuild the whole
-    program.  [24]_
+    program. [#]_
 
-``build-arch`` (required), ``build-indep`` (required)     The ``build-arch`` target must perform all the configuration and
+``build-arch`` (required), ``build-indep`` (required)
+    The ``build-arch`` target must perform all the configuration and
     compilation required for producing all architecture-dependent binary
     packages (those packages for which the body of the ``Architecture``
     field in ``debian/control`` is not ``all``). Similarly, the

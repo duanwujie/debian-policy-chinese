@@ -319,15 +319,15 @@ corresponding manual page.
 
 To be an ``x-terminal-emulator``, a program must:
 
--  Be able to emulate a DEC VT100 terminal, or a compatible terminal.
+- Be able to emulate a DEC VT100 terminal, or a compatible terminal.
 
--  Support the command-line option ``-e command``, which creates a new terminal window  [105]_
-   and runs the specified command, interpreting the entirety of the rest
-   of the command line as a command to pass straight to exec, in the
-   manner that ``xterm`` does.
+- Support the command-line option ``-e command``, which creates a new
+  terminal window [#]_ and runs the specified command, interpreting the
+  entirety of the rest of the command line as a command to pass straight
+  to exec, in the manner that ``xterm`` does.
 
--  Support the command-line option ``-T title``, which creates a new terminal window with the
-   window title title.
+- Support the command-line option ``-T title``, which creates a new
+  terminal window with the window title title.
 
 .. _s11.8.4:
 

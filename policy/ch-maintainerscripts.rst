@@ -106,8 +106,9 @@ old version of a package that is being upgraded from or downgraded from.
 
 The ``preinst`` script may be called in the following ways:
 
-``new-preinst`` install ``new-preinst`` install *old-version*
-``new-preinst`` upgrade *old-version*
+| ``new-preinst`` install ``new-preinst`` install *old-version*
+| ``new-preinst`` upgrade *old-version*
+
     The package will not yet be unpacked, so the ``preinst`` script
     cannot rely on any files included in its package. Only essential
     packages and pre-dependencies (``Pre-Depends``) may be assumed to be
@@ -182,7 +183,7 @@ The ``postrm`` script may be called in the following ways:
     dependencies. Therefore, all ``postrm`` actions may only rely on
     essential packages and must gracefully skip any actions that require
     the package's dependencies if those dependencies are unavailable.
-     [#]_
+    [#]_
 
 ``new-postrm`` failed-upgrade *old-version*
     Called when the old ``postrm upgrade`` action fails. The new package
