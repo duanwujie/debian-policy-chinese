@@ -50,15 +50,14 @@ FHS_FILES   := fhs-2.3.html fhs-2.3.ps.gz fhs-2.3.txt.gz fhs-2.3.pdf.gz
 # HTML versions from these.
 MDWN_FILES  := README autopkgtest
 
-# Dia diagrams in the dia/ subdirectory.
-DIA_FILES   := install.dia install-conffiles.dia upgrade.dia \
-               remove.dia purge.dia remove-purge.dia
+# Dia diagrams in the policy/images subdirectory.
+DIA_FILES   := $(wildcard policy/images/*.dia)
 
 # Dia diagrams converted to PNG in images/ subdirectory.
-DIA_PNGS    := $(addprefix images/, $(DIA_FILES:.dia=.png))
+DIA_PNGS    := $(DIA_FILES:.dia=.png)
 
-# Dia diagrams converted to PNG in images/ subdirectory.
-DIA_SVGS    := $(addprefix images/, $(DIA_FILES:.dia=.svg))
+# Dia diagrams converted to SVG in images/ subdirectory.
+DIA_SVGS    := $(DIA_FILES:.dia=.svg)
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
@@ -94,7 +93,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)		\
 		virtual-package-names-list.txt
 
 # Source files that go into the Debian Policy manual.
-POLICY_SOURCE := $(wildcard policy/*.rst)
+POLICY_SOURCE := $(wildcard policy/*.rst) policy/index.rst
 
 # Used by the clean rules.  FILES_TO_CLEAN are individual generated files to
 # remove.  DIRS_TO_CLEAN are entire directories to remove.
@@ -111,7 +110,8 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SPLIT_FILES:=-1.html)		\
 		  $(XML_SPLIT_FILES:=.txt)		\
 		  $(DIA_PNGS)				\
-		  $(DIA_SVGS)				\
+		  policy/index.rst			\
+		  policy.html.tar.gz			\
 		  version.md version.xml
 
 
@@ -145,6 +145,9 @@ install:
 # publication date.
 #
 
+policy/index.rst: policy/index.rst.in debian/changelog
+	sed -e 's/@VERSION@/$(VERSION)/' -e 's/@DATE@/$(DATE)/' $< > $@
+
 version.md: debian/changelog
 	rm -f $@
 	echo					 > $@
@@ -167,21 +170,18 @@ debconf_specification.html: $(DEBCONF_INCLUDES)
 debconf_specification.txt: $(DEBCONF_INCLUDES)
 debconf_specification.validate: $(DEBCONF_INCLUDES)
 policy-1.html: upgrading-checklist.xml
-policy.html/index.html: upgrading-checklist.xml
-policy.pdf: upgrading-checklist.xml
-policy.ps: upgrading-checklist.xml
 policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
 
-policy.html.tar.gz: policy/_build/html/index.html
+policy.html.tar.gz: policy/_build/html/index.html $(DIA_PNGS)
 	tar -czf policy.html.tar.gz				\
 	    --transform='s%policy/_build/html%policy.html%'	\
 	    policy/_build/html
 
-policy/_build/html/index.html: $(POLICY_SOURCE) $(PNG_FILES)
+policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M html policy policy/_build
 
-policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(PNG_FILES)
+policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M latexpdf policy policy/_build
 
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
@@ -192,12 +192,10 @@ $(MDWN_FILES:=.txt): %.txt: %.md version.md
 $(MDWN_FILES:=.html): %.html: %.md version.md
 	cat $^ | $(MDWN) > $@
 
-$(DIA_PNGS): images/%.png: dia/%.dia
-	mkdir -p images
+$(DIA_PNGS): policy/images/%.png: policy/images/%.dia
 	$(DIA) -e $@ $^
 
-$(DIA_SVGS): images/%.svg: dia/%.dia
-	mkdir -p images
+$(DIA_SVGS): policy/images/%.svg: policy/images/%.dia
 	$(DIA) -e $@ $^
 
 # Suppress the table of contents for the standalone upgrading checklist.
@@ -208,12 +206,11 @@ upgrading-checklist.txt: XSLPARAMS = --stringparam generate.toc ''
 	$(XMLLINT) $<
 	touch $@
 
-%.html/index.html: %.xml xsl/html-chunk.xsl version.xml $(DIA_PNGS)
+%.html/index.html: %.xml xsl/html-chunk.xsl version.xml
 	mkdir -p $(@D)/images
 	$(XSLTPROC) $(XSLPARAMS)		\
 	    --stringparam base.dir $(@D)/	\
 	    xsl/html-chunk.xsl $<
-	cp $(DIA_PNGS) $(@D)/images
 
 $(XML_SINGLE_FILES:=.html): %.html: %.xml xsl/html-single.xsl version.xml
 	$(XSLTPROC) $(XSLPARAMS) xsl/html-single.xsl $< > $@
@@ -229,12 +226,6 @@ $(XML_FILES:=.txt) $(XML_SINGLE_FILES:=.txt) $(XML_SPLIT_FILES:=.txt): \
 	$(XSLTPROC) $(XSLPARAMS) xsl/text.xsl $< > $@.html
 	links -codepage utf-8 -dump $@.html | perl -pe 's/[\r\0]//g' > $@
 	rm -f $@.html
-
-%.ps: %.xml version.xml $(DIA_SVGS)
-	$(DBLATEX) --ps $<
-
-%.pdf: %.xml version.xml $(DIA_SVGS)
-	$(DBLATEX) --pdf $<
 
 
 #
