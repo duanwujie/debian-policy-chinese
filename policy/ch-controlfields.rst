@@ -110,47 +110,47 @@ automatically-generated debug packages that do not require one.
 The fields in the general paragraph (the first one, for the source
 package) are:
 
--  :ref:```Source`` <s-f-Source>` (mandatory)
+-  :ref:`Source <s-f-Source>` (mandatory)
 
--  :ref:```Maintainer`` <s-f-Maintainer>` (mandatory)
+-  :ref:`Maintainer <s-f-Maintainer>` (mandatory)
 
--  :ref:```Uploaders`` <s-f-Uploaders>`
+-  :ref:`Uploaders <s-f-Uploaders>`
 
--  :ref:```Section`` <s-f-Section>` (recommended)
+-  :ref:`Section <s-f-Section>` (recommended)
 
--  :ref:```Priority`` <s-f-Priority>` (recommended)
+-  :ref:`Priority <s-f-Priority>` (recommended)
 
--  :ref:```Build-Depends`` et al <s-sourcebinarydeps>`
+-  :ref:`Build-Depends et al <s-sourcebinarydeps>`
 
--  :ref:```Standards-Version`` <s-f-Standards-Version>` (recommended)
+-  :ref:`Standards-Version <s-f-Standards-Version>` (recommended)
 
--  :ref:```Homepage`` <s-f-Homepage>`
+-  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:```Vcs-Browser``, ``Vcs-Git``, et al. <s-f-VCS-fields>`
+-  :ref:`Vcs-Browser, ``Vcs-Git``, et al. <s-f-VCS-fields>`
 
--  :ref:```Testsuite`` <s-f-Testsuite>`
+-  :ref:`Testsuite <s-f-Testsuite>`
 
 The fields in the binary package paragraphs are:
 
--  :ref:```Package`` <s-f-Package>` (mandatory)
+-  :ref:`Package <s-f-Package>` (mandatory)
 
--  :ref:```Architecture`` <s-f-Architecture>` (mandatory)
+-  :ref:`Architecture <s-f-Architecture>` (mandatory)
 
--  :ref:```Section`` <s-f-Section>` (recommended)
+-  :ref:`Section <s-f-Section>` (recommended)
 
--  :ref:```Priority`` <s-f-Priority>` (recommended)
+-  :ref:`Priority <s-f-Priority>` (recommended)
 
--  :ref:```Essential`` <s-f-Essential>`
+-  :ref:`Essential <s-f-Essential>`
 
--  :ref:```Depends`` et al <s-binarydeps>`
+-  :ref:`Depends et al <s-binarydeps>`
 
--  :ref:```Description`` <s-f-Description>` (mandatory)
+-  :ref:`Description <s-f-Description>` (mandatory)
 
--  :ref:```Homepage`` <s-f-Homepage>`
+-  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:```Built-Using`` <s-built-using>`
+-  :ref:`Built-Using <s-built-using>`
 
--  :ref:```Package-Type`` <s-f-Package-Type>`
+-  :ref:`Package-Type <s-f-Package-Type>`
 
 The syntax and semantics of the fields are described below.
 
@@ -180,31 +180,31 @@ single paragraph.
 
 The fields in this file are:
 
--  :ref:```Package`` <s-f-Package>` (mandatory)
+-  :ref:`Package <s-f-Package>` (mandatory)
 
--  :ref:```Source`` <s-f-Source>`
+-  :ref:`Source <s-f-Source>`
 
--  :ref:```Version`` <s-f-Version>` (mandatory)
+-  :ref:`Version <s-f-Version>` (mandatory)
 
--  :ref:```Section`` <s-f-Section>` (recommended)
+-  :ref:`Section <s-f-Section>` (recommended)
 
--  :ref:```Priority`` <s-f-Priority>` (recommended)
+-  :ref:`Priority <s-f-Priority>` (recommended)
 
--  :ref:```Architecture`` <s-f-Architecture>` (mandatory)
+-  :ref:`Architecture <s-f-Architecture>` (mandatory)
 
--  :ref:```Essential`` <s-f-Essential>`
+-  :ref:`Essential <s-f-Essential>`
 
--  :ref:```Depends`` et al <s-binarydeps>`
+-  :ref:`Depends et al <s-binarydeps>`
 
--  :ref:```Installed-Size`` <s-f-Installed-Size>`
+-  :ref:`Installed-Size <s-f-Installed-Size>`
 
--  :ref:```Maintainer`` <s-f-Maintainer>` (mandatory)
+-  :ref:`Maintainer <s-f-Maintainer>` (mandatory)
 
--  :ref:```Description`` <s-f-Description>` (mandatory)
+-  :ref:`Description <s-f-Description>` (mandatory)
 
--  :ref:```Homepage`` <s-f-Homepage>`
+-  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:```Built-Using`` <s-built-using>`
+-  :ref:`Built-Using <s-built-using>`
 
 .. _s-debiansourcecontrolfiles:
 
@@ -215,38 +215,38 @@ This file consists of a single paragraph, possibly surrounded by a PGP
 signature. The fields of that paragraph are listed below. Their syntax
 is described above, in :ref:`s-controlsyntax`.
 
--  :ref:```Format`` <s-f-Format>` (mandatory)
+-  :ref:`Format <s-f-Format>` (mandatory)
 
--  :ref:```Source`` <s-f-Source>` (mandatory)
+-  :ref:`Source <s-f-Source>` (mandatory)
 
--  :ref:```Binary`` <s-f-Binary>`
+-  :ref:`Binary <s-f-Binary>`
 
--  :ref:```Architecture`` <s-f-Architecture>`
+-  :ref:`Architecture <s-f-Architecture>`
 
--  :ref:```Version`` <s-f-Version>` (mandatory)
+-  :ref:`Version <s-f-Version>` (mandatory)
 
--  :ref:```Maintainer`` <s-f-Maintainer>` (mandatory)
+-  :ref:`Maintainer <s-f-Maintainer>` (mandatory)
 
--  :ref:```Uploaders`` <s-f-Uploaders>`
+-  :ref:`Uploaders <s-f-Uploaders>`
 
--  :ref:```Homepage`` <s-f-Homepage>`
+-  :ref:`Homepage <s-f-Homepage>`
 
--  :ref:```Vcs-Browser``, ``Vcs-Git``, et al. <s-f-VCS-fields>`
+-  :ref:`Vcs-Browser, Vcs-Git, et al. <s-f-VCS-fields>`
 
--  :ref:```Testsuite`` <s-f-Testsuite>`
+-  :ref:`Testsuite <s-f-Testsuite>`
 
--  :ref:```Dgit`` <s-f-Dgit>`
+-  :ref:`Dgit <s-f-Dgit>`
 
--  :ref:```Standards-Version`` <s-f-Standards-Version>` (recommended)
+-  :ref:`Standards-Version <s-f-Standards-Version>` (recommended)
 
--  :ref:```Build-Depends`` et al <s-sourcebinarydeps>`
+-  :ref:`Build-Depends et al <s-sourcebinarydeps>`
 
--  :ref:```Package-List`` <s-f-Package-List>` (recommended)
+-  :ref:`Package-List <s-f-Package-List>` (recommended)
 
--  :ref:```Checksums-Sha1`` and ``Checksums-Sha256`` <s-f-Checksums>`
+-  :ref:`Checksums-Sha1 and Checksums-Sha256 <s-f-Checksums>`
    (mandatory)
 
--  :ref:```Files`` <s-f-Files>` (mandatory)
+-  :ref:`Files <s-f-Files>` (mandatory)
 
 The Debian source control file is generated by ``dpkg-source`` when it
 builds the source archive, from other files in the source package,
@@ -271,36 +271,36 @@ format CHANGESVERSION.
 
 The fields in this file are:
 
--  :ref:```Format`` <s-f-Format>` (mandatory)
+-  :ref:`Format <s-f-Format>` (mandatory)
 
--  :ref:```Date`` <s-f-Date>` (mandatory)
+-  :ref:`Date <s-f-Date>` (mandatory)
 
--  :ref:```Source`` <s-f-Source>` (mandatory)
+-  :ref:`Source <s-f-Source>` (mandatory)
 
--  :ref:```Binary`` <s-f-Binary>` (mandatory)
+-  :ref:`Binary <s-f-Binary>` (mandatory)
 
--  :ref:```Architecture`` <s-f-Architecture>` (mandatory)
+-  :ref:`Architecture <s-f-Architecture>` (mandatory)
 
--  :ref:```Version`` <s-f-Version>` (mandatory)
+-  :ref:`Version <s-f-Version>` (mandatory)
 
--  :ref:```Distribution`` <s-f-Distribution>` (mandatory)
+-  :ref:`Distribution <s-f-Distribution>` (mandatory)
 
--  :ref:```Urgency`` <s-f-Urgency>` (recommended)
+-  :ref:`Urgency <s-f-Urgency>` (recommended)
 
--  :ref:```Maintainer`` <s-f-Maintainer>` (mandatory)
+-  :ref:`Maintainer <s-f-Maintainer>` (mandatory)
 
--  :ref:```Changed-By`` <s-f-Changed-By>`
+-  :ref:`Changed-By <s-f-Changed-By>`
 
--  :ref:```Description`` <s-f-Description>` (mandatory)
+-  :ref:`Description <s-f-Description>` (mandatory)
 
--  :ref:```Closes`` <s-f-Closes>`
+-  :ref:`Closes <s-f-Closes>`
 
--  :ref:```Changes`` <s-f-Changes>` (mandatory)
+-  :ref:`Changes <s-f-Changes>` (mandatory)
 
--  :ref:```Checksums-Sha1`` and ``Checksums-Sha256`` <s-f-Checksums>`
+-  :ref:`Checksums-Sha1 and Checksums-Sha256 <s-f-Checksums>`
    (mandatory)
 
--  :ref:```Files`` <s-f-Files>` (mandatory)
+-  :ref:`Files <s-f-Files>` (mandatory)
 
 .. _s-controlfieldslist:
 
