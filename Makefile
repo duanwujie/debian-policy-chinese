@@ -110,6 +110,7 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SPLIT_FILES:=-1.html)		\
 		  $(XML_SPLIT_FILES:=.txt)		\
 		  $(DIA_PNGS)				\
+		  policy.html.tar.gz			\
 		  version.md version.xml
 
 
