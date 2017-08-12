@@ -305,7 +305,7 @@ Introduction
 
 The ``/etc/init.d`` directory contains the scripts executed by ``init``
 at boot time and when the init state (or "runlevel") is changed (see
-init8).
+``init(8)``).
 
 There are at least two different, yet functionally equivalent, ways of
 handling these scripts. For the sake of simplicity, this document
