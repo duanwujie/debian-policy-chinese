@@ -15,10 +15,11 @@ VERSION   := $(shell dpkg-parsechangelog -SVersion)
 # Conversion programs to use.  Export these so that they're visible to
 # submakes.
 export DBLATEX  = dblatex -p xsl/dblatex.xsl
+export DIA      = dia
 export MDWN     = multimarkdown
+export SPHINX   = sphinx-build
 export XMLLINT  = xmllint --nonet --noout --postvalid --xinclude
 export XSLTPROC = xsltproc --nonet --xinclude
-export DIA      = dia
 
 # Installation directories.  Normally this is only used by debian/rules
 # build, which will set DESTDIR to put the installation under the temporary
@@ -61,7 +62,7 @@ DIA_SVGS    := $(addprefix images/, $(DIA_FILES:.dia=.svg))
 
 # DocBook source files in the top-level directory.  We do some common actions
 # with each of these: build text, HTML, and one-page HTML output.
-XML_FILES   := menu-policy perl-policy policy
+XML_FILES   := menu-policy perl-policy
 
 # DocBook source files in the top-level directory that should only generate
 # single-page HTML output (no split HTML output).
@@ -88,12 +89,16 @@ POLICY_FILES := $(MDWN_FILES:=.html)		\
 		$(XML_SPLIT_FILES:=-1.html)	\
 		$(XML_SPLIT_FILES:=.txt)	\
 		README.css			\
-		policy.ps policy.pdf		\
+		policy/_build/latex/policy.pdf	\
+		policy.html.tar.gz		\
 		virtual-package-names-list.txt
+
+# Source files that go into the Debian Policy manual.
+POLICY_SOURCE := $(wildcard policy/*.rst)
 
 # Used by the clean rules.  FILES_TO_CLEAN are individual generated files to
 # remove.  DIRS_TO_CLEAN are entire directories to remove.
-DIRS_TO_CLEAN  := $(XML_FILES:=.html) fhs
+DIRS_TO_CLEAN  := $(XML_FILES:=.html) policy/_build fhs
 FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(MDWN_FILES:=.txt)			\
 		  $(XML_FILES:=.html.tar.gz)		\
@@ -107,8 +112,7 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SPLIT_FILES:=.txt)		\
 		  $(DIA_PNGS)				\
 		  $(DIA_SVGS)				\
-		  version.md version.xml		\
-		  policy.pdf policy.ps
+		  version.md version.xml
 
 
 #
@@ -169,7 +173,16 @@ policy.ps: upgrading-checklist.xml
 policy.txt: upgrading-checklist.xml
 policy.validate: upgrading-checklist.xml
 
-policy.html/index.html: $(PNG_FILES)
+policy.html.tar.gz: policy/_build/html/index.html
+	tar -czf policy.html.tar.gz				\
+	    --transform='s%policy/_build/html%policy.html%'	\
+	    policy/_build/html
+
+policy/_build/html/index.html: $(POLICY_SOURCE) $(PNG_FILES)
+	$(SPHINX) -M html policy policy/_build
+
+policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(PNG_FILES)
+	$(SPHINX) -M latexpdf policy policy/_build
 
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
 	cat $^ > $@
