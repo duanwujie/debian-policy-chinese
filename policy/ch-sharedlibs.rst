@@ -201,11 +201,10 @@ must result in installation of all the development files necessary for
 compiling programs against that shared library.  [#]_
 
 In case several development versions of a library exist, you may need to
-use ``dpkg``'s Conflicts mechanism (see
-`section\_title <#s-conflicts>`__) to ensure that the user only installs
-one development version at a time (as different development versions are
-likely to have the same header files in them, which would cause a
-filename clash if both were unpacked).
+use ``dpkg``'s Conflicts mechanism (see :ref:`s-conflicts`) to ensure that
+the user only installs one development version at a time (as different
+development versions are likely to have the same header files in them,
+which would cause a filename clash if both were unpacked).
 
 The development package should contain a symlink for the associated
 shared library without a version number. For example, the libgdbm-dev
