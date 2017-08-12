@@ -124,11 +124,11 @@ that ``ldconfig`` is run in the ``postinst`` script.  [#]_
 
 Any package installing shared libraries in one of the default library
 directories of the dynamic linker (which are currently ``/usr/lib`` and
-``/lib``) or a directory that is listed in ``/etc/ld.so.conf``  [#]_
+``/lib``) or a directory that is listed in ``/etc/ld.so.conf`` [#]_
 must use ``ldconfig`` to update the shared library system.
 
 Any such package must have the line ``activate-noawait ldconfig`` in its
-``triggers`` control file (i.e. ``DEBIAN/triggers``
+``triggers`` control file (i.e. ``DEBIAN/triggers``).
 
 .. _s-sharedlibs-support-files:
 
