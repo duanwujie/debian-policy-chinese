@@ -936,14 +936,24 @@ repository where the Debian source package is developed.
 ``Vcs-Browser``
     URL of a web interface for browsing the repository.
 
-``Vcs-Arch``, ``Vcs-Bzr`` (Bazaar), ``Vcs-Cvs``, ``Vcs-Darcs``,
-``Vcs-Git``, ``Vcs-Hg`` (Mercurial), ``Vcs-Mtn`` (Monotone), ``Vcs-Svn``
-(Subversion)
-    The field name identifies the VCS. The field's value uses the
-    version control system's conventional syntax for describing
-    repository locations and should be sufficient to locate the
-    repository used for packaging. Ideally, it also locates the branch
-    used for development of new versions of the Debian package.
+``Vcs-<type>``
+    The field name identifies the VCS. The field's value uses the version
+    control system's conventional syntax for describing repository
+    locations and should be sufficient to locate the repository used for
+    packaging. Ideally, it also locates the branch used for development of
+    new versions of the Debian package.
+
+    The following values for <type> are supported, with the corresponding
+    VCS indicated in parentheses if it isn't obvious:
+
+    - Arch
+    - Bzr (Bazaar)
+    - Cvs (CVS)
+    - Darcs
+    - Git
+    - Hg (Mercurial)
+    - Mtn (Monotone)
+    - Svn (Subversion)
 
     In the case of Git, the value consists of a URL, optionally followed
     by the word ``-b`` and the name of a branch in the indicated
