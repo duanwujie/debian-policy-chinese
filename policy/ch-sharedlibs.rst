@@ -503,17 +503,18 @@ which (at the time of writing) installs the shared library
 ``/usr/lib/libz.so.1.2.3.4``. Mandatory lines will be described first,
 followed by optional lines.
 
-library-soname must contain exactly the value of the ELF ``SONAME``
+``library-soname`` must contain exactly the value of the ELF ``SONAME``
 attribute of the shared library. In our example, this is ``libz.so.1``.
 [#]_
 
-main-dependency-template has the same syntax as a dependency field in a
-binary package control file, except that the string ``#MINVER#`` is
-replaced by a version restriction like ``(>= version)`` or by nothing if an unversioned dependency is
-deemed sufficient. The version restriction will be based on which
-symbols from the shared library are referenced and the version at which
-they were introduced (see below). In nearly all cases,
-main-dependency-template will be ``package #MINVER#``, where package is the name of the binary package
+``main-dependency-template`` has the same syntax as a dependency field
+in a binary package control file, except that the string ``#MINVER#``
+is replaced by a version restriction like ``(>= version)`` or by
+nothing if an unversioned dependency is deemed sufficient. The version
+restriction will be based on which symbols from the shared library are
+referenced and the version at which they were introduced (see
+below). In nearly all cases, ``main-dependency-template`` will be
+``package #MINVER#``, where package is the name of the binary package
 containing the shared library. This adds a simple, possibly-versioned
 dependency on the shared library package. In some rare cases, such as
 when multiple packages provide the same shared library ABI, the
@@ -527,15 +528,16 @@ be:
     libz.so.1 zlib1g #MINVER#
 
 Each public symbol exported by the shared library must have a
-corresponding symbol line, indented by one space. symbol is the exported
-symbol (which, for C++, means the mangled symbol) followed by ``@`` and
-the symbol version, or the string ``Base`` if there is no symbol
-version. minimal-version is the most recent version of the shared
-library that changed the behavior of that symbol, whether by adding it,
-changing its function signature (the parameters, their types, or the
-return type), or changing its behavior in a way that is visible to a
-caller. id-of-dependency-template is an optional field that references
-an alternative-dependency-template; see below for a full description.
+corresponding symbol line, indented by one space. symbol is the
+exported symbol (which, for C++, means the mangled symbol) followed by
+``@`` and the symbol version, or the string ``Base`` if there is no
+symbol version. ``minimal-version`` is the most recent version of the
+shared library that changed the behavior of that symbol, whether by
+adding it, changing its function signature (the parameters, their
+types, or the return type), or changing its behavior in a way that is
+visible to a caller. ``id-of-dependency-template`` is an optional
+field that references an ``alternative-dependency-template``; see
+below for a full description.
 
 For example, ``libz.so.1`` contains the symbols ``compress`` and
 ``compressBound``. ``compress`` has no symbol version and last changed
@@ -553,12 +555,13 @@ Packages using only ``compress`` would then get a dependency on
 ``zlib1g (>= 1:1.1.4)``, but packages using ``compressBound`` would get
 a dependency on ``zlib1g (>= 1:1.2.0)``.
 
-One or more alternative-dependency-template lines may be provided. These
-are used in cases where some symbols in the shared library should use
-one dependency template while others should use a different template.
-The alternative dependency templates are used only if a symbol line
-contains the id-of-dependency-template field. The first alternative
-dependency template is numbered 1, the second 2, and so forth.  [#]_
+One or more ``alternative-dependency-template`` lines may be
+provided. These are used in cases where some symbols in the shared
+library should use one dependency template while others should use a
+different template.  The alternative dependency templates are used
+only if a symbol line contains the ``id-of-dependency-template``
+field. The first alternative dependency template is numbered 1, the
+second 2, and so forth.  [#]_
 
 Finally, the entry for the library may contain one or more metadata
 fields. Currently, the only supported field-name is
@@ -683,19 +686,19 @@ We will explain this by reference to the example of the ``zlib1g``
 package, which (at the time of writing) installs the shared library
 ``/usr/lib/libz.so.1.2.3.4``.
 
-type is an optional element that indicates the type of package for which
+``type`` is an optional element that indicates the type of package for which
 the line is valid. The only type currently in use is ``udeb``. The colon
 and space after the type are required.
 
-library-name is the name of the shared library, in this case ``libz``.
+``library-name`` is the name of the shared library, in this case ``libz``.
 (This must match the name part of the soname, see below.)
 
-soname-version is the version part of the ELF ``SONAME`` attribute of
+``soname-version`` is the version part of the ELF ``SONAME`` attribute of
 the library, determined the same way that the soversion component of the
 recommended shared library package name is determined. See
 :ref:`s-sharedlibs-runtime` for the details.
 
-dependencies has the same syntax as a dependency field in a binary
+``dependencies`` has the same syntax as a dependency field in a binary
 package control file. It should give details of which packages are
 required to satisfy a binary built against the version of the library
 contained in the package. See :ref:`s-depsyntax` for
