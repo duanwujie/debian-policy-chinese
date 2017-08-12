@@ -19,6 +19,7 @@
 /policy/_build/
 /policy/images/*.png
 /policy/images/*.svg
+/policy/index.rst
 /policy.html/
 /policy.txt
 /upgrading-checklist.txt

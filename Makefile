@@ -93,7 +93,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)		\
 		virtual-package-names-list.txt
 
 # Source files that go into the Debian Policy manual.
-POLICY_SOURCE := $(wildcard policy/*.rst)
+POLICY_SOURCE := $(wildcard policy/*.rst) policy/index.rst
 
 # Used by the clean rules.  FILES_TO_CLEAN are individual generated files to
 # remove.  DIRS_TO_CLEAN are entire directories to remove.
@@ -110,6 +110,7 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SPLIT_FILES:=-1.html)		\
 		  $(XML_SPLIT_FILES:=.txt)		\
 		  $(DIA_PNGS)				\
+		  policy/index.rst			\
 		  policy.html.tar.gz			\
 		  version.md version.xml
 
@@ -143,6 +144,9 @@ install:
 # debian-policy package into the various specifications as their version and
 # publication date.
 #
+
+policy/index.rst: policy/index.rst.in debian/changelog
+	sed -e 's/@VERSION@/$(VERSION)/' -e 's/@DATE@/$(DATE)/' $< > $@
 
 version.md: debian/changelog
 	rm -f $@
