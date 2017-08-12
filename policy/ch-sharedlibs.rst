@@ -95,7 +95,10 @@ should not, change if new interfaces are added but none are removed or
 changed, since this will not break binaries linked against the old
 shared library. Correct versioning of dependencies on the newer shared
 library by binaries that use the new interfaces is handled via the
-:ref:```symbols`` or ``shlibs`` system <s-sharedlibs-depends>`.
+|symbols link|_.
+
+.. |symbols link| replace:: ``symbols`` or ``shlibs`` system
+.. _symbols link: #s-sharedlibs-depends
 
 The package should install the shared libraries under their normal
 names. For example, the libgdbm3 package should install
