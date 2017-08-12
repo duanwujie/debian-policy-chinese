@@ -631,7 +631,7 @@ all of the following:
 1. Generate the fully patched source, in a form ready for editing, that
    would be built to create Debian packages. Doing this with a ``patch``
    target in ``debian/rules`` is recommended; see
-   `section\_title <#s-debianrules>`__.
+   `Main building script: debian/rules <#s-debianrules>`__.
 
 2. Modify the source and save those modifications so that they will be
    applied when building the package.
