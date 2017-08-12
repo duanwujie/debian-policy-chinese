@@ -558,3 +558,66 @@ directory ``/usr/games``. This also applies to games that use the X
 Window System. Manual pages for games (X and non-X games) should be
 installed in ``/usr/share/man/man6``.
 
+.. [#]
+   Internally, the package system normalizes the GNU triplets and the
+   Debian arches into Debian arch triplets (which are kind of inverted
+   GNU triplets), with the first component of the triplet representing
+   the libc and ABI in use, and then does matching against those
+   triplets. However, such triplets are an internal implementation
+   detail that should not be used by packages directly. The libc and ABI
+   portion is handled internally by the package system based on the os
+   and cpu.
+
+.. [#]
+   The Debian base system already provides an editor and a pager
+   program.
+
+.. [#]
+   If it is not possible to establish both locks, the system shouldn't
+   wait for the second lock to be established, but remove the first
+   lock, wait a (random) time, and start over locking again.
+
+.. [#]
+   There are two traditional permission schemes for mail spools: mode
+   600 with all mail delivery done by processes running as the
+   destination user, or mode 660 and owned by group mail with mail
+   delivery done by a process running as a system user in group mail.
+   Historically, Debian required mode 660 mail spools to enable the
+   latter model, but that model has become increasingly uncommon and the
+   principle of least privilege indicates that mail systems that use the
+   first model should use permissions of 600. If delivery to programs is
+   permitted, it's easier to keep the mail system secure if the delivery
+   agent runs as the destination user. Debian Policy therefore permits
+   either scheme.
+
+.. [#]
+   This implements current practice, and provides an actual policy for
+   usage of the ``xserver`` virtual package which appears in the virtual
+   packages list. In a nutshell, X servers that interface directly with
+   the display and input hardware or via another subsystem (e.g., GGI)
+   should provide ``xserver``. Things like ``Xvfb``, ``Xnest``, and
+   ``Xprt`` should not.
+
+.. [#]
+   "New terminal window" does not necessarily mean a new top-level X
+   window directly parented by the window manager; it could, if the
+   terminal emulator application were so coded, be a new "view" in a
+   multiple-document interface (MDI).
+
+.. [#]
+   For the purposes of Debian Policy, a "font for the X Window System"
+   is one which is accessed via X protocol requests. Fonts for the Linux
+   console, for PostScript renderer, or any other purpose, do not fit
+   this definition. Any tool which makes such fonts available to the X
+   Window System, however, must abide by this font policy.
+
+.. [#]
+   This is because the X server may retrieve fonts from the local file
+   system or over the network from an X font server; the Debian package
+   system is empowered to deal only with the local file system.
+
+.. [#]
+   Note that this mechanism is not the same as using app-defaults;
+   app-defaults are tied to the client binary on the local file system,
+   whereas X resources are stored in the X server and affect all
+   connecting clients.

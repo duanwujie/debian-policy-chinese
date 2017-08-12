@@ -973,3 +973,31 @@ Event-based boot with upstart
 The ``upstart`` event-based boot system is no longer maintained in
 Debian, so this section has been removed.
 
+.. [#]
+   This is necessary in order to reserve the directories for use in
+   cross-installation of library packages from other architectures, as
+   part of ``multiarch``.
+
+.. [#]
+   This is necessary for architecture-dependent headers file to coexist
+   in a ``multiarch`` setup.
+
+.. [#]
+   This directory is used as mount point to mount virtual filesystems to
+   get access to kernel information.
+
+.. [#]
+   These directories are used to store translators and as a set of
+   standard names for mount points, respectively.
+
+.. [#]
+   ``/lib/lsb/init-functions``, which assists in writing LSB-compliant
+   init scripts, may fail if ``set          -e`` is in effect and echoing status messages to the
+   console fails, for example.
+
+.. [#]
+   Creating, modifying or removing a file in
+   ``/usr/lib/mime/packages/`` using maintainer scripts will not
+   activate the trigger. In that case, it can be done by calling
+   ``dpkg-trigger --no-await /usr/lib/mime/packages`` from the
+   maintainer script after creating, modifying, or removing the file.

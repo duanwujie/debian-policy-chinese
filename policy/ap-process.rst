@@ -240,3 +240,7 @@ process and will not have the other tags except for pending and wontfix
 
 `TAG: packaging
 <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=packaging>`_
+
+.. [#]
+   This process was originally developed by Margarita Manterola, Clint
+   Adams, Russ Allbery and Manoj Srivastava.

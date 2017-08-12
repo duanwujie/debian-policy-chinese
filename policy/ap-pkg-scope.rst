@@ -52,3 +52,6 @@ example for people wishing to create Debian packages. However, while the
 examples are helpful, they do not replace the need to read and follow
 the Policy and Programmer's Manual.
 
+.. [#]
+   ``dpkg`` is targeted primarily at Debian, but may work on or be
+   ported to other systems.

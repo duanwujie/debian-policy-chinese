@@ -340,3 +340,26 @@ management tools.
     distinction was somewhat arbitrary, not consistently followed, and
     not useful enough to warrant the maintenance effort.
 
+.. [#]
+   The Debian archive software uses the term "component" internally and
+   in the Release file format to refer to the division of an archive.
+   The Debian Social Contract simply refers to "areas." This document
+   uses terminology similar to the Social Contract.
+
+.. [#]
+   See `What Does Free Mean? <https://www.debian.org/intro/free>`_ for
+   more about what we mean by free software.
+
+.. [#]
+   Debian's FTP Masters publish a
+   `REJECT-FAQ <https://ftp-master.debian.org/REJECT-FAQ.html>`_ which
+   details the project's current working interpretation of the DFSG.
+
+.. [#]
+   It is possible that there are policy requirements which the package
+   is unable to meet, for example, if the source is unavailable. These
+   situations will need to be handled on a case-by-case basis.
+
+.. [#]
+   This is an important criterion because we are trying to produce,
+   amongst other things, a free Unix.

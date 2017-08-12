@@ -740,3 +740,165 @@ binary packages being built from this source package, all of the
 ``DEBIAN/shlibs`` files should be installed before ``dpkg-shlibdeps`` is
 called on any of the binary packages.
 
+.. [#]
+   This is a convention of shared library versioning, but not a
+   requirement. Some libraries use the ``SONAME`` as the full library
+   file name instead and therefore do not need a symlink. Most, however,
+   encode additional information about backwards-compatible revisions as
+   a minor version number in the file name. The ``SONAME`` itself only
+   changes when binaries linked with the earlier version of the shared
+   library may no longer work, but the filename may change with each
+   release of the library. See
+   :ref:`s-sharedlibs-runtime` for more information.
+
+.. [#]
+   The package management system requires the library to be placed
+   before the symbolic link pointing to it in the ``.deb`` file. This is
+   so that when ``dpkg`` comes to install the symlink (overwriting the
+   previous symlink pointing at an older version of the library), the
+   new shared library is already in place. In the past, this was
+   achieved by creating the library in the temporary packaging directory
+   before creating the symlink. Unfortunately, this was not always
+   effective, since the building of the tar file in the ``.deb``
+   depended on the behavior of the underlying file system. Some file
+   systems (such as reiserfs) reorder the files so that the order of
+   creation is forgotten. Since version 1.7.0, ``dpkg`` reorders the
+   files itself as necessary when building a package. Thus it is no
+   longer important to concern oneself with the order of file creation.
+
+.. [#]
+   These are currently ``/usr/local/lib`` plus directories under
+   ``/lib`` and ``/usr/lib`` matching the multiarch triplet for the
+   system architecture.
+
+.. [#]
+   For example, a ``package-name-config`` script or pkg-config
+   configuration files.
+
+.. [#]
+   This wording allows the development files to be split into several
+   packages, such as a separate architecture-independent
+   libraryname-headers, provided that the development package depends on
+   all the required additional packages.
+
+.. [#]
+   Previously, ``${Source-Version}`` was used, but its name was
+   confusing and it has been deprecated since dpkg 1.13.19.
+
+.. [#]
+   A ``shlibs`` file represents an SONAME as a library name and version
+   number, such as ``libfoo VERSION``, instead of recording the actual SONAME. If the
+   SONAME doesn't match one of the two expected formats
+   (``libfoo-VERSION.so`` or ``libfoo.so.VERSION``), it cannot be
+   represented.
+
+.. [#]
+   ``dpkg-shlibdeps`` will use a program like ``objdump`` or ``readelf``
+   to find the libraries and the symbols in those libraries directly
+   needed by the binaries or shared libraries in the package.
+
+.. [#]
+   The easiest way to call ``dpkg-shlibdeps`` correctly is to use a
+   package helper framework such as debhelper. If you are using
+   debhelper, the ``dh_shlibdeps`` program will do this work for you. It
+   will also correctly handle multi-binary packages.
+
+.. [#]
+   ``dh_shlibdeps`` from the ``debhelper`` suite will automatically add
+   this option if it knows it is processing a udeb.
+
+.. [#]
+   Again, ``dh_shlibdeps`` and ``dh_gencontrol`` will handle everything
+   except the addition of the variable to the control file for you if
+   you're using debhelper, including generating separate ``substvars``
+   files for each binary package and calling ``dpkg-gencontrol`` with
+   the appropriate flags.
+
+.. [#]
+   A good example of where this helps is the following. We could update
+   ``libimlib`` with a new version that supports a new revision of a
+   graphics format called dgf (but retaining the same major version
+   number) and depends on a new library package libdgf4 instead of the
+   older libdgf3. If we used ``ldd`` to add dependencies for every
+   library directly or indirectly linked with a binary, every package
+   that uses ``libimlib`` would need to be recompiled so it would also
+   depend on libdgf4 in order to retire the older libdgf3 package. Since
+   dependencies are only added based on ELF ``NEEDED`` attribute,
+   packages using ``libimlib`` can rely on ``libimlib`` itself having
+   the dependency on an appropriate version of ``libdgf`` and do not
+   need rebuilding.
+
+.. [#]
+   An example of an "unreasonable" program is one that uses library
+   interfaces that are documented as internal and unsupported. If the
+   only programs or libraries affected by a change are "unreasonable"
+   ones, other techniques, such as declaring ``Breaks`` relationships
+   with affected packages or treating their usage of the library as bugs
+   in those packages, may be appropriate instead of changing the SONAME.
+   However, the default approach is to change the SONAME for any change
+   to the ABI that could break a program.
+
+.. [#]
+   An example may clarify. Suppose the source package ``foo`` generates
+   two binary packages, ``libfoo2`` and ``foo-runtime``. When building
+   the binary packages, the contents of the packages are staged in the
+   directories ``debian/libfoo2`` and ``debian/foo-runtime``
+   respectively. (``debian/tmp`` could be used instead of one of these.)
+   Since ``libfoo2`` provides the ``libfoo`` shared library, it will
+   contain a ``symbols`` file, which will be installed in
+   ``debian/libfoo2/DEBIAN/symbols``, eventually to be included as a
+   control file in that package. When ``dpkg-shlibdeps`` is run on the
+   executable ``debian/foo-runtime/usr/bin/foo-prog``, it will examine
+   the ``debian/libfoo2/DEBIAN/symbols`` file to determine whether
+   ``foo-prog``'s library dependencies are satisfied by any of the
+   libraries provided by ``libfoo2``. Since those binaries were linked
+   against the just-built shared library as part of the build process,
+   the ``symbols`` file for the newly-built ``libfoo2`` must take
+   precedence over a ``symbols`` file for any other ``libfoo2`` package
+   already installed on the system.
+
+.. [#]
+   This can be determined by using the command
+
+   ::
+
+       readelf -d /usr/lib/libz.so.1.2.3.4 | grep SONAME
+
+.. [#]
+   An example of where this may be needed is with a library that
+   implements the libGL interface. All GL implementations provide the
+   same set of base interfaces, and then may provide some additional
+   interfaces only used by programs that require that specific GL
+   implementation. So, for example, libgl1-mesa-glx may use the
+   following ``symbols`` file:
+
+   ::
+
+       libGL.so.1 libgl1 | libgl1-mesa-glx #MINVER#
+        publicGlSymbol@Base 6.3-1 [...] implementationSpecificSymbol@Base 6.5.2-7 1
+        [...]
+
+   Binaries or shared libraries using only ``publicGlSymbol`` would
+   depend only on ``libgl1`` (which may be provided by multiple
+   packages), but ones using ``implementationSpecificSymbol`` would get
+   a dependency on ``libgl1-mesa-glx (>= 6.5.2-7)``
+
+.. [#]
+   This field should normally not be necessary, since if the behavior of
+   any symbol has changed, the corresponding symbol minimal-version
+   should have been increased. But including it makes the ``symbols``
+   system more robust by tightening the dependency in cases where the
+   package using the shared library specifically requires at least a
+   particular version of the shared library development package for some
+   reason.
+
+.. [#]
+   If you are using ``debhelper``, ``dh_makeshlibs`` will take care of
+   calling either ``dpkg-gensymbols`` or generating a ``shlibs`` file as
+   appropriate.
+
+.. [#]
+   This is what ``dh_makeshlibs`` in the debhelper suite does. If your
+   package also has a udeb that provides a shared library,
+   ``dh_makeshlibs`` can automatically generate the ``udeb:`` lines if
+   you specify the name of the udeb with the ``--add-udeb`` option.

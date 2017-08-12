@@ -167,3 +167,27 @@ UTF-8
     useful property of having ASCII as a subset, so any text encoded in
     ASCII is trivially also valid UTF-8.
 
+.. [#]
+   Informally, the criteria used for inclusion is that the material meet
+   one of the following requirements:
+
+   Standard interfaces
+       The material presented represents an interface to the packaging
+       system that is mandated for use, and is used by, a significant
+       number of packages, and therefore should not be changed without
+       peer review. Package maintainers can then rely on this interface
+       not changing, and the package management software authors need to
+       ensure compatibility with this interface definition. (Control
+       file and changelog file formats are examples.)
+
+   Chosen Convention
+       If there are a number of technically viable choices that can be
+       made, but one needs to select one of these options for
+       inter-operability. The version number format is one example.
+
+   Please note that these are not mutually exclusive; selected
+   conventions often become parts of standard interfaces.
+
+.. [#]
+   Compare RFC 2119. Note, however, that these words are used in a
+   different way in this document.

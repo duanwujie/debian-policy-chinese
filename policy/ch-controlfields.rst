@@ -1059,3 +1059,83 @@ regulate uploads by Debian Maintainers, See the General Resolution
 Maintainers <https://www.debian.org/vote/2007/vote_003>`_ for more
 details.
 
+.. [#]
+   ``dpkg``'s internal databases are in a similar format.
+
+.. [#]
+   The paragraphs are also sometimes referred to as stanzas.
+
+.. [#]
+   This folding method is similar to RFC 5322, allowing control files
+   that contain only one paragraph and no multiline fields to be read by
+   parsers written for RFC 5322.
+
+.. [#]
+   It is customary to leave a space after the package name if a version
+   number is specified.
+
+.. [#]
+   In the past, people specified the full version number in the
+   Standards-Version field, for example "2.3.0.0". Since minor
+   patch-level changes don't introduce new policy, it was thought it
+   would be better to relax policy and only require the first 3
+   components to be specified, in this example "2.3.0". All four
+   components may still be used if someone wishes to do so.
+
+.. [#]
+   Alphanumerics are ``A-Za-z0-9`` only.
+
+.. [#]
+   One common use of ``~`` is for upstream pre-releases. For example,
+   ``1.0~beta1~svn1245`` sorts earlier than ``1.0~beta1``, which sorts
+   earlier than ``1.0``.
+
+.. [#]
+   The author of this manual has heard of a package whose versions went
+   ``1.1``, ``1.2``, ``1.3``, ``1``, ``2.1``, ``2.2``, ``2`` and so
+   forth.
+
+.. [#]
+   Completely empty lines will not be rendered as blank lines. Instead,
+   they will cause the parser to think you're starting a whole new
+   record in the control file, and will therefore likely abort with an
+   error.
+
+.. [#]
+   Example distribution names in the Debian archive used in ``.changes``
+   files are:
+
+   *unstable*
+       This distribution value refers to the *developmental* part of the
+       Debian distribution tree. Most new packages, new upstream
+       versions of packages and bug fixes go into the *unstable*
+       directory tree.
+
+   *experimental*
+       The packages with this distribution value are deemed by their
+       maintainers to be high risk. Oftentimes they represent early beta
+       or developmental packages from various sources that the
+       maintainers want people to try, but are not ready to be a part of
+       the other parts of the Debian distribution tree.
+
+   Others are used for updating stable releases or for security uploads.
+   More information is available in the Debian Developer's Reference,
+   section "The Debian archive".
+
+.. [#]
+   The source formats currently supported by the Debian archive software
+   are ``1.0``, ``3.0 (native)``, and ``3.0 (quilt)``.
+
+.. [#]
+   Other urgency values are supported with configuration changes in the
+   archive software but are not used in Debian. The urgency affects how
+   quickly a package will be considered for inclusion into the
+   ``testing`` distribution and gives an indication of the importance of
+   any fixes included in the upload. ``Emergency`` and ``critical`` are
+   treated as synonymous.
+
+.. [#]
+   A space after each comma is conventional.
+
+.. [#]
+   That is, the parts which are not the ``.dsc``.

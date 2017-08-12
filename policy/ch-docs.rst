@@ -284,3 +284,81 @@ still be called ``changelog.Debian.gz``.
 For details about the format and contents of the Debian changelog file,
 please see :ref:`s-dpkgchangelog`.
 
+.. [#]
+   It is not very hard to write a man page. See the
+   `Man-Page-HOWTO <http://www.schweikhardt.net/man_page_howto.html>`_,
+   man7, the examples created by ``dh_make``, the helper program
+   ``help2man``, or the directory ``/usr/share/doc/man-db/examples``.
+
+.. [#]
+   Supporting this in ``man`` often requires unreasonable processing
+   time to find a manual page or to report that none exists, and moves
+   knowledge into man's database that would be better left in the file
+   system. This support is therefore deprecated and will cease to be
+   present in the future.
+
+.. [#]
+   ``man`` will automatically detect whether UTF-8 is in use. In future,
+   all manual pages will be required to use UTF-8.
+
+.. [#]
+   At the time of writing, Chinese and Portuguese are the main languages
+   with such differences, so ``pt_BR``, ``zh_CN``, and ``zh_TW`` are all
+   allowed.
+
+.. [#]
+   Normally, info documents are generated from Texinfo source. To
+   include this information in the generated info document, if it is
+   absent, add commands like:
+
+   ::
+
+       @dircategory Individual utilities
+       @direntry
+       * example: (example).  An example info directory entry.
+       @end direntry
+
+   to the Texinfo source of the document and ensure that the info
+   documents are rebuilt from source during the package build.
+
+.. [#]
+   The system administrator should be able to delete files in
+   ``/usr/share/doc/`` without causing any programs to break.
+
+.. [#]
+   Please note that this does not override the section on changelog
+   files below, so the file
+   ``/usr/share/doc/package/changelog.Debian.gz`` must refer to the
+   changelog for the current version of package in question. In
+   practice, this means that the sources of the target and the
+   destination of the symlink must be the same (same source package and
+   version).
+
+.. [#]
+   Rationale: The important thing here is that HTML documentation should
+   be available from *some* binary package.
+
+.. [#]
+   In particular, ``/usr/share/common-licenses/Apache-2.0``,
+   ``/usr/share/common-licenses/Artistic``,
+   ``/usr/share/common-licenses/GPL-1``,
+   ``/usr/share/common-licenses/GPL-2``,
+   ``/usr/share/common-licenses/GPL-3``,
+   ``/usr/share/common-licenses/LGPL-2``,
+   ``/usr/share/common-licenses/LGPL-2.1``,
+   ``/usr/share/common-licenses/LGPL-3``,
+   ``/usr/share/common-licenses/GFDL-1.2``,
+   ``/usr/share/common-licenses/GFDL-1.3``,
+   ``/usr/share/common-licenses/MPL-1.1``, and
+   ``/usr/share/common-licenses/MPL-2.0`` respectively. The University
+   of California BSD license is also included in base-files as
+   ``/usr/share/common-licenses/BSD``, but given the brevity of this
+   license, its specificity to code whose copyright is held by the
+   Regents of the University of California, and the frequency of minor
+   wording changes, its text should be included in the copyright file
+   rather than referencing this file.
+
+.. [#]
+   Rationale: People should not have to look in places for upstream
+   changelogs merely because they are given different names or are
+   distributed in HTML format.

@@ -384,3 +384,38 @@ doesn't happen if a package's installation fails and the ``postinst`` is
 called with ``abort-upgrade``, ``abort-remove`` or
 ``abort-deconfigure``.
 
+.. [#]
+   A sample implementation of such a whitelist written for the Mailman
+   mailing list management software is used for mailing lists hosted by
+   alioth.debian.org.
+
+.. [#]
+   The detailed procedure for gracefully orphaning a package can be
+   found in the Debian Developer's Reference (see
+   :ref:`s-related`).
+
+.. [#]
+   The blurb that comes with a program in its announcements and/or
+   ``README`` files is rarely suitable for use in a description. It is
+   usually aimed at people who are already in the community where the
+   package is used.
+
+.. [#]
+   Essential is needed in part to avoid unresolvable dependency loops on
+   upgrade. If packages add unnecessary dependencies on packages in this
+   set, the chances that there **will** be an unresolvable dependency
+   loop caused by forcing these Essential packages to be configured
+   first before they need to be is greatly increased. It also increases
+   the chances that frontends will be unable to **calculate** an upgrade
+   path, even if one exists.
+
+   Also, functionality is rarely ever removed from the Essential set,
+   but *packages* have been removed from the Essential set when the
+   functionality moved to a different package. So depending on these
+   packages *just in case* they stop being essential does way more harm
+   than good.
+
+.. [#]
+   Debconf or another tool that implements the Debian Configuration
+   Management Specification will also be installed, and any versioned
+   dependencies on it will be satisfied before preconfiguration begins.

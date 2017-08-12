@@ -625,3 +625,49 @@ field in its control file:
 
     Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
 
+.. [#]
+   The relations ``<`` and ``>`` were previously allowed, but they were
+   confusingly defined to mean earlier/later or equal rather than
+   strictly earlier/later. ``dpkg`` still supports them with a warning,
+   but they are no longer allowed by Debian Policy.
+
+.. [#]
+   This approach makes dependency resolution easier. If two packages A
+   and B are being upgraded, the installed package A depends on exactly
+   the installed package B, and the new package A depends on exactly the
+   new package B (a common situation when upgrading shared libraries and
+   their corresponding development packages), satisfying the
+   dependencies at every stage of the upgrade would be impossible. This
+   relaxed restriction means that both new packages can be unpacked
+   together and then configured in their dependency order.
+
+.. [#]
+   It is possible that a future release of ``dpkg`` may add the ability
+   to specify a version number for each virtual package it provides.
+   This feature is not yet present, however, and is expected to be used
+   only infrequently.
+
+.. [#]
+   To see why ``Breaks`` is normally needed in addition to ``Replaces``,
+   consider the case of a file in the package foo being taken over by
+   the package foo-data. ``Replaces`` will allow foo-data to be
+   installed and take over that file. However, without ``Breaks``,
+   nothing requires foo to be upgraded to a newer version that knows it
+   does not include that file and instead depends on foo-data. Nothing
+   would prevent the new foo-data package from being installed and then
+   removed, removing the file that it took over from foo. After that
+   operation, the package manager would think the system was in a
+   consistent state, but the foo package would be missing one of its
+   files.
+
+.. [#]
+   Replaces is a one way relationship. You have to install the replacing
+   package after the replaced package.
+
+.. [#]
+   ``Build-Depends`` in the source package is not adequate since it
+   (rightfully) does not document the exact version used in the build.
+
+.. [#]
+   The archive software might reject packages that refer to non-existent
+   sources.

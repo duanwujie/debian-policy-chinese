@@ -320,3 +320,22 @@ The ``debian`` directory and ``debian/rules`` are handled specially by
 ``debian`` directory, and afterwards it will make ``debian/rules``
 world-executable.
 
+.. [#]
+   This is so that the control file which is produced has the right
+   permissions
+
+.. [#]
+   This is not currently detected when building source packages, but
+   only when extracting them.
+
+.. [#]
+   Hard links may be permitted at some point in the future, but would
+   require a fair amount of work.
+
+.. [#]
+   Setgid directories are allowed.
+
+.. [#]
+   Renaming a file is not treated specially - it is seen as the removal
+   of the old file (which generates a warning, but is otherwise
+   ignored), and the creation of the new one.

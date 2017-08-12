@@ -713,3 +713,114 @@ The name of the files and directories installed by binary packages
 outside the system PATH must be encoded in UTF-8 and should be
 restricted to ASCII when it is possible to do so.
 
+.. [#]
+   If you are using GCC, ``-fPIC`` produces code with relocatable
+   position independent code, which is required for most architectures
+   to create a shared library, with i386 and perhaps some others where
+   non position independent code is permitted in a shared library.
+
+   Position independent code may have a performance penalty, especially
+   on ``i386``. However, in most cases the speed penalty must be
+   measured against the memory wasted on the few architectures where non
+   position independent code is even possible.
+
+.. [#]
+   Some of the reasons why this might be required is if the library
+   contains hand crafted assembly code that is not relocatable, the
+   speed penalty is excessive for compute intensive libs, and similar
+   reasons.
+
+.. [#]
+   Some of the reasons for linking static libraries with the ``-fPIC``
+   flag are if, for example, one needs a Perl API for a library that is
+   under rapid development, and has an unstable API, so shared libraries
+   are pointless at this phase of the library's development. In that
+   case, since Perl needs a library with relocatable code, it may make
+   sense to create a static library with relocatable code. Another
+   reason cited is if you are distilling various libraries into a common
+   shared library, like ``mklibs`` does in the Debian installer project.
+
+.. [#]
+   You might also want to use the options ``--remove-section=.comment``
+   and ``--remove-section=.note`` on both shared libraries and
+   executables, and ``--strip-debug`` on static libraries.
+
+.. [#]
+   A common example are the so-called "plug-ins", internal shared
+   objects that are dynamically loaded by programs using dlopen3.
+
+.. [#]
+   These files store, among other things, all libraries on which that
+   shared library depends. Unfortunately, if the ``.la`` file is present
+   and contains that dependency information, using ``libtool`` when
+   linking against that library will cause the resulting program or
+   library to be linked against those dependencies as well, even if this
+   is unnecessary. This can create unneeded dependencies on shared
+   library packages that would otherwise be hidden behind the library
+   ABI, and can make library transitions to new SONAMEs unnecessarily
+   complicated and difficult to manage.
+
+.. [#]
+   Single UNIX Specification, version 3, which is also IEEE 1003.1-2004
+   (POSIX), and is available on the World Wide Web from `The Open
+   Group <http://www.unix.org/version3/online.html>`_ after free
+   registration.
+
+.. [#]
+   These features are in widespread use in the Linux community and are
+   implemented in all of bash, dash, and ksh, the most common shells
+   users may wish to use as ``/bin/sh``.
+
+.. [#]
+   This is necessary to allow top-level directories to be symlinks. If
+   linking ``/var/run`` to ``/run`` were done with the relative symbolic
+   link ``../run``, but ``/var`` were a symbolic link to ``/srv/disk1``,
+   the symbolic link would point to ``/srv/run`` rather than the
+   intended target.
+
+.. [#]
+   It's better to use ``mkfifo`` rather than ``mknod`` to create named
+   pipes to avoid false positives from automated checks for packages
+   incorrectly creating device files.
+
+.. [#]
+   The ``dpkg-maintscript-helper`` tool, available from the dpkg
+   package, can help for this task.
+
+.. [#]
+   Rationale: There are two problems with hard links. The first is that
+   some editors break the link while editing one of the files, so that
+   the two files may unwittingly become unlinked and different. The
+   second is that ``dpkg`` might break the hard link while upgrading
+   ``conffile``\ s.
+
+.. [#]
+   The traditional approach to log files has been to set up *ad hoc* log
+   rotation schemes using simple shell scripts and cron. While this
+   approach is highly customizable, it requires quite a lot of sysadmin
+   work. Even though the original Debian system helped a little by
+   automatically installing a system which can be used as a template,
+   this was deemed not enough.
+
+   The use of ``logrotate``, a program developed by Red Hat, is better,
+   as it centralizes log management. It has both a configuration file
+   (``/etc/logrotate.conf``) and a directory where packages can drop
+   their individual log rotation configurations (``/etc/logrotate.d``).
+
+.. [#]
+   When a package is upgraded, and the owner or permissions of a file
+   included in the package has changed, dpkg arranges for the ownership
+   and permissions to be correctly set upon installation. However, this
+   does not extend to directories; the permissions and ownership of
+   directories already on the system does not change on install or
+   upgrade of packages. This makes sense, since otherwise common
+   directories like ``/usr`` would always be in flux. To correctly
+   change permissions of a directory the package owns, explicit action
+   is required, usually in the ``postinst`` script. Care must be taken
+   to handle downgrades as well, in that case.
+
+.. [#]
+   Ordinary files installed by ``dpkg`` (as opposed to ``conffile``\ s
+   and other similar objects) normally have their permissions reset to
+   the distributed permissions when the package is reinstalled. However,
+   the use of ``dpkg-statoverride`` overrides this default behavior.
