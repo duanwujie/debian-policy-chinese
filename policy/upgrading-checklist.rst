@@ -2,7 +2,7 @@ Upgrading checklist
 ===================
 
 About the checklist
-===================
+-------------------
 
 The checklist below has been created to simplify the upgrading process
 of old packages. This list is not official or normative. It only
@@ -33,7 +33,7 @@ except in the two anomalous historical cases where normative
 requirements were changed in a minor patch release.
 
 Version 4.0.2
-=============
+-------------
 
 Unreleased.
 
@@ -45,7 +45,7 @@ Unreleased.
     signature for new releases is recommended.
 
 Version 4.0.1
-=============
+-------------
 
 Released August, 2017.
 
@@ -96,7 +96,7 @@ Released August, 2017.
     for custom environment variable settings (not, say, a sane PATH).
 
 Version 4.0.0
-=============
+-------------
 
 Released May, 2017.
 
@@ -206,7 +206,7 @@ virtual
     software.
 
 Version 3.9.8
-=============
+-------------
 
 Released April, 2016.
 
@@ -221,7 +221,7 @@ Released April, 2016.
     desktop entries.
 
 Version 3.9.7
-=============
+-------------
 
 Released February, 2016.
 
@@ -245,7 +245,7 @@ Released February, 2016.
     ``/usr/share/doc/pkg``.
 
 Version 3.9.6
-=============
+-------------
 
 Released September, 2014.
 
@@ -294,7 +294,7 @@ perl
     package.
 
 Version 3.9.5
-=============
+-------------
 
 Released October, 2013.
 
@@ -352,7 +352,7 @@ virtual
     ``mp3-decoder`` and ``mp3-encoder`` are removed.
 
 Version 3.9.4
-=============
+-------------
 
 Released August, 2012.
 
@@ -402,7 +402,7 @@ Released August, 2012.
     All copyright files must be encoded in UTF-8.
 
 Version 3.9.3
-=============
+-------------
 
 Released February, 2012.
 
@@ -474,7 +474,7 @@ virtual
     ``fonts-japanese-{mincho, gothic}``.
 
 Version 3.9.2
-=============
+-------------
 
 Released April, 2011.
 
@@ -540,7 +540,7 @@ virtual
     interface.
 
 Version 3.9.1
-=============
+-------------
 
 Released July, 2010.
 
@@ -629,7 +629,7 @@ Released July, 2010.
     referenced from there instead of included in the ``copyright`` file.
 
 Version 3.9.0
-=============
+-------------
 
 Released June, 2010.
 
@@ -720,7 +720,7 @@ perl
     worked due to a Debian-local patch.
 
 Version 3.8.4
-=============
+-------------
 
 Released January, 2010.
 
@@ -738,7 +738,7 @@ Released January, 2010.
     exception to the FHS.
 
 Version 3.8.3
-=============
+-------------
 
 Released August, 2009.
 
@@ -791,7 +791,7 @@ perl
     Build-Depend on ``perl >= 5.6.0-16`` has been removed.
 
 Version 3.8.2
-=============
+-------------
 
 Released June, 2009.
 
@@ -828,7 +828,7 @@ Released June, 2009.
     common-licenses and should be referenced from there.
 
 Version 3.8.1
-=============
+-------------
 
 Released March, 2009.
 
@@ -883,7 +883,7 @@ Released March, 2009.
     mode 660, owned by user, and group mail.
 
 Version 3.8.0
-=============
+-------------
 
 Released June, 2008.
 
@@ -973,7 +973,7 @@ debconf
     Underscore (``_``) is allowed in debconf template names.
 
 Version 3.7.3
-=============
+-------------
 
 Released December, 2007.
 
@@ -1020,7 +1020,7 @@ menu policy
     referenced rather than quoted in debian/copyright.
 
 Version 3.7.2.2
-===============
+---------------
 
 Released October, 2006.
 
@@ -1032,7 +1032,7 @@ without changing the major patch level.
     a must)
 
 Version 3.7.2
-=============
+-------------
 
 Released April, 2006.
 
@@ -1040,7 +1040,7 @@ Released April, 2006.
     Revert the cgi-lib change.
 
 Version 3.7.1
-=============
+-------------
 
 Released April, 2006.
 
@@ -1058,7 +1058,7 @@ Released April, 2006.
     must pre-depend on ``x11-common (>= 1:7.0.0)``
 
 Version 3.7.0
-=============
+-------------
 
 Released April, 2006.
 
@@ -1100,7 +1100,7 @@ Released April, 2006.
     ``/usr/share/fonts/X11/`` now, and ``/usr/X11R6`` is gone.
 
 Version 3.6.2
-=============
+-------------
 
 Released June, 2005.
 
@@ -1117,7 +1117,7 @@ Released June, 2005.
     allow packages to share image files with the web server
 
 Version 3.6.1
-=============
+-------------
 
 Released August, 2003.
 
@@ -1126,7 +1126,7 @@ Released August, 2003.
     prompts are now deprecated.
 
 Version 3.6.0
-=============
+-------------
 
 Released July, 2003.
 
@@ -1169,7 +1169,7 @@ C.2.2
     build-depends-indep need not be satisfied during clean target.
 
 Version 3.5.10
-==============
+--------------
 
 Released May, 2003.
 
@@ -1182,7 +1182,7 @@ Released May, 2003.
     Project may add 40 points for ranking in the alternatives
 
 Version 3.5.9
-=============
+-------------
 
 Released March, 2003.
 
@@ -1205,7 +1205,7 @@ Released March, 2003.
     ``/usr/share/doc/package/examples``).
 
 Version 3.5.8
-=============
+-------------
 
 Released November, 2002.
 
@@ -1231,7 +1231,7 @@ debconf policy
     are still a bug.
 
 Version 3.5.7
-=============
+-------------
 
 Released August, 2002.
 
@@ -1269,7 +1269,7 @@ Released August, 2002.
 rules, please see below*
 
 Version 3.5.6
-=============
+-------------
 
 Released July, 2001.
 
@@ -1296,7 +1296,7 @@ Released July, 2001.
     a new Build-Depend-Indep semantic.
 
 Version 3.5.5
-=============
+-------------
 
 Released May, 2001.
 
@@ -1342,7 +1342,7 @@ X Windows related things:
         OSF/Motif-linked ones
 
 Version 3.5.4
-=============
+-------------
 
 Released April, 2001.
 
@@ -1356,7 +1356,7 @@ Released April, 2001.
     and modules should follow the current Perl policy
 
 Version 3.5.3
-=============
+-------------
 
 Released April, 2001.
 
@@ -1370,7 +1370,7 @@ Released April, 2001.
     links from ``/usr/share/doc/<package>/examples`` as needed
 
 Version 3.5.2
-=============
+-------------
 
 Released February, 2001.
 
@@ -1379,7 +1379,7 @@ Released February, 2001.
     ``/usr/X11R6/lib/X11/app-defaults`` to ``/etc/X11/app-defaults``
 
 Version 3.5.1
-=============
+-------------
 
 Released February, 2001.
 
@@ -1388,7 +1388,7 @@ Released February, 2001.
     through dpkg-shlibdeps as well as executables
 
 Version 3.5.0
-=============
+-------------
 
 Released January, 2001.
 
@@ -1397,7 +1397,7 @@ Released January, 2001.
     on ``xutils (>= 4.0.2)``
 
 Version 3.2.1.1
-===============
+---------------
 
 Released January, 2001.
 
@@ -1419,7 +1419,7 @@ without changing the major patch level.
     document
 
 Version 3.2.1
-=============
+-------------
 
 Released August, 2000.
 
@@ -1429,7 +1429,7 @@ Released August, 2000.
     without
 
 Version 3.2.0
-=============
+-------------
 
 Released August, 2000.
 
@@ -1479,7 +1479,7 @@ Released August, 2000.
     correct
 
 Version 3.1.1
-=============
+-------------
 
 Released November, 1999.
 
@@ -1488,7 +1488,7 @@ Released November, 1999.
     Should not affect many packages
 
 Version 3.1.0
-=============
+-------------
 
 Released October, 1999.
 
@@ -1540,7 +1540,7 @@ defunct
     Description of how to handle version numbers based on dates added
 
 Version 3.0.1
-=============
+-------------
 
 Released July, 1999.
 
@@ -1550,7 +1550,7 @@ Released July, 1999.
     files must go in the run-time library package
 
 Version 3.0.0
-=============
+-------------
 
 Released June, 1999.
 
@@ -1589,7 +1589,7 @@ now 11.8
     utmp
 
 Version 2.5.0
-=============
+-------------
 
 Released October, 1998.
 
@@ -1625,7 +1625,7 @@ current Policy Manual.*
 -  Ratified the architecture specification strings to cater to the HURD.
 
 Version 2.4.1
-=============
+-------------
 
 Released April, 1998.
 
@@ -1644,7 +1644,7 @@ Updated Chapter 12 Shared Libraries
     fixes:bug#20515)
 
 Version 2.4.0
-=============
+-------------
 
 Released January, 1998
 
@@ -1704,7 +1704,7 @@ Updated section 4.9 Games
     non-X games
 
 Version 2.3.0
-=============
+-------------
 
 Released September, 1997.
 
@@ -1717,7 +1717,7 @@ Released September, 1997.
 -  MUAs and MTAs have to use liblockfile
 
 Version 2.2.0
-=============
+-------------
 
 Released July, 1997.
 
@@ -1740,7 +1740,7 @@ Released July, 1997.
 -  app-defaults files may not be conffiles
 
 Version 2.1.3
-=============
+-------------
 
 Released March, 1997.
 
@@ -1756,14 +1756,14 @@ Released March, 1997.
              --strip-unneeded``
 
 Version 2.1.2
-=============
+-------------
 
 Released November, 1996.
 
 -  Some changes WRT shared libraries
 
 Version 2.1.1
-=============
+-------------
 
 Released September, 1996.
 
@@ -1775,7 +1775,7 @@ Released September, 1996.
 -  Shared libraries must be installed stripped
 
 Version 2.1.0
-=============
+-------------
 
 Released August, 1996.
 
