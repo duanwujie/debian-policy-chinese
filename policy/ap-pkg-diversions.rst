@@ -37,7 +37,7 @@ upgraded:
 
 ::
 
-    if [ upgrade != "$.. [#] || dpkg --compare-versions "$2" lt 1.0-2; then
+    if [ upgrade != "$1 || dpkg --compare-versions "$2" lt 1.0-2; then
         dpkg-divert --package smailwrapper --add --rename \
             --divert /usr/sbin/smail.real /usr/sbin/smail
     fi
@@ -50,7 +50,7 @@ The postrm has to do the reverse:
 
 ::
 
-    if [ remove = "$1" -o abort-install = "$1" -o disappear = "$.. [#]; then
+    if [ remove = "$1" -o abort-install = "$1" -o disappear = "$1; then
         dpkg-divert --package smailwrapper --remove --rename \
             --divert /usr/sbin/smail.real /usr/sbin/smail
     fi
@@ -62,7 +62,7 @@ supported):
 
 ::
 
-    if [ abort-upgrade = "$.. [#] && dpkg --compare-versions "$2" lt 1.0-2; then
+    if [ abort-upgrade = "$1 && dpkg --compare-versions "$2" lt 1.0-2; then
         dpkg-divert --package smailwrapper --remove --rename \
             --divert /usr/sbin/smail.real /usr/sbin/smail
     fi
