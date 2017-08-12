@@ -756,7 +756,7 @@ lines must be represented by a line consisting only of a space and a
 full stop (``.``).
 
 The value of this field is usually extracted from the
-``debian/changelog`` file - see :ref:`s-dpkgchangelog`).
+``debian/changelog`` file - see :ref:`s-dpkgchangelog`.
 
 Each version's change information should be preceded by a "title" line
 giving at least the version, distribution(s) and urgency, in a
