@@ -99,10 +99,10 @@ For example:
 
     Depends: foo [i386], bar [amd64]
 
-becomes ``Depends: foo`` when the package is built on the ``i386``architecture, ``Depends:
-        bar`` when the package is built on the ``amd64`` architecture,
-and omitted entirely in binary packages built on all other
-architectures.
+becomes ``Depends: foo`` when the package is built on the ``i386``
+architecture, ``Depends: bar`` when the package is built on the
+``amd64`` architecture, and omitted entirely in binary packages built
+on all other architectures.
 
 If the architecture-restricted dependency is part of a set of
 alternatives using ``|``, that alternative is ignored completely on
@@ -112,8 +112,9 @@ architectures that do not match the restriction. For example:
 
     Build-Depends: foo [!i386] | bar [!amd64]
 
-is equivalent to ``bar`` on the i386 architecture, to ``foo`` on the
-amd64 architecture, and to ``foo | bar`` on all other architectures.
+is equivalent to ``bar`` on the ``i386`` architecture, to ``foo`` on
+the ``amd64`` architecture, and to ``foo | bar`` on all other
+architectures.
 
 Relationships may also be restricted to a certain set of architectures
 using architecture wildcards in the format described in
