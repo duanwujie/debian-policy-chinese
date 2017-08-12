@@ -70,8 +70,8 @@ Detect need, like gaps/flaws in current policy, or a new rule should be
 added. Any user or developer may start this step. There is a decision
 point here; not all issues are in scope of policy.
 
-`TAG:
-``issue`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&tag=issue>`_
+`TAG: issue
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&tag=issue>`_
 
 What needs to happen next: If this is in scope for Policy, discuss the
 issue and possible solutions, moving to the discussion tag, or if the
@@ -88,8 +88,8 @@ Discuss remedy. Alternate proposals. Discussion guided by delegates.
 There should be a clear time limit to this stage, but as yet we have not
 set one.
 
-`TAG:
-``discussion`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=discussion>`_
+`TAG: discussion
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=discussion>`_
 
 What needs to happen next: Reach a conclusion and consensus in the
 discussion and make a final proposal for what should be changed (if
@@ -103,8 +103,8 @@ State C: Proposal
 A final proposal has emerged from the discussion, and there is a rough
 consensus on how to proceed to resolve the issue.
 
-`TAG:
-``proposal`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=proposal>`_
+`TAG: proposal
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=proposal>`_
 
 What needs to happen next: Provided that the rough consensus persists,
 develop a patch against the current Policy document with specific
@@ -122,8 +122,8 @@ created and is waiting for formal seconds. The standard patch tag is
 used for this state, since it's essentially equivalent to the standard
 meaning of that tag.
 
-`TAG:
-``patch`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=patch>`_
+`TAG: patch
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=patch>`_
 
 What needs to happen next: The proposal needs to be reviewed and
 seconded. Any Debian developer who agrees with the change and the
@@ -145,8 +145,8 @@ formally second, although review and discussion is welcome from anyone.
 Once this tag has been applied, the bug is waiting for a Policy team
 member to apply the patch to the package repository.
 
-`TAG:
-``seconded`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=seconded>`_
+`TAG: seconded
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=seconded>`_
 
 What needs to happen next: A Policy maintainer does the final review and
 confirmation, and then applies the patch for the next Policy release.
@@ -163,8 +163,8 @@ State F: Accepted
 Change accepted, will be in next upload. The standard pending tag is
 used for this state since it matches the regular meaning of pending.
 
-`TAG:
-``pending`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=pending>`_
+`TAG: pending
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=pending>`_
 
 What needs to happen next: The bug is now in the waiting queue for the
 next Policy release, and there's nothing left to do except for upload a
@@ -182,8 +182,8 @@ appeal to the tech-ctte if they so desire. Alternately, issues appealed
 to the tech-ctte may remain open with this tag while that appeal
 proceeds.
 
-`TAG:
-``wontfix`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=rejected>`_
+`TAG: wontfix
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=rejected>`_
 
 We may use one of the following tags here, but to date we have only used
 dubious and ctte. It's not clear whether we need more tags for this
@@ -220,8 +220,8 @@ Policy, meaning that the dictates of Policy will change in some fashion
 as part of the resolution of the bug if the proposal is accepted. The
 full process is followed for such bugs.
 
-`TAG:
-``normative`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=normative>`_
+`TAG: normative
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=normative>`_
 
 The informative tag is used for bugs about wording issues, typos,
 informative footnotes, or other changes that do not affect the formal
@@ -230,16 +230,16 @@ these bugs for convenience, but the Policy maintainers may make
 informative changes without following the full process. Informative bugs
 fall under their discretion.
 
-`TAG:
-``informative`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=informative>`_
+`TAG: informative
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=informative>`_
 
 The packaging tag is used for bugs about the packaging and build process
 of the debian-policy Debian package. These bugs do not follow the normal
 process and will not have the other tags except for pending and wontfix
 (used with their normal meanings).
 
-`TAG:
-``packaging`` <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=packaging>`_
+`TAG: packaging
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=packaging>`_
 
 .. [#]
    Informally, the criteria used for inclusion is that the material meet
