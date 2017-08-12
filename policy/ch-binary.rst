@@ -5,19 +5,22 @@ The Debian distribution is based on the Debian package management
 system, called ``dpkg``. Thus, all packages in the Debian distribution
 must be provided in the ``.deb`` file format.
 
-A ``.deb`` package contains two sets of files: a set of files to install
-on the system when the package is installed, and a set of files that
-provide additional metadata about the package or which are executed when
-the package is installed or removed. This second set of files is called
-*control information files*. Among those files are the package
-maintainer scripts and ``control``, the `binary package control
-file <#s-binarycontrolfiles>`_ that contains the control fields for the
-package. Other control information files include the ```symbols``
-file <#s-sharedlibs-symbols>`_ or ```shlibs``
-file <#s-sharedlibs-shlibdeps>`__ used to store shared library
+A ``.deb`` package contains two sets of files: a set of files to
+install on the system when the package is installed, and a set of
+files that provide additional metadata about the package or which are
+executed when the package is installed or removed. This second set of
+files is called *control information files*. Among those files are the
+package maintainer scripts and ``control``, the `binary package
+control file <#s-binarycontrolfiles>`_ that contains the control
+fields for the package. Other control information files include the
+|symbols link|_ or |shlibs link|_ used to store shared library
 dependency information and the ``conffiles`` file that lists the
-package's configuration files (described in
-:ref:`s-config-files`).
+package's configuration files (described in :ref:`s-config-files`).
+
+.. |symbols link| replace:: ``symbols``
+.. _symbols link: #s-sharedlibs-symbols
+.. |shlibs link| replace:: ``shlibs``
+.. _shlibs link: #s-sharedlibs-shlisb
 
 There is unfortunately a collision of terminology here between control
 information files and files in the Debian control file format.
