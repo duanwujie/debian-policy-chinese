@@ -858,9 +858,5 @@
    ignored), and the creation of the new one.
 
 .. [#]
-   These flowcharts were originally created by Margarita Manterola for
-   the Debian Women project wiki.
-
-.. [#]
    This process was originally developed by Margarita Manterola, Clint
    Adams, Russ Allbery and Manoj Srivastava.

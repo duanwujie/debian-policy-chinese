@@ -70,4 +70,6 @@ Appendix
    ap-pkg-conffiles
    ap-pkg-alternatives
    ap-pkg-diversions
+   ap-process
+   ap-flowcharts
    upgrading-checklist

@@ -11,34 +11,36 @@ conventions:
 -  the ``dpkg`` status of the package at the end of the run are in bold
    type.
 
-.. figure:: images/install.svg
+.. figure:: images/install.png
    :alt: Installing a package that was not previously installed
 
    Installing a package that was not previously installed
 
-.. figure:: images/install-conffiles.svg
-   :alt: Installing a package that was previously removed, but not
-   purged
+.. figure:: images/install-conffiles.png
+   :alt: Installing a package that was previously removed, but not purged
 
    Installing a package that was previously removed, but not purged
 
-.. figure:: images/upgrade.svg
+.. figure:: images/upgrade.png
    :alt: Upgrading a package
 
    Upgrading a package
 
-.. figure:: images/remove.svg
+.. figure:: images/remove.png
    :alt: Removing a package
 
    Removing a package
 
-.. figure:: images/purge.svg
+.. figure:: images/purge.png
    :alt: Purging a package previously removed
 
    Purging a package previously removed
 
-.. figure:: images/remove-purge.svg
+.. figure:: images/remove-purge.png
    :alt: Removing and purging a package
 
    Removing and purging a package
 
+.. [#]
+   These flowcharts were originally created by Margarita Manterola for
+   the Debian Women project wiki.
