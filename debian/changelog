@@ -1,6 +1,14 @@
 debian-policy (4.0.2.0) UNRELEASED; urgency=medium
 
   [ Sean Whitton ]
+  * Policy: Packages should build reproducibly
+    Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Holger Levsen <holger@layer-acht.org>
+    Seconded: Ondrej Novy <novy@ondrej.org>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Ximin Luo <infinity0@debian.org>
+    Seconded: gregor herrmann <gregoa@debian.org>
+    Closes: #844431
   * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
     pointing out the problem.
 

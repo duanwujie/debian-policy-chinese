@@ -663,6 +663,28 @@ particularly complex or unintuitive source layout or build system (for
 example, a package that builds the same source multiple times to
 generate different binary packages).
 
+Reproducibility
+---------------
+
+Packages should build reproducibly, which for the purposes of this
+document [#]_ means that given
+
+- a version of a source package unpacked at a given path;
+- a set of versions of installed build dependencies;
+- a set of environment variable values;
+- a build architecture; and
+- a host architecture,
+
+repeatedly building the source package for the build architecture on
+any machine of the host architecture with those versions of the build
+dependencies installed and exactly those environment variable values
+set will produce bit-for-bit identical binary packages.
+
+It is recommended that packages produce bit-for-bit identical binaries
+even if most environment variables and build paths are varied.  It is
+intended for this stricter standard to replace the above when it is
+easier for packages to meet it.
+
 .. [#]
    See the file ``upgrading-checklist`` for information about policy
    which has changed between different versions of this document.
@@ -792,3 +814,7 @@ generate different binary packages).
    often creates either static linking or shared library conflicts, and,
    most importantly, increases the difficulty of handling security
    vulnerabilities in the duplicated code.
+
+.. [#]
+   This is Debian's precisification of the `reproducible-builds.org
+   definition <https://reproducible-builds.org/docs/definition/>`_.

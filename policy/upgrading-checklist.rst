@@ -48,6 +48,14 @@ Unreleased.
     ``debian/watch`` configuration to indicate how to find the upstream
     signature for new releases is recommended.
 
+4.15
+    Packages should build reproducibly when certain factors are held
+    constant; see 4.15 for the list.
+
+4.15
+    Packages are recommended to build reproducibly even when build
+    paths and most environment variables are allowed to vary.
+
 Version 4.0.1
 -------------
 
