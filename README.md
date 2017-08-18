@@ -284,6 +284,9 @@ Finally, announce the new Policy release on debian-devel-announce,
 including in the announcement the upgrading-checklist section for the
 new release.
 
+Also consider a more informally-worded posting on a blog that is
+syndicated to Debian Planet.
+
 ### Setting release goals
 
 Policy has a large bug backlog, and each bug against Policy tends to
