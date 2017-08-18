@@ -11,6 +11,7 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     Closes: #844431
   * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
     pointing out the problem.
+  * Improve release process documentation in README.md.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key
