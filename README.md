@@ -265,27 +265,30 @@ assuming that you haven't packed the refs in your repository.
 
 ### Making a release
 
-For a final Policy release, change UNRELEASED to unstable in
-debian/changelog and update the timestamp to match the final release
-time (dch -r may be helpful for this), update the release date in
-upgrading-checklist.xml, update Standards-Version in debian/control,
-and commit that change. Then do the final release build and make sure
-that it builds and installs.
+For a final Policy release,
 
-Then, tag the repository and push the final changes to Alioth:
+1. `dch -r` to finalise changelog
+2. Update release date in the upgrading checklist
+3. Bump Standards-Version in d/control
+4. Commit these changes:
 
-    git tag -s v3.8.0.0
-    git push origin
-    git push --tags origin
+    `git commit debian/changelog debian/control policy/upgrading-checklist.rst -m"finalise 3.9.8.0"`
 
-replacing the version number with the version of the release, of course.
+5. Make sure the package builds and installs: `dgit sbuild` or
+   equivalent
+6. Tag and upload: either
 
-Finally, announce the new Policy release on debian-devel-announce,
-including in the announcement the upgrading-checklist section for the
-new release.
+  - `git tag -s 3.9.8.0` followed by `dput`; or
+  - `dgit push`
 
-Also consider a more informally-worded posting on a blog that is
-syndicated to Debian Planet.
+7. Push to alioth:
+
+    `git push --tags origin`
+
+8. Announce on debian-devel-announce, including upgrading checklist
+   section for new release
+9. Also consider a more informally-worded posting on a blog that is
+   syndicated to planet.debian.org.
 
 ### Setting release goals
 
