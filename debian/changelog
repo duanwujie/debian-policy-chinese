@@ -18,6 +18,8 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     case that it's not clear whether the bug is a policy matter, it can
     remain unclassified.
   * Add policy-specific usage for the 'moreinfo' tag.
+  * Enhance tools/policy-bug-report to fetch bugs that have a given
+    usertag or combination of usertags.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key

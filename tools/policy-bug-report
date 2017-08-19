@@ -7,10 +7,15 @@
 # give a summary for all open Policy bugs for a periodic automated report.
 #
 # The SOAP code here is based heavily on Devscripts::Debbugs.
+#
+# Originally written by Russ Allbery.  Enhanced to handle usertags by
+# Sean Whitton.
 
 use strict;
 
 use SOAP::Lite ();
+use List::MoreUtils qw(first_index);
+use Array::Utils qw(intersect);
 
 # The URL to the SOAP interface for the Debian BTS interface and the SOAP
 # namespace used by that interface.
@@ -39,14 +44,42 @@ sub init_soap {
     $soap->on_fault (\&die_soap);
 }
 
-# Do a SOAP search for bugs following a particular provided criteria (as
-# key/value pairs) and print out a summary of all such bugs.  This currently
-# cannot handle usertags, only regular search criteria.
+# Do a SOAP search for bugs following a particular provided criteria
+# (as key/value pairs) and print out a summary of all such bugs.
 sub print_bug_list {
     my ($soap, @criteria) = @_;
     unshift (@criteria, status => 'open');
     unshift (@criteria, package => 'debian-policy');
-    my $bugs = $soap->get_bugs (@criteria)->result;
+    # the soap interface separates fetching bugs by usertag and
+    # fetching bugs by all other criteria, so we have to filter out
+    # 'usertag' and handle it differently
+    my @usertags;
+    while (my $usertag_index = first_index { $_ eq 'usertag' } @criteria) {
+        last if $usertag_index < 0;
+        push @usertags, $criteria[$usertag_index + 1];
+        # now we have the usertag, drop it from the criteria fed to the
+        # non-usertag SOAP interface
+        splice @criteria, $usertag_index, 2;
+    }
+    my $bugs;
+    if (@usertags) {
+        my @usertag_bugs;
+        my $usertag_bugs_hash = $soap->
+          get_usertag ('debian-policy@packages.debian.org', @usertags)->result;
+        foreach my $key (keys %$usertag_bugs_hash) {
+            my @value = @{$usertag_bugs_hash->{$key}};
+            if (scalar @usertag_bugs < 1) {
+                @usertag_bugs = @value;
+            } else {
+                @usertag_bugs = intersect (@usertag_bugs, @value);
+            }
+        }
+        my $all_bugs = $soap->get_bugs (@criteria)->result;
+        my @bugs = intersect (@usertag_bugs, @$all_bugs);
+        $bugs = \@bugs;
+    } else {
+        $bugs = $soap->get_bugs (@criteria)->result;
+    }
     unless (@$bugs) {
         print "No bugs found\n";
         return;
