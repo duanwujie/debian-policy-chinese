@@ -9,18 +9,20 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     Seconded: Ximin Luo <infinity0@debian.org>
     Seconded: gregor herrmann <gregoa@debian.org>
     Closes: #844431
-  * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
-    pointing out the problem.
+  * Fix a singular/plural error in 9.6.
+    Thanks to Didier Raboud for pointing out the problem.
   * Improve release process documentation in README.md.
-  * Deprecate usage of the 'issue' usertag.
-    It is usually very clear whether an issue is a policy matter, so bugs
-    can be simply closed, or moved to the 'discussion' phase.  In the rare
-    case that it's not clear whether the bug is a policy matter, it can
-    remain unclassified.
-  * Add policy-specific usage for the 'moreinfo' tag.
-  * Enhance tools/policy-bug-report to fetch bugs that have a given
-    usertag or combination of usertags.
-  * Improve the lists of bugs that tools/policy-bug-report generates.
+  * Policy changes process:
+    - Deprecate usage of the 'issue' usertag
+      It is usually very clear whether an issue is a policy matter, so bugs
+      can be simply closed, or moved to the 'discussion' phase.
+      In the rare case that it's not clear whether the bug is a policy matter,
+      it can remain unclassified, or be tagged 'moreinfo' (see below).
+    - Add policy-specific usage for the 'moreinfo' tag.
+  * tools/policy-bug-report:
+    - Enhance to fetch bugs that have a given usertag or combination of
+      usertags
+    - Improve the lists of bugs generated, for posting to Planet Debian.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key
