@@ -248,4 +248,6 @@ process and will not have the other tags except for pending and wontfix
 
 .. [#]
    This process was originally developed by Margarita Manterola, Clint
-   Adams, Russ Allbery and Manoj Srivastava.
+   Adams, Russ Allbery and Manoj Srivastava.  In 2017, Sean Whitton
+   deprecated the 'issue' usertag and added use of the 'moreinfo' tag,
+   after discussions at DebConf17.
