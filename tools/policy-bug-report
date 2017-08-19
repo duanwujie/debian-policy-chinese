@@ -46,6 +46,8 @@ sub init_soap {
 
 # Do a SOAP search for bugs following a particular provided criteria
 # (as key/value pairs) and print out a summary of all such bugs.
+# Criteria are conjoined, but there is known bug with this when more
+# than one 'usertag' criteria is specified
 sub print_bug_list {
     my ($soap, @criteria) = @_;
     unshift (@criteria, status => 'open');
@@ -98,7 +100,7 @@ sub print_bug_list {
 # Main routine.
 my $soap = init_soap;
 print "Consensus has been reached and help is needed to write a patch:\n\n";
-print_bug_list ($soap, usertag => 'proposal', usertag => 'normative');
+print_bug_list ($soap, usertag => 'proposal');
 print "\nWording proposed, awaiting review from anyone and/or seconds by DDs:\n\n";
 print_bug_list ($soap, tag => 'patch');
 print "\nMerged for the next release:\n\n";
