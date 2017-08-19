@@ -12,6 +12,11 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
   * Fix a singular/plural error in 9.6.  Thanks to Didier Raboud for
     pointing out the problem.
   * Improve release process documentation in README.md.
+  * Deprecate usage of the 'issue' usertag.
+    It is usually very clear whether an issue is a policy matter, so bugs
+    can be simply closed, or moved to the 'discussion' phase.  In the rare
+    case that it's not clear whether the bug is a policy matter, it can
+    remain unclassified.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key

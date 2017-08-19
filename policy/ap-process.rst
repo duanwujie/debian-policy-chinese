@@ -61,24 +61,6 @@ bugs. All Debian Developers should feel free to add the seconded tag as
 described below. Other tags should be changed with the coordination of
 the Policy Team.
 
-.. _state-a-issue-raised:
-
-State A: Issue raised
-~~~~~~~~~~~~~~~~~~~~~
-
-Detect need, like gaps/flaws in current policy, or a new rule should be
-added. Any user or developer may start this step. There is a decision
-point here; not all issues are in scope of policy.
-
-`TAG: issue
-<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&tag=issue>`_
-
-What needs to happen next: If this is in scope for Policy, discuss the
-issue and possible solutions, moving to the discussion tag, or if the
-matter is sufficiently clear, go directly to a proposal for how to
-address it, moving to the proposal tag. If this is not in scope for
-Policy, close the bug.
-
 .. _state-b-discussion:
 
 State B: Discussion
