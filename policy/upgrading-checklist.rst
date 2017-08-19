@@ -27,6 +27,13 @@ for details. Once you've made all necessary changes to match the current
 rules, update the value of ``Standards-Version`` to the current Policy
 Manual version.
 
+If an item in the list is followed by the name of a Lintian tag in
+square brackets, it indicates that the policy requirement is covered
+by that Lintian tag.  The lack of such an annotation does not mean
+that no Lintian tag exists to cover the requirement.  Our coverage of
+these annotations is quite incomplete, and patches to this checklist
+are very welcome.
+
 The sections in this checklist match the values for the
 ``Standards-Version`` control field in omitting the minor patch version,
 except in the two anomalous historical cases where normative

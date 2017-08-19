@@ -23,6 +23,8 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     - Enhance to fetch bugs that have a given usertag or combination of
       usertags
     - Improve the lists of bugs generated, for posting to Planet Debian.
+  * Add convention to upgrading checklist for indicating that a policy
+    requirement is covered by Lintian.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key
