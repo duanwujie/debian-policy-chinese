@@ -97,9 +97,9 @@ sub print_bug_list {
 
 # Main routine.
 my $soap = init_soap;
-print "The following bugs have proposed wording awaiting further review:\n\n";
+print "Consensus has been reached and help is needed to write a patch:\n\n";
+print_bug_list ($soap, usertag => 'proposal', usertag => 'normative');
+print "\nWording proposed, awaiting review from anyone and/or seconds by DDs:\n\n";
 print_bug_list ($soap, tag => 'patch');
-print "\nThe following bugs have been merged for the next release:\n\n";
+print "\nMerged for the next release:\n\n";
 print_bug_list ($soap, tag => 'pending');
-print "\nThe following bugs have been rejected:\n\n";
-print_bug_list ($soap, tag => 'wontfix');
