@@ -17,6 +17,7 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     can be simply closed, or moved to the 'discussion' phase.  In the rare
     case that it's not clear whether the bug is a policy matter, it can
     remain unclassified.
+  * Add policy-specific usage for the 'moreinfo' tag.
 
   [ Russ Allbery ]
   * Policy: Recommend including the upstream signing key

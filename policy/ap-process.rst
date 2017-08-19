@@ -49,8 +49,9 @@ Current Process
 ---------------
 
 Each suggested change goes through different states. These states are
-denoted through either usertags of the debian-policy@packages.debian.org
-user or, for ``patch``, ``pending``, and ``wontfix``, regular tags.
+denoted through either usertags of the
+debian-policy@packages.debian.org user or, for ``moreinfo``,
+``patch``, ``pending``, and ``wontfix``, regular tags.
 
 `Current list of
 bugs <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done>`_
@@ -60,6 +61,28 @@ will update tags as new bugs are submitted or as activity happens on
 bugs. All Debian Developers should feel free to add the seconded tag as
 described below. Other tags should be changed with the coordination of
 the Policy Team.
+
+.. _state-a-moreinfo:
+
+State A: More information required
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Policy delegates are unable to determine whether the bug is really
+a Policy matter, or judge that there are missing details that would
+prevent a fruitful discussion (and may result in a confused and
+unhelpful discussion).
+
+Policy delegates ask the original submitter to provide the missing
+details.  Others are asked to refrain from discussing whatever they
+take the issue to be, limiting their postings to attempts to supply
+the missing details.
+
+`TAG: moreinfo <https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=debian-policy&pend-exc=done&tag=moreinfo>`_
+
+What needs to happen next: Submitter (or someone else) provides the
+requested information within 30 days, or the bug is closed.
+
+The majority of bugs will skip this stage.
 
 .. _state-b-discussion:
 
