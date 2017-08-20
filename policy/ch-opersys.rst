@@ -35,7 +35,7 @@ Debian Policy. The following exceptions to the FHS apply:
     character.
 
 3.  The requirement for amd64 to use ``/lib64`` for 64 bit binaries is
-    removed.
+    removed.  Only the dynamic linker is allowed to use this directory.
 
 4.  The requirement for object files, internal binaries, and libraries,
     including ``libc.so.*``, to be located directly under ``/lib{,32}``
@@ -47,6 +47,9 @@ Debian Policy. The following exceptions to the FHS apply:
     instance, an ``Architecture:  amd64`` package containing 32-bit x86
     libraries may not install these libraries to
     ``/usr/lib/i386-linux-gnu``.  [#]_
+
+    No package for a 64 bit architecture may install files in
+    ``/usr/lib64/`` or in a subdirectory of it.
 
     The requirement for C and C++ headers files to be accessible through
     the search path ``/usr/include/`` is amended, permitting files to be

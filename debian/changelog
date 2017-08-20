@@ -9,6 +9,11 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     Seconded: Ximin Luo <infinity0@debian.org>
     Seconded: gregor herrmann <gregoa@debian.org>
     Closes: #844431
+  * Policy: Restrictions on the use of /lib64/ and /usr/lib64/
+    Wording: Bill Allombert <ballombe@debian.org>
+    Seconded: Niels Thykier <niels@thykier.net>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Closes: #630174
   * Fix a singular/plural error in 9.6.
     Thanks to Didier Raboud for pointing out the problem.
   * Improve release process documentation in README.md.

@@ -63,6 +63,12 @@ Unreleased.
     Packages are recommended to build reproducibly even when build
     paths and most environment variables are allowed to vary.
 
+9.1.1
+    Only the dynamic linker may install files to ``/lib64/``.
+
+    No package for a 64 bit architecture may install files to
+    ``/usr/lib64/`` or any subdirectory.
+
 Version 4.0.1
 -------------
 
