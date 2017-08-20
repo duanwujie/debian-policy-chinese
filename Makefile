@@ -176,16 +176,16 @@ policy.validate: upgrading-checklist.xml
 # The text version of the upgrading checklist come from the Policy text build.
 policy/_build/text/upgrading-checklist.txt: policy/_build/policy.txt
 
-policy.html.tar.gz: policy/_build/html/index.html $(DIA_PNGS)
+policy.html.tar.gz: policy/_build/singlehtml/index.html $(DIA_PNGS)
 	tar -czf policy.html.tar.gz				\
-	    --transform='s%policy/_build/html%policy.html%'	\
-	    policy/_build/html
+	    --transform='s%policy/_build/singlehtml%policy.html%'	\
+	    policy/_build/singlehtml
 
 policy/_build/epub/policy.epub: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M epub policy policy/_build
 
-policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
-	$(SPHINX) -M html policy policy/_build
+policy/_build/singlehtml/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
+	$(SPHINX) -M singlehtml policy policy/_build
 
 policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M latexpdf policy policy/_build
