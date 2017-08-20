@@ -8,6 +8,7 @@ Uploaders:
 Section: doc
 Priority: optional
 Build-Depends:
+ dblatex,
  debhelper (>= 10),
  dia,
  docbook-xml,
