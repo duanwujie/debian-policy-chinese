@@ -14,6 +14,11 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     Seconded: Niels Thykier <niels@thykier.net>
     Seconded: Sean Whitton <spwhitton@spwhitton.name>
     Closes: #630174
+  * Policy: Clarify how `x-terminal-emulator -e` must behave
+    Wording: Jonathan Nieder <jrnieder@gmail.com>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Closes: #648271
   * Fix a singular/plural error in 9.6.
     Thanks to Didier Raboud for pointing out the problem.
   * Improve release process documentation in README.md.

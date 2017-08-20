@@ -322,9 +322,13 @@ To be an ``x-terminal-emulator``, a program must:
 - Be able to emulate a DEC VT100 terminal, or a compatible terminal.
 
 - Support the command-line option ``-e command``, which creates a new
-  terminal window [#]_ and runs the specified command, interpreting the
-  entirety of the rest of the command line as a command to pass straight
-  to exec, in the manner that ``xterm`` does.
+  terminal window [#]_ and runs the specified command.  <command> may
+  be multiple arguments, which form the argument list to the executed
+  program.  In other words, the behavior is as though the arguments
+  were passed directly to ``execvp``, bypassing the shell.
+  (``xterm``'s behavior of falling back on using the shell if ``-e``
+  had a single argument and exec failed is permissible but not
+  required.)
 
 - Support the command-line option ``-T title``, which creates a new
   terminal window with the window title title.

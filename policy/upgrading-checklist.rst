@@ -69,6 +69,19 @@ Unreleased.
     No package for a 64 bit architecture may install files to
     ``/usr/lib64/`` or any subdirectory.
 
+11.8.3
+    The required behaviour of ``x-terminal-emulator -e`` has been
+    clarified, and updated to replace a false claim about the
+    behaviour of ``xterm``.
+
+    Programs must support ``-e command`` where ``command`` may include
+    multiple arguments, which must be executed as if the arguments
+    were passed to ``execvp`` directly, bypassing the shell.
+
+    If this execution fails and ``-e`` has a single argument,
+    ``xterm``'s fallback behaviour of passing ``command`` to the shell
+    is permitted but not required.
+
 Version 4.0.1
 -------------
 
