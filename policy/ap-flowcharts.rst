@@ -11,32 +11,32 @@ conventions:
 -  the ``dpkg`` status of the package at the end of the run are in bold
    type.
 
-.. figure:: images/install.png
+.. figure:: images/policy-install.png
    :alt: Installing a package that was not previously installed
 
    Installing a package that was not previously installed
 
-.. figure:: images/install-conffiles.png
+.. figure:: images/policy-install-conffiles.png
    :alt: Installing a package that was previously removed, but not purged
 
    Installing a package that was previously removed, but not purged
 
-.. figure:: images/upgrade.png
+.. figure:: images/policy-upgrade.png
    :alt: Upgrading a package
 
    Upgrading a package
 
-.. figure:: images/remove.png
+.. figure:: images/policy-remove.png
    :alt: Removing a package
 
    Removing a package
 
-.. figure:: images/purge.png
+.. figure:: images/policy-purge.png
    :alt: Purging a package previously removed
 
    Purging a package previously removed
 
-.. figure:: images/remove-purge.png
+.. figure:: images/policy-remove-purge.png
    :alt: Removing and purging a package
 
    Removing and purging a package

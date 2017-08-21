@@ -136,6 +136,7 @@ install: all
 	done
 	$(MKDIR) $(DESTDIR)$(infodir)
 	$(INSTALL) $(INFO_FILES) $(DESTDIR)$(infodir)
+	$(INSTALL) $(DIA_PNGS) $(DESTDIR)$(infodir)
 
 .PHONY: all clean distclean install
 

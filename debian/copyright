@@ -75,14 +75,14 @@ License: FHS
  versions, except that this permission notice may be stated in a
  translation approved by the copyright holder.
 
-Files: dia/install.dia dia/purge.dia
+Files: policy/images/policy-install.dia policy/images/policy-purge.dia
 Copyright: (C) 2005 Margarita Manterola
 License: GPL-2+
 
-Files: dia/install-conffiles.dia
- dia/remove.dia
- dia/remove-purge.dia
- dia/upgrade.dia*
+Files: policy/images/policy-install-conffiles.dia
+ policy/images/policy-remove.dia
+ policy/images/policy-remove-purge.dia
+ policy/images/policy-upgrade.dia*
 Copyright: (C) 2005, 2006 Margarita Manterola
 License: GPL-2+
 
