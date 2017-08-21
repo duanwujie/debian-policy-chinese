@@ -15,8 +15,5 @@ Format: HTML
 Index: /usr/share/doc/debian-policy/policy.html/index.html
 Files: /usr/share/doc/debian-policy/policy.html/*.html
 
-Format: PostScript
-Files: /usr/share/doc/debian-policy/policy.ps.gz
-
 Format: PDF
 Files: /usr/share/doc/debian-policy/policy.pdf.gz

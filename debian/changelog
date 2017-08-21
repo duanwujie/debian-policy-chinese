@@ -56,6 +56,7 @@ debian-policy (4.0.2.0) UNRELEASED; urgency=medium
     scripts, and pushing the project forward.
     Thanks to David Bremner <bremner@debian.org> for help proofreading the
     output.
+    - Drop PostScript output.
 
  -- Russ Allbery <rra@debian.org>  Tue, 08 Aug 2017 06:45:37 -0700
 
