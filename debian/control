@@ -30,6 +30,8 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends},
  ${sphinxdoc:Depends},
+# workaround for dh_sphinxdoc bug #872863
+ libjs-sphinxdoc (>= 1.0),
 Suggests:
  doc-base,
 Built-Using: ${sphinxdoc:Built-Using}
