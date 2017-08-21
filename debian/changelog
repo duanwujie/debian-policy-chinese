@@ -1,4 +1,4 @@
-debian-policy (4.1.0.0) UNRELEASED; urgency=medium
+debian-policy (4.1.0.0) unstable; urgency=medium
 
   [ Sean Whitton ]
   * Policy: Packages should build reproducibly
@@ -58,7 +58,7 @@ debian-policy (4.1.0.0) UNRELEASED; urgency=medium
     output.
     - Drop PostScript output.
 
- -- Russ Allbery <rra@debian.org>  Tue, 08 Aug 2017 06:45:37 -0700
+ -- Sean Whitton <spwhitton@spwhitton.name>  Mon, 21 Aug 2017 14:17:42 -0700
 
 debian-policy (4.0.1.0) unstable; urgency=medium
 

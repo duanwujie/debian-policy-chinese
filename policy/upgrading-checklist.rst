@@ -39,10 +39,10 @@ The sections in this checklist match the values for the
 except in the two anomalous historical cases where normative
 requirements were changed in a minor patch release.
 
-Version 4.0.2
+Version 4.1.0
 -------------
 
-Unreleased.
+Released August, 2017.
 
 2.2.1
     Non-default alternative dependencies on non-free packages are
