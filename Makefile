@@ -131,7 +131,7 @@ install: all
 	$(MKDIR) $(DESTDIR)$(docdir)/fhs
 	$(INSTALL) $(POLICY_FILES) $(DESTDIR)$(docdir)
 	$(INSTALL) $(FHS_FILES)    $(DESTDIR)$(docdir)/fhs
-	@set -ex; for file in $(XML_FILES); do		\
+	@set -ex; for file in $(XML_FILES) policy; do		\
 	    tar -C $(DESTDIR)$(docdir) -zxf $$file.html.tar.gz;	\
 	done
 	$(MKDIR) $(DESTDIR)$(infodir)
