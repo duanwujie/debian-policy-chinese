@@ -1,4 +1,4 @@
-debian-policy (4.0.2.0) UNRELEASED; urgency=medium
+debian-policy (4.1.0.0) UNRELEASED; urgency=medium
 
   [ Sean Whitton ]
   * Policy: Packages should build reproducibly
