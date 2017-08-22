@@ -1,12 +1,18 @@
-debian-policy (4.1.1.0) UNRELEASED; urgency=medium
+debian-policy (4.1.0.1) unstable; urgency=medium
 
+  [ Russ Allbery ]
+  * Add back missing parentheses around the man page section in man page
+    references in the Policy manual, lost in the conversion to
+    reStructuredText.  Thanks, Daniel Shahaf.
+
+  [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages
     Wording: Sean Whitton <spwhitton@spwhitton.name>
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Mattia Rizzolo <mattia@debian.org>
     Closes: #683222
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Tue, 22 Aug 2017 10:33:21 -0700
+ -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
 
 debian-policy (4.1.0.0) unstable; urgency=medium
 

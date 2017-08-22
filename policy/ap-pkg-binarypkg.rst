@@ -1,7 +1,7 @@
 Binary packages (from old Packaging Manual)
 ===========================================
 
-See deb5 and :ref:`s-pkg-controlarea`.
+See deb(5) and :ref:`s-pkg-controlarea`.
 
 .. _s-pkg-bincreating:
 
@@ -47,7 +47,7 @@ This will build the package in ``directory.deb``. (``dpkg`` knows that
 ``--build`` is a ``dpkg-deb`` option, so it invokes ``dpkg-deb`` with
 the same arguments to build the package.)
 
-See the man page dpkg-deb8 for details of how to examine the contents of
+See the dpkg-deb(8) man page for details of how to examine the contents of
 this newly-created file. You may find the output of following commands
 enlightening:
 

@@ -554,7 +554,7 @@ The ``debian/substvars`` file is usually generated and modified
 dynamically by ``debian/rules`` targets, in which case it must be
 removed by the ``clean`` target.
 
-See deb-substvars5 for full details about source variable substitutions,
+See deb-substvars(5) for full details about source variable substitutions,
 including the format of ``debian/substvars``.
 
 .. _s-debianwatch:
@@ -577,7 +577,7 @@ to sign upstream releases in the Debian source package as
 ``debian/upstream/signing-key.asc``.
 
 For more information about ``uscan`` and these options, including how to
-generate the file containing upstream signing keys, see uscan1.
+generate the file containing upstream signing keys, see uscan(1).
 
 .. _s-debianfiles:
 

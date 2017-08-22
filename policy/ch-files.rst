@@ -540,7 +540,7 @@ indefinitely. The best way to do this is to install a log rotation
 configuration file in the directory ``/etc/logrotate.d``, normally named
 ``/etc/logrotate.d/package``, and use the facilities provided by
 ``logrotate``.  [#]_ Here is a good example for a logrotate config file
-(for more information see logrotate8):
+(for more information see logrotate(8)):
 
 ::
 
@@ -747,7 +747,7 @@ restricted to ASCII when it is possible to do so.
 
 .. [#]
    A common example are the so-called "plug-ins", internal shared
-   objects that are dynamically loaded by programs using dlopen3.
+   objects that are dynamically loaded by programs using dlopen(3).
 
 .. [#]
    These files store, among other things, all libraries on which that

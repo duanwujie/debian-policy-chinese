@@ -530,7 +530,7 @@ remove and recreate the links, since otherwise the old links may
 persist. Refer to the documentation of ``update-rc.d``.
 
 For more information about using ``update-rc.d``, please consult its man
-page update-rc.d8.
+page, update-rc.d(8).
 
 It is easiest for packages not to call ``update-rc.d`` directly, but
 instead use debhelper programs that add the required ``update-rc.d``
@@ -568,7 +568,7 @@ before it tries to invoke them using ``invoke-rc.d``. Invocation of
 unregistered services may fail.
 
 For more information about using ``invoke-rc.d``, please consult its man
-page invoke-rc.d8.
+page, invoke-rc.d(8).
 
 It is easiest for packages not to call ``invoke-rc.d`` directly, but
 instead use debhelper programs that add the required ``invoke-rc.d``
@@ -586,8 +586,8 @@ This section has been deleted.
 Example
 ~~~~~~~
 
-Examples on which you can base your systemd integration on is available
-in the man page systemd.unit8. An example on which you can base your
+Examples on which you can base your systemd integration on is available in
+the man page systemd.unit(8). An example on which you can base your
 ``/etc/init.d`` scripts is found in ``/etc/init.d/skeleton``.
 
 .. _s9.4:
@@ -779,7 +779,7 @@ Registration of media type handlers with mailcap entries
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Packages that are not using desktop entries for registration should
-install a file in mailcap5 format (RFC 1524) in the directory
+install a file in mailcap(5) format (RFC 1524) in the directory
 ``/usr/lib/mime/packages/``. The file name should be the binary
 package's name.
 
@@ -800,7 +800,7 @@ Providing media types to files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The media type of a file is discovered by inspecting the file's
-extension or its magic5 pattern, and interrogating a database
+extension or its magic(5) pattern, and interrogating a database
 associating them with media types.
 
 To support new associations between media types and files, their

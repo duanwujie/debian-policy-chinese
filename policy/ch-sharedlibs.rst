@@ -475,11 +475,11 @@ The ``symbols`` File Format
 The following documents the format of the ``symbols`` control file as
 included in binary packages. These files are built from template
 ``symbols`` files in the source package by ``dpkg-gensymbols``. The
-template files support a richer syntax that allows ``dpkg-gensymbols``
-to do some of the tedious work involved in maintaining ``symbols``
-files, such as handling C++ symbols or optional symbols that may not
-exist on particular architectures. When writing ``symbols`` files for a
-shared library package, refer to dpkg-gensymbols1 for the richer syntax.
+template files support a richer syntax that allows ``dpkg-gensymbols`` to
+do some of the tedious work involved in maintaining ``symbols`` files,
+such as handling C++ symbols or optional symbols that may not exist on
+particular architectures. When writing ``symbols`` files for a shared
+library package, refer to dpkg-gensymbols(1) for the richer syntax.
 
 A ``symbols`` may contain one or more entries, one for each shared
 library contained in the package corresponding to that ``symbols``. Each
@@ -588,7 +588,7 @@ package. You must include either a ``symbols`` control file or a
 Normally, this is done by creating a ``symbols`` in the source package
 named ``debian/package.symbols`` or ``debian/symbols``, possibly with
 ``.arch`` appended if the symbols information varies by architecture.
-This file may use the extended syntax documented in dpkg-gensymbols1.
+This file may use the extended syntax documented in dpkg-gensymbols(1).
 Then, call ``dpkg-gensymbols`` as part of the package build process. It
 will create ``symbols`` files in the package staging area based on the
 binaries and libraries in the package staging area and the ``symbols``

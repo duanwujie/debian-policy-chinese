@@ -287,7 +287,7 @@ please see :ref:`s-dpkgchangelog`.
 .. [#]
    It is not very hard to write a man page. See the
    `Man-Page-HOWTO <http://www.schweikhardt.net/man_page_howto.html>`_,
-   man7, the examples created by ``dh_make``, the helper program
+   man(7), the examples created by ``dh_make``, the helper program
    ``help2man``, or the directory ``/usr/share/doc/man-db/examples``.
 
 .. [#]

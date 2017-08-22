@@ -14,7 +14,7 @@ Before deciding to use a diversion, read
 diversion rather than several alternative versions of a program.
 
 There is a diversion list, which is read by ``dpkg``, and updated by a
-special program ``dpkg-divert``. Please see dpkg-divert8 for full
+special program ``dpkg-divert``. Please see dpkg-divert(8) for full
 details of its operation.
 
 When a package wishes to divert a file from another, it should call

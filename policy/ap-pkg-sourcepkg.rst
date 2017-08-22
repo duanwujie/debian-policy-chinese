@@ -14,7 +14,7 @@ Various tools are provided for manipulating source packages; they pack
 and unpack sources and help build of binary packages and help manage the
 distribution of new versions.
 
-They are introduced and typical uses described here; see dpkg-source1
+They are introduced and typical uses described here; see dpkg-source(1)
 for full documentation about their arguments and operation.
 
 For examples of how to construct a Debian source package, and how to use
