@@ -8,6 +8,7 @@ debian-policy (4.1.0.1) unstable; urgency=medium
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages
     Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Jonathan Nieder <jrnieder@gmail.com>
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Mattia Rizzolo <mattia@debian.org>
     Closes: #683222
