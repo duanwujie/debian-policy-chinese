@@ -1,4 +1,4 @@
-debian-policy (4.1.0.1) unstable; urgency=medium
+debian-policy (4.1.1.0) unstable; urgency=medium
 
   [ Russ Allbery ]
   * Add back missing parentheses around the man page section in man page
