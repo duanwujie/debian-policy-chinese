@@ -588,7 +588,7 @@ package. You must include either a ``symbols`` control file or a
 Normally, this is done by creating a ``symbols`` in the source package
 named ``debian/package.symbols`` or ``debian/symbols``, possibly with
 ``.arch`` appended if the symbols information varies by architecture.
-This file may use the extended syntax documented in dpkg-gensymbols1.
+This file may use the extended syntax documented in dpkg-gensymbols(1).
 Then, call ``dpkg-gensymbols`` as part of the package build process. It
 will create ``symbols`` files in the package staging area based on the
 binaries and libraries in the package staging area and the ``symbols``

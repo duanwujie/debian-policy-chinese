@@ -530,7 +530,7 @@ remove and recreate the links, since otherwise the old links may
 persist. Refer to the documentation of ``update-rc.d``.
 
 For more information about using ``update-rc.d``, please consult its man
-page update-rc.d8.
+page, update-rc.d(8).
 
 It is easiest for packages not to call ``update-rc.d`` directly, but
 instead use debhelper programs that add the required ``update-rc.d``
@@ -568,7 +568,7 @@ before it tries to invoke them using ``invoke-rc.d``. Invocation of
 unregistered services may fail.
 
 For more information about using ``invoke-rc.d``, please consult its man
-page invoke-rc.d8.
+page, invoke-rc.d(8).
 
 It is easiest for packages not to call ``invoke-rc.d`` directly, but
 instead use debhelper programs that add the required ``invoke-rc.d``
@@ -586,8 +586,8 @@ This section has been deleted.
 Example
 ~~~~~~~
 
-Examples on which you can base your systemd integration on is available
-in the man page systemd.unit8. An example on which you can base your
+Examples on which you can base your systemd integration on is available in
+the man page systemd.unit(8). An example on which you can base your
 ``/etc/init.d`` scripts is found in ``/etc/init.d/skeleton``.
 
 .. _s9.4:
