@@ -779,7 +779,7 @@ Registration of media type handlers with mailcap entries
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Packages that are not using desktop entries for registration should
-install a file in mailcap5 format (RFC 1524) in the directory
+install a file in mailcap(5) format (RFC 1524) in the directory
 ``/usr/lib/mime/packages/``. The file name should be the binary
 package's name.
 
@@ -800,7 +800,7 @@ Providing media types to files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The media type of a file is discovered by inspecting the file's
-extension or its magic5 pattern, and interrogating a database
+extension or its magic(5) pattern, and interrogating a database
 associating them with media types.
 
 To support new associations between media types and files, their

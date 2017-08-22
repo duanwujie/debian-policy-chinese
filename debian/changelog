@@ -1,3 +1,11 @@
+debian-policy (4.1.0.1) unstable; urgency=medium
+
+  * Add back missing parentheses around the man page section in man page
+    references in the Policy manual, lost in the conversion to
+    reStructuredText.  Thanks, Daniel Shahaf.
+
+ -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
+
 debian-policy (4.1.0.0) unstable; urgency=medium
 
   [ Sean Whitton ]

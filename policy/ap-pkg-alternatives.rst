@@ -19,7 +19,7 @@ Each package provides its own version under its own name, and calls
 ``update-alternatives`` in its postinst to register its version (and
 again in its prerm to deregister it).
 
-See the man page update-alternatives8 for details.
+See the update-alternatives(8) man page for details.
 
 If ``update-alternatives`` does not seem appropriate you may wish to
 consider using diversions instead.
