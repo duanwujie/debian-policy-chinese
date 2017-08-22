@@ -99,10 +99,11 @@ later reconfigure the package without losing the changes you made.
 Debian changelog: ``debian/changelog``
 --------------------------------------
 
-Changes in the Debian version of the package should be briefly explained
-in the Debian changelog file ``debian/changelog``.  [#]_ This includes
-modifications made in the Debian package compared to the upstream one as
-well as other changes and updates to the package.  [#]_
+Every source package must include the Debian changelog file,
+``debian/changelog``.  Changes in the Debian version of the package
+should be briefly explained in this file.  [#]_ This includes
+modifications made in the Debian package compared to the upstream one
+as well as other changes and updates to the package.  [#]_
 
 The format of the ``debian/changelog`` allows the package building tools
 to discover which version of the package is being built and find out
