@@ -39,6 +39,14 @@ The sections in this checklist match the values for the
 except in the two anomalous historical cases where normative
 requirements were changed in a minor patch release.
 
+Version 4.1.1
+-------------
+
+Unreleased.
+
+4.4
+    debian/changelog must exist in source packages.
+
 Version 4.1.0
 -------------
 
