@@ -15,6 +15,8 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
   * Restructure the document to ensure proper section numbering in info
     and PDF output except for the appendices.  The appendix numbering
     will require a Sphinx change.  (Closes: #872893)
+  * Rename the info document to debian-policy.info to make it less
+    generic, and update the PNG file names accordingly.  (Closes: #872900)
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages

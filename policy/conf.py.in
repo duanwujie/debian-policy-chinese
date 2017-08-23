@@ -155,8 +155,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'policy', 'Debian Policy Manual',
-     author, 'policy', 'Debian Policy Manual.',
+    (master_doc, 'debian-policy', 'Debian Policy Manual',
+     author, 'debian-policy', 'Debian Policy Manual.',
      'Miscellaneous'),
 ]
 
