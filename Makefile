@@ -90,7 +90,7 @@ POLICY_FILES := $(MDWN_FILES:=.html)				\
 		virtual-package-names-list.txt
 
 # A list of generated info files to install.
-INFO_FILES := policy/_build/texinfo/policy.info
+INFO_FILES := policy/_build/texinfo/debian-policy.info
 
 # Source files that go into the Debian Policy manual.
 POLICY_SOURCE := $(wildcard policy/*.rst) policy/conf.py policy/index.rst
@@ -205,7 +205,7 @@ policy/_build/policy.txt: $(POLICY_SOURCE)
 policy/_build/singlehtml/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M singlehtml policy policy/_build
 
-policy/_build/texinfo/policy.info: $(POLICY_SOURCE)
+policy/_build/texinfo/debian-policy.info: $(POLICY_SOURCE)
 	$(SPHINX) -M info policy policy/_build
 
 $(MDWN_FILES:=.txt): %.txt: %.md version.md
