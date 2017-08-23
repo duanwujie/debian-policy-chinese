@@ -10,6 +10,7 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     previous file name, and add the supporting _images and _static
     directories to /usr/share/doc/debian-policy.
   * Remove the stray policy.html.tar.gz file from the built package.
+    (Closes: #872896)
   * Simplify the build rules for generating policy.html.
   * Remove some stray build rules left over from DocBook Policy.
   * Restructure the document to ensure proper section numbering in info
