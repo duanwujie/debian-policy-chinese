@@ -79,10 +79,10 @@ Files: policy/images/policy-install.dia policy/images/policy-purge.dia
 Copyright: (C) 2005 Margarita Manterola
 License: GPL-2+
 
-Files: policy/images/policy-install-conffiles.dia
- policy/images/policy-remove.dia
- policy/images/policy-remove-purge.dia
- policy/images/policy-upgrade.dia*
+Files: policy/images/debian-policy-install-conffiles.dia
+ policy/images/debian-policy-remove.dia
+ policy/images/debian-policy-remove-purge.dia
+ policy/images/debian-policy-upgrade.dia*
 Copyright: (C) 2005, 2006 Margarita Manterola
 License: GPL-2+
 
