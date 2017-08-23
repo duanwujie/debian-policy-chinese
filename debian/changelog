@@ -4,6 +4,14 @@ debian-policy (4.1.1.0) unstable; urgency=medium
   * Add back missing parentheses around the man page section in man page
     references in the Policy manual, lost in the conversion to
     reStructuredText.  Thanks, Daniel Shahaf.
+  * Revert the contents of the policy.html directory to the multi-page
+    HTML output.  (Closes: #872895)
+  * Move the single-page HTML output to policy-1.html, matching the
+    previous file name, and add the supporting _images and _static
+    directories to /usr/share/doc/debian-policy.
+  * Remove the stray policy.html.tar.gz file from the built package.
+  * Simplify the build rules for generating policy.html.
+  * Remove some stray build rules left over from DocBook Policy.
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages

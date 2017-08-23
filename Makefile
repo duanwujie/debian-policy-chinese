@@ -87,7 +87,6 @@ POLICY_FILES := $(MDWN_FILES:=.html)				\
 		policy/_build/latex/policy.pdf			\
 		policy/_build/policy.txt			\
 		policy/_build/text/upgrading-checklist.txt	\
-		policy.html.tar.gz				\
 		virtual-package-names-list.txt
 
 # A list of generated info files to install.
@@ -110,7 +109,6 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 		  $(XML_SINGLE_FILES:=.validate)	\
 		  $(DIA_PNGS)				\
 		  policy/index.rst			\
-		  policy.html.tar.gz			\
 		  version.md version.xml
 
 
@@ -119,8 +117,9 @@ FILES_TO_CLEAN := $(MDWN_FILES:=.html)			\
 # command line, or that are used by the Debian build system.
 #
 
-all: $(XML_FILES:=.validate) $(XML_SINGLE_FILES:=.validate) \
-     $(XML_FILES:=.html.tar.gz) $(POLICY_FILES) $(INFO_FILES)
+all: $(XML_FILES:=.validate) $(XML_SINGLE_FILES:=.validate)		\
+     $(XML_FILES:=.html.tar.gz) $(POLICY_FILES) $(INFO_FILES)		\
+     policy/_build/singlehtml/index.html policy/_build/html/index.html
 
 clean distclean:
 	rm -f $(FILES_TO_CLEAN)
@@ -131,9 +130,17 @@ install: all
 	$(MKDIR) $(DESTDIR)$(docdir)/fhs
 	$(INSTALL) $(POLICY_FILES) $(DESTDIR)$(docdir)
 	$(INSTALL) $(FHS_FILES)    $(DESTDIR)$(docdir)/fhs
-	@set -ex; for file in $(XML_FILES) policy; do		\
+	@set -ex; for file in $(XML_FILES); do			\
 	    tar -C $(DESTDIR)$(docdir) -zxf $$file.html.tar.gz;	\
 	done
+	$(MKDIR) $(DESTDIR)$(docdir)/policy.html
+	cp -dR policy/_build/html/* $(DESTDIR)$(docdir)/policy.html/
+	$(INSTALL) policy/_build/singlehtml/index.html \
+	    $(DESTDIR)$(docdir)/policy-1.html
+	$(MKDIR) $(DESTDIR)$(docdir)/_images
+	cp -dR policy/_build/singlehtml/_images/* $(DESTDIR)$(docdir)/_images/
+	$(MKDIR) $(DESTDIR)$(docdir)/_static
+	cp -dR policy/_build/singlehtml/_static/* $(DESTDIR)$(docdir)/_static/
 	$(MKDIR) $(DESTDIR)$(infodir)
 	$(INSTALL) $(INFO_FILES) $(DESTDIR)$(infodir)
 	$(INSTALL) $(DIA_PNGS) $(DESTDIR)$(infodir)
@@ -171,22 +178,15 @@ version.xml: debian/changelog
 debconf_specification.html: $(DEBCONF_INCLUDES)
 debconf_specification.txt: $(DEBCONF_INCLUDES)
 debconf_specification.validate: $(DEBCONF_INCLUDES)
-policy-1.html: upgrading-checklist.xml
-policy.validate: upgrading-checklist.xml
 
 # The text version of the upgrading checklist come from the Policy text build.
 policy/_build/text/upgrading-checklist.txt: policy/_build/policy.txt
 
-policy.html.tar.gz: policy/_build/singlehtml/index.html $(DIA_PNGS)
-	tar -czf policy.html.tar.gz				\
-	    --transform='s%policy/_build/singlehtml%policy.html%'	\
-	    policy/_build/singlehtml
-
 policy/_build/epub/policy.epub: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M epub policy policy/_build
 
-policy/_build/singlehtml/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
-	$(SPHINX) -M singlehtml policy policy/_build
+policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
+	$(SPHINX) -M html policy policy/_build
 
 policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M latexpdf policy policy/_build
@@ -201,6 +201,9 @@ policy/_build/policy.txt: $(POLICY_SOURCE)
 		printf "\n\n\n"                  >>$@;			 \
 		cat policy/_build/text/"$$f".txt >>$@;			 \
 	    done
+
+policy/_build/singlehtml/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
+	$(SPHINX) -M singlehtml policy policy/_build
 
 policy/_build/texinfo/policy.info: $(POLICY_SOURCE)
 	$(SPHINX) -M info policy policy/_build
