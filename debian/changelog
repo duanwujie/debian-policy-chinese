@@ -1,4 +1,4 @@
-debian-policy (4.1.1.0) unstable; urgency=medium
+debian-policy (4.1.1.0) UNRELEASED; urgency=medium
 
   [ Russ Allbery ]
   * Add back missing parentheses around the man page section in man page
@@ -12,6 +12,9 @@ debian-policy (4.1.1.0) unstable; urgency=medium
   * Remove the stray policy.html.tar.gz file from the built package.
   * Simplify the build rules for generating policy.html.
   * Remove some stray build rules left over from DocBook Policy.
+  * Restructure the document to ensure proper section numbering in info
+    and PDF output except for the appendices.  The appendix numbering
+    will require a Sphinx change.  (Closes: #872893)
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages
