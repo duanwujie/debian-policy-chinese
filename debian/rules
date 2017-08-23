@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
-PKG_ROOT = debian/debian-policy/usr/share/doc/debian-policy
+PKG_ROOT         = debian/debian-policy/usr/share/doc/debian-policy
+JAVASCRIPT_FILES = doctools.js jquery.js searchtools.js underscore.js
 
 %:
 	dh $@ --with sphinxdoc
@@ -9,8 +10,8 @@ PKG_ROOT = debian/debian-policy/usr/share/doc/debian-policy
 # Javascript manually.
 override_dh_install:
 	dh_install
-	for f in doctools.js jquery.js searchtools.js underscore.js; do	\
-	    rm $(PKG_ROOT)/_static/$$f;					\
-	    ln -s ../../../javascript/sphinxdoc/1.0/$$f			\
-		$(PKG_ROOT)/_static/$$f;				\
+	set -e; for f in $(JAVASCRIPT_FILES); do	\
+	    rm $(PKG_ROOT)/_static/$$f;			\
+	    ln -s ../../../javascript/sphinxdoc/1.0/$$f	\
+		$(PKG_ROOT)/_static/$$f;		\
 	done
