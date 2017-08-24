@@ -24,6 +24,9 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     examples introduced by the conversion, and missing newlines in the
     footnote illustrating alternative templates that were lost in the
     DocBook translation.
+  * Add a footnote documenting a (complex) command that returns the Debian
+    package name for a shared library.  Thanks, Jakub Wilk and Julien
+    Cristau.  (Closes: #661928)
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages

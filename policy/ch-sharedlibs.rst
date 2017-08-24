@@ -59,19 +59,19 @@ the shared library packages.
 Run-time shared libraries
 -------------------------
 
-The run-time shared library must be placed in a package whose name
-changes whenever the ``SONAME`` of the shared library changes. This
-allows several versions of the shared library to be installed at the
-same time, allowing installation of the new version of the shared
-library without immediately breaking binaries that depend on the old
-version. Normally, the run-time shared library and its ``SONAME``
-symlink should be placed in a package named librarynamesoversion, where
-soversion is the version number in the ``SONAME`` of the shared library.
-Alternatively, if it would be confusing to directly append soversion to
-libraryname (if, for example, libraryname itself ends in a number), you
-should use libraryname-soversion instead.
+The run-time shared library must be placed in a package whose name changes
+whenever the ``SONAME`` of the shared library changes. This allows several
+versions of the shared library to be installed at the same time, allowing
+installation of the new version of the shared library without immediately
+breaking binaries that depend on the old version. Normally, the run-time
+shared library and its ``SONAME`` symlink should be placed in a package
+named libraryname\ *soversion*, where *soversion* is the version number in
+the ``SONAME`` of the shared library.  Alternatively, if it would be
+confusing to directly append *soversion* to libraryname (if, for example,
+libraryname itself ends in a number), you should use
+libraryname-\ *soversion* instead. [#]_
 
-To determine the soversion, look at the ``SONAME`` of the library,
+To determine the *soversion*, look at the ``SONAME`` of the library,
 stored in the ELF ``SONAME`` attribute. It is usually of the form
 ``name.so.major-version`` (for example, ``libz.so.1``). The version part
 is the part which comes after ``.so.``, so in that example it is ``1``.
@@ -125,6 +125,14 @@ example, the libgdbm3 package should include a symbolic link from
 that the dynamic linker (for example ``ld.so`` or ``ld-linux.so.*``) can
 find the library between the time that ``dpkg`` installs it and the time
 that ``ldconfig`` is run in the ``postinst`` script.  [#]_
+
+.. [#] The following command, when run on a shared library, will output
+       the name to be used for the Debian package containing that shared
+       library::
+
+           objdump -p /path/to/libfoo-bar.so.1.2.3 \
+               | sed -n -e's/^[[:space:]]*SONAME[[:space:]]*//p' \
+               | LC_ALL=C sed -r -e's/([0-9])\.so\./\1-/; s/\.so(\.|$)//; y/_/-/; s/(.*)/\L&/'
 
 .. [#] The package management system requires the library to be placed
        before the symbolic link pointing to it in the ``.deb`` file. This
