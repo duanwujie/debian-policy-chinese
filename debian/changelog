@@ -18,6 +18,12 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     will require a Sphinx change.  (Closes: #872893, #872950)
   * Rename the info document to debian-policy.info to make it less
     generic, and update the PNG file names accordingly.  (Closes: #872900)
+  * Reformat the shared libraries chapter (8) to move footnotes to the end
+    of the section of their references and use more succinct
+    reStructuredText syntax.  Fix some errors in the shlibs syntax and
+    examples introduced by the conversion, and missing newlines in the
+    footnote illustrating alternative templates that were lost in the
+    DocBook translation.
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages
