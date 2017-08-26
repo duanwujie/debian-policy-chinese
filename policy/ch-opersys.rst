@@ -296,6 +296,18 @@ The UID and GID numbers are divided into classes as follows:
     ``(uid_t)(-1) == (gid_t)(-1)`` *must not* be used, because it is the
     error return sentinel value.
 
+.. _s-nonexistent:
+
+Non-existent home directories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The canonical non-existent home directory is ``/nonexistent``.  Users
+who should not have a home directory should have their home directory
+set to this value.
+
+The Debian autobuilders set HOME to ``/nonexistent`` so that packages
+which try to write to a home directory will fail to build.
+
 .. _s-sysvinit:
 
 System run levels and ``init.d`` scripts
