@@ -77,6 +77,9 @@ Released August, 2017.
     No package for a 64 bit architecture may install files to
     ``/usr/lib64/`` or any subdirectory.
 
+9.2.3
+    The canonical non-existent home directory is ``/nonexistent``.
+
 11.8.3
     The required behaviour of ``x-terminal-emulator -e`` has been
     clarified, and updated to replace a false claim about the

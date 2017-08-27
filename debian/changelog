@@ -35,6 +35,11 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: Mattia Rizzolo <mattia@debian.org>
     Closes: #683222
+  * Policy: /nonexistent is the canonical non-existent home directory
+    Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: David Bremner <bremner@debian.org>
+    Closes: #679751
 
  -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
 
