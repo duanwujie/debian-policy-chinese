@@ -40,6 +40,12 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     Seconded: Russ Allbery <rra@debian.org>
     Seconded: David Bremner <bremner@debian.org>
     Closes: #679751
+  * Policy: Correct the description of Testsuite: field
+    Wording: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Russ Allbery <rra@debian.org>
+    Seconded: gregor herrmann <gregoa@debian.org>
+    Closes: #870915
+    Thanks to Ondřej Nový for pointing out the problem.
 
  -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
 
