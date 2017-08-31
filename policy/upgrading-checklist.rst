@@ -59,7 +59,7 @@ Released August, 2017.
 4.11
     If upstream provides OpenPGP signatures, including the upstream
     signing key as ``debian/upstream/signing-key.asc`` in the source
-    package and using the ``pgpsignurlmangle`` option in
+    package and using the ``pgpsigurlmangle`` option in
     ``debian/watch`` configuration to indicate how to find the upstream
     signature for new releases is recommended.
 

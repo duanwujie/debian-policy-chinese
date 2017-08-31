@@ -46,6 +46,8 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     Seconded: gregor herrmann <gregoa@debian.org>
     Closes: #870915
     Thanks to Ondřej Nový for pointing out the problem.
+  * Fix a typo in 4.1.0 upgrading checklist (Closes: #873819).
+    Thanks, Martin Kepplinger.
 
  -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
 
