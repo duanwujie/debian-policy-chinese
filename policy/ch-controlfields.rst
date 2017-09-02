@@ -1010,7 +1010,7 @@ reference whose name matches ``refs/dgit/*``. See the manual page of
 Simple field containing a comma-separated list of values allowing test
 execution environments to discover packages which provide tests.
 
-This field is automatically added to Debian binary control files by
+This field is automatically added to Debian source control files by
 ``dpkg``, with the value ``autopkgtest``, when a
 ``debian/tests/control`` file is present in the source package. This
 field may also be used in source package control files if needed in
