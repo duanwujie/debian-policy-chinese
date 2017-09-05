@@ -106,7 +106,8 @@ old version of a package that is being upgraded from or downgraded from.
 
 The ``preinst`` script may be called in the following ways:
 
-| ``new-preinst`` install ``new-preinst`` install *old-version*
+| ``new-preinst`` install
+| ``new-preinst`` install *old-version*
 | ``new-preinst`` upgrade *old-version*
 
     The package will not yet be unpacked, so the ``preinst`` script
@@ -154,7 +155,8 @@ The ``postinst`` script may be called in the following ways:
 
 The ``prerm`` script may be called in the following ways:
 
-| ``prerm`` remove ``old-prerm`` upgrade *new-version*
+| ``prerm`` remove
+| ``old-prerm`` upgrade *new-version*
 | ``conflictor's-prerm`` remove in-favour package *new-version*
 | ``deconfigured's-prerm`` deconfigure in-favour *package-being-installed* *version* [removing conflicting-package version]
 
@@ -173,7 +175,9 @@ The ``prerm`` script may be called in the following ways:
 
 The ``postrm`` script may be called in the following ways:
 
-| ``postrm`` remove ``postrm`` purge ``old-postrm`` upgrade *new-version*
+| ``postrm`` remove
+| ``postrm`` purge
+| ``old-postrm`` upgrade *new-version*
 | ``disappearer's-postrm`` disappear overwriter *overwriter-version*
 
     The ``postrm`` script is called after the package's files have been
@@ -192,7 +196,8 @@ The ``postrm`` script may be called in the following ways:
     be "Unpacked" or "Half-Configured" but previously had been
     configured and was never removed.
 
-| ``new-postrm`` abort-install ``new-postrm`` abort-install *old-version*
+| ``new-postrm`` abort-install
+| ``new-postrm`` abort-install *old-version*
 | ``new-postrm`` abort-upgrade *old-version*
 
     Called before unpacking the new package as part of the error
