@@ -27,6 +27,7 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
   * Add a footnote documenting a (complex) command that returns the Debian
     package name for a shared library.  Thanks, Jakub Wilk and Julien
     Cristau.  (Closes: #661928)
+  * Add build dependency on latexmk.  (Closes: #873125)
 
   [ Sean Whitton ]
   * Policy: debian/changelog must exist in source packages

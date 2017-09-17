@@ -13,6 +13,7 @@ Build-Depends:
  dia,
  docbook-xml,
  docbook-xsl,
+ latexmk,
  libtext-multimarkdown-perl,
  libxml2-utils,
  links | elinks,
