@@ -17,7 +17,7 @@ Build-Depends:
  libxml2-utils,
  links | elinks,
  python3-sphinx,
- sphinx-common,
+ sphinx-common (>= 1.6.3-2),
  texinfo,
  xsltproc,
 Standards-Version: 4.1.0
@@ -30,8 +30,6 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends},
  ${sphinxdoc:Depends},
-# workaround for dh_sphinxdoc bug #872863
- libjs-sphinxdoc (>= 1.0),
 Suggests:
  doc-base,
 Built-Using: ${sphinxdoc:Built-Using}

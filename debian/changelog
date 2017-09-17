@@ -51,6 +51,9 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
   * Add missing line breaks in summary of the ways in which maintainer
     scripts may be called (Closes: #874411).
     Thanks Sébastian Villemot for reporting the issue, and for the patch.
+  * Drop workarounds for dh_sphinxdoc's lack of support for singlehtml.
+    Thanks Dmitry Shachnev for the new support in dh_sphinxdoc.
+    - Tighten build-dep on sphinx-common.
 
  -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
 

@@ -1,3 +1,0 @@
-# workaround for dh_sphinxdoc bug #872863
-/usr/share/javascript/sphinxdoc/1.0/underscore.js /usr/share/doc/debian-policy/policy.html/_static/underscore.js
-/usr/share/javascript/sphinxdoc/1.0/jquery.js /usr/share/doc/debian-policy/policy.html/_static/jquery.js
