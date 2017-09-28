@@ -1,4 +1,4 @@
-debian-policy (4.1.1.0) UNRELEASED; urgency=medium
+debian-policy (4.1.1.0) unstable; urgency=medium
 
   [ Russ Allbery ]
   * Add back missing parentheses around the man page section in man page
@@ -56,7 +56,7 @@ debian-policy (4.1.1.0) UNRELEASED; urgency=medium
     Thanks Dmitry Shachnev for the new support in dh_sphinxdoc.
     - Tighten build-dep on sphinx-common.
 
- -- Russ Allbery <rra@debian.org>  Mon, 21 Aug 2017 18:29:37 -0700
+ -- Sean Whitton <spwhitton@spwhitton.name>  Thu, 28 Sep 2017 13:27:46 -0700
 
 debian-policy (4.1.0.0) unstable; urgency=medium
 

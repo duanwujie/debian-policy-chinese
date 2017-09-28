@@ -42,7 +42,7 @@ requirements were changed in a minor patch release.
 Version 4.1.1
 -------------
 
-Unreleased.
+Released September, 2017.
 
 4.4
     debian/changelog must exist in source packages.

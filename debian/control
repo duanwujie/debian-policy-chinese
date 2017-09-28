@@ -21,7 +21,7 @@ Build-Depends:
  sphinx-common (>= 1.6.3-2),
  texinfo,
  xsltproc,
-Standards-Version: 4.1.0
+Standards-Version: 4.1.1
 Vcs-Browser: https://anonscm.debian.org/git/dbnpolicy/policy.git
 Vcs-Git: https://anonscm.debian.org/git/dbnpolicy/policy.git
 
