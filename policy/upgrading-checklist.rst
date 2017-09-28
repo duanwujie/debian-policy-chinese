@@ -47,6 +47,9 @@ Unreleased.
 4.4
     debian/changelog must exist in source packages.
 
+9.2.3
+    /nonexistent is the canonical non-existent home directory.
+
 Version 4.1.0
 -------------
 
