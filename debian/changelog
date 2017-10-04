@@ -1,3 +1,10 @@
+debian-policy (4.1.1.2) UNRELEASED; urgency=medium
+
+  * Update links to other formats in 1.2 (Closes: #877674).
+    Thanks to Laura Arjona Reina for the patch.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
+
 debian-policy (4.1.1.1) unstable; urgency=medium
 
   * Fix some broken links in singlehtml output (Closes: #877573).
