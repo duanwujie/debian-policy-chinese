@@ -204,6 +204,8 @@ policy/_build/policy.txt: $(POLICY_SOURCE)
 
 policy/_build/singlehtml/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M singlehtml policy policy/_build
+	perl -pli -e 's,href="index\.html#,href="#,g' $@
+	perl -pli -e 's,(genindex|search)\.html,policy.html/$$1.html,' $@
 
 policy/_build/texinfo/debian-policy.info: $(POLICY_SOURCE)
 	$(SPHINX) -M info policy policy/_build
