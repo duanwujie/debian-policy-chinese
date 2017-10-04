@@ -1,9 +1,9 @@
-debian-policy (4.1.1.1) UNRELEASED; urgency=medium
+debian-policy (4.1.1.1) unstable; urgency=medium
 
   * Fix some broken links in singlehtml output (Closes: #877573).
     Thanks to Paul Wise for pointing out the problem.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Tue, 03 Oct 2017 20:19:48 -0700
+ -- Sean Whitton <spwhitton@spwhitton.name>  Tue, 03 Oct 2017 21:22:45 -0700
 
 debian-policy (4.1.1.0) unstable; urgency=medium
 
