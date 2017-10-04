@@ -62,10 +62,12 @@ This manual is distributed via the Debian package
 The current version of this document is also available from the Debian
 web mirrors at https://www.debian.org/doc/debian-policy/. Also
 available from the same directory are several other formats:
-`policy.html.tar.gz
-<https://www.debian.org/doc/debian-policy/policy.html.tar.gz>`_ and
-`policy.pdf.gz
-<https://www.debian.org/doc/debian-policy/policy.pdf.gz>`_.  Included
+`policy.epub
+<https://www.debian.org/doc/debian-policy/policy.epub>`_,
+`policy.txt
+<https://www.debian.org/doc/debian-policy/policy.txt>`_ and
+`policy.pdf
+<https://www.debian.org/doc/debian-policy/policy.pdf>`_. Included
 in both the same directory and in the debian-policy package is a
 standalone copy of :doc:`upgrading-checklist`, which indicates policy
 changes between versions of this document.
