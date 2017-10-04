@@ -1,6 +1,5 @@
 debian-policy (4.1.1.1) UNRELEASED; urgency=medium
 
-  * Drop more obsolete dh_sphinxdoc workarounds, this time from d/rules.
   * Fix some broken links in singlehtml output (Closes: #877573).
     Thanks to Paul Wise for pointing out the problem.
 
