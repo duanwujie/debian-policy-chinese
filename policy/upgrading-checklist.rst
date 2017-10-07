@@ -48,7 +48,7 @@ Released September, 2017.
     debian/changelog must exist in source packages.
 
 9.2.3
-    /nonexistent is the canonical non-existent home directory.
+    The canonical non-existent home directory is ``/nonexistent``.
 
 Version 4.1.0
 -------------
@@ -79,9 +79,6 @@ Released August, 2017.
 
     No package for a 64 bit architecture may install files to
     ``/usr/lib64/`` or any subdirectory.
-
-9.2.3
-    The canonical non-existent home directory is ``/nonexistent``.
 
 11.8.3
     The required behaviour of ``x-terminal-emulator -e`` has been
