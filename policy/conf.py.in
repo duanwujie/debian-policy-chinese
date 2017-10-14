@@ -179,7 +179,7 @@ design issues of the operating system, as well as technical requirements
 that each package must satisfy to be included in the distribution.
 """
 
-# The unique identifier of the text. This can be a ISBN number
+# The unique identifier of the text. This can be an ISBN number
 # or the project homepage.
 #
 # epub_identifier = ''
