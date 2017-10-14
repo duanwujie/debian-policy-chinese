@@ -5,6 +5,8 @@ debian-policy (4.1.1.2) UNRELEASED; urgency=medium
   * Fix duplication in upgrading checklist.
     /nonexistent as the canonical home directory was listed under 4.1.1
     and 4.1.0.
+  * Miscellaneous spelling fixes (Closes: #878523).
+    Thanks to Ville Skyttä for the patch.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
 
