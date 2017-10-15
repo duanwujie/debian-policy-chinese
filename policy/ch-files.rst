@@ -185,7 +185,7 @@ All command scripts, including the package maintainer scripts inside the
 package and used by ``dpkg``, should have a ``#!`` line naming the shell
 to be used to interpret them.
 
-In the case of Perl scripts this should be ``#!/usr/bin/perl``.
+In the case of Perl scripts this must be ``#!/usr/bin/perl``.
 
 When scripts are installed into a directory in the system PATH, the
 script name should not include an extension such as ``.sh`` or ``.pl``

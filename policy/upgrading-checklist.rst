@@ -39,6 +39,16 @@ The sections in this checklist match the values for the
 except in the two anomalous historical cases where normative
 requirements were changed in a minor patch release.
 
+Version 4.1.2
+-------------
+
+Unreleased.
+
+10.4
+    The shebang at the top of Perl command scripts must be
+    ``#!/usr/bin/perl``.  (Previously, this was a 'should' rather than
+    a 'must'.)
+
 Version 4.1.1
 -------------
 
