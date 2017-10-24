@@ -18,7 +18,7 @@ Build-Depends:
  libxml2-utils,
  links | elinks,
  python3-sphinx,
- sphinx-common (>= 1.6.3-2),
+ sphinx-common (>= 1.6.5),
  texinfo,
  xsltproc,
 Standards-Version: 4.1.1

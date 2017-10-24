@@ -14,6 +14,7 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     Thanks to Ville Skyttä for the patch.
   * Drop workarounds in d/rules for the (reopened) dh_sphinxdox bug #872863.
     Thanks to Dmitry Shachnev for fixing the bug (again).
+    - Tighten build-dep on sphinx-common.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
 
