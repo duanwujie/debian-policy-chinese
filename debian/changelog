@@ -12,6 +12,8 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     and 4.1.0.
   * Miscellaneous spelling fixes (Closes: #878523).
     Thanks to Ville Skyttä for the patch.
+  * Drop workarounds in d/rules for the (reopened) dh_sphinxdox bug #872863.
+    Thanks to Dmitry Shachnev for fixing the bug (again).
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
 
