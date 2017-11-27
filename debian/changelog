@@ -4,6 +4,7 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     Wording: Sean Whitton <spwhitton@spwhitton.name>
     Seconded: Dominic Hargreaves <dom@earth.li>
     Seconded: Salvatore Bonaccorso <carnil@debian.org>
+    Seconded: Gunnar Wolf <gwolf@debian.org>
     Closes: #683495
   * Update links to other formats in 1.2 (Closes: #877674).
     Thanks to Laura Arjona Reina for the patch.
