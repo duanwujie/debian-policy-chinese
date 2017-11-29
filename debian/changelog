@@ -6,6 +6,7 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     Seconded: Salvatore Bonaccorso <carnil@debian.org>
     Seconded: Gunnar Wolf <gwolf@debian.org>
     Seconded: Bill Allombert <ballombe@debian.org>
+    Seconded: Jonathan Nieder <jrnieder@gmail.com>
     Closes: #683495
   * Update links to other formats in 1.2 (Closes: #877674).
     Thanks to Laura Arjona Reina for the patch.
