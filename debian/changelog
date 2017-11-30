@@ -7,6 +7,7 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     Seconded: Gunnar Wolf <gwolf@debian.org>
     Seconded: Bill Allombert <ballombe@debian.org>
     Seconded: Jonathan Nieder <jrnieder@gmail.com>
+    Seconded: Dominique Dumont <dod@debian.org>
     Closes: #683495
   * Policy: Update where private shared object files may be installed
     Wording: Charles Plessy <plessy@debian.org>
