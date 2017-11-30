@@ -42,7 +42,7 @@ requirements were changed in a minor patch release.
 Version 4.1.2
 -------------
 
-Unreleased.
+Released November, 2017.
 
 3.1.1
     Binary packages that have potentially offensive content should

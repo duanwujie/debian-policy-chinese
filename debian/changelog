@@ -1,4 +1,4 @@
-debian-policy (4.1.2.0) UNRELEASED; urgency=medium
+debian-policy (4.1.2.0) unstable; urgency=medium
 
   * Policy: /usr/bin/perl shebang 'should' -> 'must'
     Wording: Sean Whitton <spwhitton@spwhitton.name>
@@ -35,7 +35,7 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     alternatives imposed by Debian's autobuilders (Closes: #614807).
     Thanks to Sean Finney for the patch, and Simon McVittie for reviewing.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
+ -- Sean Whitton <spwhitton@spwhitton.name>  Thu, 30 Nov 2017 15:23:05 -0700
 
 debian-policy (4.1.1.1) unstable; urgency=medium
 
