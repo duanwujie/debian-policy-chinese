@@ -40,6 +40,25 @@ format of which is described in :ref:`s-f-Package`. The
 package name is also included as a part of the file name of the ``.deb``
 file.
 
+.. _s3.1.1:
+
+Packages with potentially offensive content
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As a maintainer you should make a judgement about whether the contents
+of a package is appropriate to include, whether it needs any kind of
+content warning, and whether some parts should be split out into a
+separate package (so that users who want to avoid certain parts can do
+so).  In making these decisions you should take into account the
+project's views as expressed in our Diversity Statement.
+
+If you split out (potentially) offensive or disturbing material into a
+separate package, you should usually mark this in the package name by
+adding ``-offensive``.  For example, ``cowsay`` vs
+``cowsay-offensive``.  In this situation the ``-offensive`` package
+can be Suggested by the core package(s), but should not be Recommended
+or Depended on.
+
 .. _s-versions:
 
 The version of a package

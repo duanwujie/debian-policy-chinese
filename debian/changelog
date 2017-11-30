@@ -14,6 +14,12 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
     Seconded: Mattia Rizzolo <mattia@debian.org>
     Seconded: Simon McVittie <smcv@debian.org>
     Closes: #636383
+  * Policy: Convention for naming packages with potentially offensive content
+    Wording: Ian Jackson <ijackson@chiark.greenend.org.uk>
+    Seconded: Sean Whitton <spwhitton@spwhitton.name>
+    Seconded: Gunnar Wolf <gwolf@debian.org>
+    Seconded: Iain R. Learmonth <irl@debian.org>
+    Closes: #882445
   * Update links to other formats in 1.2 (Closes: #877674).
     Thanks to Laura Arjona Reina for the patch.
   * Fix duplication in upgrading checklist.

@@ -44,6 +44,12 @@ Version 4.1.2
 
 Unreleased.
 
+3.1.1
+    Binary packages that have potentially offensive content should
+    have the suffix ``-offensive``.  This replaces an older convention
+    to use ``-off``.  As before, whether the contents of a package
+    needs this content warning is a matter of maintainer discretion.
+
 10.2
     Private shared object files should be installed in subdirectories
     of ``/usr/lib`` or ``/usr/lib/triplet``.  This change permits
