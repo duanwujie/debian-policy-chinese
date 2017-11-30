@@ -126,12 +126,13 @@ Note that under some circumstances it may be useful to install a shared
 library unstripped, for example when building a separate package to
 support debugging.
 
-Shared object files (often ``.so`` files) that are not public libraries,
-that is, they are not meant to be linked to by third party executables
-(binaries of other packages), should be installed in subdirectories of
-the ``/usr/lib`` directory. Such files are exempt from the rules that
-govern ordinary shared libraries, except that they must not be installed
-executable and should be stripped. [#]_
+Shared object files (often ``.so`` files) that are not public
+libraries, that is, they are not meant to be linked to by third party
+executables (binaries of other packages), should be installed in
+subdirectories of the ``/usr/lib`` or ``/usr/lib/triplet`` directories
+(see the FHS for a definition). Such files are exempt from the rules
+that govern ordinary shared libraries, except that they must not be
+installed executable and should be stripped. [#]_
 
 Packages that use ``libtool`` to create and install their shared
 libraries install a file containing additional metadata (ending in

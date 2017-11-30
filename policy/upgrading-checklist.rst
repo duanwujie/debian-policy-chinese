@@ -44,6 +44,13 @@ Version 4.1.2
 
 Unreleased.
 
+10.2
+    Private shared object files should be installed in subdirectories
+    of ``/usr/lib`` or ``/usr/lib/triplet``.  This change permits
+    private shared object files to take advantage of multiarch, and
+    also removes the implication that it is permissible to install
+    private shared object files directly into ``/usr/lib/triplet``.
+
 10.4
     The shebang at the top of Perl command scripts must be
     ``#!/usr/bin/perl``.  (Previously, this was a 'should' rather than
