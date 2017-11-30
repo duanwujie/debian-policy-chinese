@@ -24,6 +24,9 @@ debian-policy (4.1.2.0) UNRELEASED; urgency=medium
   * Drop workarounds in d/rules for the (reopened) dh_sphinxdoc bug #872863.
     Thanks to Dmitry Shachnev for fixing the bug.
     - Tighten build-dep on sphinx-common.
+  * Add a footnote documenting limitations on build-dependency
+    alternatives imposed by Debian's autobuilders (Closes: #614807).
+    Thanks to Sean Finney for the patch, and Simon McVittie for reviewing.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Wed, 04 Oct 2017 10:17:36 -0700
 

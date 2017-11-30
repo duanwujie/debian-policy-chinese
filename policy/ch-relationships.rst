@@ -15,7 +15,7 @@ control fields of the package, which declare dependencies on other
 packages, the package names listed may also include lists of alternative
 package names, separated by vertical bar (pipe) symbols ``|``. In such a
 case, that part of the dependency can be satisfied by any one of the
-alternative packages.
+alternative packages.  [#]_
 
 All of the fields except for ``Provides`` may restrict their
 applicability to particular versions of each named package. This is done
@@ -624,6 +624,19 @@ field in its control file:
 ::
 
     Built-Using: grub2 (= 1.99-9), loadlin (= 1.6e-1)
+
+.. [#]
+   While ``Build-Depends``, ``Build-Depends-Indep`` and
+   ``Build-Depends-Arch`` permit the use of alternative dependencies,
+   these are not normally used by the Debian autobuilders.  To avoid
+   inconsistency between repeated builds of a package, the
+   autobuilders will default to selecting the first alternative, after
+   reducing any architecture-specific restrictions for the build
+   architecture in question.  While this may limit the usefulness of
+   alternatives in a single release, they can still be used to provide
+   flexibility in building the same package across multiple
+   distributions or releases, where a particular dependency is met by
+   differently named packages.
 
 .. [#]
    The relations ``<`` and ``>`` were previously allowed, but they were
