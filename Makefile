@@ -188,8 +188,13 @@ policy/_build/epub/policy.epub: $(POLICY_SOURCE) $(DIA_PNGS)
 policy/_build/html/index.html: $(POLICY_SOURCE) $(DIA_PNGS)
 	$(SPHINX) -M html policy policy/_build
 
-policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS)
-	$(SPHINX) -M latexpdf policy policy/_build
+prebuild_pdf:
+	$(SPHINX) -M latex policy policy/_build
+
+policy/_build/latex/policy.pdf: $(POLICY_SOURCE) $(DIA_PNGS) prebuild_pdf
+	sed -i s/latexmk/xelatex/ policy/_build/latex/Makefile
+	$(MAKE) -C policy/_build/latex
+
 
 policy/_build/policy.txt: $(POLICY_SOURCE)
 	rm -f $@

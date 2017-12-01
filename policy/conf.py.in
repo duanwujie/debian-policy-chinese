@@ -92,7 +92,7 @@ html_theme = 'nature'
 # html_theme_options = {}
 
 # Override the title to remove the unnecessary "documentation" suffix.
-html_title = "Debian Policy Manual v@VERSION@"
+html_title = "Debian Policy ManualX v@VERSION@"
 
 # Suppress the copyright notice.
 html_show_copyright = False
@@ -134,7 +134,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'policy.tex', 'Debian Policy Manual',
+    (master_doc, 'policy.tex', u'Debian Policy手册',
      'The Debian Policy Mailing List', 'manual'),
 ]
 
@@ -144,7 +144,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'policy', 'Debian Policy Manual',
+    (master_doc, 'policy', 'Debian Policy ManualX',
      [author], 1)
 ]
 
@@ -155,8 +155,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'debian-policy', 'Debian Policy Manual',
-     author, 'debian-policy', 'Debian Policy Manual.',
+    (master_doc, 'debian-policy', 'Debian Policy ManualX',
+     author, 'debian-policy', 'Debian Policy ManualX.',
      'Miscellaneous'),
 ]
 
